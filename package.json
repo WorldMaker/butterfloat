@@ -1,9 +1,13 @@
 {
+  "type": "module",
   "name": "butterfloat",
   "version": "1.0.0",
   "description": "The greatest view engine the web has ever seen.",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -p .",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "test": "node --test"
   },
   "author": "Max Battcher <me@worldmaker.net>",
