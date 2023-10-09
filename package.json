@@ -9,6 +9,7 @@
   "author": "Max Battcher <me@worldmaker.net>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.8.3",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
