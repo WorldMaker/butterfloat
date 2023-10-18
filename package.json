@@ -8,6 +8,7 @@
     "build": "tsc -p .",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
+    "pretest": "tsc -p .",
     "test": "node --test"
   },
   "author": "Max Battcher <me@worldmaker.net>",
