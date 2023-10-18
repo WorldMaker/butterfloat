@@ -14,14 +14,14 @@ export interface ElementDescription {
     type: 'element'
     element: string
     attrs: any
-    children: any
+    children: any[]
 }
 
 export interface ComponentDescription {
     type: 'component'
     component: Component
     props: any
-    children: any
+    children: any[]
 }
 
 export type NodeDescription = ElementDescription | ComponentDescription

@@ -9,7 +9,7 @@ describe('jsx', () => {
             type: 'element',
             element: 'h1',
             attrs: null,
-            children: 'Hello'
+            children: ['Hello']
         }
         deepEqual(test, expected)
     })
@@ -21,7 +21,7 @@ describe('jsx', () => {
             type: 'component',
             component: TestComponent,
             props: null,
-            children: undefined
+            children: []
         }
         deepEqual(test, expected)
     })

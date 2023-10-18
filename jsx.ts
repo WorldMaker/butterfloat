@@ -20,7 +20,7 @@ namespace JSXInternal {
 }
 
 
-export function jsx(element: string | Component, attrs: any, children: any): NodeDescription {
+export function jsx(element: string | Component, attrs: any, ...children: any[]): NodeDescription {
     if (typeof element === 'string') {
         return {
             type: 'element',
