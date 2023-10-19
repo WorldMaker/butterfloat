@@ -19,6 +19,13 @@ namespace JSXInternal {
     }
 }
 
+export function Fragment(attrs: any, ...children: any[]): NodeDescription {
+    return {
+        type: 'fragment',
+        attrs,
+        children
+    }
+}
 
 export function jsx(element: string | Component, attrs: any, ...children: any[]): NodeDescription {
     if (typeof element === 'string') {
@@ -30,6 +37,13 @@ export function jsx(element: string | Component, attrs: any, ...children: any[])
         }
     }
     if (typeof element === 'function') {
+        if (element === Fragment) {
+            return {
+                type: 'fragment',
+                attrs,
+                children
+            }
+        }
         return {
             type: 'component',
             component: element,

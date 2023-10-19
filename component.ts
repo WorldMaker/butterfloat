@@ -24,4 +24,10 @@ export interface ComponentDescription {
     children: any[]
 }
 
-export type NodeDescription = ElementDescription | ComponentDescription
+export interface FragmentDescription {
+    type: 'fragment'
+    attrs: any
+    children: any[]
+}
+
+export type NodeDescription = ElementDescription | ComponentDescription | FragmentDescription
