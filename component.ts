@@ -10,24 +10,28 @@ export type SimpleComponent = () => NodeDescription
 
 export type Component = ContextComponent | SimpleComponent
 
+export type Children = Array<NodeDescription | string>
+
+export type Attributes = Record<string, unknown> | null
+
 export interface ElementDescription {
     type: 'element'
     element: string
-    attrs: any
-    children: any[]
+    attributes: Attributes
+    children: Children
 }
 
 export interface ComponentDescription {
     type: 'component'
     component: Component
-    props: any
-    children: any[]
+    properties: Attributes
+    children: Children
 }
 
 export interface FragmentDescription {
     type: 'fragment'
-    attrs: any
-    children: any[]
+    attributes: Attributes
+    children: Children
 }
 
 export type NodeDescription = ElementDescription | ComponentDescription | FragmentDescription

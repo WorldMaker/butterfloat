@@ -1,4 +1,4 @@
-import { Component, NodeDescription } from "./component"
+import { Attributes, Children, Component, NodeDescription } from "./component"
 
 namespace JSXInternal {
     export type Element = NodeDescription
@@ -19,20 +19,20 @@ namespace JSXInternal {
     }
 }
 
-export function Fragment(attrs: any, ...children: any[]): NodeDescription {
+export function Fragment(attributes: Attributes, ...children: Children): NodeDescription {
     return {
         type: 'fragment',
-        attrs,
+        attributes,
         children
     }
 }
 
-export function jsx(element: string | Component, attrs: any, ...children: any[]): NodeDescription {
+export function jsx(element: string | Component, attributes: Attributes, ...children: Children): NodeDescription {
     if (typeof element === 'string') {
         return {
             type: 'element',
             element,
-            attrs,
+            attributes,
             children
         }
     }
@@ -40,14 +40,14 @@ export function jsx(element: string | Component, attrs: any, ...children: any[])
         if (element === Fragment) {
             return {
                 type: 'fragment',
-                attrs,
+                attributes,
                 children
             }
         }
         return {
             type: 'component',
             component: element,
-            props: attrs,
+            properties: attributes,
             children
         }
     }
