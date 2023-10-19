@@ -1,9 +1,15 @@
-import { ButterfloatAttributes, ButterfloatIntrinsicAttributes, Children, Component, NodeDescription } from "./component"
+import {
+  ButterfloatAttributes,
+  ButterfloatIntrinsicAttributes,
+  Children,
+  Component,
+  NodeDescription,
+} from './component'
 
 namespace JSXInternal {
-    export type Element = NodeDescription
+  export type Element = NodeDescription
 
-    /*
+  /*
         RANT: There aren't any easily reusable types for HTML elements and their attributes to reuse here.
 
         @types/react uses a hand-maintained many thousands of lines file that mixes and matches React-specific
@@ -14,60 +20,74 @@ namespace JSXInternal {
         in and used as base types for JSX.IntrinsicElements.
     */
 
-    export interface IntrinsicElements {
-        [ele: string]: ButterfloatIntrinsicAttributes
-    }
+  export interface IntrinsicElements {
+    [ele: string]: ButterfloatIntrinsicAttributes
+  }
 }
 
-export function Fragment(attributes: ButterfloatAttributes | null, ...children: Children): NodeDescription {
-    const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
+export function Fragment(
+  attributes: ButterfloatAttributes | null,
+  ...children: Children
+): NodeDescription {
+  const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
+  return {
+    type: 'fragment',
+    attributes: otherAttributes,
+    children,
+    childrenBind,
+    childrenPrepend,
+  }
+}
+
+export function jsx(
+  element: string | Component,
+  attributes: ButterfloatAttributes | null,
+  ...children: Children
+): NodeDescription {
+  if (typeof element === 'string') {
+    const {
+      bind,
+      immediateBind,
+      childrenBind,
+      childrenPrepend,
+      ...otherAttributes
+    } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
     return {
+      type: 'element',
+      element,
+      attributes: otherAttributes,
+      bind: bind ?? {},
+      immediateBind: immediateBind ?? {},
+      children,
+      childrenBind,
+      childrenPrepend,
+    }
+  }
+  if (typeof element === 'function') {
+    const { childrenBind, childrenPrepend, ...otherAttributes } =
+      attributes ?? {}
+
+    // immediately flatten fragments
+    if (element === Fragment) {
+      return {
         type: 'fragment',
         attributes: otherAttributes,
         children,
         childrenBind,
-        childrenPrepend
+        childrenPrepend,
+      }
     }
-}
 
-export function jsx(element: string | Component, attributes: ButterfloatAttributes | null, ...children: Children): NodeDescription {
-    if (typeof element === 'string') {
-        const { bind, immediateBind, childrenBind, childrenPrepend, ...otherAttributes } = attributes as ButterfloatIntrinsicAttributes ?? {}
-        return {
-            type: 'element',
-            element,
-            attributes: otherAttributes,
-            bind: bind ?? {},
-            immediateBind: immediateBind ?? {},
-            children,
-            childrenBind,
-            childrenPrepend
-        }
+    return {
+      type: 'component',
+      component: element,
+      properties: attributes,
+      children,
     }
-    if (typeof element === 'function') {
-        const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
-
-        // immediately flatten fragments
-        if (element === Fragment) {
-            return {
-                type: 'fragment',
-                attributes: otherAttributes,
-                children,
-                childrenBind,
-                childrenPrepend
-            }
-        }
-
-        return {
-            type: 'component',
-            component: element,
-            properties: attributes,
-            children
-        }
-    }
-    throw new Error(`Unsupported jsx in ${element}`)
+  }
+  throw new Error(`Unsupported jsx in ${element}`)
 }
 
 export namespace jsx {
-    export import JSX = JSXInternal;
+  export import JSX = JSXInternal
 }

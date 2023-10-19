@@ -1,4 +1,4 @@
-import { Observable } from "rxjs"
+import { Observable } from 'rxjs'
 
 const ButterfloatEvent = Symbol('Butterfloat Event')
 
