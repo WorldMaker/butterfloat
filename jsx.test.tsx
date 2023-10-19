@@ -1,7 +1,7 @@
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { jsx, Fragment } from './jsx.js'
-import { ChildrenBindable, ComponentContext, NodeDescription } from './component.js'
+import { NodeDescription } from './component.js'
 import { Observable, of } from 'rxjs'
 
 describe('jsx', () => {
