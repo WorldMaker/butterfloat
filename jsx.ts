@@ -1,4 +1,4 @@
-import { Attributes, Children, Component, NodeDescription } from "./component"
+import { Attributes, Bind, ButterfloatAttributes, Children, Component, NodeDescription } from "./component"
 
 namespace JSXInternal {
     export type Element = NodeDescription
@@ -15,7 +15,7 @@ namespace JSXInternal {
     */
 
     export interface IntrinsicElements {
-        [ele: string]: any
+        [ele: string]: ButterfloatAttributes
     }
 }
 
@@ -29,10 +29,13 @@ export function Fragment(attributes: Attributes, ...children: Children): NodeDes
 
 export function jsx(element: string | Component, attributes: Attributes, ...children: Children): NodeDescription {
     if (typeof element === 'string') {
+        const { bind, immediateBind, ...otherAttributes } = attributes as ButterfloatAttributes ?? {}
         return {
             type: 'element',
             element,
-            attributes,
+            attributes: otherAttributes,
+            bind: bind ?? {},
+            immediateBind: immediateBind ?? {},
             children
         }
     }
