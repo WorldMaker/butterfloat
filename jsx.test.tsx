@@ -15,6 +15,17 @@ describe('jsx', () => {
         deepEqual(test, expected)
     })
 
+    it('describes a simple static element with a static attribute', () => {
+        const test = <h1 className='header'>Hello</h1>
+        const expected: NodeDescription = {
+            type: 'element',
+            element: 'h1',
+            attributes: { className: 'header' },
+            children: ['Hello']
+        }
+        deepEqual(test, expected)
+    })
+
     it('describes a single dynamic component', () => {
         const TestComponent = () => <h1>Hello</h1>
         const test = <TestComponent />
