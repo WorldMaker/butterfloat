@@ -1,8 +1,8 @@
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { jsx, Fragment } from './jsx.js'
-import { NodeDescription } from './component.js'
-import { of } from 'rxjs'
+import { ChildrenBindable, ComponentContext, NodeDescription } from './component.js'
+import { Observable, of } from 'rxjs'
 
 describe('jsx', () => {
     it('describes a simple static element', () => {
@@ -13,7 +13,9 @@ describe('jsx', () => {
             attributes: {},
             bind: {},
             immediateBind: {},
-            children: ['Hello']
+            children: ['Hello'],
+            childrenBind: undefined,
+            childrenPrepend: undefined
         }
         deepEqual(test, expected)
     })
@@ -26,7 +28,9 @@ describe('jsx', () => {
             attributes: { className: 'header' },
             bind: {},
             immediateBind: {},
-            children: ['Hello']
+            children: ['Hello'],
+            childrenBind: undefined,
+            childrenPrepend: undefined
         }
         deepEqual(test, expected)
     })
@@ -40,7 +44,26 @@ describe('jsx', () => {
             attributes: {},
             bind: { className },
             immediateBind: {},
-            children: ['Hello']
+            children: ['Hello'],
+            childrenBind: undefined,
+            childrenPrepend: undefined
+        }
+        deepEqual(test, expected)
+    })
+
+    it('describes a simple static element with a children bind', () => {
+        const TestComponent = () => <h1>Hello</h1>
+        const childrenBind = of(<TestComponent />)
+        const test = <h1 childrenBind={ childrenBind } childrenPrepend>Hello</h1>
+        const expected: NodeDescription = {
+            type: 'element',
+            element: 'h1',
+            attributes: {},
+            bind: {},
+            immediateBind: {},
+            children: ['Hello'],
+            childrenBind,
+            childrenPrepend: true
         }
         deepEqual(test, expected)
     })
@@ -57,20 +80,62 @@ describe('jsx', () => {
         deepEqual(test, expected)
     })
 
+    it('describes a single dynamic context component with custom prop', () => {
+        const TestComponent = (props: { hello: Observable<string> }) => <h1 bind={{ innerText: props.hello }} />
+        const hello = of('Hello')
+        const test = <TestComponent hello={hello} />
+        const expected: NodeDescription = {
+            type: 'component',
+            component: TestComponent,
+            properties: { hello },
+            children: []
+        }
+        deepEqual(test, expected)
+    })
+
     it('describes a fragment', () => {
         const test = <>
             <h1>Hello</h1>
         </>
         const expected: NodeDescription = {
             type: 'fragment',
-            attributes: null,
+            attributes: {},
             children: [{
                 type: 'element',
                 element: 'h1',
                 attributes: {},
                 bind: {},
                 immediateBind: {},
-                children: ['Hello']
+                children: ['Hello'],
+                childrenBind: undefined,
+                childrenPrepend: undefined
+            }],
+            childrenBind: undefined,
+            childrenPrepend: undefined
+        }
+        deepEqual(test, expected)
+    })
+
+    it('describes a fragment with a children bind', () => {
+        const TestComponent = () => <h1>Hello</h1>
+        const childrenBind = of(<TestComponent />)
+        const test = <Fragment childrenBind={ childrenBind }>
+            <h1>Hello</h1>
+        </Fragment>
+        const expected: NodeDescription = {
+            type: 'fragment',
+            attributes: {},
+            childrenBind,
+            childrenPrepend: undefined,
+            children: [{
+                type: 'element',
+                element: 'h1',
+                attributes: {},
+                bind: {},
+                immediateBind: {},
+                children: ['Hello'],
+                childrenBind: undefined,
+                childrenPrepend: undefined
             }]
         }
         deepEqual(test, expected)

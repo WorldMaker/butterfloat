@@ -1,4 +1,4 @@
-import { Attributes, Bind, ButterfloatAttributes, Children, Component, NodeDescription } from "./component"
+import { ButterfloatAttributes, ButterfloatIntrinsicAttributes, Children, Component, NodeDescription } from "./component"
 
 namespace JSXInternal {
     export type Element = NodeDescription
@@ -15,38 +15,49 @@ namespace JSXInternal {
     */
 
     export interface IntrinsicElements {
-        [ele: string]: ButterfloatAttributes
+        [ele: string]: ButterfloatIntrinsicAttributes
     }
 }
 
-export function Fragment(attributes: Attributes, ...children: Children): NodeDescription {
+export function Fragment(attributes: ButterfloatAttributes | null, ...children: Children): NodeDescription {
+    const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
     return {
         type: 'fragment',
-        attributes,
-        children
+        attributes: otherAttributes,
+        children,
+        childrenBind,
+        childrenPrepend
     }
 }
 
-export function jsx(element: string | Component, attributes: Attributes, ...children: Children): NodeDescription {
+export function jsx(element: string | Component, attributes: ButterfloatAttributes | null, ...children: Children): NodeDescription {
     if (typeof element === 'string') {
-        const { bind, immediateBind, ...otherAttributes } = attributes as ButterfloatAttributes ?? {}
+        const { bind, immediateBind, childrenBind, childrenPrepend, ...otherAttributes } = attributes as ButterfloatIntrinsicAttributes ?? {}
         return {
             type: 'element',
             element,
             attributes: otherAttributes,
             bind: bind ?? {},
             immediateBind: immediateBind ?? {},
-            children
+            children,
+            childrenBind,
+            childrenPrepend
         }
     }
     if (typeof element === 'function') {
+        const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
+
+        // immediately flatten fragments
         if (element === Fragment) {
             return {
                 type: 'fragment',
-                attributes,
-                children
+                attributes: otherAttributes,
+                children,
+                childrenBind,
+                childrenPrepend
             }
         }
+
         return {
             type: 'component',
             component: element,

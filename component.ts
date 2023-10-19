@@ -1,12 +1,15 @@
 import { Observable } from "rxjs"
+import { DefaultEvents } from "./events"
 
-export interface ComponentContext {
-    props: any
-    events: any
-    bindEffect: any
+export type EffectHandler = <T>(observable: Observable<T>, effect: (item: T) => void) => void
+
+export interface ComponentContext<Events extends DefaultEvents = DefaultEvents> {
+    events: Events
+    bindEffect: EffectHandler
+    bindImmediateEffect: EffectHandler
 }
 
-export type ContextComponent = (context: ComponentContext) => NodeDescription
+export type ContextComponent = (props: any, context: ComponentContext<any>) => NodeDescription
 
 export type SimpleComponent = () => NodeDescription
 
@@ -18,7 +21,22 @@ export type Attributes = Record<string, unknown> | null
 
 export type HtmlAttributes = Record<string, unknown>
 
-export interface ButterfloatAttributes extends HtmlAttributes {
+export type ChildrenBind = Observable<NodeDescription>
+
+export interface ChildrenBindable {
+    /**
+     * Bind children as they are observed.
+     */
+    childrenBind?: ChildrenBind
+    /**
+     * When binding children, prepend them rather than the default append.
+     */
+    childrenPrepend?: boolean
+}
+
+export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
+
+export interface ButterfloatIntrinsicAttributes extends ButterfloatAttributes {
     /**
      * Bind an observable to an DOM property.
      * 
@@ -40,6 +58,8 @@ export interface ElementDescription {
     bind: Bind
     immediateBind: Bind
     children: Children
+    childrenBind?: ChildrenBind
+    childrenPrepend?: boolean
 }
 
 export interface ComponentDescription {
@@ -47,12 +67,16 @@ export interface ComponentDescription {
     component: Component
     properties: Attributes
     children: Children
+    childrenBind?: ChildrenBind
+    childrenPrepend?: boolean
 }
 
 export interface FragmentDescription {
     type: 'fragment'
     attributes: Attributes
     children: Children
+    childrenBind?: ChildrenBind
+    childrenPrepend?: boolean
 }
 
 export type NodeDescription = ElementDescription | ComponentDescription | FragmentDescription
