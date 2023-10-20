@@ -78,8 +78,25 @@ describe('jsx', () => {
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
-      properties: null,
+      properties: {},
       children: [],
+      childrenBind: undefined,
+      childrenPrepend: undefined,
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a single dynamic component with children bind', () => {
+    const TestComponent = () => <h1>Hello</h1>
+    const childrenBind = of(<TestComponent />)
+    const test = <TestComponent childrenBind={childrenBind} childrenPrepend />
+    const expected: NodeDescription = {
+      type: 'component',
+      component: TestComponent,
+      properties: {},
+      children: [],
+      childrenBind,
+      childrenPrepend: true,
     }
     deepEqual(test, expected)
   })
@@ -95,6 +112,8 @@ describe('jsx', () => {
       component: TestComponent,
       properties: { hello },
       children: [],
+      childrenBind: undefined,
+      childrenPrepend: undefined,
     }
     deepEqual(test, expected)
   })

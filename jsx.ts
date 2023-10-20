@@ -2,6 +2,7 @@ import {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
   Children,
+  ChildrenBindable,
   Component,
   NodeDescription,
 } from './component'
@@ -23,6 +24,8 @@ namespace JSXInternal {
   export interface IntrinsicElements {
     [ele: string]: ButterfloatIntrinsicAttributes
   }
+
+  export type IntrinsicAttributes = ChildrenBindable
 }
 
 export function Fragment(
@@ -81,8 +84,10 @@ export function jsx(
     return {
       type: 'component',
       component: element,
-      properties: attributes,
+      properties: otherAttributes,
       children,
+      childrenBind,
+      childrenPrepend,
     }
   }
   throw new Error(`Unsupported jsx in ${element}`)
