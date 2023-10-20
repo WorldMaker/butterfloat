@@ -1,7 +1,7 @@
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { jsx, Fragment } from './jsx.js'
-import { NodeDescription } from './component.js'
+import { ComponentContext, NodeDescription } from './component.js'
 import { Observable, of } from 'rxjs'
 
 describe('jsx', () => {
@@ -16,6 +16,7 @@ describe('jsx', () => {
       children: ['Hello'],
       childrenBind: undefined,
       childrenPrepend: undefined,
+      events: {},
     }
     deepEqual(test, expected)
   })
@@ -31,6 +32,7 @@ describe('jsx', () => {
       children: ['Hello'],
       childrenBind: undefined,
       childrenPrepend: undefined,
+      events: {},
     }
     deepEqual(test, expected)
   })
@@ -47,6 +49,7 @@ describe('jsx', () => {
       children: ['Hello'],
       childrenBind: undefined,
       childrenPrepend: undefined,
+      events: {},
     }
     deepEqual(test, expected)
   })
@@ -68,6 +71,7 @@ describe('jsx', () => {
       children: ['Hello'],
       childrenBind,
       childrenPrepend: true,
+      events: {},
     }
     deepEqual(test, expected)
   })
@@ -118,6 +122,23 @@ describe('jsx', () => {
     deepEqual(test, expected)
   })
 
+  it('describes a single dynamic context component with custom prop and events', () => {
+    const TestComponent = (props: { hello: Observable<string> }, { events }: ComponentContext) => (
+      <h1 bind={{ innerText: props.hello }} events={{ click: events.click }} />
+    )
+    const hello = of('Hello')
+    const test = <TestComponent hello={hello} />
+    const expected: NodeDescription = {
+      type: 'component',
+      component: TestComponent,
+      properties: { hello },
+      children: [],
+      childrenBind: undefined,
+      childrenPrepend: undefined,
+    }
+    deepEqual(test, expected)
+  })
+
   it('describes a fragment', () => {
     const test = (
       <>
@@ -137,6 +158,7 @@ describe('jsx', () => {
           children: ['Hello'],
           childrenBind: undefined,
           childrenPrepend: undefined,
+          events: {},
         },
       ],
       childrenBind: undefined,
@@ -168,6 +190,7 @@ describe('jsx', () => {
           children: ['Hello'],
           childrenBind: undefined,
           childrenPrepend: undefined,
+          events: {},
         },
       ],
     }

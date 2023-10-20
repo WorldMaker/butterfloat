@@ -53,6 +53,7 @@ export function jsx(
       immediateBind,
       childrenBind,
       childrenPrepend,
+      events,
       ...otherAttributes
     } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
     return {
@@ -64,6 +65,7 @@ export function jsx(
       children,
       childrenBind,
       childrenPrepend,
+      events: events ?? {},
     }
   }
   if (typeof element === 'function') {

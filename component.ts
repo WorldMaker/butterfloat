@@ -55,6 +55,10 @@ export interface ButterfloatIntrinsicAttributes extends ButterfloatAttributes {
    * Immediately bind an observable to a DOM property
    */
   immediateBind?: Bind
+  /**
+   * Bind an event observable to a DOM event.
+   */
+  events?: DefaultEvents
 }
 
 export type Bind = Record<string, Observable<unknown>>
@@ -68,6 +72,7 @@ export interface ElementDescription {
   children: Children
   childrenBind?: ChildrenBind
   childrenPrepend?: boolean
+  events: DefaultEvents
 }
 
 export interface ComponentDescription {
