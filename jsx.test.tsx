@@ -1,9 +1,9 @@
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { jsx, Fragment } from './jsx.js'
-import { ComponentContext, NodeDescription } from './component.js'
 import { Observable, of } from 'rxjs'
+import { ComponentContext, NodeDescription } from './component.js'
 import { makeTestEvent } from './events.js'
+import { Fragment, jsx } from './jsx.js'
 
 describe('jsx', () => {
   it('describes a simple static element', () => {

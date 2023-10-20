@@ -7,7 +7,7 @@ export type EffectHandler = <T>(
 ) => void
 
 export interface ComponentContext<
-  Events extends DefaultEvents = DefaultEvents,
+  Events = DefaultEvents,
 > {
   events: Events
   bindEffect: EffectHandler
@@ -108,3 +108,15 @@ export type NodeDescription =
   | ElementDescription
   | ComponentDescription
   | FragmentDescription
+
+
+export function makeTestComponentContext<Events = DefaultEvents>(events: Events) {
+    const effects: Array<[Observable<unknown>, (item: any) => void]> = []
+    const immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
+    const context: ComponentContext<Events> = {
+        events,
+        bindEffect: (observable, effect) => effects.push([observable, effect]),
+        bindImmediateEffect: (observable, effect) => immediateEffects.push([observable, effect])
+    }
+    return { context, effects, immediateEffects }
+}
