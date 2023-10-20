@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import { jsx, Fragment } from './jsx.js'
 import { ComponentContext, NodeDescription } from './component.js'
 import { Observable, of } from 'rxjs'
+import { makeTestEvent } from './events.js'
 
 describe('jsx', () => {
   it('describes a simple static element', () => {
@@ -72,6 +73,23 @@ describe('jsx', () => {
       childrenBind,
       childrenPrepend: true,
       events: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a simple static element with an event bind', () => {
+    const click = makeTestEvent(of('fake click event'))
+    const test = <h1 events={{ click }}>Hello</h1>
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: ['Hello'],
+      childrenBind: undefined,
+      childrenPrepend: undefined,
+      events: { click },
     }
     deepEqual(test, expected)
   })
