@@ -141,7 +141,10 @@ describe('jsx', () => {
   })
 
   it('describes a single dynamic context component with custom prop and events', () => {
-    const TestComponent = (props: { hello: Observable<string> }, { events }: ComponentContext) => (
+    const TestComponent = (
+      props: { hello: Observable<string> },
+      { events }: ComponentContext,
+    ) => (
       <h1 bind={{ innerText: props.hello }} events={{ click: events.click }} />
     )
     const hello = of('Hello')

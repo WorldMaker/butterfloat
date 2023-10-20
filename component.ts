@@ -6,9 +6,7 @@ export type EffectHandler = <T>(
   effect: (item: T) => void,
 ) => void
 
-export interface ComponentContext<
-  Events = DefaultEvents,
-> {
+export interface ComponentContext<Events = DefaultEvents> {
   events: Events
   bindEffect: EffectHandler
   bindImmediateEffect: EffectHandler
@@ -109,14 +107,16 @@ export type NodeDescription =
   | ComponentDescription
   | FragmentDescription
 
-
-export function makeTestComponentContext<Events = DefaultEvents>(events: Events) {
-    const effects: Array<[Observable<unknown>, (item: any) => void]> = []
-    const immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
-    const context: ComponentContext<Events> = {
-        events,
-        bindEffect: (observable, effect) => effects.push([observable, effect]),
-        bindImmediateEffect: (observable, effect) => immediateEffects.push([observable, effect])
-    }
-    return { context, effects, immediateEffects }
+export function makeTestComponentContext<Events = DefaultEvents>(
+  events: Events,
+) {
+  const effects: Array<[Observable<unknown>, (item: any) => void]> = []
+  const immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
+  const context: ComponentContext<Events> = {
+    events,
+    bindEffect: (observable, effect) => effects.push([observable, effect]),
+    bindImmediateEffect: (observable, effect) =>
+      immediateEffects.push([observable, effect]),
+  }
+  return { context, effects, immediateEffects }
 }
