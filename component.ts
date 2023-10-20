@@ -63,6 +63,18 @@ export interface ButterfloatIntrinsicAttributes extends ButterfloatAttributes {
 
 export type Bind = Record<string, Observable<unknown>>
 
+/*
+    Discussion: the "Description" types look a lot more verbose than a "standard" VNode
+    interface in a Virtual DOM. In this case, this is because this isn't intended for
+    virtual DOM usage. These should last only long enough to build a static DOM and bind
+    it, then tossed. There's no intention to have a diff/patch between trees of these.
+
+    On the other hand, these objects are still useful for DOM-less unit testing of
+    components.
+
+    So it makes sense to use full words. Users may work with these in their tests.
+*/
+
 export interface ElementDescription {
   type: 'element'
   element: string
