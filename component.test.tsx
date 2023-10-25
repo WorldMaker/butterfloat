@@ -77,31 +77,36 @@ describe('component', () => {
       ctx: ComponentContext<CustomEvents>,
     ) => (
       <div>
-        <h1 bind={{ innerText: props.hello }} events={{ click: ctx.events.click }} />
+        <h1
+          bind={{ innerText: props.hello }}
+          events={{ click: ctx.events.click }}
+        />
         <Children context={ctx} />
       </div>
     )
 
-    const test = <TestComponent hello={hello}>
-      <p>Some example children</p>
-    </TestComponent>
+    const test = (
+      <TestComponent hello={hello}>
+        <p>Some example children</p>
+      </TestComponent>
+    )
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
       properties: { hello },
-      children: [{
-        type: 'element',
-        element: 'p',
-        children: [
-          'Some example children'
-        ],
-        attributes: {},
-        bind: {},
-        immediateBind: {},
-        events: {},
-        childrenBind: undefined,
-        childrenPrepend: undefined
-      }],
+      children: [
+        {
+          type: 'element',
+          element: 'p',
+          children: ['Some example children'],
+          attributes: {},
+          bind: {},
+          immediateBind: {},
+          events: {},
+          childrenBind: undefined,
+          childrenPrepend: undefined,
+        },
+      ],
       childrenBind: undefined,
       childrenPrepend: undefined,
     }
@@ -132,9 +137,9 @@ describe('component', () => {
         },
         {
           type: 'children',
-          context
-        }
-      ]
+          context,
+        },
+      ],
     }
     deepEqual(testComponent, expectedComponent)
   })

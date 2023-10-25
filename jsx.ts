@@ -32,7 +32,7 @@ namespace JSXInternal {
 export interface ChildrenProperties {
   /**
    * Context for the component to bind the children from, for deep binding.
-   * 
+   *
    * This allows for binding children deeper into the tree, such as passing
    * your component's children into a "render function" of a deeper component
    * in the tree.
@@ -43,7 +43,7 @@ export interface ChildrenProperties {
 export function Children({ context }: ChildrenProperties): NodeDescription {
   return {
     type: 'children',
-    context
+    context,
   }
 }
 
@@ -104,7 +104,7 @@ export function jsx(
       const { context } = otherAttributes
       return {
         type: 'children',
-        context: context as any
+        context: context as any,
       }
     }
 
