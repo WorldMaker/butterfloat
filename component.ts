@@ -42,7 +42,12 @@ export interface ChildrenBindable {
 
 export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 
-export interface ButterfloatIntrinsicAttributes extends ButterfloatAttributes {
+export type DefaultBind = Record<string, Observable<unknown>>
+
+export interface ButterfloatIntrinsicAttributes<
+  Bind = DefaultBind,
+  Events = DefaultEvents,
+> extends ButterfloatAttributes {
   /**
    * Bind an observable to an DOM property.
    *
@@ -56,10 +61,8 @@ export interface ButterfloatIntrinsicAttributes extends ButterfloatAttributes {
   /**
    * Bind an event observable to a DOM event.
    */
-  events?: DefaultEvents
+  events?: Events
 }
-
-export type Bind = Record<string, Observable<unknown>>
 
 /*
     Discussion: the "Description" types look a lot more verbose than a "standard" VNode
@@ -73,7 +76,7 @@ export type Bind = Record<string, Observable<unknown>>
     So it makes sense to use full words. Users may work with these in their tests.
 */
 
-export interface ElementDescription {
+export interface ElementDescription<Bind = DefaultBind> {
   type: 'element'
   element: string
   attributes: Attributes
