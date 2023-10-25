@@ -12,7 +12,7 @@ import { Children, jsx } from './jsx.js'
 describe('component', () => {
   it('supports custom component contexts at the jsx level', () => {
     interface CustomEvents {
-      click: Event<string>
+      click: Event<MouseEvent>
     }
     const clickHandler = () => console.log('clicked')
     const TestComponent = (
@@ -25,7 +25,7 @@ describe('component', () => {
     }
 
     const hello = of('Hello')
-    const click = makeTestEvent(of('Test click'))
+    const click = makeTestEvent(of('Test click')) as any
     const { context, effects } = makeTestComponentContext<CustomEvents>({
       click,
     })
@@ -64,11 +64,11 @@ describe('component', () => {
 
   it('supports binding children', () => {
     interface CustomEvents {
-      click: Event<string>
+      click: Event<MouseEvent>
     }
 
     const hello = of('Hello')
-    const click = makeTestEvent(of('Test click'))
+    const click = makeTestEvent(of('Test click')) as any
     const { context } = makeTestComponentContext<CustomEvents>({
       click,
     })

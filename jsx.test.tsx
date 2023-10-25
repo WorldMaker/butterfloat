@@ -78,7 +78,7 @@ describe('jsx', () => {
   })
 
   it('describes a simple static element with an event bind', () => {
-    const click = makeTestEvent(of('fake click event'))
+    const click = makeTestEvent(of('fake click event')) as any
     const test = <h1 events={{ click }}>Hello</h1>
     const expected: NodeDescription = {
       type: 'element',
@@ -145,7 +145,10 @@ describe('jsx', () => {
       props: { hello: Observable<string> },
       { events }: ComponentContext,
     ) => (
-      <h1 bind={{ innerText: props.hello }} events={{ click: events.click }} />
+      <h1
+        bind={{ innerText: props.hello }}
+        events={{ click: events.click as any }}
+      />
     )
     const hello = of('Hello')
     const test = <TestComponent hello={hello} />
