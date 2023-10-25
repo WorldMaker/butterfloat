@@ -21,7 +21,7 @@ export type SimpleComponent = () => NodeDescription
 
 export type Component = ContextComponent | SimpleComponent
 
-export type Children = Array<NodeDescription | string>
+export type JsxChildren = Array<NodeDescription | string>
 
 export type Attributes = Record<string, unknown> | null
 
@@ -79,7 +79,7 @@ export interface ElementDescription {
   attributes: Attributes
   bind: Bind
   immediateBind: Bind
-  children: Children
+  children: JsxChildren
   childrenBind?: ChildrenBind
   childrenPrepend?: boolean
   events: DefaultEvents
@@ -89,7 +89,7 @@ export interface ComponentDescription {
   type: 'component'
   component: Component
   properties: Attributes
-  children: Children
+  children: JsxChildren
   childrenBind?: ChildrenBind
   childrenPrepend?: boolean
 }
@@ -97,15 +97,21 @@ export interface ComponentDescription {
 export interface FragmentDescription {
   type: 'fragment'
   attributes: Attributes
-  children: Children
+  children: JsxChildren
   childrenBind?: ChildrenBind
   childrenPrepend?: boolean
+}
+
+export interface ChildrenDescription {
+  type: 'children'
+  context?: ComponentContext<unknown>
 }
 
 export type NodeDescription =
   | ElementDescription
   | ComponentDescription
   | FragmentDescription
+  | ChildrenDescription
 
 export function makeTestComponentContext<Events = DefaultEvents>(
   events: Events,

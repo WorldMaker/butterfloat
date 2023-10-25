@@ -7,7 +7,7 @@ import {
   makeTestComponentContext,
 } from './component.js'
 import { Event, makeTestEvent } from './events.js'
-import { jsx } from './jsx.js'
+import { Children, jsx } from './jsx.js'
 
 describe('component', () => {
   it('supports custom component contexts at the jsx level', () => {
@@ -60,5 +60,82 @@ describe('component', () => {
       childrenPrepend: undefined,
     }
     deepEqual(test, expected)
+  })
+
+  it('supports binding children', () => {
+    interface CustomEvents {
+      click: Event<string>
+    }
+
+    const hello = of('Hello')
+    const click = makeTestEvent(of('Test click'))
+    const { context } = makeTestComponentContext<CustomEvents>({
+      click,
+    })
+    const TestComponent = (
+      props: { hello: Observable<string> },
+      ctx: ComponentContext<CustomEvents>,
+    ) => (
+      <div>
+        <h1 bind={{ innerText: props.hello }} events={{ click: ctx.events.click }} />
+        <Children context={ctx} />
+      </div>
+    )
+
+    const test = <TestComponent hello={hello}>
+      <p>Some example children</p>
+    </TestComponent>
+    const expected: NodeDescription = {
+      type: 'component',
+      component: TestComponent,
+      properties: { hello },
+      children: [{
+        type: 'element',
+        element: 'p',
+        children: [
+          'Some example children'
+        ],
+        attributes: {},
+        bind: {},
+        immediateBind: {},
+        events: {},
+        childrenBind: undefined,
+        childrenPrepend: undefined
+      }],
+      childrenBind: undefined,
+      childrenPrepend: undefined,
+    }
+    deepEqual(test, expected)
+
+    const testComponent = TestComponent({ hello }, context)
+
+    const expectedComponent: NodeDescription = {
+      type: 'element',
+      element: 'div',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      childrenBind: undefined,
+      childrenPrepend: undefined,
+      events: {},
+      children: [
+        {
+          type: 'element',
+          element: 'h1',
+          attributes: {},
+          bind: { innerText: hello },
+          immediateBind: {},
+          events: { click },
+          children: [],
+          childrenBind: undefined,
+          childrenPrepend: undefined,
+        },
+        {
+          type: 'children',
+          context
+        }
+      ]
+    }
+    deepEqual(testComponent, expectedComponent)
   })
 })

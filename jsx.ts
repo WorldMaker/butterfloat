@@ -1,9 +1,10 @@
 import {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
-  Children,
+  JsxChildren,
   ChildrenBindable,
   Component,
+  ComponentContext,
   NodeDescription,
 } from './component'
 
@@ -28,9 +29,27 @@ namespace JSXInternal {
   export type IntrinsicAttributes = ChildrenBindable
 }
 
+export interface ChildrenProperties {
+  /**
+   * Context for the component to bind the children from, for deep binding.
+   * 
+   * This allows for binding children deeper into the tree, such as passing
+   * your component's children into a "render function" of a deeper component
+   * in the tree.
+   */
+  context?: ComponentContext<unknown>
+}
+
+export function Children({ context }: ChildrenProperties): NodeDescription {
+  return {
+    type: 'children',
+    context
+  }
+}
+
 export function Fragment(
   attributes: ButterfloatAttributes | null,
-  ...children: Children
+  ...children: JsxChildren
 ): NodeDescription {
   const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
   return {
@@ -45,7 +64,7 @@ export function Fragment(
 export function jsx(
   element: string | Component,
   attributes: ButterfloatAttributes | null,
-  ...children: Children
+  ...children: JsxChildren
 ): NodeDescription {
   if (typeof element === 'string') {
     const {
@@ -72,7 +91,7 @@ export function jsx(
     const { childrenBind, childrenPrepend, ...otherAttributes } =
       attributes ?? {}
 
-    // immediately flatten fragments
+    // immediately flatten fragments or children
     if (element === Fragment) {
       return {
         type: 'fragment',
@@ -80,6 +99,12 @@ export function jsx(
         children,
         childrenBind,
         childrenPrepend,
+      }
+    } else if (element === Children) {
+      const { context } = otherAttributes
+      return {
+        type: 'children',
+        context: context as any
       }
     }
 
