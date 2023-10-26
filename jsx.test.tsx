@@ -1,11 +1,15 @@
+import { JSDOM } from 'jsdom'
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { Observable, of } from 'rxjs'
 import { ComponentContext, NodeDescription } from './component.js'
-import { makeTestEvent } from './events.js'
+import { Event, makeTestEvent } from './events.js'
 import { Fragment, jsx } from './jsx.js'
 
 describe('jsx', () => {
+  const { window } = new JSDOM()
+  const { MouseEvent } = window
+
   it('describes a simple static element', () => {
     const test = <h1>Hello</h1>
     const expected: NodeDescription = {
@@ -78,7 +82,7 @@ describe('jsx', () => {
   })
 
   it('describes a simple static element with an event bind', () => {
-    const click = makeTestEvent(of('fake click event')) as any
+    const click = makeTestEvent(of(new MouseEvent('click')))
     const test = <h1 events={{ click }}>Hello</h1>
     const expected: NodeDescription = {
       type: 'element',
@@ -147,7 +151,7 @@ describe('jsx', () => {
     ) => (
       <h1
         bind={{ innerText: props.hello }}
-        events={{ click: events.click as any }}
+        events={{ click: events.click as Event<MouseEvent> }}
       />
     )
     const hello = of('Hello')

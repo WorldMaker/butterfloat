@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p .",
+    "lint": "eslint **/*.{ts,tsx}",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "pretest": "tsc -p .",

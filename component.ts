@@ -13,7 +13,10 @@ export interface ComponentContext<Events = DefaultEvents> {
 }
 
 export type ContextComponent = (
+  // Want to be forgiving in what we accept as a "component"
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: ComponentContext<any>,
 ) => NodeDescription
 
@@ -119,7 +122,10 @@ export type NodeDescription =
 export function makeTestComponentContext<Events = DefaultEvents>(
   events: Events,
 ) {
+  // Types here are just for examing test results
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const effects: Array<[Observable<unknown>, (item: any) => void]> = []
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
   const context: ComponentContext<Events> = {
     events,

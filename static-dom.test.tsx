@@ -1,7 +1,6 @@
+import { JSDOM } from 'jsdom'
 import { equal } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { JSDOM } from 'jsdom'
-import { ElementDescription } from './component.js'
 import { jsx } from './jsx.js'
 import { buildElement } from './static-dom.js'
 
