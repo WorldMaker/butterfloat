@@ -5,10 +5,10 @@ export function buildElement(
   document = globalThis.document,
 ) {
   const element = document.createElement(description.element)
-  if (description.attributes) {
-    for (const [key, value] of Object.entries(description.attributes)) {
-        ;(element as any)[key] = value
-    }
+  for (const [key, value] of Object.entries(description.attributes)) {
+    // This is intentional metaprogramming
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ;(element as any)[key] = value
   }
   return element
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
 import { Observable } from 'rxjs'
 import {
   ButterfloatAttributes,
@@ -151,7 +152,7 @@ export function jsx(
       const { context } = otherAttributes
       return {
         type: 'children',
-        context: context as any,
+        context: context as ComponentContext<unknown>,
       }
     }
 

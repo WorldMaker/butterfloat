@@ -1,3 +1,4 @@
+import { JSDOM } from 'jsdom'
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { Observable, of } from 'rxjs'
@@ -10,6 +11,9 @@ import { Event, makeTestEvent } from './events.js'
 import { Children, jsx } from './jsx.js'
 
 describe('component', () => {
+  const { window } = new JSDOM()
+  const { MouseEvent } = window
+
   it('supports custom component contexts at the jsx level', () => {
     interface CustomEvents {
       click: Event<MouseEvent>
@@ -25,7 +29,7 @@ describe('component', () => {
     }
 
     const hello = of('Hello')
-    const click = makeTestEvent(of('Test click')) as any
+    const click = makeTestEvent(of(new MouseEvent('click')))
     const { context, effects } = makeTestComponentContext<CustomEvents>({
       click,
     })
@@ -68,7 +72,7 @@ describe('component', () => {
     }
 
     const hello = of('Hello')
-    const click = makeTestEvent(of('Test click')) as any
+    const click = makeTestEvent(of(new MouseEvent('click')))
     const { context } = makeTestComponentContext<CustomEvents>({
       click,
     })
