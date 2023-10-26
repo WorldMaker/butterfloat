@@ -23,7 +23,7 @@ export type Component = ContextComponent | SimpleComponent
 
 export type JsxChildren = Array<NodeDescription | string>
 
-export type Attributes = Record<string, unknown> | null
+export type Attributes = Record<string, unknown>
 
 export type HtmlAttributes = Record<string, unknown>
 
