@@ -135,3 +135,12 @@ export function makeTestComponentContext<Events = DefaultEvents>(
   }
   return { context, effects, immediateEffects }
 }
+
+export function hasAnyBinds(description: ElementDescription) {
+  return (
+    description.childrenBind ||
+    Object.keys(description.bind).length > 0 ||
+    Object.keys(description.immediateBind).length > 0 ||
+    Object.keys(description.events).length > 0
+  )
+}
