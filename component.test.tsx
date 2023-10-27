@@ -7,7 +7,7 @@ import {
   NodeDescription,
   makeTestComponentContext,
 } from './component.js'
-import { Event, makeTestEvent } from './events.js'
+import { ObservableEvent, makeTestEvent } from './events.js'
 import { Children, jsx } from './jsx.js'
 
 describe('component', () => {
@@ -16,7 +16,7 @@ describe('component', () => {
 
   it('supports custom component contexts at the jsx level', () => {
     interface CustomEvents {
-      click: Event<MouseEvent>
+      click: ObservableEvent<MouseEvent>
     }
     const clickHandler = () => console.log('clicked')
     const TestComponent = (
@@ -68,7 +68,7 @@ describe('component', () => {
 
   it('supports binding children', () => {
     interface CustomEvents {
-      click: Event<MouseEvent>
+      click: ObservableEvent<MouseEvent>
     }
 
     const hello = of('Hello')
