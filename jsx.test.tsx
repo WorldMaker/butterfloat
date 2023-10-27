@@ -3,7 +3,7 @@ import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { Observable, of } from 'rxjs'
 import { ComponentContext, NodeDescription } from './component.js'
-import { Event, makeTestEvent } from './events.js'
+import { ObservableEvent, makeTestEvent } from './events.js'
 import { Fragment, jsx } from './jsx.js'
 
 describe('jsx', () => {
@@ -151,7 +151,7 @@ describe('jsx', () => {
     ) => (
       <h1
         bind={{ innerText: props.hello }}
-        events={{ click: events.click as Event<MouseEvent> }}
+        events={{ click: events.click as ObservableEvent<MouseEvent> }}
       />
     )
     const hello = of('Hello')

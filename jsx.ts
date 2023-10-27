@@ -10,7 +10,7 @@ import {
   NodeDescription,
   DefaultBind,
 } from './component'
-import { DefaultEvents, Event } from './events'
+import { DefaultEvents, ObservableEvent } from './events'
 
 namespace JSXInternal {
   export type Element = NodeDescription
@@ -56,7 +56,7 @@ namespace JSXInternal {
   }
 
   type HtmlEvents<EventMap = HTMLElementEventMap> = {
-    [Property in keyof EventMap]?: Event<EventMap[Property]>
+    [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]>
   }
 
   type HtmlElements = {
