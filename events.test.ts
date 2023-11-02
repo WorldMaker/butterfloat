@@ -21,5 +21,6 @@ describe('event proxy', () => {
     equal(mouseev.type, 'click')
 
     sub.unsubscribe()
+    element.remove()
   })
 })
