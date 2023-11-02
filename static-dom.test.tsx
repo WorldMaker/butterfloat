@@ -15,6 +15,8 @@ describe('static-dom', () => {
     const test = buildElement(desc, document)
     equal(test.tagName, 'HR')
     equal(test.className, 'cute')
+
+    test.remove()
   })
 
   it('builds a basic static tree', () => {
@@ -43,6 +45,8 @@ describe('static-dom', () => {
     const text = p.firstChild as Text
     notStrictEqual(text, null)
     equal(text.data, 'Hello World')
+
+    div.remove()
   })
 
   it('builds a basic dynamic tree', () => {
@@ -76,5 +80,7 @@ describe('static-dom', () => {
     equal(div.tagName, 'DIV')
     equal(elementBinds[0][0], div)
     equal(div.hasChildNodes(), true)
+
+    div.remove()
   })
 })
