@@ -16,19 +16,24 @@ class EventProxyHandler {
   readonly #subjects = new WeakMap<ObservableEvent<unknown>, Subject<unknown>>()
   readonly #componentName: string
 
+  get componentName() {
+    return this.#componentName
+  }
+
   constructor(componentName: string) {
     this.#componentName = componentName
   }
 
-  get(target: DefaultEvents, prop: string, reciever: EventProxyHandler) {
+  get(target: DefaultEvents, prop: string) {
     if (prop in target) {
       return target[prop]
     }
     const subject = new Subject()
     const observable = subject.asObservable() as ObservableEvent<unknown>
-    observable[ButterfloatEvent] = `${this.#componentName} ${prop}`
-    reciever.#subjects.set(observable, subject)
+    observable[ButterfloatEvent] = `${this.componentName} ${prop}`
+    this.#subjects.set(observable, subject)
     target[prop] = observable
+    return target[prop]
   }
 
   applyEvent(
@@ -38,7 +43,7 @@ class EventProxyHandler {
   ) {
     const subject = this.#subjects.get(event)
     if (!subject) {
-      throw new Error('Unhandled event subject')
+      throw new Error(`Unhandled event subject: ${event[ButterfloatEvent]}`)
     }
 
     const observable = fromEvent(element, eventName)
@@ -46,7 +51,10 @@ class EventProxyHandler {
   }
 }
 
-export function makeEventProxy(componentName: string, baseEvents: DefaultEvents = {}) {
+export function makeEventProxy(
+  componentName: string,
+  baseEvents: DefaultEvents = {},
+) {
   const events = { ...baseEvents }
   const handler = new EventProxyHandler(componentName)
   const proxy = new Proxy(events, handler)
