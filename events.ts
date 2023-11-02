@@ -13,7 +13,12 @@ export function makeTestEvent<T>(observable: Observable<T>) {
 }
 
 class EventProxyHandler {
-  #subjects = new WeakMap<ObservableEvent<unknown>, Subject<unknown>>()
+  readonly #subjects = new WeakMap<ObservableEvent<unknown>, Subject<unknown>>()
+  readonly #componentName: string
+
+  constructor(componentName: string) {
+    this.#componentName = componentName
+  }
 
   get(target: DefaultEvents, prop: string, reciever: EventProxyHandler) {
     if (prop in target) {
@@ -21,7 +26,7 @@ class EventProxyHandler {
     }
     const subject = new Subject()
     const observable = subject.asObservable() as ObservableEvent<unknown>
-    observable[ButterfloatEvent] = true
+    observable[ButterfloatEvent] = `${this.#componentName} ${prop}`
     reciever.#subjects.set(observable, subject)
     target[prop] = observable
   }
@@ -41,9 +46,9 @@ class EventProxyHandler {
   }
 }
 
-export function makeEventProxy(baseEvents: DefaultEvents = {}) {
+export function makeEventProxy(componentName: string, baseEvents: DefaultEvents = {}) {
   const events = { ...baseEvents }
-  const handler = new EventProxyHandler()
+  const handler = new EventProxyHandler(componentName)
   const proxy = new Proxy(events, handler)
   return { events: proxy, handler }
 }
