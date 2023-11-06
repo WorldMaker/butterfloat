@@ -3,9 +3,21 @@ import {
   SchedulerLike,
   Subscription,
   animationFrameScheduler,
+  combineLatest,
   debounceTime,
+  filter,
+  map,
 } from 'rxjs'
 import { ElementDescription } from './component.js'
+
+interface BindingContext {
+  defaultScheduler: SchedulerLike
+  error: (error: unknown) => void
+  complete: () => void
+  heartbeat?: (item: unknown) => void
+  suspense?: Observable<boolean>
+  subscription: Subscription
+}
 
 export function bindImmediate(
   // intentional metaprogramming
@@ -13,14 +25,15 @@ export function bindImmediate(
   item: any,
   key: string | number | symbol,
   observable: Observable<unknown>,
-  error: (error: unknown) => void,
-  complete: () => void,
-  subscription: Subscription,
+  { error, complete, heartbeat, subscription }: BindingContext,
 ) {
   subscription.add(
     observable.subscribe({
       next: (value) => {
         item[key] = value
+        if (heartbeat) {
+          heartbeat(value)
+        }
       },
       error,
       complete,
@@ -36,15 +49,28 @@ export function bindScheduled(
   item: any,
   key: string | number | symbol,
   observable: Observable<unknown>,
-  error: (error: unknown) => void,
-  complete: () => void,
-  subscription: Subscription,
-  defaultScheduler: SchedulerLike = animationFrameScheduler,
+  {
+    defaultScheduler,
+    error,
+    complete,
+    heartbeat,
+    suspense,
+    subscription,
+  }: BindingContext,
 ) {
+  if (suspense) {
+    observable = combineLatest([suspense, observable]).pipe(
+      filter(([suspend]) => !suspend),
+      map(([, value]) => value),
+    )
+  }
   subscription.add(
     observable.pipe(debounceTime(0, defaultScheduler)).subscribe({
       next: (value) => {
         item[key] = value
+        if (heartbeat) {
+          heartbeat(value)
+        }
       },
       error,
       complete,
@@ -58,6 +84,7 @@ export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
   subscription?: Subscription,
+  suspense?: Observable<boolean>,
   defaultScheduler: SchedulerLike = animationFrameScheduler,
 ) {
   if (!subscription) {
@@ -67,25 +94,24 @@ export function bindElement(
   // TODO: deeper error/completion infrastructure
   const error = (error: unknown) => console.error(error)
   const complete = () => {}
+  const context: BindingContext = {
+    error,
+    complete,
+    defaultScheduler,
+    suspense,
+    subscription,
+  }
 
   for (const [key, observable] of Object.entries(description.immediateBind)) {
-    bindImmediate(element, key, observable, error, complete, subscription)
+    bindImmediate(element, key, observable, context)
   }
 
   for (const [key, observable] of Object.entries(description.bind)) {
     // value usually means user-interaction surfaces such as HTML input elements, so always immediately bind it
     if (key === 'value') {
-      bindImmediate(element, key, observable, error, complete, subscription)
+      bindImmediate(element, key, observable, context)
     } else {
-      bindScheduled(
-        element,
-        key,
-        observable,
-        error,
-        complete,
-        subscription,
-        defaultScheduler,
-      )
+      bindScheduled(element, key, observable, context)
     }
   }
 
