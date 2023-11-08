@@ -83,25 +83,8 @@ export function bindScheduled(
 export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
-  subscription?: Subscription,
-  suspense?: Observable<boolean>,
-  defaultScheduler: SchedulerLike = animationFrameScheduler,
+  context: BindingContext,
 ) {
-  if (!subscription) {
-    subscription = new Subscription()
-  }
-
-  // TODO: deeper error/completion infrastructure
-  const error = (error: unknown) => console.error(error)
-  const complete = () => {}
-  const context: BindingContext = {
-    error,
-    complete,
-    defaultScheduler,
-    suspense,
-    subscription,
-  }
-
   for (const [key, observable] of Object.entries(description.immediateBind)) {
     bindImmediate(element, key, observable, context)
   }
@@ -117,5 +100,5 @@ export function bindElement(
 
   // TODO: Children bind
 
-  return subscription
+  return context.subscription
 }
