@@ -30,7 +30,7 @@ export type Attributes = Record<string, unknown>
 
 export type HtmlAttributes = Record<string, unknown>
 
-export type ChildrenBind = Observable<NodeDescription>
+export type ChildrenBind = Observable<Component>
 
 export interface ChildrenBindable {
   /**

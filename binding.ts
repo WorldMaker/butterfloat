@@ -2,7 +2,6 @@ import {
   Observable,
   SchedulerLike,
   Subscription,
-  animationFrameScheduler,
   combineLatest,
   debounceTime,
   filter,
@@ -10,7 +9,7 @@ import {
 } from 'rxjs'
 import { ElementDescription } from './component.js'
 
-interface BindingContext {
+export interface BindingContext {
   defaultScheduler: SchedulerLike
   error: (error: unknown) => void
   complete: () => void
