@@ -1,7 +1,7 @@
 import {
   Observable,
-  SchedulerLike,
   Subscription,
+  animationFrameScheduler,
   combineLatest,
   debounceTime,
   filter,
@@ -10,94 +10,65 @@ import {
 import { ElementDescription } from './component.js'
 
 export interface BindingContext {
-  defaultScheduler: SchedulerLike
   error: (error: unknown) => void
   complete: () => void
-  heartbeat?: (item: unknown) => void
   suspense?: Observable<boolean>
   subscription: Subscription
 }
 
-export function bindImmediate(
+export function bindObjectKey(
   // intentional metaprogramming
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: any,
   key: string | number | symbol,
   observable: Observable<unknown>,
-  { error, complete, heartbeat, subscription }: BindingContext,
+  error: (error: unknown) => void,
+  complete: () => void,
 ) {
-  subscription.add(
-    observable.subscribe({
-      next: (value) => {
-        item[key] = value
-        if (heartbeat) {
-          heartbeat(value)
-        }
-      },
-      error,
-      complete,
-    }),
-  )
-
-  return subscription
-}
-
-export function bindScheduled(
-  // intentional metaprogramming
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  item: any,
-  key: string | number | symbol,
-  observable: Observable<unknown>,
-  {
-    defaultScheduler,
+  return observable.subscribe({
+    next: (value) => {
+      item[key] = value
+    },
     error,
     complete,
-    heartbeat,
-    suspense,
-    subscription,
-  }: BindingContext,
+  })
+}
+
+export function schedule(
+  key: string | number | symbol,
+  observable: Observable<unknown>,
+  immediate: boolean,
+  suspense?: Observable<boolean>,
 ) {
+  // value usually means user-interaction surfaces such as HTML input elements, so don't schedule it
+  if (immediate || key === 'value') {
+    return observable
+  }
   if (suspense) {
     observable = combineLatest([suspense, observable]).pipe(
       filter(([suspend]) => !suspend),
       map(([, value]) => value),
     )
   }
-  subscription.add(
-    observable.pipe(debounceTime(0, defaultScheduler)).subscribe({
-      next: (value) => {
-        item[key] = value
-        if (heartbeat) {
-          heartbeat(value)
-        }
-      },
-      error,
-      complete,
-    }),
-  )
-
-  return subscription
+  return observable.pipe(debounceTime(0, animationFrameScheduler))
 }
 
 export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
-  context: BindingContext,
+  { complete, error, suspense, subscription }: BindingContext,
 ) {
-  for (const [key, observable] of Object.entries(description.immediateBind)) {
-    bindImmediate(element, key, observable, context)
+  for (const [key, observable] of Object.entries(description.bind)) {
+    const scheduled = schedule(key, observable, false, suspense)
+    subscription.add(bindObjectKey(element, key, scheduled, error, complete))
   }
 
-  for (const [key, observable] of Object.entries(description.bind)) {
-    // value usually means user-interaction surfaces such as HTML input elements, so always immediately bind it
-    if (key === 'value') {
-      bindImmediate(element, key, observable, context)
-    } else {
-      bindScheduled(element, key, observable, context)
-    }
+  for (const [key, observable] of Object.entries(description.immediateBind)) {
+    const scheduled = schedule(key, observable, true, suspense)
+    subscription.add(bindObjectKey(element, key, scheduled, error, complete))
   }
 
   // TODO: Children bind
 
-  return context.subscription
+  return subscription
 }
