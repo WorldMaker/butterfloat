@@ -56,8 +56,18 @@ export function bindObjectEntries(
   })
 }
 
-export function bufferEntries(observable: Observable<Entry>) {
-  return observable.pipe(bufferTime(0, animationFrameScheduler))
+export function bufferEntries(
+  observable: Observable<Entry>,
+  suspense?: Observable<boolean>,
+) {
+  const buffered = observable.pipe(bufferTime(0, animationFrameScheduler))
+  if (suspense) {
+    return combineLatest([suspense, buffered]).pipe(
+      filter(([suspend]) => !suspend),
+      map(([, value]) => value),
+    )
+  }
+  return buffered
 }
 
 export function schedulable(key: string | number | symbol, immediate: boolean) {
@@ -65,16 +75,7 @@ export function schedulable(key: string | number | symbol, immediate: boolean) {
   return !(immediate || key === 'value')
 }
 
-export function schedule(
-  observable: Observable<unknown>,
-  suspense?: Observable<boolean>,
-) {
-  if (suspense) {
-    observable = combineLatest([suspense, observable]).pipe(
-      filter(([suspend]) => !suspend),
-      map(([, value]) => value),
-    )
-  }
+export function schedule(observable: Observable<unknown>) {
   return observable.pipe(debounceTime(0, animationFrameScheduler))
 }
 
@@ -110,12 +111,12 @@ export function bindElement(
   }
 
   const scheduled = schedulables.map(([key, observable]) =>
-    makeEntries(key, schedule(observable, suspense)),
+    makeEntries(key, schedule(observable)),
   )
   subscription.add(
     bindObjectEntries(
       element,
-      bufferEntries(merge(...scheduled)),
+      bufferEntries(merge(...scheduled), suspense),
       error,
       complete,
     ),
