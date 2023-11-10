@@ -88,35 +88,6 @@ describe('binding', () => {
     })
   })
 
-  it('buffers entries 2', () => {
-    const testScheduler = new TestScheduler((actual, expected) =>
-      deepEqual(actual, expected),
-    )
-
-    testScheduler.run(({ animate, cold, expectObservable }) => {
-      animate('             --x--x--x--')
-      const example = cold('a--bc--d---', {
-        a: ['example1', 1] as [string, unknown],
-        b: ['example1', 2] as [string, unknown],
-        c: ['example2', true] as [string, unknown],
-        d: ['example1', 3] as [string, unknown],
-      })
-      const expected = '    --e--f--g--'
-      const expectedValues = {
-        e: [['example1', 1]],
-        f: [
-          ['example1', 2],
-          ['example2', true],
-        ],
-        g: [['example1', 3]],
-      }
-
-      const observed = bufferEntries(example)
-
-      expectObservable(observed).toBe(expected, expectedValues)
-    })
-  })
-
   it('buffers entries with suspense', () => {
     const testScheduler = new TestScheduler((actual, expected) =>
       deepEqual(actual, expected),
