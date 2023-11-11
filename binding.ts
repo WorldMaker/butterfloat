@@ -8,6 +8,7 @@ import {
   filter,
   map,
   merge,
+  scan,
 } from 'rxjs'
 import { ElementDescription } from './component.js'
 
@@ -40,15 +41,14 @@ export function bindObjectKey(
   })
 }
 
-export function bindObjectEntries(
+export function bindObjectChanges(
   item: object,
-  observable: Observable<Entries>,
+  observable: Observable<object>,
   error: (error: unknown) => void,
   complete: () => void,
 ) {
   return observable.subscribe({
-    next: (entries) => {
-      const changes = Object.fromEntries(entries)
+    next: (changes) => {
       Object.assign(item, changes)
     },
     error,
@@ -60,14 +60,36 @@ export function bufferEntries(
   observable: Observable<Entry>,
   suspense?: Observable<boolean>,
 ) {
-  const buffered = observable.pipe(bufferTime(0, animationFrameScheduler))
   if (suspense) {
-    return combineLatest([suspense, buffered]).pipe(
-      filter(([suspend]) => !suspend),
-      map(([, value]) => value),
+    return combineLatest([suspense, observable]).pipe(
+      bufferTime(0, animationFrameScheduler),
+      map((states) =>
+        states.reduce(
+          (acc, [suspend, entry]) => ({
+            suspend,
+            entries: [...acc.entries, entry],
+          }),
+          { suspend: false, entries: [] as Entries },
+        ),
+      ),
+      scan(
+        (acc, cur) => ({
+          changes:
+            acc.suspend && cur.suspend
+              ? Object.assign(acc.changes, Object.fromEntries(cur.entries))
+              : Object.fromEntries(cur.entries),
+          suspend: cur.suspend,
+        }),
+        { suspend: false, changes: {} as object },
+      ),
+      filter(({ suspend }) => !suspend),
+      map(({ changes }) => changes),
     )
   }
-  return buffered
+  return observable.pipe(
+    bufferTime(0, animationFrameScheduler),
+    map((entries) => Object.fromEntries(entries)),
+  )
 }
 
 export function schedulable(key: string | number | symbol, immediate: boolean) {
@@ -114,7 +136,7 @@ export function bindElement(
     makeEntries(key, schedule(observable)),
   )
   subscription.add(
-    bindObjectEntries(
+    bindObjectChanges(
       element,
       bufferEntries(merge(...scheduled), suspense),
       error,

@@ -74,12 +74,12 @@ describe('binding', () => {
       })
       const expected = '    --e--f--g--'
       const expectedValues = {
-        e: [['example1', 1]],
-        f: [
-          ['example1', 2],
-          ['example2', true],
-        ],
-        g: [['example1', 3]],
+        e: { example1: 1 },
+        f: {
+          example1: 2,
+          example2: true,
+        },
+        g: { example1: 3 },
       }
 
       const observed = bufferEntries(example)
@@ -104,8 +104,8 @@ describe('binding', () => {
       const suspense = cold('f---t--f---', { t: true, f: false })
       const expected = '     --e-----h--'
       const expectedValues = {
-        e: [['example1', 1]],
-        h: [['example1', 3]],
+        e: { example1: 1 },
+        h: { example1: 3, example2: true },
       }
 
       const observed = bufferEntries(example, suspense)
