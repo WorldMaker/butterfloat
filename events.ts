@@ -1,4 +1,4 @@
-import { Observable, Subject, fromEvent } from 'rxjs'
+import { Observable, Subject, Subscription, fromEvent } from 'rxjs'
 
 const ButterfloatEvent = Symbol('Butterfloat Event')
 
@@ -10,6 +10,14 @@ export function makeTestEvent<T>(observable: Observable<T>) {
   const event = observable as ObservableEvent<T>
   event[ButterfloatEvent] = '⚠ Test Event'
   return event
+}
+
+export interface EventBinder {
+  applyEvent(
+    event: ObservableEvent<unknown>,
+    element: HTMLElement,
+    eventName: string,
+  ): Subscription
 }
 
 class EventProxyHandler {
