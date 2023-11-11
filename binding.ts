@@ -139,7 +139,5 @@ export function bindElement(
     ),
   )
 
-  // TODO: Children bind
-
   return subscription
 }
