@@ -91,6 +91,13 @@ describe('binding', () => {
     bindElement(element, (<div />) as ElementDescription, {
       error,
       complete,
+      eventBinder: {
+        applyEvent(_event, _element, eventName) {
+          throw new Error(
+            `not setup for event binding testing; attempted to bind ${eventName}`,
+          )
+        },
+      },
       subscription,
     })
     subscription.unsubscribe()

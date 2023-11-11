@@ -10,6 +10,7 @@ import {
   scan,
 } from 'rxjs'
 import { ElementDescription } from './component.js'
+import { EventBinder } from './events.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
@@ -18,6 +19,7 @@ type Entries = Entry[]
 export interface BindingContext {
   error: (error: unknown) => void
   complete: () => void
+  eventBinder: EventBinder
   suspense?: Observable<boolean>
   subscription: Subscription
 }
@@ -106,7 +108,7 @@ export function makeEntries(
 export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
-  { complete, error, suspense, subscription }: BindingContext,
+  { complete, error, eventBinder, suspense, subscription }: BindingContext,
 ) {
   const schedulables: ObservableEntry[] = []
 
@@ -138,6 +140,10 @@ export function bindElement(
       complete,
     ),
   )
+
+  for (const [key, event] of Object.entries(description.events)) {
+    subscription.add(eventBinder.applyEvent(event, element, key))
+  }
 
   return subscription
 }
