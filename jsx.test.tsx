@@ -61,7 +61,7 @@ describe('jsx', () => {
 
   it('describes a simple static element with a children bind', () => {
     const TestComponent = () => <h1>Hello</h1>
-    const childrenBind = of(<TestComponent />)
+    const childrenBind = of(TestComponent)
     const test = (
       <h1 childrenBind={childrenBind} childrenPrepend>
         Hello
@@ -113,8 +113,11 @@ describe('jsx', () => {
   })
 
   it('describes a single dynamic component with children bind', () => {
-    const TestComponent = () => <h1>Hello</h1>
-    const childrenBind = of(<TestComponent />)
+    const TestComponent = (_props: unknown, { events }: ComponentContext) => {
+      const click = events.click as ObservableEvent<MouseEvent>
+      return <h1 events={{ click }}>Hello</h1>
+    }
+    const childrenBind = of(TestComponent)
     const test = <TestComponent childrenBind={childrenBind} childrenPrepend />
     const expected: NodeDescription = {
       type: 'component',
@@ -197,7 +200,7 @@ describe('jsx', () => {
 
   it('describes a fragment with a children bind', () => {
     const TestComponent = () => <h1>Hello</h1>
-    const childrenBind = of(<TestComponent />)
+    const childrenBind = of(() => <TestComponent />)
     const test = (
       <Fragment childrenBind={childrenBind}>
         <h1>Hello</h1>
