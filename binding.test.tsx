@@ -7,7 +7,6 @@ import {
   bufferEntries,
   makeEntries,
   schedulable,
-  schedule,
 } from './binding.js'
 import { jsx } from './jsx.js'
 import { ElementDescription } from './component.js'
@@ -30,22 +29,6 @@ describe('binding', () => {
     const actual = schedulable('example', false)
     const expected = true
     deepEqual(actual, expected)
-  })
-
-  it('schedules a simple example', () => {
-    const testScheduler = new TestScheduler((actual, expected) =>
-      deepEqual(actual, expected),
-    )
-
-    testScheduler.run(({ animate, cold, expectObservable }) => {
-      animate('             --x--x--x--')
-      const example = cold('a--bc--d---')
-      const expected = '    --a--c--d--'
-
-      const observed = schedule(example)
-
-      expectObservable(observed).toBe(expected)
-    })
   })
 
   it('makes entry observables', () => {

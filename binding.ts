@@ -4,7 +4,6 @@ import {
   animationFrameScheduler,
   bufferTime,
   combineLatest,
-  debounceTime,
   filter,
   map,
   merge,
@@ -97,10 +96,6 @@ export function schedulable(key: string | number | symbol, immediate: boolean) {
   return !(immediate || key === 'value')
 }
 
-export function schedule(observable: Observable<unknown>) {
-  return observable.pipe(debounceTime(0, animationFrameScheduler))
-}
-
 export function makeEntries(
   key: string | number | symbol,
   observable: Observable<unknown>,
@@ -133,7 +128,7 @@ export function bindElement(
   }
 
   const scheduled = schedulables.map(([key, observable]) =>
-    makeEntries(key, schedule(observable)),
+    makeEntries(key, observable),
   )
   subscription.add(
     bindObjectChanges(
