@@ -1,7 +1,17 @@
-import { deepEqual } from 'node:assert/strict'
+import { deepEqual, fail } from 'node:assert/strict'
 import { describe, it } from 'node:test'
+import { JSDOM } from 'jsdom'
 import { TestScheduler } from 'rxjs/testing'
-import { bufferEntries, makeEntries, schedulable, schedule } from './binding.js'
+import {
+  bindElement,
+  bufferEntries,
+  makeEntries,
+  schedulable,
+  schedule,
+} from './binding.js'
+import { jsx } from './jsx.js'
+import { ElementDescription } from './component.js'
+import { Subscription } from 'rxjs'
 
 describe('binding', () => {
   it("doesn't schedule immediates", () => {
@@ -86,5 +96,20 @@ describe('binding', () => {
 
       expectObservable(observed).toBe(expected, expectedValues)
     })
+  })
+
+  it('binds a no-bind element', () => {
+    const { window } = new JSDOM()
+    const { document } = window
+    const element = document.createElement('div')
+    const error = (error: unknown) => fail(error as Error | string)
+    const complete = () => {}
+    const subscription = new Subscription()
+    bindElement(element, (<div />) as ElementDescription, {
+      error,
+      complete,
+      subscription,
+    })
+    subscription.unsubscribe()
   })
 })
