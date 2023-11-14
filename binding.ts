@@ -11,16 +11,16 @@ import {
 } from 'rxjs'
 import { ElementDescription } from './component.js'
 import { EventBinder } from './events.js'
+import { WiringContext, run } from './wiring.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
 type Entries = Entry[]
 
-export interface BindingContext {
+export interface BindingContext extends WiringContext {
   error: (error: unknown) => void
   complete: () => void
   eventBinder: EventBinder
-  suspense?: Observable<boolean>
   subscription: Subscription
 }
 
@@ -108,8 +108,10 @@ export function makeEntries(
 export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
-  { complete, error, eventBinder, suspense, subscription }: BindingContext,
+  context: BindingContext,
+  document = globalThis.document,
 ) {
+  const { complete, error, eventBinder, suspense, subscription } = context
   const schedulables: ObservableEntry[] = []
 
   const binds = [
@@ -143,6 +145,36 @@ export function bindElement(
 
   for (const [key, event] of Object.entries(description.events)) {
     subscription.add(eventBinder.applyEvent(event, element, key))
+  }
+
+  if (description.childrenBind) {
+    subscription.add(
+      description.childrenBind.subscribe({
+        next(child) {
+          const placeholder = document.createComment(`${child.name} component`)
+          if (description.childrenPrepend) {
+            element.prepend(placeholder)
+          } else {
+            element.append(placeholder)
+          }
+          subscription.add(
+            run(
+              element,
+              {
+                type: 'component',
+                component: child,
+                properties: {},
+                children: [],
+              },
+              context,
+              placeholder,
+            ),
+          )
+        },
+        error,
+        complete,
+      }),
+    )
   }
 
   return subscription

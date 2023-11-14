@@ -63,9 +63,9 @@ export function wireInternal(
   subscriber.next(container)
 
   const bindContext: BindingContext = {
+    ...context,
     complete,
     error,
-    suspense: context.suspense,
     eventBinder: handler,
     subscription,
   }
@@ -91,32 +91,29 @@ export function wire(
 export function run(
   container: Node,
   description: ComponentDescription,
-  subscription: Subscription,
   context: WiringContext,
   placeholder?: Node,
 ) {
   const observable = wire(description, context)
   let previousNode: Node | null = null
-  subscription.add(
-    observable.subscribe({
-      next(node) {
-        if (previousNode) {
-          container.replaceChild(previousNode, node)
-        } else if (placeholder) {
-          container.replaceChild(placeholder, node)
-        } else {
-          container.appendChild(node)
-        }
-        previousNode = node
-      },
-      error(error) {
-        console.error(`Error in component ${description.component.name}`, error)
-      },
-      complete() {
-        if (!context.preserveOnComplete && previousNode) {
-          container.removeChild(previousNode)
-        }
-      },
-    }),
-  )
+  return observable.subscribe({
+    next(node) {
+      if (previousNode) {
+        container.replaceChild(previousNode, node)
+      } else if (placeholder) {
+        container.replaceChild(placeholder, node)
+      } else {
+        container.appendChild(node)
+      }
+      previousNode = node
+    },
+    error(error) {
+      console.error(`Error in component ${description.component.name}`, error)
+    },
+    complete() {
+      if (!context.preserveOnComplete && previousNode) {
+        container.removeChild(previousNode)
+      }
+    },
+  })
 }
