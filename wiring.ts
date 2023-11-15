@@ -71,7 +71,7 @@ export function wireInternal(
   }
 
   for (const [element, bindDescription] of elementBinds) {
-    bindElement(element, bindDescription, bindContext)
+    subscription.add(bindElement(element, bindDescription, bindContext))
   }
 
   return () => {
