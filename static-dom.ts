@@ -4,7 +4,7 @@ import {
   hasAnyBinds,
 } from './component.js'
 
-export type ElementBinds = Array<[HTMLElement, NodeDescription]>
+export type ElementBinds = Array<[HTMLElement, ElementDescription]>
 export type NodeBinds = Array<[Node, NodeDescription]>
 
 export function buildElement(

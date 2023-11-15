@@ -91,6 +91,11 @@ describe('binding', () => {
     bindElement(element, (<div />) as ElementDescription, {
       error,
       complete,
+      componentRunner(_container, description, _context, _placeholder) {
+        throw new Error(
+          `attempted to run component ${description.component.name}`,
+        )
+      },
       eventBinder: {
         applyEvent(_event, _element, eventName) {
           throw new Error(
@@ -99,6 +104,8 @@ describe('binding', () => {
         },
       },
       subscription,
+      isStaticComponent: true,
+      isStaticTree: true,
     })
     subscription.unsubscribe()
   })

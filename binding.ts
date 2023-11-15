@@ -9,18 +9,23 @@ import {
   merge,
   scan,
 } from 'rxjs'
-import { ElementDescription } from './component.js'
+import {
+  ComponentRunner,
+  ElementDescription,
+  FragmentDescription,
+  WiringContext,
+} from './component.js'
 import { EventBinder } from './events.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
 type Entries = Entry[]
 
-export interface BindingContext {
+export interface BindingContext extends WiringContext {
   error: (error: unknown) => void
   complete: () => void
   eventBinder: EventBinder
-  suspense?: Observable<boolean>
+  componentRunner: ComponentRunner
   subscription: Subscription
 }
 
@@ -108,8 +113,17 @@ export function makeEntries(
 export function bindElement(
   element: HTMLElement,
   description: ElementDescription,
-  { complete, error, eventBinder, suspense, subscription }: BindingContext,
+  context: BindingContext,
+  document = globalThis.document,
 ) {
+  const {
+    complete,
+    componentRunner,
+    error,
+    eventBinder,
+    suspense,
+    subscription,
+  } = context
   const schedulables: ObservableEntry[] = []
 
   const binds = [
@@ -145,5 +159,84 @@ export function bindElement(
     subscription.add(eventBinder.applyEvent(event, element, key))
   }
 
+  if (description.childrenBind) {
+    subscription.add(
+      description.childrenBind.subscribe({
+        next(child) {
+          const placeholder = document.createComment(`${child.name} component`)
+          if (description.childrenPrepend) {
+            element.prepend(placeholder)
+          } else {
+            element.append(placeholder)
+          }
+          subscription.add(
+            componentRunner(
+              element,
+              {
+                type: 'component',
+                component: child,
+                properties: {},
+                children: [],
+              },
+              context,
+              placeholder,
+            ),
+          )
+        },
+        error,
+        complete,
+      }),
+    )
+  }
+
   return subscription
+}
+
+export function bindFragmentChildren(
+  nodeDescription: FragmentDescription,
+  node: Node,
+  subscription: Subscription,
+  context: BindingContext,
+) {
+  const { complete, error, componentRunner } = context
+  if (nodeDescription.childrenBind) {
+    subscription.add(
+      nodeDescription.childrenBind.subscribe({
+        next(child) {
+          const parent = node.parentElement
+          if (!parent) {
+            throw new Error(
+              'Attempted to bind children to an unattached fragment',
+            )
+          }
+          const placeholder = document.createComment(`${child.name} component`)
+          if (nodeDescription.childrenPrepend) {
+            parent.insertBefore(node, placeholder)
+          } else {
+            const next = node.nextSibling
+            if (next) {
+              parent.insertBefore(next, placeholder)
+            } else {
+              parent.append(placeholder)
+            }
+          }
+          subscription.add(
+            componentRunner(
+              parent,
+              {
+                type: 'component',
+                component: child,
+                properties: {},
+                children: [],
+              },
+              context,
+              placeholder,
+            ),
+          )
+        },
+        error,
+        complete,
+      }),
+    )
+  }
 }
