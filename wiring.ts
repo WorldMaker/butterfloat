@@ -7,6 +7,7 @@ import {
 } from 'rxjs'
 import {
   ChildrenDescription,
+  Component,
   ComponentContext,
   ComponentDescription,
   SimpleComponent,
@@ -25,6 +26,7 @@ export function wireInternal(
   description: ComponentDescription,
   subscriber: Subscriber<Node>,
   context: WiringContext,
+  document = globalThis.document,
 ) {
   const subscription = new Subscription()
 
@@ -62,7 +64,13 @@ export function wireInternal(
   contextChildrenDescriptions.set(componentContext, description)
 
   const tree = description.component(description.properties, componentContext)
-  const { elementBinds, nodeBinds, container } = buildTree(tree)
+  const { elementBinds, nodeBinds, container } = buildTree(
+    tree,
+    undefined,
+    undefined,
+    undefined,
+    document,
+  )
   context.isStaticComponent &&= elementBinds.length === 0
   context.isStaticTree &&= context.isStaticComponent
   subscriber.next(container)
@@ -77,7 +85,9 @@ export function wireInternal(
   }
 
   for (const [element, bindDescription] of elementBinds) {
-    subscription.add(bindElement(element, bindDescription, bindContext))
+    subscription.add(
+      bindElement(element, bindDescription, bindContext, document),
+    )
   }
 
   for (const [node, nodeDescription] of nodeBinds) {
@@ -162,23 +172,38 @@ function wireChildrenComponent(
 }
 
 export function wire(
-  description: ComponentDescription,
+  component: ComponentDescription | Component,
   context: WiringContext,
+  document = globalThis.document,
 ) {
+  let description: ComponentDescription
+  if ('type' in component) {
+    description = component
+  } else {
+    description = {
+      type: 'component',
+      component,
+      children: [],
+      properties: {},
+    }
+  }
+
   return new Observable((subscriber: Subscriber<Node>) =>
-    wireInternal(description, subscriber, context),
+    wireInternal(description, subscriber, context, document),
   )
 }
 
 export function run(
   container: Node,
-  description: ComponentDescription,
+  component: ComponentDescription | Component,
   context?: WiringContext,
   placeholder?: Node,
+  document = globalThis.document,
 ) {
   const observable = wire(
-    description,
+    component,
     context ?? { isStaticComponent: true, isStaticTree: true },
+    document,
   )
   let previousNode: Node | null = null
   return observable.subscribe({
@@ -193,7 +218,11 @@ export function run(
       previousNode = node
     },
     error(error) {
-      console.error(`Error in component ${description.component.name}`, error)
+      if ('type' in component) {
+        console.error(`Error in component ${component.component.name}`, error)
+      } else {
+        console.error(`Error in component ${component.name}`, error)
+      }
     },
     complete() {
       if (!context?.preserveOnComplete && previousNode) {
