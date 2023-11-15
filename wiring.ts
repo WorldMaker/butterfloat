@@ -91,10 +91,13 @@ export function wire(
 export function run(
   container: Node,
   description: ComponentDescription,
-  context: WiringContext,
+  context?: WiringContext,
   placeholder?: Node,
 ) {
-  const observable = wire(description, context)
+  const observable = wire(
+    description,
+    context ?? { isStaticComponent: true, isStaticTree: true },
+  )
   let previousNode: Node | null = null
   return observable.subscribe({
     next(node) {
@@ -111,7 +114,7 @@ export function run(
       console.error(`Error in component ${description.component.name}`, error)
     },
     complete() {
-      if (!context.preserveOnComplete && previousNode) {
+      if (!context?.preserveOnComplete && previousNode) {
         container.removeChild(previousNode)
       }
     },
