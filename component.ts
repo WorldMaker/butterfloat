@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 import { DefaultEvents } from './events'
 
 export type EffectHandler = <T>(
@@ -118,6 +118,20 @@ export type NodeDescription =
   | ComponentDescription
   | FragmentDescription
   | ChildrenDescription
+
+export interface WiringContext {
+  suspense?: Observable<boolean>
+  isStaticComponent: boolean
+  isStaticTree: boolean
+  preserveOnComplete?: boolean
+}
+
+export type ComponentRunner = (
+  container: Node,
+  description: ComponentDescription,
+  context: WiringContext,
+  placeholder: Node,
+) => Subscription
 
 export function makeTestComponentContext<Events = DefaultEvents>(
   events: Events,

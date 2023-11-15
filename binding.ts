@@ -9,9 +9,12 @@ import {
   merge,
   scan,
 } from 'rxjs'
-import { ElementDescription } from './component.js'
+import {
+  ComponentRunner,
+  ElementDescription,
+  WiringContext,
+} from './component.js'
 import { EventBinder } from './events.js'
-import { WiringContext, run } from './wiring.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
@@ -21,6 +24,7 @@ export interface BindingContext extends WiringContext {
   error: (error: unknown) => void
   complete: () => void
   eventBinder: EventBinder
+  componentRunner: ComponentRunner
   subscription: Subscription
 }
 
@@ -111,7 +115,14 @@ export function bindElement(
   context: BindingContext,
   document = globalThis.document,
 ) {
-  const { complete, error, eventBinder, suspense, subscription } = context
+  const {
+    complete,
+    componentRunner,
+    error,
+    eventBinder,
+    suspense,
+    subscription,
+  } = context
   const schedulables: ObservableEntry[] = []
 
   const binds = [
@@ -158,7 +169,7 @@ export function bindElement(
             element.append(placeholder)
           }
           subscription.add(
-            run(
+            componentRunner(
               element,
               {
                 type: 'component',

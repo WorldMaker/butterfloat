@@ -11,17 +11,11 @@ import {
   ComponentDescription,
   FragmentDescription,
   SimpleComponent,
+  WiringContext,
 } from './component.js'
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { BindingContext, bindElement } from './binding.js'
-
-export interface WiringContext {
-  suspense?: Observable<boolean>
-  isStaticComponent: boolean
-  isStaticTree: boolean
-  preserveOnComplete?: boolean
-}
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -79,6 +73,7 @@ export function wireInternal(
     ...context,
     complete,
     error,
+    componentRunner: run,
     eventBinder: handler,
     subscription,
   }
