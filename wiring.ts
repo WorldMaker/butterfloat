@@ -5,7 +5,13 @@ import {
   animationFrameScheduler,
   delay,
 } from 'rxjs'
-import { ComponentContext, ComponentDescription } from './component.js'
+import {
+  ChildrenDescription,
+  ComponentContext,
+  ComponentDescription,
+  FragmentDescription,
+  SimpleComponent,
+} from './component.js'
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { BindingContext, bindElement } from './binding.js'
@@ -16,6 +22,11 @@ export interface WiringContext {
   isStaticTree: boolean
   preserveOnComplete?: boolean
 }
+
+const contextChildrenDescriptions = new WeakMap<
+  ComponentContext<unknown>,
+  ComponentDescription
+>()
 
 export function wireInternal(
   description: ComponentDescription,
@@ -55,6 +66,8 @@ export function wireInternal(
     events,
   }
 
+  contextChildrenDescriptions.set(componentContext, description)
+
   const tree = description.component(description.properties, componentContext)
   const { elementBinds, nodeBinds, container } = buildTree(tree)
   context.isStaticComponent &&=
@@ -74,8 +87,125 @@ export function wireInternal(
     subscription.add(bindElement(element, bindDescription, bindContext))
   }
 
+  for (const [node, nodeDescription] of nodeBinds) {
+    switch (nodeDescription.type) {
+      case 'component':
+        subscription.add(run(container, nodeDescription, context, node))
+        break
+      case 'children':
+        subscription.add(
+          wireChildrenComponent(
+            nodeDescription,
+            componentContext,
+            description,
+            container,
+            context,
+            node,
+          ),
+        )
+        break
+      case 'fragment':
+        bindFragmentChildren(
+          nodeDescription,
+          node,
+          subscription,
+          context,
+          error,
+          complete,
+        )
+        break
+    }
+  }
+
   return () => {
     subscription.unsubscribe()
+  }
+}
+
+function wireChildrenComponent(
+  nodeDescription: ChildrenDescription,
+  componentContext: ComponentContext<unknown>,
+  description: ComponentDescription,
+  container: Node,
+  context: WiringContext,
+  node: Node,
+) {
+  const parentDescription = contextChildrenDescriptions.get(
+    nodeDescription.context ?? componentContext,
+  )
+  if (!parentDescription) {
+    throw new Error(
+      `Unable to bind children for Children request in ${description.component.name}`,
+    )
+  }
+  // Rehost the appropriate parent's children as a simple semi-anonymous mini-component that just returns a fragment of the appropriate binds
+  const childrenComponent: SimpleComponent = () => ({
+    type: 'fragment',
+    attributes: {},
+    children: [...parentDescription.children],
+    childrenBind: parentDescription.childrenBind,
+    childrenPrepend: parentDescription.childrenPrepend,
+  })
+  return run(
+    container,
+    {
+      type: 'component',
+      component: childrenComponent,
+      properties: {},
+      children: [],
+    },
+    context,
+    node,
+  )
+}
+
+function bindFragmentChildren(
+  nodeDescription: FragmentDescription,
+  node: Node,
+  subscription: Subscription,
+  context: WiringContext,
+  error: (error: unknown) => void,
+  complete: () => void,
+) {
+  if (nodeDescription.childrenBind) {
+    subscription.add(
+      nodeDescription.childrenBind.subscribe({
+        next(child) {
+          const parent = node.parentElement
+          if (!parent) {
+            throw new Error(
+              'Attempted to bind children to an unattached fragment',
+            )
+          }
+          const placeholder = document.createComment(`${child.name} component`)
+          if (nodeDescription.childrenPrepend) {
+            parent.insertBefore(node, placeholder)
+          } else {
+            const next = node.nextSibling
+            if (next) {
+              parent.insertBefore(next, placeholder)
+            } else {
+              parent.append(placeholder)
+            }
+          }
+          subscription.add(
+            run(
+              parent,
+              {
+                type: 'component',
+                component: child,
+                properties: {},
+                children: [],
+              },
+              context,
+              placeholder,
+            ),
+          )
+        },
+        error,
+        complete,
+      }),
+    )
   }
 }
 
