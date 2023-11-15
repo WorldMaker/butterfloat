@@ -63,8 +63,7 @@ export function wireInternal(
 
   const tree = description.component(description.properties, componentContext)
   const { elementBinds, nodeBinds, container } = buildTree(tree)
-  context.isStaticComponent &&=
-    elementBinds.length === 0 && nodeBinds.length === 0
+  context.isStaticComponent &&= elementBinds.length === 0
   context.isStaticTree &&= context.isStaticComponent
   subscriber.next(container)
 
@@ -83,22 +82,38 @@ export function wireInternal(
 
   for (const [node, nodeDescription] of nodeBinds) {
     switch (nodeDescription.type) {
-      case 'component':
-        subscription.add(run(container, nodeDescription, context, node))
+      case 'component': {
+        const nestedContext = {
+          ...context,
+          isStaticComponent: true,
+          isStaticTree: true,
+        }
+        subscription.add(run(container, nodeDescription, nestedContext, node))
+        context.isStaticTree &&= nestedContext.isStaticTree
         break
-      case 'children':
+      }
+      case 'children': {
+        const nestedContext = {
+          ...context,
+          isStaticComponent: true,
+          isStaticTree: true,
+        }
         subscription.add(
           wireChildrenComponent(
             nodeDescription,
             componentContext,
             description,
             container,
-            context,
+            nestedContext,
             node,
           ),
         )
+        context.isStaticTree &&= nestedContext.isStaticTree
         break
+      }
       case 'fragment':
+        context.isStaticComponent = false
+        context.isStaticTree = false
         bindFragmentChildren(nodeDescription, node, subscription, bindContext)
         break
     }
