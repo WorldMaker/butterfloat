@@ -9,13 +9,12 @@ import {
   ChildrenDescription,
   ComponentContext,
   ComponentDescription,
-  FragmentDescription,
   SimpleComponent,
   WiringContext,
 } from './component.js'
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
-import { BindingContext, bindElement } from './binding.js'
+import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -100,14 +99,7 @@ export function wireInternal(
         )
         break
       case 'fragment':
-        bindFragmentChildren(
-          nodeDescription,
-          node,
-          subscription,
-          context,
-          error,
-          complete,
-        )
+        bindFragmentChildren(nodeDescription, node, subscription, bindContext)
         break
     }
   }
@@ -152,56 +144,6 @@ function wireChildrenComponent(
     context,
     node,
   )
-}
-
-function bindFragmentChildren(
-  nodeDescription: FragmentDescription,
-  node: Node,
-  subscription: Subscription,
-  context: WiringContext,
-  error: (error: unknown) => void,
-  complete: () => void,
-) {
-  if (nodeDescription.childrenBind) {
-    subscription.add(
-      nodeDescription.childrenBind.subscribe({
-        next(child) {
-          const parent = node.parentElement
-          if (!parent) {
-            throw new Error(
-              'Attempted to bind children to an unattached fragment',
-            )
-          }
-          const placeholder = document.createComment(`${child.name} component`)
-          if (nodeDescription.childrenPrepend) {
-            parent.insertBefore(node, placeholder)
-          } else {
-            const next = node.nextSibling
-            if (next) {
-              parent.insertBefore(next, placeholder)
-            } else {
-              parent.append(placeholder)
-            }
-          }
-          subscription.add(
-            run(
-              parent,
-              {
-                type: 'component',
-                component: child,
-                properties: {},
-                children: [],
-              },
-              context,
-              placeholder,
-            ),
-          )
-        },
-        error,
-        complete,
-      }),
-    )
-  }
 }
 
 export function wire(

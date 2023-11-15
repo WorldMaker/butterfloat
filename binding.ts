@@ -12,6 +12,7 @@ import {
 import {
   ComponentRunner,
   ElementDescription,
+  FragmentDescription,
   WiringContext,
 } from './component.js'
 import { EventBinder } from './events.js'
@@ -189,4 +190,53 @@ export function bindElement(
   }
 
   return subscription
+}
+
+export function bindFragmentChildren(
+  nodeDescription: FragmentDescription,
+  node: Node,
+  subscription: Subscription,
+  context: BindingContext,
+) {
+  const { complete, error, componentRunner } = context
+  if (nodeDescription.childrenBind) {
+    subscription.add(
+      nodeDescription.childrenBind.subscribe({
+        next(child) {
+          const parent = node.parentElement
+          if (!parent) {
+            throw new Error(
+              'Attempted to bind children to an unattached fragment',
+            )
+          }
+          const placeholder = document.createComment(`${child.name} component`)
+          if (nodeDescription.childrenPrepend) {
+            parent.insertBefore(node, placeholder)
+          } else {
+            const next = node.nextSibling
+            if (next) {
+              parent.insertBefore(next, placeholder)
+            } else {
+              parent.append(placeholder)
+            }
+          }
+          subscription.add(
+            componentRunner(
+              parent,
+              {
+                type: 'component',
+                component: child,
+                properties: {},
+                children: [],
+              },
+              context,
+              placeholder,
+            ),
+          )
+        },
+        error,
+        complete,
+      }),
+    )
+  }
 }
