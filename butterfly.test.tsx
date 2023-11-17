@@ -1,15 +1,15 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { Observable, map, scan } from 'rxjs'
-import { StateSetter, atomic } from './atomic.js'
+import { StateSetter, butterfly } from './butterfly.js'
 import { Component } from './component.js'
 import { jsx } from './jsx.js'
 
-describe('atomic', () => {
+describe('butterfly', () => {
   it('is useful in functional components', () => {
     const example: Component = (_props, { bindEffect, events }) => {
       const click = events.click
-      const [toggle, setToggle] = atomic(false)
+      const [toggle, setToggle] = butterfly(false)
       bindEffect(click.pipe(scan((acc) => !acc, false)), (toggled: boolean) =>
         setToggle(toggled),
       )
@@ -34,7 +34,7 @@ describe('atomic', () => {
       readonly #setProgress: (progress: StateSetter<number>) => void
 
       constructor() {
-        ;[this.#progress, this.#setProgress] = atomic(0)
+        ;[this.#progress, this.#setProgress] = butterfly(0)
       }
 
       shake() {
