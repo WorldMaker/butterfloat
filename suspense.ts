@@ -4,8 +4,8 @@ import {
   ComponentDescription,
   FragmentDescription,
   WiringContext,
-} from './component'
-import { wire } from './wiring'
+} from './component.js'
+import { wire } from './wiring.js'
 
 export interface SuspenseProps {
   /**
