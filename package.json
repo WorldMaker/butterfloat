@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The greatest view engine the web has ever seen.",
   "exports": "./index.js",
   "scripts": {
