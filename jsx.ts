@@ -88,6 +88,12 @@ export interface ChildrenProperties {
   context?: ComponentContext<unknown>
 }
 
+/**
+ * Bind the children of a component.
+ *
+ * @param props Children properties
+ * @returns Children node
+ */
 export function Children({ context }: ChildrenProperties): NodeDescription {
   return {
     type: 'children',
@@ -95,6 +101,13 @@ export function Children({ context }: ChildrenProperties): NodeDescription {
   }
 }
 
+/**
+ * Create a fragment of other nodes
+ *
+ * @param attributes Attributes
+ * @param children Children
+ * @returns Fragment node
+ */
 export function Fragment(
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
@@ -109,6 +122,13 @@ export function Fragment(
   }
 }
 
+/**
+ * Describe a node. Builder for JSX and TSX tranformation.
+ * @param element An element to build
+ * @param attributes Attributes
+ * @param children Children
+ * @returns Node description
+ */
 export function jsx(
   element: string | Component,
   attributes: ButterfloatAttributes | null,

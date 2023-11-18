@@ -1,11 +1,18 @@
-import { Observable, Subscription } from 'rxjs'
+import { Observable } from 'rxjs'
 import { DefaultEvents } from './events'
 
+/**
+ * Handles an effect
+ */
 export type EffectHandler = <T>(
   observable: Observable<T>,
   effect: (item: T) => void,
 ) => void
 
+/**
+ * Context for a component. Dependency injection mechanism for
+ * effect binders and events proxies.
+ */
 export interface ComponentContext<Events = DefaultEvents> {
   events: Events
   bindEffect: EffectHandler
@@ -118,20 +125,11 @@ export type NodeDescription =
   | FragmentDescription
   | ChildrenDescription
 
-export interface WiringContext {
-  suspense?: Observable<boolean>
-  isStaticComponent: boolean
-  isStaticTree: boolean
-  preserveOnComplete?: boolean
-}
-
-export type ComponentRunner = (
-  container: Node,
-  description: ComponentDescription,
-  context: WiringContext,
-  placeholder: Node,
-) => Subscription
-
+/**
+ * Make a test context for testing context components.
+ * @param events Mocked events for testing
+ * @returns A test context for testing context component
+ */
 export function makeTestComponentContext<Events = DefaultEvents>(
   events: Events,
 ) {
@@ -149,6 +147,12 @@ export function makeTestComponentContext<Events = DefaultEvents>(
   return { context, effects, immediateEffects }
 }
 
+/**
+ * Does an element description have any binds?
+ *
+ * @param description Element description
+ * @returns True if any dynamic binds
+ */
 export function hasAnyBinds(description: ElementDescription) {
   return (
     description.childrenBind ||
