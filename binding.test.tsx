@@ -1,6 +1,7 @@
+import { JSDOM } from 'jsdom'
 import { deepEqual, fail } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { JSDOM } from 'jsdom'
+import { Subscription } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
 import {
   bindElement,
@@ -8,9 +9,8 @@ import {
   makeEntries,
   schedulable,
 } from './binding.js'
-import { jsx } from './jsx.js'
 import { ElementDescription } from './component.js'
-import { Subscription } from 'rxjs'
+import { jsx } from './jsx.js'
 
 describe('binding', () => {
   it("doesn't schedule immediates", () => {

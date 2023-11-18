@@ -5,19 +5,19 @@ import {
   animationFrameScheduler,
   delay,
 } from 'rxjs'
+import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 import {
   ChildrenDescription,
   Component,
   ComponentContext,
   ComponentDescription,
   SimpleComponent,
-  WiringContext,
 } from './component.js'
+import { Container, ContainerProps } from './container.js'
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
-import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 import { Suspense, wireSuspense } from './suspense.js'
-import { Container, ContainerProps } from './container.js'
+import { WiringContext } from './wiring-context.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -199,6 +199,16 @@ export function wire(
   )
 }
 
+/**
+ * Run a Butterfloat component
+ *
+ * @param container Container the component will be a child in
+ * @param component Component or description of component to run
+ * @param context Optional context for wiring concerns
+ * @param placeholder Optional placeholder child of the container to replace
+ * @param document Document to use for creating new nodes
+ * @returns Subscription
+ */
 export function run(
   container: Node,
   component: ComponentDescription | Component,

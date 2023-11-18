@@ -1,10 +1,11 @@
+import { JSDOM } from 'jsdom'
 import { equal } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { JSDOM } from 'jsdom'
-import { SimpleComponent, WiringContext } from './component.js'
-import { jsx } from './jsx.js'
-import { wire } from './wiring.js'
 import { firstValueFrom } from 'rxjs'
+import { SimpleComponent } from './component.js'
+import { jsx } from './jsx.js'
+import { WiringContext } from './wiring-context.js'
+import { wire } from './wiring.js'
 
 describe('wiring', () => {
   it('wires a simple static component', async () => {

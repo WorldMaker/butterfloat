@@ -9,13 +9,9 @@ import {
   merge,
   scan,
 } from 'rxjs'
-import {
-  ComponentRunner,
-  ElementDescription,
-  FragmentDescription,
-  WiringContext,
-} from './component.js'
+import { ElementDescription, FragmentDescription } from './component.js'
 import { EventBinder } from './events.js'
+import { ComponentRunner, WiringContext } from './wiring-context.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]

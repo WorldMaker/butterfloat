@@ -6,6 +6,11 @@ export type ObservableEvent<T> = Observable<T> & { [ButterfloatEvent]: unknown }
 
 export type DefaultEvents = Record<string, ObservableEvent<unknown>>
 
+/**
+ * Mock an event for testing purposes only
+ * @param observable Observable of events that occur
+ * @returns ObservableEvent
+ */
 export function makeTestEvent<T>(observable: Observable<T>) {
   const event = observable as ObservableEvent<T>
   event[ButterfloatEvent] = '⚠ Test Event'

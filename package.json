@@ -1,9 +1,9 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "The greatest view engine the web has ever seen.",
-  "main": "index.js",
+  "exports": "./index.js",
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint **/*.{ts,tsx}",
