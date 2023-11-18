@@ -2,6 +2,7 @@ import { Observable, combineLatest, distinctUntilChanged, map } from 'rxjs'
 import {
   Component,
   ComponentDescription,
+  ContextComponent,
   FragmentDescription,
   WiringContext,
 } from './component.js'
@@ -23,7 +24,7 @@ export interface SuspenseProps {
  *
  * @param _props Suspense Props
  */
-export const Suspense: Component = (_props: SuspenseProps) => {
+export const Suspense: ContextComponent<SuspenseProps> = () => {
   throw new Error('Suspense is a custom-wired component')
 }
 

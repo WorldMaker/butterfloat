@@ -17,6 +17,7 @@ import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 import { Suspense, wireSuspense } from './suspense.js'
+import { Container, ContainerProps } from './container.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -205,6 +206,20 @@ export function run(
   placeholder?: Node,
   document = globalThis.document,
 ) {
+  // Because Container requires the attach property, this only makes sense if passed a description
+  if ('type' in component && component.component === Container) {
+    const props = component.properties as unknown as ContainerProps
+    return props.attach(container).subscribe({
+      next(_value) {},
+      error(err) {
+        console.error('Error in container attachment', err)
+      },
+      complete() {
+        console.warn('Container attachment completed')
+      },
+    })
+  }
+
   const observable = wire(
     component,
     context ?? { isStaticComponent: true, isStaticTree: true },
