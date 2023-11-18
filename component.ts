@@ -12,12 +12,11 @@ export interface ComponentContext<Events = DefaultEvents> {
   bindImmediateEffect: EffectHandler
 }
 
-export type ContextComponent = (
-  // Want to be forgiving in what we accept as a "component"
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  props: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  context: ComponentContext<any>,
+// Want to be forgiving in what we accept as a "component"
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ContextComponent<Props = any, Events = any> = (
+  props: Props,
+  context: ComponentContext<Events>,
 ) => NodeDescription
 
 export type SimpleComponent = () => NodeDescription
