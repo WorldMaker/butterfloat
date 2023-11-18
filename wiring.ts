@@ -16,6 +16,7 @@ import {
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
+import { Suspense, wireSuspense } from './suspense.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -175,7 +176,7 @@ export function wire(
   component: ComponentDescription | Component,
   context: WiringContext,
   document = globalThis.document,
-) {
+): Observable<Node> {
   let description: ComponentDescription
   if ('type' in component) {
     description = component
@@ -186,6 +187,10 @@ export function wire(
       children: [],
       properties: {},
     }
+  }
+
+  if (description.component === Suspense) {
+    return wireSuspense(description, context, document)
   }
 
   return new Observable((subscriber: Subscriber<Node>) =>
