@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs'
-import { DefaultEvents } from './events'
+import { ButterfloatEvents, DefaultEvents } from './events.js'
 
 /**
  * Handles an effect
@@ -55,7 +55,7 @@ export type DefaultBind = Record<string, Observable<unknown>>
 
 export interface ButterfloatIntrinsicAttributes<
   Bind = DefaultBind,
-  Events = DefaultEvents,
+  Events = DefaultEvents & ButterfloatEvents,
 > extends ButterfloatAttributes {
   /**
    * Bind an observable to an DOM property.
