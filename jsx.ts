@@ -10,7 +10,7 @@ import {
   NodeDescription,
   DefaultBind,
 } from './component'
-import { DefaultEvents, ObservableEvent } from './events'
+import { ButterfloatEvents, DefaultEvents, ObservableEvent } from './events'
 
 namespace JSXInternal {
   export type Element = NodeDescription
@@ -66,7 +66,7 @@ namespace JSXInternal {
       ButterfloatIntrinsicAttributes<
         HtmlElementAttributesBind<HTMLElementTagNameMap[Property]> &
           DefaultBind,
-        HtmlEvents & DefaultEvents
+        HtmlEvents & ButterfloatEvents & DefaultEvents
       >
   }
 

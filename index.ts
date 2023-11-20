@@ -4,7 +4,6 @@ export { DefaultEvents, ObservableEvent, makeTestEvent } from './events.js'
 // Export the full component Model of types and all JSX tooling and utilities like butterfly/meta-components
 export * from './component.js'
 export * from './butterfly.js'
-export * from './container.js'
 export * from './jsx.js'
 export * from './suspense.js'
 

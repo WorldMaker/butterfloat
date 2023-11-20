@@ -4,6 +4,14 @@ const ButterfloatEvent = Symbol('Butterfloat Event')
 
 export type ObservableEvent<T> = Observable<T> & { [ButterfloatEvent]: unknown }
 
+export interface ButterfloatEvents {
+  /**
+   * Observe the raw HTMLElement. Useful as a last resort or for working on
+   * boundaries to vanilla JS components.
+   */
+  bfDomAttach?: ObservableEvent<HTMLElement>
+}
+
 export type DefaultEvents = Record<string, ObservableEvent<unknown>>
 
 /**
@@ -57,6 +65,11 @@ class EventProxyHandler {
     const subject = this.#subjects.get(event)
     if (!subject) {
       throw new Error(`Unhandled event subject: ${event[ButterfloatEvent]}`)
+    }
+
+    if (eventName === 'bfDomAttach') {
+      subject.next(element)
+      return new Subscription()
     }
 
     const observable = fromEvent(element, eventName)
