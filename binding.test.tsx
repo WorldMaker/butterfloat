@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom'
-import { deepEqual, fail } from 'node:assert/strict'
+import { deepEqual, equal, fail } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { Subscription } from 'rxjs'
+import { Subscription, firstValueFrom } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
 import {
   bindElement,
@@ -11,6 +11,7 @@ import {
 } from './binding.js'
 import { ElementDescription } from './component.js'
 import { jsx } from './jsx.js'
+import { ObservableEvent, makeEventProxy } from './events.js'
 
 describe('binding', () => {
   it("doesn't schedule immediates", () => {
@@ -107,6 +108,38 @@ describe('binding', () => {
       isStaticComponent: true,
       isStaticTree: true,
     })
+    subscription.unsubscribe()
+  })
+
+  it('binds a dom attachment', async () => {
+    const { window } = new JSDOM()
+    const { document } = window
+    const element = document.createElement('div')
+    const error = (error: unknown) => fail(error as Error | string)
+    const complete = () => {}
+    const subscription = new Subscription()
+    const { events, handler } = makeEventProxy('test component')
+    const bfDomAttach = events.attach as ObservableEvent<HTMLElement>
+    const elementPromise = firstValueFrom(bfDomAttach)
+    bindElement(
+      element,
+      (<div events={{ bfDomAttach }} />) as ElementDescription,
+      {
+        error,
+        complete,
+        componentRunner(_container, description, _context, _placeholder) {
+          throw new Error(
+            `attempted to run component ${description.component.name}`,
+          )
+        },
+        eventBinder: handler,
+        subscription,
+        isStaticComponent: true,
+        isStaticTree: true,
+      },
+    )
+    const actual = await elementPromise
+    equal(actual, element)
     subscription.unsubscribe()
   })
 })
