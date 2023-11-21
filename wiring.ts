@@ -224,9 +224,9 @@ export function run(
   return observable.subscribe({
     next(node) {
       if (previousNode) {
-        container.replaceChild(previousNode, node)
+        container.replaceChild(node, previousNode)
       } else if (placeholder) {
-        container.replaceChild(placeholder, node)
+        container.replaceChild(node, placeholder)
       } else {
         container.appendChild(node)
       }
