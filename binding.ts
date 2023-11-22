@@ -39,7 +39,10 @@ export function bindObjectKey(
       item[key] = value
     },
     error,
-    complete,
+    complete: () => {
+      console.debug(`${key.toString()} binding completed`, item)
+      complete()
+    },
   })
 }
 
@@ -54,7 +57,10 @@ export function bindObjectChanges(
       Object.assign(item, changes)
     },
     error,
-    complete,
+    complete: () => {
+      console.debug(`Change binding completed`, item)
+      complete()
+    },
   })
 }
 
@@ -180,7 +186,10 @@ export function bindElement(
           )
         },
         error,
-        complete,
+        complete: () => {
+          console.debug(`Children binding completed`, element)
+          complete()
+        },
       }),
     )
   }
