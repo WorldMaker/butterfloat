@@ -3,7 +3,7 @@ import {
   Subscriber,
   Subscription,
   animationFrameScheduler,
-  delay,
+  observeOn,
 } from 'rxjs'
 import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 import {
@@ -41,7 +41,7 @@ export function wireInternal(
     bindEffect(observable, effect) {
       context.isStaticComponent = false
       subscription.add(
-        observable.pipe(delay(0, animationFrameScheduler)).subscribe({
+        observable.pipe(observeOn(animationFrameScheduler)).subscribe({
           next: effect,
           error,
           complete: () => {
