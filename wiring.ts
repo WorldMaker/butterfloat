@@ -34,7 +34,6 @@ export function wireInternal(
   const error = (error: unknown) => {
     console.error(`Error in component ${description.component.name}`, error)
   }
-  const complete = () => subscriber.complete()
 
   const { events, handler } = makeEventProxy(description.component.name)
 
@@ -45,7 +44,12 @@ export function wireInternal(
         observable.pipe(delay(0, animationFrameScheduler)).subscribe({
           next: effect,
           error,
-          complete,
+          complete: () => {
+            console.debug(
+              `Effect in component ${description.component.name} completed`,
+            )
+            subscriber.complete()
+          },
         }),
       )
     },
@@ -55,7 +59,12 @@ export function wireInternal(
         observable.subscribe({
           next: effect,
           error,
-          complete,
+          complete: () => {
+            console.debug(
+              `Immediate effect in component ${description.component.name} completed`,
+            )
+            subscriber.complete()
+          },
         }),
       )
     },
@@ -78,7 +87,12 @@ export function wireInternal(
 
   const bindContext: BindingContext = {
     ...context,
-    complete,
+    complete: () => {
+      console.debug(
+        `Binding in component ${description.component.name} completed`,
+      )
+      subscriber.complete()
+    },
     error,
     componentRunner: run,
     eventBinder: handler,
