@@ -145,17 +145,19 @@ export function bindElement(
     }
   }
 
-  const scheduled = schedulables.map(([key, observable]) =>
-    makeEntries(key, observable),
-  )
-  subscription.add(
-    bindObjectChanges(
-      element,
-      bufferEntries(merge(...scheduled), suspense),
-      error,
-      complete,
-    ),
-  )
+  if (schedulables.length) {
+    const scheduled = schedulables.map(([key, observable]) =>
+      makeEntries(key, observable),
+    )
+    subscription.add(
+      bindObjectChanges(
+        element,
+        bufferEntries(merge(...scheduled), suspense),
+        error,
+        complete,
+      ),
+    )
+  }
 
   for (const [key, event] of Object.entries(description.events)) {
     subscription.add(eventBinder.applyEvent(event, element, key))
