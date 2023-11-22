@@ -54,7 +54,7 @@ interface HelloProps {
     to: string
 }
 
-function Hello({ to }: MainProps) {
+function Hello({ to }: HelloProps) {
     return <p className='hello'>Hello {to}</p>
 }
 
@@ -62,7 +62,7 @@ function Main() {
     return <Hello to="World" />
 }
 
-const container = document.getElementById('container')
+const container = document.getElementById('container')!
 run(container, Main)
 ```
 
@@ -85,9 +85,9 @@ component and has no way to change it in the future.
 
 In Butterfloat, static HTML looks _static_ and the only things that
 can dynamically change things are RxJS Observables and other
-Butterfloat components (which are secretly built into Observables).
-To add some dynamic changes to our we'll need to _bind_ an
-Observable.
+Butterfloat components (which, if you are curious, are wired into
+Observables). To add some dynamic changes to our we'll need to
+_bind_ an Observable.
 
 ```ts
 import { jsx, run } from 'butterfloat'
@@ -97,7 +97,7 @@ interface HelloProps {
     to: Observable<string>
 }
 
-function Hello({ to }: MainProps) {
+function Hello({ to }: HelloProps) {
     const innerText = to.pipe(
         map((to) => `Hello ${to}`)
     )
@@ -118,7 +118,7 @@ function Main() {
     return <Hello to={helloTo} />
 }
 
-const container = document.getElementById('container')
+const container = document.getElementById('container')!
 run(container, Main)
 ```
 
@@ -137,7 +137,7 @@ above.
 ## Let's Make it Interactable
 
 An application isn't all that exciting if you can't interact with it,
-so let's add a simple button to press to change it:
+so let's add a simple button to press to change it's mood:
 
 ```ts
 import { ComponentContext, ObservableEvent, butterfly, jsx, run } from 'butterfloat'
@@ -151,7 +151,7 @@ interface HelloEvents {
     toggleGreeting: ObservableEvent<MouseEvent>
 }
 
-export function Hello({ to }: MainProps, { events }: ComponentContext<HelloEvents>) {
+export function Hello({ to }: HelloProps, { events }: ComponentContext<HelloEvents>) {
     const { toggleGreeting } = events
 
     // starting with "Hello", alternate "Hello" and "Good Night"
@@ -185,7 +185,7 @@ function Main() {
     return <Hello to={helloTo} />
 }
 
-const container = document.getElementById('container')
+const container = document.getElementById('container')!
 run(container, Main)
 ```
 
@@ -225,8 +225,8 @@ describe('hello component', () => {
     )
     testScheduler.run(({ cold, expectObservable }) => {
       const eventValues = {
-        a: new MouseEvent(),
-        b: new MouseEvent(),
+        a: new MouseEvent('click'),
+        b: new MouseEvent('click'),
       }
       const events = cold('--a--b', eventValues)
       const expected = '   x-y--x'
@@ -235,7 +235,7 @@ describe('hello component', () => {
         y: 'Good Night World',
       }
       const toggleGreeting = makeTestEvent(events)
-      const context = makeTestComponentContext({ toggleGreeting })
+      const { context } = makeTestComponentContext({ toggleGreeting })
 
       const div = Hello({ to: of('World') }, context) as ElementDescription
       const p = div.children[0] as ElementDescription
@@ -244,5 +244,3 @@ describe('hello component', () => {
   })
 })
 ```
-
-<!-- TODO: Children bindings, butterflies -->
