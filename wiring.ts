@@ -153,9 +153,9 @@ function wireChildrenComponent(
   nodeDescription: ChildrenDescription,
   componentContext: ComponentContext<unknown>,
   description: ComponentDescription,
-  container: Node,
+  container: Element | DocumentFragment,
   context: WiringContext,
-  node: Node,
+  node: Element | CharacterData,
 ) {
   const parentDescription = contextChildrenDescriptions.get(
     nodeDescription.context ?? componentContext,
@@ -190,7 +190,7 @@ export function wire(
   component: ComponentDescription | Component,
   context: WiringContext,
   document = globalThis.document,
-): Observable<Node> {
+): Observable<Element> {
   let description: ComponentDescription
   if ('type' in component) {
     description = component
@@ -207,7 +207,7 @@ export function wire(
     return wireSuspense(description, context, document)
   }
 
-  return new Observable((subscriber: Subscriber<Node>) =>
+  return new Observable((subscriber: Subscriber<Element>) =>
     wireInternal(description, subscriber, context, document),
   )
 }
@@ -226,7 +226,7 @@ export function run(
   container: Node,
   component: ComponentDescription | Component,
   context?: WiringContext,
-  placeholder?: Node,
+  placeholder?: Element | CharacterData,
   document = globalThis.document,
 ) {
   const observable = wire(
@@ -234,13 +234,13 @@ export function run(
     context ?? { isStaticComponent: true, isStaticTree: true },
     document,
   )
-  let previousNode: Node | null = null
+  let previousNode: Element | null = null
   return observable.subscribe({
     next(node) {
       if (previousNode) {
-        container.replaceChild(node, previousNode)
+        previousNode.replaceWith(node)
       } else if (placeholder) {
-        container.replaceChild(node, placeholder)
+        placeholder.replaceWith(node)
       } else {
         container.appendChild(node)
       }

@@ -32,7 +32,7 @@ export function wireSuspense(
   description: ComponentDescription,
   context: WiringContext,
   document = globalThis.document,
-): Observable<Node> {
+): Observable<Element> {
   context.isStaticComponent = false
   context.isStaticTree = false
   const props = description.properties as unknown as SuspenseProps

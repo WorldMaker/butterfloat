@@ -39,7 +39,10 @@ export function bindObjectKey(
       item[key] = value
     },
     error,
-    complete,
+    complete: () => {
+      console.debug(`${key.toString()} binding completed`, item)
+      complete()
+    },
   })
 }
 
@@ -54,7 +57,10 @@ export function bindObjectChanges(
       Object.assign(item, changes)
     },
     error,
-    complete,
+    complete: () => {
+      console.debug(`Change binding completed`, item)
+      complete()
+    },
   })
 }
 
@@ -107,7 +113,7 @@ export function makeEntries(
 }
 
 export function bindElement(
-  element: HTMLElement,
+  element: Element,
   description: ElementDescription,
   context: BindingContext,
   document = globalThis.document,
@@ -139,17 +145,19 @@ export function bindElement(
     }
   }
 
-  const scheduled = schedulables.map(([key, observable]) =>
-    makeEntries(key, observable),
-  )
-  subscription.add(
-    bindObjectChanges(
-      element,
-      bufferEntries(merge(...scheduled), suspense),
-      error,
-      complete,
-    ),
-  )
+  if (schedulables.length) {
+    const scheduled = schedulables.map(([key, observable]) =>
+      makeEntries(key, observable),
+    )
+    subscription.add(
+      bindObjectChanges(
+        element,
+        bufferEntries(merge(...scheduled), suspense),
+        error,
+        complete,
+      ),
+    )
+  }
 
   for (const [key, event] of Object.entries(description.events)) {
     subscription.add(eventBinder.applyEvent(event, element, key))
@@ -180,7 +188,10 @@ export function bindElement(
           )
         },
         error,
-        complete,
+        complete: () => {
+          console.debug(`Children binding completed`, element)
+          complete()
+        },
       }),
     )
   }

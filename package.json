@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "The greatest view engine the web has ever seen.",
   "repository": "github:WorldMaker/butterfloat",
   "exports": "./index.js",
@@ -12,7 +12,7 @@
     "prettier:check": "prettier --check .",
     "pretest": "tsc -p .",
     "test": "node --test",
-    "prepublish": "npm run build"
+    "prepack": "npm run build"
   },
   "author": "Max Battcher <me@worldmaker.net>",
   "license": "MIT",

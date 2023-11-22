@@ -4,8 +4,8 @@ import {
   hasAnyBinds,
 } from './component.js'
 
-export type ElementBinds = Array<[HTMLElement, ElementDescription]>
-export type NodeBinds = Array<[Node, NodeDescription]>
+export type ElementBinds = Array<[Element, ElementDescription]>
+export type NodeBinds = Array<[CharacterData, NodeDescription]>
 
 export function buildElement(
   description: ElementDescription,
@@ -22,7 +22,7 @@ export function buildElement(
 
 export function buildNode(
   description: NodeDescription,
-  container: Node,
+  container: Element | DocumentFragment,
   elementBinds: ElementBinds,
   nodeBinds: NodeBinds,
   document = globalThis.document,
@@ -83,7 +83,7 @@ export function buildNode(
 
 export function buildTree(
   description: NodeDescription,
-  container: Node | null = null,
+  container: Element | DocumentFragment | null = null,
   elementBinds: ElementBinds = [],
   nodeBinds: NodeBinds = [],
   document = globalThis.document,
