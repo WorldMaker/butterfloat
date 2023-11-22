@@ -244,3 +244,17 @@ describe('hello component', () => {
   })
 })
 ```
+
+This is using [JSDOM][jsdom] as a Node capable implementation of
+`MouseEvent` for testing, which is likely a bit of overkill for this
+sort of testing. The `ElementDescription` and "JSX Description
+Language" of Butterfloat don't have any other DOM specifics at this
+level of component testing.
+
+## Next Steps
+
+At some point your components may need [State Management][state]
+of one sort or another.
+
+[jsdom]: https://github.com/jsdom/jsdom
+[state]: ./state.md
