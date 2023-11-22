@@ -28,7 +28,7 @@ export function makeTestEvent<T>(observable: Observable<T>) {
 export interface EventBinder {
   applyEvent(
     event: ObservableEvent<unknown>,
-    element: HTMLElement,
+    element: Element,
     eventName: string,
   ): Subscription
 }
@@ -59,7 +59,7 @@ class EventProxyHandler {
 
   applyEvent(
     event: ObservableEvent<unknown>,
-    element: HTMLElement,
+    element: Element,
     eventName: string,
   ) {
     const subject = this.#subjects.get(event)

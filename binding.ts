@@ -113,7 +113,7 @@ export function makeEntries(
 }
 
 export function bindElement(
-  element: HTMLElement,
+  element: Element,
   description: ElementDescription,
   context: BindingContext,
   document = globalThis.document,

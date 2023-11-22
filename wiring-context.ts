@@ -9,8 +9,8 @@ export interface WiringContext {
 }
 
 export type ComponentRunner = (
-  container: Node,
+  container: Element,
   description: ComponentDescription,
   context: WiringContext,
-  placeholder: Node,
+  placeholder: Element | CharacterData,
 ) => Subscription
