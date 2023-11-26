@@ -1,9 +1,9 @@
 # State Management: Butterflies and View Models
 
-Previously in the [Getting Started][started] tour was a
-tour of a basic Butterfloat application and a couple of sample
-components including adding basic dynamic binds to them and
-then basic interactivity. Let's push onto an example with a bit more
+Previously in the [Getting Started][started] tour we covered
+a basic Butterfloat application and a couple of sample components
+including adding basic dynamic binds to them and then basic
+interactivity. Let's push onto an example with a bit more
 internal state to juggle.
 
 ## Our Contrived Example
@@ -20,7 +20,7 @@ For a first pass, we might want to model some or all of this possible
 state directly in our component. The Butterfloat utility for state
 management here is imaginatively called `butterfly`.
 
-Let's add a few butterflies to represent our resources, with a very
+Let's add a few butterflies to represent our resources, with very
 simple HTML status bars.
 
 ```ts
@@ -32,11 +32,11 @@ export function Garden() {
     const [labor, setLabor] = butterfly(0)
 
     const moneyPercent = money.pipe(
-    map(money => money.toLocaleString(undefined, { style: 'percent '}))
+      map(money => money.toLocaleString(undefined, { style: 'percent '}))
     )
 
     const laborPercent = labor.pipe(
-    map(labor => labor.toLocaleString(undefined, { style: 'percent' }))
+      map(labor => labor.toLocaleString(undefined, { style: 'percent' }))
     )
 
     return (
@@ -86,11 +86,11 @@ function Garden(
     const [labor, setLabor] = butterfly(0)
 
     const moneyPercent = money.pipe(
-    map((money) => money.toLocaleString(undefined, { style: 'percent ' })),
+      map((money) => money.toLocaleString(undefined, { style: 'percent ' })),
     )
 
     const laborPercent = labor.pipe(
-    map((labor) => labor.toLocaleString(undefined, { style: 'percent' })),
+      map((labor) => labor.toLocaleString(undefined, { style: 'percent' })),
     )
 
     bindEffect(events.rake, () => {
@@ -124,7 +124,7 @@ the first time and think that it looks a lot like React's
 `useEffect`, except it takes an Observable as first parameter.
 
 As with `butterfly`, `bindEffect` is again much simpler than its
-React counter-part. In this case it is mostly a fun way to spell
+React counterpart. In this case it is mostly a fun way to spell
 `subscribe` to an Observable, but it does a few scheduling things
 and manages the Subscription lifetime (cleaning up on Component
 shutdown, for instance) for you.
@@ -139,17 +139,18 @@ bounds checking (we don't want to get into too much debt gardening,
 and our friendly neighborhood laborer probably will get upset if
 you over-schedule them, so we should avoid that).
 
-It also simplifies some testing if we break this Garden logic into
-its own classes. (As [Getting Started][started] showed, it is easy
-enough to navigate the JSX produced "Descriptions" of a component
-to test Observables, but that still ties you to the layout of your
-produced HTML.)
+We can pull this state management out into its own "view model"
+class. Doing so can simplify some testing if we break this Garden
+logic into its own class or classes. (As [Getting Started][started]
+showed, it is still easy enough to navigate the JSX produced
+"Descriptions" of a component to test Observables, but that still
+ties you to the layout of your produced HTML.)
 
-Furthermore, it will make it easier to refactor to more, smaller
-controls.
+Using shared view models may also make it easier to refactor to
+more, smaller controls using a shared view model class.
 
-Let's pull the logic as it currently is into its own "view model"
-class so that we can test it on its own.
+Let's pull the logic as it currently is into its own view model
+class so that we can test it on its own:
 
 ```ts
 import { StateSetter, butterfly } from 'butterfloat'
@@ -206,8 +207,8 @@ export class GardenState {
 
 We want to encapsulate our private API (the raw set states) from
 our public APIs (our Observables and Activities), so there's a bunch
-of "boilerplate" for Typescript types to up our private, `readonly`
-backing fields and our get-only properties.
+of "boilerplate" for Typescript types to setup our private,
+`readonly` backing fields and our get-only properties.
 
 The constructor itself is mostly just a cut-and-paste: as hinted at,
 `butterfly` doesn't know anything about components and isn't
@@ -216,7 +217,7 @@ observable state inside a View Model class as it was inside our
 components.
 
 It's just as simple to update our Garden component to use this VM
-instead of embedding its state:
+instead of directly embedding its state:
 
 ```ts
 import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
