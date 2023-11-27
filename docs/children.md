@@ -9,7 +9,7 @@ them or dynamically add children elements somewhere in the tree.
 
 To include the children of a component we use the `Children`
 system-defined component. This looks like a component to help remind
-that children may be dynamically bound and could change in the
+us that children may be dynamically bound and could change in the
 component's lifetime.
 
 A simple example of a fancy list wrapper:
@@ -74,7 +74,7 @@ import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 function DynamicList() {
   const children = concat(
     from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
-      delayWhen((_v, i) => interval(i * 500)),
+      delayWhen((v, i) => interval(i * 500)),
     ),
     NEVER,
   ).pipe(map((text) => () => <li>{text}</li>))
@@ -87,9 +87,10 @@ If you want to prepend instead of append, you can set the
 `childrenPrepend` attribute to true
 (`<li childrenBind={children} childrenPrepend />`).
 
-Children bind can be applied to components (hence why components
-need `<Children />` to display their children) and fragments as
-well.
+`childrenBind` can also be applied to components (hence why
+components need `<Children />` to display their children) and
+fragments as well (by expanding `<></>` to
+`<Fragment childrenBind={children}></Fragment>`).
 
 ## Next Steps
 
