@@ -88,7 +88,14 @@ If you want to prepend instead of append, you can set the
 (`<li childrenBind={children} childrenPrepend />`).
 
 Children bind can be applied to components (hence why components
-need `<Children />` to display their children)
+need `<Children />` to display their children) and fragments as
+well.
+
+## Next Steps
+
+If you have gotten this far in the general tour you might be
+interested in [Suspense and Advanced Binding][suspense].
 
 [started]: ./getting-started.md
 [state]: ./state.md
+[suspense]: ./suspense.md
