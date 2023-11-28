@@ -1,3 +1,5 @@
+butterfloat / [Exports](modules.md)
+
 # Butterfloat
 
 Butterfloat is a Knockout-inspired view engine using modern ESM via Typescript and pure RxJS observables.

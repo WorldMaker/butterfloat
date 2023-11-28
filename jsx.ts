@@ -29,13 +29,13 @@ namespace JSXInternal {
         IfEquals/WritableKeys: https://stackoverflow.com/questions/52443276/how-to-exclude-getter-only-properties-from-type-in-typescript/52473108#52473108
     */
 
-  type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X
+  export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X
     ? 1
     : 2) extends <T>() => T extends Y ? 1 : 2
     ? A
     : B
 
-  type WritableKeys<T> = {
+  export type WritableKeys<T> = {
     [P in keyof T]-?: IfEquals<
       { [Q in P]: T[P] },
       { -readonly [Q in P]: T[P] },
@@ -43,23 +43,23 @@ namespace JSXInternal {
     >
   }[keyof T]
 
-  type HtmlElementAttributes<T> = {
+  export type HtmlElementAttributes<T> = {
     [Property in WritableKeys<T> as T[Property] extends string | number
       ? Property
       : never]?: T[Property]
   }
 
-  type HtmlElementAttributesBind<T> = {
+  export type HtmlElementAttributesBind<T> = {
     [Property in WritableKeys<T> as T[Property] extends string | number
       ? Property
       : never]?: Observable<T[Property]>
   }
 
-  type HtmlEvents<EventMap = HTMLElementEventMap> = {
+  export type HtmlEvents<EventMap = HTMLElementEventMap> = {
     [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]>
   }
 
-  type HtmlElements = {
+  export type HtmlElements = {
     [Property in keyof HTMLElementTagNameMap]: HtmlElementAttributes<
       HTMLElementTagNameMap[Property]
     > &
