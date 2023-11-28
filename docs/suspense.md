@@ -183,5 +183,44 @@ suggests using Observable lifetimes for handling resource cleanup.
 but if you had other bindings that depended on that `wrappedVanilla`
 component you may not that empty `bindEffect` at all.
 
+## Completion versus Removal
+
+In Butterfloat, when a binding completes it signals completion for
+the entire component. By default when a component completes it is
+_removed_ at that time.
+
+This behavior may be surprising the first time it is encountered,
+but it is the behavior of least surprise in the long term. Rather
+than a component left in a dead, static, or only partially working
+state, it is removed as it seems to have finished its job.
+
+Butterfloat includes some `console.debug` output to help debug
+which type of binding may have completed. It is also suggested to
+try using [rxjs-spy][spy] to instrument your observables in debug
+builds. That can be a very useful debugging tool in general for
+Butterfloat applications.
+
+(You may also want to configure your production bundler, if you use
+one, to trim `console.debug`` lines from production builds if it
+doesn’t already. Though these completion logs should be rare in
+any case and many browsers ignore them when development consoles
+are not open.)
+
+As a last resort to help in complicated debugging scenarios, and as
+a building block to potential future features, you can force the
+`WiringContext` to preserve completed components in the DOM tree by setting the `preserveOnComplete` flag to true.
+
+`preserveOnComplete` probably isn’t the behavior you want in a
+production app, but partly exists because of proposed plans for
+static site generation (SSG), server-side rendering (SSR), and
+progressive enhancement scenarios where the completion versus
+removal relationship flips. In some of those cases you only want to
+serialize components that completed in server time and remove
+unfinished components to rerun on client side.
+
+Expect things to get more complicated in the future if such
+features are added.
+
 [children]: ./children.md
 [started]: ./getting-started.md
+[spy]: https://github.com/cartant/rxjs-spy
