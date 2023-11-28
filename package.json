@@ -12,7 +12,8 @@
     "prettier:check": "prettier --check .",
     "pretest": "tsc -p .",
     "test": "node --test",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "typedoc": "typedoc"
   },
   "author": "Max Battcher <me@worldmaker.net>",
   "license": "MIT",
