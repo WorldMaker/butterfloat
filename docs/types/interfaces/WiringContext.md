@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[wiring-context.ts:6](https://github.com/WorldMaker/butterfloat/blob/52b9e61/wiring-context.ts#L6)
+[wiring-context.ts:6](https://github.com/WorldMaker/butterfloat/blob/3689540/wiring-context.ts#L6)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[wiring-context.ts:7](https://github.com/WorldMaker/butterfloat/blob/52b9e61/wiring-context.ts#L7)
+[wiring-context.ts:7](https://github.com/WorldMaker/butterfloat/blob/3689540/wiring-context.ts#L7)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[wiring-context.ts:8](https://github.com/WorldMaker/butterfloat/blob/52b9e61/wiring-context.ts#L8)
+[wiring-context.ts:8](https://github.com/WorldMaker/butterfloat/blob/3689540/wiring-context.ts#L8)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[wiring-context.ts:5](https://github.com/WorldMaker/butterfloat/blob/52b9e61/wiring-context.ts#L5)
+[wiring-context.ts:5](https://github.com/WorldMaker/butterfloat/blob/3689540/wiring-context.ts#L5)

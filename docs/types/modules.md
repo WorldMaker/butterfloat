@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L35)
+[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L35)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[component.ts:52](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L52)
+[component.ts:52](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L52)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[component.ts:39](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L39)
+[component.ts:39](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L39)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[component.ts:31](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L31)
+[component.ts:31](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L31)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L24)
+[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L24)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[component.ts:54](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L54)
+[component.ts:54](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L54)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[events.ts:15](https://github.com/WorldMaker/butterfloat/blob/52b9e61/events.ts#L15)
+[events.ts:15](https://github.com/WorldMaker/butterfloat/blob/3689540/events.ts#L15)
 
 ___
 
@@ -174,7 +174,7 @@ Handles an effect
 
 #### Defined in
 
-[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L7)
+[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L7)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[component.ts:37](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L37)
+[component.ts:37](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L37)
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-[component.ts:33](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L33)
+[component.ts:33](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L33)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[component.ts:122](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L122)
+[component.ts:122](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L122)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[events.ts:5](https://github.com/WorldMaker/butterfloat/blob/52b9e61/events.ts#L5)
+[events.ts:5](https://github.com/WorldMaker/butterfloat/blob/3689540/events.ts#L5)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[component.ts:29](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L29)
+[component.ts:29](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L29)
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/52b9e61/butterfly.ts#L3)
+[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/3689540/butterfly.ts#L3)
 
 ## Functions
 
@@ -278,7 +278,7 @@ Children node
 
 #### Defined in
 
-[jsx.ts:97](https://github.com/WorldMaker/butterfloat/blob/52b9e61/jsx.ts#L97)
+[jsx.ts:97](https://github.com/WorldMaker/butterfloat/blob/3689540/jsx.ts#L97)
 
 ___
 
@@ -303,7 +303,7 @@ Fragment node
 
 #### Defined in
 
-[jsx.ts:111](https://github.com/WorldMaker/butterfloat/blob/52b9e61/jsx.ts#L111)
+[jsx.ts:111](https://github.com/WorldMaker/butterfloat/blob/3689540/jsx.ts#L111)
 
 ___
 
@@ -326,7 +326,7 @@ Suspend the bindings in children when a observable flag has been raised.
 
 #### Defined in
 
-[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L24)
+[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L24)
 
 ___
 
@@ -366,7 +366,7 @@ boundaries by thinking of it as a tuple of two to four things, three of which sh
 
 #### Defined in
 
-[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/52b9e61/butterfly.ts#L20)
+[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/3689540/butterfly.ts#L20)
 
 ___
 
@@ -390,7 +390,7 @@ True if any dynamic binds
 
 #### Defined in
 
-[component.ts:156](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L156)
+[component.ts:156](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L156)
 
 ___
 
@@ -416,7 +416,7 @@ Node description
 
 #### Defined in
 
-[jsx.ts:132](https://github.com/WorldMaker/butterfloat/blob/52b9e61/jsx.ts#L132)
+[jsx.ts:132](https://github.com/WorldMaker/butterfloat/blob/3689540/jsx.ts#L132)
 
 ___
 
@@ -452,7 +452,7 @@ A test context for testing context component
 
 #### Defined in
 
-[component.ts:133](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L133)
+[component.ts:133](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L133)
 
 ___
 
@@ -482,7 +482,7 @@ ObservableEvent
 
 #### Defined in
 
-[events.ts:22](https://github.com/WorldMaker/butterfloat/blob/52b9e61/events.ts#L22)
+[events.ts:22](https://github.com/WorldMaker/butterfloat/blob/3689540/events.ts#L22)
 
 ___
 
@@ -510,4 +510,4 @@ Subscription
 
 #### Defined in
 
-[wiring.ts:225](https://github.com/WorldMaker/butterfloat/blob/52b9e61/wiring.ts#L225)
+[wiring.ts:225](https://github.com/WorldMaker/butterfloat/blob/3689540/wiring.ts#L225)
