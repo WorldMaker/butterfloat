@@ -19,7 +19,7 @@ Show an optional component instead when suspended.
 
 #### Defined in
 
-[suspense.ts:19](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/suspense.ts#L19)
+[suspense.ts:19](https://github.com/WorldMaker/butterfloat/blob/c1ff555/suspense.ts#L19)
 
 ___
 
@@ -31,4 +31,4 @@ Suspend children bindings when true.
 
 #### Defined in
 
-[suspense.ts:15](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/suspense.ts#L15)
+[suspense.ts:15](https://github.com/WorldMaker/butterfloat/blob/c1ff555/suspense.ts#L15)

@@ -5,7 +5,9 @@ export { DefaultEvents, ObservableEvent, makeTestEvent } from './events.js'
 export * from './component.js'
 export * from './butterfly.js'
 export * from './jsx.js'
-export * from './suspense.js'
+
+// Export just the Suspense component
+export { Suspense, SuspenseProps } from './suspense.js'
 
 // Export just the outermost runtime
 export { run } from './wiring.js'

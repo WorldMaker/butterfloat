@@ -19,7 +19,7 @@ Bind children as they are observed.
 
 #### Defined in
 
-[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/component.ts#L45)
+[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L45)
 
 ___
 
@@ -31,4 +31,4 @@ When binding children, prepend them rather than the default append.
 
 #### Defined in
 
-[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/component.ts#L49)
+[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L49)

@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[jsx.ts:16](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/jsx.ts#L16)
+[jsx.ts:16](https://github.com/WorldMaker/butterfloat/blob/c1ff555/jsx.ts#L16)
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[jsx.ts:77](https://github.com/WorldMaker/butterfloat/blob/0ebaadf/jsx.ts#L77)
+[jsx.ts:77](https://github.com/WorldMaker/butterfloat/blob/c1ff555/jsx.ts#L77)
