@@ -27,7 +27,7 @@ effect binders and events proxies.
 
 #### Defined in
 
-[component.ts:18](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L18)
+[component.ts:18](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L18)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[component.ts:19](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L19)
+[component.ts:19](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L19)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[component.ts:17](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L17)
+[component.ts:17](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L17)

@@ -7,7 +7,7 @@
 | Name | Type |
 | :------ | :------ |
 | `Bind` | [`DefaultBind`](../modules.md#defaultbind) |
-| `Events` | [`DefaultEvents`](../modules.md#defaultevents) & `ButterfloatEvents` |
+| `Events` | [`DefaultEvents`](../modules.md#defaultevents) & [`ButterfloatEvents`](ButterfloatEvents.md) |
 
 ## Hierarchy
 
@@ -37,7 +37,7 @@ May use an non-immediate scheduler. Obvious exception: all "value" bindings are 
 
 #### Defined in
 
-[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L65)
+[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L65)
 
 ___
 
@@ -53,7 +53,7 @@ ButterfloatAttributes.childrenBind
 
 #### Defined in
 
-[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L45)
+[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L45)
 
 ___
 
@@ -69,7 +69,7 @@ ButterfloatAttributes.childrenPrepend
 
 #### Defined in
 
-[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L49)
+[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L49)
 
 ___
 
@@ -81,7 +81,7 @@ Bind an event observable to a DOM event.
 
 #### Defined in
 
-[component.ts:73](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L73)
+[component.ts:73](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L73)
 
 ___
 
@@ -93,4 +93,4 @@ Immediately bind an observable to a DOM property
 
 #### Defined in
 
-[component.ts:69](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L69)
+[component.ts:69](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L69)

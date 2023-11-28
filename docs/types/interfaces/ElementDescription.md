@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[component.ts:91](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L91)
+[component.ts:91](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L91)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L92)
+[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L92)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[component.ts:94](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L94)
+[component.ts:94](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L94)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[component.ts:95](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L95)
+[component.ts:95](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L95)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[component.ts:96](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L96)
+[component.ts:96](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L96)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[component.ts:90](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L90)
+[component.ts:90](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L90)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[component.ts:97](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L97)
+[component.ts:97](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L97)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[component.ts:93](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L93)
+[component.ts:93](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L93)
 
 ___
 
@@ -110,4 +110,4 @@ ___
 
 #### Defined in
 
-[component.ts:89](https://github.com/WorldMaker/butterfloat/blob/c1ff555/component.ts#L89)
+[component.ts:89](https://github.com/WorldMaker/butterfloat/blob/52b9e61/component.ts#L89)
