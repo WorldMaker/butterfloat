@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "The greatest view engine the web has ever seen.",
   "repository": "github:WorldMaker/butterfloat",
   "exports": "./index.js",
@@ -26,11 +26,11 @@
     "eslint-config-prettier": "^9.0.0",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
+    "typedoc": "^0.25.4",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "rxjs": "^7.8.1",
-    "typedoc": "^0.25.4",
-    "typedoc-plugin-markdown": "^3.17.1"
+    "rxjs": "^7.8.1"
   }
 }
