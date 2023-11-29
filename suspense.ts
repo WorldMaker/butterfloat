@@ -46,7 +46,7 @@ export function wireSuspense(
     attributes: {},
     children: description.children,
     childrenBind: description.childrenBind,
-    childrenPrepend: description.childrenPrepend,
+    childrenBindMode: description.childrenBindMode,
   }
   const mainComponent = () => mainComponentFragment
   const mainContext = { ...context, suspense }

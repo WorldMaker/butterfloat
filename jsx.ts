@@ -112,13 +112,14 @@ export function Fragment(
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
 ): NodeDescription {
-  const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
+  const { childrenBind, childrenBindMode, ...otherAttributes } =
+    attributes ?? {}
   return {
     type: 'fragment',
     attributes: otherAttributes,
     children,
     childrenBind,
-    childrenPrepend,
+    childrenBindMode,
   }
 }
 
@@ -139,7 +140,7 @@ export function jsx(
       bind,
       immediateBind,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
       events,
       ...otherAttributes
     } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
@@ -151,12 +152,12 @@ export function jsx(
       immediateBind: immediateBind ?? {},
       children,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
       events: events ?? {},
     }
   }
   if (typeof element === 'function') {
-    const { childrenBind, childrenPrepend, ...otherAttributes } =
+    const { childrenBind, childrenBindMode, ...otherAttributes } =
       attributes ?? {}
 
     // immediately flatten fragments or children
@@ -166,7 +167,7 @@ export function jsx(
         attributes: otherAttributes,
         children,
         childrenBind,
-        childrenPrepend,
+        childrenBindMode,
       }
     } else if (element === Children) {
       const { context } = otherAttributes
@@ -182,7 +183,7 @@ export function jsx(
       properties: otherAttributes,
       children,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
     }
   }
   throw new Error(`Unsupported jsx in ${element}`)

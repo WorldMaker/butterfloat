@@ -20,7 +20,7 @@ describe('jsx', () => {
       immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       events: {},
     }
     deepEqual(test, expected)
@@ -36,7 +36,7 @@ describe('jsx', () => {
       immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       events: {},
     }
     deepEqual(test, expected)
@@ -53,7 +53,7 @@ describe('jsx', () => {
       immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       events: {},
     }
     deepEqual(test, expected)
@@ -63,7 +63,7 @@ describe('jsx', () => {
     const TestComponent = () => <h1>Hello</h1>
     const childrenBind = of(TestComponent)
     const test = (
-      <h1 childrenBind={childrenBind} childrenPrepend>
+      <h1 childrenBind={childrenBind} childrenBindMode="replace">
         Hello
       </h1>
     )
@@ -75,7 +75,7 @@ describe('jsx', () => {
       immediateBind: {},
       children: ['Hello'],
       childrenBind,
-      childrenPrepend: true,
+      childrenBindMode: 'replace',
       events: {},
     }
     deepEqual(test, expected)
@@ -92,7 +92,7 @@ describe('jsx', () => {
       immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       events: { click },
     }
     deepEqual(test, expected)
@@ -107,7 +107,7 @@ describe('jsx', () => {
       properties: {},
       children: [],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -118,14 +118,16 @@ describe('jsx', () => {
       return <h1 events={{ click }}>Hello</h1>
     }
     const childrenBind = of(TestComponent)
-    const test = <TestComponent childrenBind={childrenBind} childrenPrepend />
+    const test = (
+      <TestComponent childrenBind={childrenBind} childrenBindMode="prepend" />
+    )
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
       properties: {},
       children: [],
       childrenBind,
-      childrenPrepend: true,
+      childrenBindMode: 'prepend',
     }
     deepEqual(test, expected)
   })
@@ -142,7 +144,7 @@ describe('jsx', () => {
       properties: { hello },
       children: [],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -165,7 +167,7 @@ describe('jsx', () => {
       properties: { hello },
       children: [],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -188,12 +190,12 @@ describe('jsx', () => {
           immediateBind: {},
           children: ['Hello'],
           childrenBind: undefined,
-          childrenPrepend: undefined,
+          childrenBindMode: undefined,
           events: {},
         },
       ],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -210,7 +212,7 @@ describe('jsx', () => {
       type: 'fragment',
       attributes: {},
       childrenBind,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       children: [
         {
           type: 'element',
@@ -220,7 +222,7 @@ describe('jsx', () => {
           immediateBind: {},
           children: ['Hello'],
           childrenBind: undefined,
-          childrenPrepend: undefined,
+          childrenBindMode: undefined,
           events: {},
         },
       ],

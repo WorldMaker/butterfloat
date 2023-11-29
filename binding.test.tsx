@@ -94,7 +94,20 @@ describe('binding', () => {
       complete,
       componentRunner(_container, description, _context, _placeholder) {
         throw new Error(
-          `attempted to run component ${description.component.name}`,
+          `attempted to run component ${
+            'name' in description
+              ? description.name
+              : description.component.name
+          }`,
+        )
+      },
+      componentWirer(description, _context) {
+        throw new Error(
+          `attempted to wire component ${
+            'name' in description
+              ? description.name
+              : description.component.name
+          }`,
         )
       },
       eventBinder: {
@@ -129,7 +142,20 @@ describe('binding', () => {
         complete,
         componentRunner(_container, description, _context, _placeholder) {
           throw new Error(
-            `attempted to run component ${description.component.name}`,
+            `attempted to run component ${
+              'name' in description
+                ? description.name
+                : description.component.name
+            }`,
+          )
+        },
+        componentWirer(description, _context) {
+          throw new Error(
+            `attempted to wire component ${
+              'name' in description
+                ? description.name
+                : description.component.name
+            }`,
           )
         },
         eventBinder: handler,

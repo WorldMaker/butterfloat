@@ -208,7 +208,8 @@ are not open.)
 
 As a last resort to help in complicated debugging scenarios, and as
 a building block to potential future features, you can force the
-`WiringContext` to preserve completed components in the DOM tree by setting the `preserveOnComplete` flag to true.
+`RuntimeOptions` to preserve completed components in the DOM tree
+by setting the `preserveOnComplete` flag to true.
 
 `preserveOnComplete` probably isn’t the behavior you want in a
 production app, but partly exists because of proposed plans for

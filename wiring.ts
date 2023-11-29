@@ -3,6 +3,7 @@ import {
   Subscriber,
   Subscription,
   animationFrameScheduler,
+  isObservable,
   observeOn,
 } from 'rxjs'
 import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
@@ -16,7 +17,7 @@ import {
 import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { Suspense, wireSuspense } from './suspense.js'
-import { WiringContext } from './wiring-context.js'
+import { ObservableComponent, WiringContext } from './wiring-context.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -94,7 +95,8 @@ export function wireInternal(
       subscriber.complete()
     },
     error,
-    componentRunner: run,
+    componentRunner: runInternal,
+    componentWirer: wire,
     eventBinder: handler,
     subscription,
   }
@@ -113,7 +115,9 @@ export function wireInternal(
           isStaticComponent: true,
           isStaticTree: true,
         }
-        subscription.add(run(container, nodeDescription, nestedContext, node))
+        subscription.add(
+          runInternal(container, nodeDescription, nestedContext, node),
+        )
         context.isStaticTree &&= nestedContext.isStaticTree
         break
       }
@@ -171,9 +175,9 @@ function wireChildrenComponent(
     attributes: {},
     children: [...parentDescription.children],
     childrenBind: parentDescription.childrenBind,
-    childrenPrepend: parentDescription.childrenPrepend,
+    childrenBindMode: parentDescription.childrenBindMode,
   })
-  return run(
+  return runInternal(
     container,
     {
       type: 'component',
@@ -187,10 +191,14 @@ function wireChildrenComponent(
 }
 
 export function wire(
-  component: ComponentDescription | Component,
+  component: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
   document = globalThis.document,
 ): Observable<Element> {
+  if (isObservable(component)) {
+    return component
+  }
+
   let description: ComponentDescription
   if ('type' in component) {
     description = component
@@ -222,18 +230,20 @@ export function wire(
  * @param document Document to use for creating new nodes
  * @returns Subscription
  */
-export function run(
+export function runInternal(
   container: Node,
-  component: ComponentDescription | Component,
+  component: ComponentDescription | Component | ObservableComponent,
   context?: WiringContext,
   placeholder?: Element | CharacterData,
   document = globalThis.document,
 ) {
-  const observable = wire(
-    component,
-    context ?? { isStaticComponent: true, isStaticTree: true },
-    document,
-  )
+  const observable = isObservable(component)
+    ? component
+    : wire(
+        component,
+        context ?? { isStaticComponent: true, isStaticTree: true },
+        document,
+      )
   let previousNode: Element | null = null
   return observable.subscribe({
     next(node) {
