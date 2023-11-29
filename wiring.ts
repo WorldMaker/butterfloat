@@ -231,7 +231,7 @@ export function wire(
  * @returns Subscription
  */
 export function runInternal(
-  container: Element,
+  container: Element | DocumentFragment,
   component: ComponentDescription | Component | ObservableComponent,
   context?: WiringContext,
   placeholder?: Element | CharacterData,

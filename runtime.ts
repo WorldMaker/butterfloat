@@ -22,7 +22,7 @@ export interface RuntimeOptions {
  * @returns Subscription
  */
 export function run(
-  container: Node,
+  container: Element,
   component: ComponentDescription | Component,
   options?: RuntimeOptions,
   placeholder?: Element | CharacterData,
