@@ -7,7 +7,7 @@
 ### Properties
 
 - [childrenBind](ChildrenBindable.md#childrenbind)
-- [childrenPrepend](ChildrenBindable.md#childrenprepend)
+- [childrenBindMode](ChildrenBindable.md#childrenbindmode)
 
 ## Properties
 
@@ -19,16 +19,16 @@ Bind children as they are observed.
 
 #### Defined in
 
-[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L45)
+[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L47)
 
 ___
 
-### childrenPrepend
+### childrenBindMode
 
-• `Optional` **childrenPrepend**: `boolean`
+• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
 
-When binding children, prepend them rather than the default append.
+Mode in which to bind children. Defaults to 'append'.
 
 #### Defined in
 
-[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L49)
+[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L51)
