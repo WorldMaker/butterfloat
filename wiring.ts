@@ -251,7 +251,10 @@ export function runInternal(
         try {
           previousNode.replaceWith(node)
         } catch (error) {
-          console.warn(error, previousNode)
+          console.warn(
+            'Cannot exactly replace previous node, replacing all children in container',
+            previousNode,
+          )
           container.replaceChildren(node)
         }
       } else if (placeholder) {
