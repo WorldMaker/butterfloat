@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom'
-import { deepEqual } from 'node:assert/strict'
+import { deepEqual, equal, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
   Observable,
@@ -186,8 +186,11 @@ describe('getting started documentation', () => {
       const toggleGreeting = makeTestEvent(events)
       const { context } = makeTestComponentContext({ toggleGreeting })
 
-      const div = Hello({ to: of('World') }, context) as ElementDescription
-      const p = div.children[0] as ElementDescription
+      const div = Hello({ to: of('World') }, context)
+      equal(div.type, 'element')
+      const p = div.children[0]
+      ok(typeof p === 'object')
+      equal(p.type, 'element')
       expectObservable(p.bind.innerText).toBe(expected, expectedValues)
     })
   })
