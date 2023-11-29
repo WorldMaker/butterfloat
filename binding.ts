@@ -226,9 +226,7 @@ export function bindFragmentChildren(
   if (nodeDescription.childrenBind) {
     const parent = node.parentElement
     if (!parent) {
-      throw new Error(
-        'Attempted to bind children to an unattached fragment',
-      )
+      throw new Error('Attempted to bind children to an unattached fragment')
     }
 
     if (nodeDescription.childrenBindMode === 'replace') {
