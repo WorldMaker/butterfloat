@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "The greatest view engine the web has ever seen.",
   "repository": "github:WorldMaker/butterfloat",
   "exports": "./index.js",

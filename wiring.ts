@@ -252,7 +252,7 @@ export function runInternal(
           previousNode.replaceWith(node)
         } catch (error) {
           console.warn(error, previousNode)
-          container.replaceChildren(previousNode)
+          container.replaceChildren(node)
         }
       } else if (placeholder) {
         placeholder.replaceWith(node)
