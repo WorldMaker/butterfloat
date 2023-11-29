@@ -13,7 +13,6 @@ import {
 import { TestScheduler } from 'rxjs/testing'
 import {
   ComponentContext,
-  ElementDescription,
   ObservableEvent,
   jsx,
   makeTestComponentContext,
