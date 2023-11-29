@@ -59,15 +59,23 @@ namespace JSXInternal {
     [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]>
   }
 
+  export type ButterfloatElementBind<T> = HtmlElementAttributesBind<T> &
+    DefaultBind
+
+  export type ButterfloatElementEvents = HtmlEvents &
+    ButterfloatEvents &
+    DefaultEvents
+
+  export type ButterfloatElementAttributes<T> = HtmlElementAttributes<T> &
+    ButterfloatIntrinsicAttributes<
+      ButterfloatElementBind<T>,
+      ButterfloatElementEvents
+    >
+
   export type HtmlElements = {
-    [Property in keyof HTMLElementTagNameMap]: HtmlElementAttributes<
+    [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes<
       HTMLElementTagNameMap[Property]
-    > &
-      ButterfloatIntrinsicAttributes<
-        HtmlElementAttributesBind<HTMLElementTagNameMap[Property]> &
-          DefaultBind,
-        HtmlEvents & ButterfloatEvents & DefaultEvents
-      >
+    >
   }
 
   export interface IntrinsicElements extends HtmlElements {
