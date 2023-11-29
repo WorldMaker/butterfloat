@@ -83,9 +83,13 @@ function DynamicList() {
 }
 ```
 
-If you want to prepend instead of append, you can set the
-`childrenPrepend` attribute to true
-(`<li childrenBind={children} childrenPrepend />`).
+This will append new children to the list as they are added.
+
+There is an attribute to control the children binding called
+`childrenBindMode`. It defaults to `'append'`, but can be set
+to `'prepend'` to add new items to the top of the list, or
+`'replace'` to only show the most recent component from the
+observable.
 
 `childrenBind` can also be applied to components (hence why
 components need `<Children />` to display their children) and

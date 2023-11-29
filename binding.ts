@@ -8,10 +8,16 @@ import {
   map,
   merge,
   scan,
+  switchMap,
 } from 'rxjs'
 import { ElementDescription, FragmentDescription } from './component.js'
 import { EventBinder } from './events.js'
-import { ComponentRunner, WiringContext } from './wiring-context.js'
+import {
+  ComponentRunner,
+  ComponentWirer,
+  ObservableComponent,
+  WiringContext,
+} from './wiring-context.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
@@ -22,6 +28,7 @@ export interface BindingContext extends WiringContext {
   complete: () => void
   eventBinder: EventBinder
   componentRunner: ComponentRunner
+  componentWirer: ComponentWirer
   subscription: Subscription
 }
 
@@ -121,6 +128,7 @@ export function bindElement(
   const {
     complete,
     componentRunner,
+    componentWirer,
     error,
     eventBinder,
     suspense,
@@ -164,27 +172,35 @@ export function bindElement(
   }
 
   if (description.childrenBind) {
+    if (description.childrenBindMode === 'replace') {
+      const placeholder = document.createComment(`replaceable child component`)
+      element.append(placeholder)
+      const activeChild = description.childrenBind.pipe(
+        switchMap((child) => componentWirer(child, context, document)),
+      )
+      const childComponent = activeChild as ObservableComponent
+      childComponent.name = `${element.nodeName} replaceable child`
+      subscription.add(
+        componentRunner(
+          element,
+          childComponent,
+          context,
+          placeholder,
+          document,
+        ),
+      )
+    }
     subscription.add(
       description.childrenBind.subscribe({
         next(child) {
           const placeholder = document.createComment(`${child.name} component`)
-          if (description.childrenPrepend) {
+          if (description.childrenBindMode === 'prepend') {
             element.prepend(placeholder)
           } else {
             element.append(placeholder)
           }
           subscription.add(
-            componentRunner(
-              element,
-              {
-                type: 'component',
-                component: child,
-                properties: {},
-                children: [],
-              },
-              context,
-              placeholder,
-            ),
+            componentRunner(element, child, context, placeholder, document),
           )
         },
         error,
@@ -201,23 +217,39 @@ export function bindElement(
 
 export function bindFragmentChildren(
   nodeDescription: FragmentDescription,
-  node: Node,
+  node: Element | CharacterData,
   subscription: Subscription,
   context: BindingContext,
+  document = globalThis.document,
 ) {
-  const { complete, error, componentRunner } = context
+  const { complete, error, componentRunner, componentWirer } = context
   if (nodeDescription.childrenBind) {
+    const parent = node.parentElement
+    if (!parent) {
+      throw new Error('Attempted to bind children to an unattached fragment')
+    }
+
+    if (nodeDescription.childrenBindMode === 'replace') {
+      const activeChild = nodeDescription.childrenBind.pipe(
+        switchMap((child) => componentWirer(child, context, document)),
+      )
+      const childComponent = activeChild as ObservableComponent
+      childComponent.name = `${node.nodeName} replaceable child`
+      subscription.add(
+        componentRunner(
+          node.parentElement,
+          childComponent,
+          context,
+          node,
+          document,
+        ),
+      )
+    }
     subscription.add(
       nodeDescription.childrenBind.subscribe({
         next(child) {
-          const parent = node.parentElement
-          if (!parent) {
-            throw new Error(
-              'Attempted to bind children to an unattached fragment',
-            )
-          }
           const placeholder = document.createComment(`${child.name} component`)
-          if (nodeDescription.childrenPrepend) {
+          if (nodeDescription.childrenBindMode === 'prepend') {
             parent.insertBefore(node, placeholder)
           } else {
             const next = node.nextSibling

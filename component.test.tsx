@@ -41,7 +41,7 @@ describe('component', () => {
       properties: { hello },
       children: [],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
 
     deepEqual(testComponent, expectedTestComponent)
@@ -61,7 +61,7 @@ describe('component', () => {
       events: { click },
       children: [],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -108,11 +108,11 @@ describe('component', () => {
           immediateBind: {},
           events: {},
           childrenBind: undefined,
-          childrenPrepend: undefined,
+          childrenBindMode: undefined,
         },
       ],
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
 
@@ -125,7 +125,7 @@ describe('component', () => {
       bind: {},
       immediateBind: {},
       childrenBind: undefined,
-      childrenPrepend: undefined,
+      childrenBindMode: undefined,
       events: {},
       children: [
         {
@@ -137,7 +137,7 @@ describe('component', () => {
           events: { click },
           children: [],
           childrenBind: undefined,
-          childrenPrepend: undefined,
+          childrenBindMode: undefined,
         },
         {
           type: 'children',

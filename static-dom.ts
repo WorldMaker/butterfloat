@@ -51,7 +51,10 @@ export function buildNode(
       return null
     }
     case 'fragment':
-      if (description.childrenBind && description.childrenPrepend) {
+      if (
+        description.childrenBind &&
+        description.childrenBindMode === 'prepend'
+      ) {
         const fragmentComment = document.createComment(
           'fragment children binding',
         )
@@ -68,7 +71,10 @@ export function buildNode(
         buildTree(child, container, elementBinds, nodeBinds, document)
       }
 
-      if (description.childrenBind && !description.childrenPrepend) {
+      if (
+        description.childrenBind &&
+        description.childrenBindMode !== 'prepend'
+      ) {
         const fragmentComment = document.createComment(
           'fragment children binding',
         )

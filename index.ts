@@ -15,5 +15,4 @@ export * from './jsx.js'
 export { Suspense, SuspenseProps } from './suspense.js'
 
 // Export just the outermost runtime
-export { WiringContext } from './wiring-context.js'
-export { run } from './wiring.js'
+export * from './runtime.js'

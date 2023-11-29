@@ -59,15 +59,23 @@ namespace JSXInternal {
     [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]>
   }
 
+  export type ButterfloatElementBind<T> = HtmlElementAttributesBind<T> &
+    DefaultBind
+
+  export type ButterfloatElementEvents = HtmlEvents &
+    ButterfloatEvents &
+    DefaultEvents
+
+  export type ButterfloatElementAttributes<T> = HtmlElementAttributes<T> &
+    ButterfloatIntrinsicAttributes<
+      ButterfloatElementBind<T>,
+      ButterfloatElementEvents
+    >
+
   export type HtmlElements = {
-    [Property in keyof HTMLElementTagNameMap]: HtmlElementAttributes<
+    [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes<
       HTMLElementTagNameMap[Property]
-    > &
-      ButterfloatIntrinsicAttributes<
-        HtmlElementAttributesBind<HTMLElementTagNameMap[Property]> &
-          DefaultBind,
-        HtmlEvents & ButterfloatEvents & DefaultEvents
-      >
+    >
   }
 
   export interface IntrinsicElements extends HtmlElements {
@@ -112,13 +120,14 @@ export function Fragment(
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
 ): NodeDescription {
-  const { childrenBind, childrenPrepend, ...otherAttributes } = attributes ?? {}
+  const { childrenBind, childrenBindMode, ...otherAttributes } =
+    attributes ?? {}
   return {
     type: 'fragment',
     attributes: otherAttributes,
     children,
     childrenBind,
-    childrenPrepend,
+    childrenBindMode,
   }
 }
 
@@ -139,7 +148,7 @@ export function jsx(
       bind,
       immediateBind,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
       events,
       ...otherAttributes
     } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
@@ -151,12 +160,12 @@ export function jsx(
       immediateBind: immediateBind ?? {},
       children,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
       events: events ?? {},
     }
   }
   if (typeof element === 'function') {
-    const { childrenBind, childrenPrepend, ...otherAttributes } =
+    const { childrenBind, childrenBindMode, ...otherAttributes } =
       attributes ?? {}
 
     // immediately flatten fragments or children
@@ -166,7 +175,7 @@ export function jsx(
         attributes: otherAttributes,
         children,
         childrenBind,
-        childrenPrepend,
+        childrenBindMode,
       }
     } else if (element === Children) {
       const { context } = otherAttributes
@@ -182,7 +191,7 @@ export function jsx(
       properties: otherAttributes,
       children,
       childrenBind,
-      childrenPrepend,
+      childrenBindMode,
     }
   }
   throw new Error(`Unsupported jsx in ${element}`)

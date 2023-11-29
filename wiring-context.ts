@@ -1,5 +1,5 @@
 import { Observable, Subscription } from 'rxjs'
-import { ComponentDescription } from './component.js'
+import { Component, ComponentDescription } from './component.js'
 
 export interface WiringContext {
   suspense?: Observable<boolean>
@@ -8,9 +8,18 @@ export interface WiringContext {
   preserveOnComplete?: boolean
 }
 
+export type ObservableComponent = Observable<Element> & { name: string }
+
 export type ComponentRunner = (
   container: Element,
-  description: ComponentDescription,
+  description: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
   placeholder: Element | CharacterData,
+  document?: Document,
 ) => Subscription
+
+export type ComponentWirer = (
+  component: ComponentDescription | Component | ObservableComponent,
+  context: WiringContext,
+  document?: Document,
+) => Observable<Element>

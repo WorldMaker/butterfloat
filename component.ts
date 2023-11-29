@@ -38,15 +38,17 @@ export type HtmlAttributes = Record<string, unknown>
 
 export type ChildrenBind = Observable<Component>
 
+export type ChildrenBindMode = 'append' | 'prepend' | 'replace'
+
 export interface ChildrenBindable {
   /**
    * Bind children as they are observed.
    */
   childrenBind?: ChildrenBind
   /**
-   * When binding children, prepend them rather than the default append.
+   * Mode in which to bind children. Defaults to 'append'.
    */
-  childrenPrepend?: boolean
+  childrenBindMode?: ChildrenBindMode
 }
 
 export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
@@ -85,33 +87,31 @@ export interface ButterfloatIntrinsicAttributes<
     So it makes sense to use full words. Users may work with these in their tests.
 */
 
-export interface ElementDescription<Bind = DefaultBind> {
+export interface ChildrenBindDescription {
+  children: JsxChildren
+  childrenBind?: ChildrenBind
+  childrenBindMode?: ChildrenBindMode
+}
+
+export interface ElementDescription<Bind = DefaultBind>
+  extends ChildrenBindDescription {
   type: 'element'
   element: string
   attributes: Attributes
   bind: Bind
   immediateBind: Bind
-  children: JsxChildren
-  childrenBind?: ChildrenBind
-  childrenPrepend?: boolean
   events: DefaultEvents
 }
 
-export interface ComponentDescription {
+export interface ComponentDescription extends ChildrenBindDescription {
   type: 'component'
   component: Component
   properties: Attributes
-  children: JsxChildren
-  childrenBind?: ChildrenBind
-  childrenPrepend?: boolean
 }
 
-export interface FragmentDescription {
+export interface FragmentDescription extends ChildrenBindDescription {
   type: 'fragment'
   attributes: Attributes
-  children: JsxChildren
-  childrenBind?: ChildrenBind
-  childrenPrepend?: boolean
 }
 
 export interface ChildrenDescription {

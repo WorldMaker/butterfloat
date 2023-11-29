@@ -21,7 +21,7 @@
 
 - [bind](ButterfloatIntrinsicAttributes.md#bind)
 - [childrenBind](ButterfloatIntrinsicAttributes.md#childrenbind)
-- [childrenPrepend](ButterfloatIntrinsicAttributes.md#childrenprepend)
+- [childrenBindMode](ButterfloatIntrinsicAttributes.md#childrenbindmode)
 - [events](ButterfloatIntrinsicAttributes.md#events)
 - [immediateBind](ButterfloatIntrinsicAttributes.md#immediatebind)
 
@@ -37,7 +37,7 @@ May use an non-immediate scheduler. Obvious exception: all "value" bindings are 
 
 #### Defined in
 
-[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L65)
+[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L67)
 
 ___
 
@@ -53,23 +53,23 @@ ButterfloatAttributes.childrenBind
 
 #### Defined in
 
-[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L45)
+[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L47)
 
 ___
 
-### childrenPrepend
+### childrenBindMode
 
-• `Optional` **childrenPrepend**: `boolean`
+• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
 
-When binding children, prepend them rather than the default append.
+Mode in which to bind children. Defaults to 'append'.
 
 #### Inherited from
 
-ButterfloatAttributes.childrenPrepend
+ButterfloatAttributes.childrenBindMode
 
 #### Defined in
 
-[component.ts:49](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L49)
+[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L51)
 
 ___
 
@@ -81,7 +81,7 @@ Bind an event observable to a DOM event.
 
 #### Defined in
 
-[component.ts:73](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L73)
+[component.ts:75](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L75)
 
 ___
 
@@ -93,4 +93,4 @@ Immediately bind an observable to a DOM property
 
 #### Defined in
 
-[component.ts:69](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L69)
+[component.ts:71](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L71)

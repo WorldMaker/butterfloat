@@ -2,6 +2,12 @@
 
 # Interface: FragmentDescription
 
+## Hierarchy
+
+- [`ChildrenBindDescription`](ChildrenBindDescription.md)
+
+  ↳ **`FragmentDescription`**
+
 ## Table of contents
 
 ### Properties
@@ -9,7 +15,7 @@
 - [attributes](FragmentDescription.md#attributes)
 - [children](FragmentDescription.md#children)
 - [childrenBind](FragmentDescription.md#childrenbind)
-- [childrenPrepend](FragmentDescription.md#childrenprepend)
+- [childrenBindMode](FragmentDescription.md#childrenbindmode)
 - [type](FragmentDescription.md#type)
 
 ## Properties
@@ -20,7 +26,7 @@
 
 #### Defined in
 
-[component.ts:111](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L111)
+[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L114)
 
 ___
 
@@ -28,9 +34,13 @@ ___
 
 • **children**: [`JsxChildren`](../modules.md#jsxchildren)
 
+#### Inherited from
+
+[ChildrenBindDescription](ChildrenBindDescription.md).[children](ChildrenBindDescription.md#children)
+
 #### Defined in
 
-[component.ts:112](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L112)
+[component.ts:91](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L91)
 
 ___
 
@@ -38,19 +48,27 @@ ___
 
 • `Optional` **childrenBind**: [`ChildrenBind`](../modules.md#childrenbind)
 
+#### Inherited from
+
+[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBind](ChildrenBindDescription.md#childrenbind)
+
 #### Defined in
 
-[component.ts:113](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L113)
+[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L92)
 
 ___
 
-### childrenPrepend
+### childrenBindMode
 
-• `Optional` **childrenPrepend**: `boolean`
+• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
+
+#### Inherited from
+
+[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBindMode](ChildrenBindDescription.md#childrenbindmode)
 
 #### Defined in
 
-[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L114)
+[component.ts:93](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L93)
 
 ___
 
@@ -60,4 +78,4 @@ ___
 
 #### Defined in
 
-[component.ts:110](https://github.com/WorldMaker/butterfloat/blob/3689540/component.ts#L110)
+[component.ts:113](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L113)
