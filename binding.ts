@@ -189,27 +189,30 @@ export function bindElement(
           document,
         ),
       )
+    } else {
+      subscription.add(
+        description.childrenBind.subscribe({
+          next(child) {
+            const placeholder = document.createComment(
+              `${child.name} component`,
+            )
+            if (description.childrenBindMode === 'prepend') {
+              element.prepend(placeholder)
+            } else {
+              element.append(placeholder)
+            }
+            subscription.add(
+              componentRunner(element, child, context, placeholder, document),
+            )
+          },
+          error,
+          complete: () => {
+            console.debug(`Children binding completed`, element)
+            complete()
+          },
+        }),
+      )
     }
-    subscription.add(
-      description.childrenBind.subscribe({
-        next(child) {
-          const placeholder = document.createComment(`${child.name} component`)
-          if (description.childrenBindMode === 'prepend') {
-            element.prepend(placeholder)
-          } else {
-            element.append(placeholder)
-          }
-          subscription.add(
-            componentRunner(element, child, context, placeholder, document),
-          )
-        },
-        error,
-        complete: () => {
-          console.debug(`Children binding completed`, element)
-          complete()
-        },
-      }),
-    )
   }
 
   return subscription
@@ -244,38 +247,41 @@ export function bindFragmentChildren(
           document,
         ),
       )
-    }
-    subscription.add(
-      nodeDescription.childrenBind.subscribe({
-        next(child) {
-          const placeholder = document.createComment(`${child.name} component`)
-          if (nodeDescription.childrenBindMode === 'prepend') {
-            parent.insertBefore(node, placeholder)
-          } else {
-            const next = node.nextSibling
-            if (next) {
-              parent.insertBefore(next, placeholder)
+    } else {
+      subscription.add(
+        nodeDescription.childrenBind.subscribe({
+          next(child) {
+            const placeholder = document.createComment(
+              `${child.name} component`,
+            )
+            if (nodeDescription.childrenBindMode === 'prepend') {
+              parent.insertBefore(node, placeholder)
             } else {
-              parent.append(placeholder)
+              const next = node.nextSibling
+              if (next) {
+                parent.insertBefore(next, placeholder)
+              } else {
+                parent.append(placeholder)
+              }
             }
-          }
-          subscription.add(
-            componentRunner(
-              parent,
-              {
-                type: 'component',
-                component: child,
-                properties: {},
-                children: [],
-              },
-              context,
-              placeholder,
-            ),
-          )
-        },
-        error,
-        complete,
-      }),
-    )
+            subscription.add(
+              componentRunner(
+                parent,
+                {
+                  type: 'component',
+                  component: child,
+                  properties: {},
+                  children: [],
+                },
+                context,
+                placeholder,
+              ),
+            )
+          },
+          error,
+          complete,
+        }),
+      )
+    }
   }
 }
