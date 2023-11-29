@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[component.ts:119](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L119)
+[component.ts:119](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L119)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[component.ts:118](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L118)
+[component.ts:118](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L118)

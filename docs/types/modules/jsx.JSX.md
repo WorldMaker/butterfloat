@@ -12,6 +12,9 @@
 
 ### Type Aliases
 
+- [ButterfloatElementAttributes](jsx.JSX.md#butterfloatelementattributes)
+- [ButterfloatElementBind](jsx.JSX.md#butterfloatelementbind)
+- [ButterfloatElementEvents](jsx.JSX.md#butterfloatelementevents)
 - [Element](jsx.JSX.md#element)
 - [HtmlElementAttributes](jsx.JSX.md#htmlelementattributes)
 - [HtmlElementAttributesBind](jsx.JSX.md#htmlelementattributesbind)
@@ -23,13 +26,55 @@
 
 ## Type Aliases
 
+### ButterfloatElementAttributes
+
+Ƭ **ButterfloatElementAttributes**\<`T`\>: [`HtmlElementAttributes`](jsx.JSX.md#htmlelementattributes)\<`T`\> & [`ButterfloatIntrinsicAttributes`](../interfaces/ButterfloatIntrinsicAttributes.md)\<[`ButterfloatElementBind`](jsx.JSX.md#butterfloatelementbind)\<`T`\>, [`ButterfloatElementEvents`](jsx.JSX.md#butterfloatelementevents)\>
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Defined in
+
+[jsx.ts:69](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L69)
+
+___
+
+### ButterfloatElementBind
+
+Ƭ **ButterfloatElementBind**\<`T`\>: [`HtmlElementAttributesBind`](jsx.JSX.md#htmlelementattributesbind)\<`T`\> & [`DefaultBind`](../modules.md#defaultbind)
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Defined in
+
+[jsx.ts:62](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L62)
+
+___
+
+### ButterfloatElementEvents
+
+Ƭ **ButterfloatElementEvents**: [`HtmlEvents`](jsx.JSX.md#htmlevents) & [`ButterfloatEvents`](../interfaces/ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)
+
+#### Defined in
+
+[jsx.ts:65](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L65)
+
+___
+
 ### Element
 
 Ƭ **Element**: [`NodeDescription`](../modules.md#nodedescription)
 
 #### Defined in
 
-[jsx.ts:16](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L16)
+[jsx.ts:16](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L16)
 
 ___
 
@@ -45,7 +90,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L46)
+[jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L46)
 
 ___
 
@@ -61,17 +106,17 @@ ___
 
 #### Defined in
 
-[jsx.ts:52](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L52)
+[jsx.ts:52](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L52)
 
 ___
 
 ### HtmlElements
 
-Ƭ **HtmlElements**: \{ [Property in keyof HTMLElementTagNameMap]: HtmlElementAttributes\<HTMLElementTagNameMap[Property]\> & ButterfloatIntrinsicAttributes\<HtmlElementAttributesBind\<HTMLElementTagNameMap[Property]\> & DefaultBind, HtmlEvents & ButterfloatEvents & DefaultEvents\> }
+Ƭ **HtmlElements**: \{ [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes\<HTMLElementTagNameMap[Property]\> }
 
 #### Defined in
 
-[jsx.ts:62](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L62)
+[jsx.ts:75](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L75)
 
 ___
 
@@ -87,7 +132,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:58](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L58)
+[jsx.ts:58](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L58)
 
 ___
 
@@ -106,7 +151,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:32](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L32)
+[jsx.ts:32](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L32)
 
 ___
 
@@ -116,7 +161,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:77](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L77)
+[jsx.ts:85](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L85)
 
 ___
 
@@ -132,4 +177,4 @@ ___
 
 #### Defined in
 
-[jsx.ts:38](https://github.com/WorldMaker/butterfloat/blob/65246bd/jsx.ts#L38)
+[jsx.ts:38](https://github.com/WorldMaker/butterfloat/blob/290ead7/jsx.ts#L38)

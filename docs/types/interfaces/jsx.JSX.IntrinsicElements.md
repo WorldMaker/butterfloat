@@ -135,7 +135,7 @@
 
 ### a
 
-• **a**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLAnchorElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLAnchorElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **a**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLAnchorElement`\>
 
 #### Inherited from
 
@@ -149,7 +149,7 @@ ___
 
 ### abbr
 
-• **abbr**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **abbr**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -163,7 +163,7 @@ ___
 
 ### address
 
-• **address**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **address**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -177,7 +177,7 @@ ___
 
 ### area
 
-• **area**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLAreaElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLAreaElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **area**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLAreaElement`\>
 
 #### Inherited from
 
@@ -191,7 +191,7 @@ ___
 
 ### article
 
-• **article**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **article**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -205,7 +205,7 @@ ___
 
 ### aside
 
-• **aside**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **aside**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -219,7 +219,7 @@ ___
 
 ### audio
 
-• **audio**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLAudioElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLAudioElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **audio**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLAudioElement`\>
 
 #### Inherited from
 
@@ -233,7 +233,7 @@ ___
 
 ### b
 
-• **b**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **b**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -247,7 +247,7 @@ ___
 
 ### base
 
-• **base**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLBaseElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLBaseElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **base**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLBaseElement`\>
 
 #### Inherited from
 
@@ -261,7 +261,7 @@ ___
 
 ### bdi
 
-• **bdi**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **bdi**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -275,7 +275,7 @@ ___
 
 ### bdo
 
-• **bdo**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **bdo**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -289,7 +289,7 @@ ___
 
 ### blockquote
 
-• **blockquote**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLQuoteElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLQuoteElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **blockquote**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLQuoteElement`\>
 
 #### Inherited from
 
@@ -303,7 +303,7 @@ ___
 
 ### body
 
-• **body**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLBodyElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLBodyElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **body**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLBodyElement`\>
 
 #### Inherited from
 
@@ -317,7 +317,7 @@ ___
 
 ### br
 
-• **br**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLBRElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLBRElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **br**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLBRElement`\>
 
 #### Inherited from
 
@@ -331,7 +331,7 @@ ___
 
 ### button
 
-• **button**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLButtonElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLButtonElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **button**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLButtonElement`\>
 
 #### Inherited from
 
@@ -345,7 +345,7 @@ ___
 
 ### canvas
 
-• **canvas**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLCanvasElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLCanvasElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **canvas**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLCanvasElement`\>
 
 #### Inherited from
 
@@ -359,7 +359,7 @@ ___
 
 ### caption
 
-• **caption**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableCaptionElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableCaptionElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **caption**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableCaptionElement`\>
 
 #### Inherited from
 
@@ -373,7 +373,7 @@ ___
 
 ### cite
 
-• **cite**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **cite**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -387,7 +387,7 @@ ___
 
 ### code
 
-• **code**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **code**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -401,7 +401,7 @@ ___
 
 ### col
 
-• **col**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableColElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableColElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **col**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableColElement`\>
 
 #### Inherited from
 
@@ -415,7 +415,7 @@ ___
 
 ### colgroup
 
-• **colgroup**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableColElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableColElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **colgroup**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableColElement`\>
 
 #### Inherited from
 
@@ -429,7 +429,7 @@ ___
 
 ### data
 
-• **data**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDataElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDataElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **data**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDataElement`\>
 
 #### Inherited from
 
@@ -443,7 +443,7 @@ ___
 
 ### datalist
 
-• **datalist**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDataListElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDataListElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **datalist**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDataListElement`\>
 
 #### Inherited from
 
@@ -457,7 +457,7 @@ ___
 
 ### dd
 
-• **dd**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **dd**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -471,7 +471,7 @@ ___
 
 ### del
 
-• **del**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLModElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLModElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **del**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLModElement`\>
 
 #### Inherited from
 
@@ -485,7 +485,7 @@ ___
 
 ### details
 
-• **details**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDetailsElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDetailsElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **details**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDetailsElement`\>
 
 #### Inherited from
 
@@ -499,7 +499,7 @@ ___
 
 ### dfn
 
-• **dfn**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **dfn**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -513,7 +513,7 @@ ___
 
 ### dialog
 
-• **dialog**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDialogElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDialogElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **dialog**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDialogElement`\>
 
 #### Inherited from
 
@@ -527,7 +527,7 @@ ___
 
 ### div
 
-• **div**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDivElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDivElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **div**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDivElement`\>
 
 #### Inherited from
 
@@ -541,7 +541,7 @@ ___
 
 ### dl
 
-• **dl**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLDListElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLDListElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **dl**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLDListElement`\>
 
 #### Inherited from
 
@@ -555,7 +555,7 @@ ___
 
 ### dt
 
-• **dt**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **dt**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -569,7 +569,7 @@ ___
 
 ### em
 
-• **em**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **em**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -583,7 +583,7 @@ ___
 
 ### embed
 
-• **embed**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLEmbedElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLEmbedElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **embed**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLEmbedElement`\>
 
 #### Inherited from
 
@@ -597,7 +597,7 @@ ___
 
 ### fieldset
 
-• **fieldset**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLFieldSetElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLFieldSetElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **fieldset**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLFieldSetElement`\>
 
 #### Inherited from
 
@@ -611,7 +611,7 @@ ___
 
 ### figcaption
 
-• **figcaption**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **figcaption**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -625,7 +625,7 @@ ___
 
 ### figure
 
-• **figure**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **figure**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -639,7 +639,7 @@ ___
 
 ### footer
 
-• **footer**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **footer**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -653,7 +653,7 @@ ___
 
 ### form
 
-• **form**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLFormElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLFormElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **form**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLFormElement`\>
 
 #### Inherited from
 
@@ -667,7 +667,7 @@ ___
 
 ### h1
 
-• **h1**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h1**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -681,7 +681,7 @@ ___
 
 ### h2
 
-• **h2**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h2**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -695,7 +695,7 @@ ___
 
 ### h3
 
-• **h3**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h3**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -709,7 +709,7 @@ ___
 
 ### h4
 
-• **h4**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h4**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -723,7 +723,7 @@ ___
 
 ### h5
 
-• **h5**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h5**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -737,7 +737,7 @@ ___
 
 ### h6
 
-• **h6**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadingElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadingElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **h6**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadingElement`\>
 
 #### Inherited from
 
@@ -751,7 +751,7 @@ ___
 
 ### head
 
-• **head**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHeadElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHeadElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **head**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHeadElement`\>
 
 #### Inherited from
 
@@ -765,7 +765,7 @@ ___
 
 ### header
 
-• **header**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **header**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -779,7 +779,7 @@ ___
 
 ### hgroup
 
-• **hgroup**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **hgroup**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -793,7 +793,7 @@ ___
 
 ### hr
 
-• **hr**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHRElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHRElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **hr**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHRElement`\>
 
 #### Inherited from
 
@@ -807,7 +807,7 @@ ___
 
 ### html
 
-• **html**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLHtmlElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLHtmlElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **html**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLHtmlElement`\>
 
 #### Inherited from
 
@@ -821,7 +821,7 @@ ___
 
 ### i
 
-• **i**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **i**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -835,7 +835,7 @@ ___
 
 ### iframe
 
-• **iframe**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLIFrameElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLIFrameElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **iframe**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLIFrameElement`\>
 
 #### Inherited from
 
@@ -849,7 +849,7 @@ ___
 
 ### img
 
-• **img**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLImageElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLImageElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **img**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLImageElement`\>
 
 #### Inherited from
 
@@ -863,7 +863,7 @@ ___
 
 ### input
 
-• **input**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLInputElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLInputElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **input**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLInputElement`\>
 
 #### Inherited from
 
@@ -877,7 +877,7 @@ ___
 
 ### ins
 
-• **ins**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLModElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLModElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **ins**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLModElement`\>
 
 #### Inherited from
 
@@ -891,7 +891,7 @@ ___
 
 ### kbd
 
-• **kbd**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **kbd**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -905,7 +905,7 @@ ___
 
 ### label
 
-• **label**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLLabelElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLLabelElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **label**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLLabelElement`\>
 
 #### Inherited from
 
@@ -919,7 +919,7 @@ ___
 
 ### legend
 
-• **legend**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLLegendElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLLegendElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **legend**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLLegendElement`\>
 
 #### Inherited from
 
@@ -933,7 +933,7 @@ ___
 
 ### li
 
-• **li**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLLIElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLLIElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **li**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLLIElement`\>
 
 #### Inherited from
 
@@ -947,7 +947,7 @@ ___
 
 ### link
 
-• **link**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLLinkElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLLinkElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **link**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLLinkElement`\>
 
 #### Inherited from
 
@@ -961,7 +961,7 @@ ___
 
 ### main
 
-• **main**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **main**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -975,7 +975,7 @@ ___
 
 ### map
 
-• **map**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLMapElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLMapElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **map**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLMapElement`\>
 
 #### Inherited from
 
@@ -989,7 +989,7 @@ ___
 
 ### mark
 
-• **mark**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **mark**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1003,7 +1003,7 @@ ___
 
 ### menu
 
-• **menu**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLMenuElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLMenuElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **menu**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLMenuElement`\>
 
 #### Inherited from
 
@@ -1017,7 +1017,7 @@ ___
 
 ### meta
 
-• **meta**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLMetaElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLMetaElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **meta**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLMetaElement`\>
 
 #### Inherited from
 
@@ -1031,7 +1031,7 @@ ___
 
 ### meter
 
-• **meter**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLMeterElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLMeterElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **meter**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLMeterElement`\>
 
 #### Inherited from
 
@@ -1045,7 +1045,7 @@ ___
 
 ### nav
 
-• **nav**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **nav**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1059,7 +1059,7 @@ ___
 
 ### noscript
 
-• **noscript**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **noscript**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1073,7 +1073,7 @@ ___
 
 ### object
 
-• **object**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLObjectElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLObjectElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **object**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLObjectElement`\>
 
 #### Inherited from
 
@@ -1087,7 +1087,7 @@ ___
 
 ### ol
 
-• **ol**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLOListElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLOListElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **ol**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLOListElement`\>
 
 #### Inherited from
 
@@ -1101,7 +1101,7 @@ ___
 
 ### optgroup
 
-• **optgroup**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLOptGroupElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLOptGroupElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **optgroup**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLOptGroupElement`\>
 
 #### Inherited from
 
@@ -1115,7 +1115,7 @@ ___
 
 ### option
 
-• **option**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLOptionElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLOptionElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **option**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLOptionElement`\>
 
 #### Inherited from
 
@@ -1129,7 +1129,7 @@ ___
 
 ### output
 
-• **output**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLOutputElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLOutputElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **output**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLOutputElement`\>
 
 #### Inherited from
 
@@ -1143,7 +1143,7 @@ ___
 
 ### p
 
-• **p**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLParagraphElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLParagraphElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **p**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLParagraphElement`\>
 
 #### Inherited from
 
@@ -1157,7 +1157,7 @@ ___
 
 ### picture
 
-• **picture**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLPictureElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLPictureElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **picture**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLPictureElement`\>
 
 #### Inherited from
 
@@ -1171,7 +1171,7 @@ ___
 
 ### pre
 
-• **pre**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLPreElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLPreElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **pre**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLPreElement`\>
 
 #### Inherited from
 
@@ -1185,7 +1185,7 @@ ___
 
 ### progress
 
-• **progress**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLProgressElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLProgressElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **progress**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLProgressElement`\>
 
 #### Inherited from
 
@@ -1199,7 +1199,7 @@ ___
 
 ### q
 
-• **q**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLQuoteElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLQuoteElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **q**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLQuoteElement`\>
 
 #### Inherited from
 
@@ -1213,7 +1213,7 @@ ___
 
 ### rp
 
-• **rp**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **rp**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1227,7 +1227,7 @@ ___
 
 ### rt
 
-• **rt**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **rt**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1241,7 +1241,7 @@ ___
 
 ### ruby
 
-• **ruby**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **ruby**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1255,7 +1255,7 @@ ___
 
 ### s
 
-• **s**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **s**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1269,7 +1269,7 @@ ___
 
 ### samp
 
-• **samp**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **samp**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1283,7 +1283,7 @@ ___
 
 ### script
 
-• **script**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLScriptElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLScriptElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **script**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLScriptElement`\>
 
 #### Inherited from
 
@@ -1297,7 +1297,7 @@ ___
 
 ### search
 
-• **search**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **search**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1311,7 +1311,7 @@ ___
 
 ### section
 
-• **section**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **section**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1325,7 +1325,7 @@ ___
 
 ### select
 
-• **select**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLSelectElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLSelectElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **select**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLSelectElement`\>
 
 #### Inherited from
 
@@ -1339,7 +1339,7 @@ ___
 
 ### slot
 
-• **slot**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLSlotElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLSlotElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **slot**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLSlotElement`\>
 
 #### Inherited from
 
@@ -1353,7 +1353,7 @@ ___
 
 ### small
 
-• **small**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **small**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1367,7 +1367,7 @@ ___
 
 ### source
 
-• **source**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLSourceElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLSourceElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **source**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLSourceElement`\>
 
 #### Inherited from
 
@@ -1381,7 +1381,7 @@ ___
 
 ### span
 
-• **span**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLSpanElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLSpanElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **span**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLSpanElement`\>
 
 #### Inherited from
 
@@ -1395,7 +1395,7 @@ ___
 
 ### strong
 
-• **strong**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **strong**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1409,7 +1409,7 @@ ___
 
 ### style
 
-• **style**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLStyleElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLStyleElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **style**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLStyleElement`\>
 
 #### Inherited from
 
@@ -1423,7 +1423,7 @@ ___
 
 ### sub
 
-• **sub**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **sub**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1437,7 +1437,7 @@ ___
 
 ### summary
 
-• **summary**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **summary**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1451,7 +1451,7 @@ ___
 
 ### sup
 
-• **sup**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **sup**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1465,7 +1465,7 @@ ___
 
 ### table
 
-• **table**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **table**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableElement`\>
 
 #### Inherited from
 
@@ -1479,7 +1479,7 @@ ___
 
 ### tbody
 
-• **tbody**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableSectionElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableSectionElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **tbody**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableSectionElement`\>
 
 #### Inherited from
 
@@ -1493,7 +1493,7 @@ ___
 
 ### td
 
-• **td**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableCellElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableCellElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **td**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableCellElement`\>
 
 #### Inherited from
 
@@ -1507,7 +1507,7 @@ ___
 
 ### template
 
-• **template**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTemplateElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTemplateElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **template**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTemplateElement`\>
 
 #### Inherited from
 
@@ -1521,7 +1521,7 @@ ___
 
 ### textarea
 
-• **textarea**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTextAreaElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTextAreaElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **textarea**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTextAreaElement`\>
 
 #### Inherited from
 
@@ -1535,7 +1535,7 @@ ___
 
 ### tfoot
 
-• **tfoot**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableSectionElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableSectionElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **tfoot**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableSectionElement`\>
 
 #### Inherited from
 
@@ -1549,7 +1549,7 @@ ___
 
 ### th
 
-• **th**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableCellElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableCellElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **th**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableCellElement`\>
 
 #### Inherited from
 
@@ -1563,7 +1563,7 @@ ___
 
 ### thead
 
-• **thead**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableSectionElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableSectionElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **thead**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableSectionElement`\>
 
 #### Inherited from
 
@@ -1577,7 +1577,7 @@ ___
 
 ### time
 
-• **time**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTimeElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTimeElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **time**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTimeElement`\>
 
 #### Inherited from
 
@@ -1591,7 +1591,7 @@ ___
 
 ### title
 
-• **title**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTitleElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTitleElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **title**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTitleElement`\>
 
 #### Inherited from
 
@@ -1605,7 +1605,7 @@ ___
 
 ### tr
 
-• **tr**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTableRowElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTableRowElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **tr**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTableRowElement`\>
 
 #### Inherited from
 
@@ -1619,7 +1619,7 @@ ___
 
 ### track
 
-• **track**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLTrackElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLTrackElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **track**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLTrackElement`\>
 
 #### Inherited from
 
@@ -1633,7 +1633,7 @@ ___
 
 ### u
 
-• **u**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **u**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1647,7 +1647,7 @@ ___
 
 ### ul
 
-• **ul**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLUListElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLUListElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **ul**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLUListElement`\>
 
 #### Inherited from
 
@@ -1661,7 +1661,7 @@ ___
 
 ### var
 
-• **var**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **var**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 
@@ -1675,7 +1675,7 @@ ___
 
 ### video
 
-• **video**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLVideoElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLVideoElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **video**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLVideoElement`\>
 
 #### Inherited from
 
@@ -1689,7 +1689,7 @@ ___
 
 ### wbr
 
-• **wbr**: [`HtmlElementAttributes`](../modules/jsx.JSX.md#htmlelementattributes)\<`HTMLElement`\> & [`ButterfloatIntrinsicAttributes`](ButterfloatIntrinsicAttributes.md)\<[`HtmlElementAttributesBind`](../modules/jsx.JSX.md#htmlelementattributesbind)\<`HTMLElement`\> & [`DefaultBind`](../modules.md#defaultbind), [`HtmlEvents`](../modules/jsx.JSX.md#htmlevents)\<`HTMLElementEventMap`\> & [`ButterfloatEvents`](ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)\>
+• **wbr**: [`ButterfloatElementAttributes`](../modules/jsx.JSX.md#butterfloatelementattributes)\<`HTMLElement`\>
 
 #### Inherited from
 

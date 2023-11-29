@@ -37,7 +37,7 @@ May use an non-immediate scheduler. Obvious exception: all "value" bindings are 
 
 #### Defined in
 
-[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L67)
+[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L67)
 
 ___
 
@@ -53,7 +53,7 @@ ButterfloatAttributes.childrenBind
 
 #### Defined in
 
-[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L47)
+[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L47)
 
 ___
 
@@ -69,7 +69,7 @@ ButterfloatAttributes.childrenBindMode
 
 #### Defined in
 
-[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L51)
+[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L51)
 
 ___
 
@@ -81,7 +81,7 @@ Bind an event observable to a DOM event.
 
 #### Defined in
 
-[component.ts:75](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L75)
+[component.ts:75](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L75)
 
 ___
 
@@ -93,4 +93,4 @@ Immediately bind an observable to a DOM property
 
 #### Defined in
 
-[component.ts:71](https://github.com/WorldMaker/butterfloat/blob/65246bd/component.ts#L71)
+[component.ts:71](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L71)
