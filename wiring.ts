@@ -231,7 +231,7 @@ export function wire(
  * @returns Subscription
  */
 export function runInternal(
-  container: Node,
+  container: Element | DocumentFragment,
   component: ComponentDescription | Component | ObservableComponent,
   context?: WiringContext,
   placeholder?: Element | CharacterData,
@@ -248,7 +248,15 @@ export function runInternal(
   return observable.subscribe({
     next(node) {
       if (previousNode) {
-        previousNode.replaceWith(node)
+        try {
+          previousNode.replaceWith(node)
+        } catch (error) {
+          console.warn(
+            'Cannot exactly replace previous node, replacing all children in container',
+            previousNode,
+          )
+          container.replaceChildren(node)
+        }
       } else if (placeholder) {
         placeholder.replaceWith(node)
       } else {
