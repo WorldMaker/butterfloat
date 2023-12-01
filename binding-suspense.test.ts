@@ -3,7 +3,7 @@ import { describe, it } from 'node:test'
 import { TestScheduler } from 'rxjs/testing'
 import { bufferEntries } from './binding.js'
 
-describe('binding 2', () => {
+describe('binding with suspense', () => {
   it('buffers entries with suspense', () => {
     const testScheduler = new TestScheduler((actual, expected) =>
       deepEqual(actual, expected),

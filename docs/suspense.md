@@ -10,9 +10,10 @@ and some of its advanced features, especially Suspense binding.
 
 There are two common "flavors" of binds in Butterfloat: default and
 immediate. The primary places you see these flavors are in the JSX
-`bind` versus `bindImmediate` attributes and in the
-`ComponentContext` the differences between `bindEffect` and
-`bindImmediateEffect` helpers.
+`bind` versus `immediateBind` attributes, `classBind` versus
+`immediateClassBind`, `styleBind` versus `immediateStyleBind`,
+and in the `ComponentContext` the differences between `bindEffect`
+and `bindImmediateEffect` helpers.
 
 The immediate flavor gets the longer names because it shouldn't be
 the default. The default scheduling flavor tries to be smarter by
@@ -38,7 +39,12 @@ interaction responsiveness.
 It is suggested to start with default scheduling and then as a
 developer where you learn that some updates provide a better
 user experience when immediately bound, you can move those bindings
-to the appropriate `bindImmediate` or `bindImmediateEffect`.
+to the appropriate `immediateBind` or `bindImmediateEffect`.
+
+(One such case for `bindImmediateEffect` over `bindEffect` is for
+events where you need to prevent the default action, such as binding
+effects for events to `<a href="#" events={{ click }} />` or
+`<form method="POST" action="/fallback/address" events={{ submit }} />`.)
 
 ## Suspense
 

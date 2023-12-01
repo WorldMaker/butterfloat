@@ -71,6 +71,61 @@ export function bindObjectChanges(
   })
 }
 
+export function bindClassListKey(
+  item: Element,
+  key: string,
+  observable: Observable<boolean>,
+  error: (error: unknown) => void,
+  complete: () => void,
+) {
+  return observable.subscribe({
+    next: (value) => {
+      if (value) {
+        item.classList.add(key)
+      } else {
+        item.classList.remove(key)
+      }
+    },
+    error,
+    complete: () => {
+      console.debug(`${key.toString()} classList binding completed`, item)
+      complete()
+    },
+  })
+}
+
+export function bindClassListChanges(
+  item: Element,
+  observable: Observable<Record<string, boolean>>,
+  error: (error: unknown) => void,
+  complete: () => void,
+) {
+  return observable.subscribe({
+    next: (changes) => {
+      const adds: string[] = []
+      const removes: string[] = []
+      for (const [key, add] of Object.entries(changes)) {
+        if (add) {
+          adds.push(key)
+        } else {
+          removes.push(key)
+        }
+      }
+      if (adds.length > 0) {
+        item.classList.add(...adds)
+      }
+      if (removes.length > 0) {
+        item.classList.remove(...removes)
+      }
+    },
+    error,
+    complete: () => {
+      console.debug(`classList changes binding completed`, item)
+      complete()
+    },
+  })
+}
+
 export function bufferEntries(
   observable: Observable<Entry>,
   suspense?: Observable<boolean>,
@@ -119,21 +174,11 @@ export function makeEntries(
   return observable.pipe(map((value) => [key, value] as Entry))
 }
 
-export function bindElement(
+function bindElementBinds(
   element: Element,
   description: ElementDescription,
-  context: BindingContext,
-  document = globalThis.document,
+  { complete, error, suspense, subscription }: BindingContext,
 ) {
-  const {
-    complete,
-    componentRunner,
-    componentWirer,
-    error,
-    eventBinder,
-    suspense,
-    subscription,
-  } = context
   const schedulables: ObservableEntry[] = []
 
   const binds = [
@@ -166,11 +211,26 @@ export function bindElement(
       ),
     )
   }
+}
 
+function bindElementEvents(
+  element: Element,
+  description: ElementDescription,
+  { eventBinder, subscription }: BindingContext,
+) {
   for (const [key, event] of Object.entries(description.events)) {
     subscription.add(eventBinder.applyEvent(event, element, key))
   }
+}
 
+function bindElementChildren(
+  element: Element,
+  description: ElementDescription,
+  context: BindingContext,
+  document = globalThis.document,
+) {
+  const { complete, componentRunner, componentWirer, error, subscription } =
+    context
   if (description.childrenBind) {
     if (description.childrenBindMode === 'replace') {
       const placeholder = document.createComment(`replaceable child component`)
@@ -214,6 +274,82 @@ export function bindElement(
       )
     }
   }
+}
+
+function bindElementClasses(
+  element: Element,
+  description: ElementDescription,
+  { complete, error, subscription, suspense }: BindingContext,
+) {
+  if (Object.keys(description.classBind).length > 0) {
+    const entries: Observable<Entry>[] = []
+    for (const [key, observable] of Object.entries(description.classBind)) {
+      entries.push(makeEntries(key, observable))
+    }
+    subscription.add(
+      bindClassListChanges(
+        element,
+        bufferEntries(merge(...entries), suspense) as Observable<
+          Record<string, boolean>
+        >,
+        error,
+        complete,
+      ),
+    )
+  }
+
+  for (const [key, observable] of Object.entries(
+    description.immediateClassBind,
+  )) {
+    subscription.add(
+      bindClassListKey(element, key, observable, error, complete),
+    )
+  }
+}
+
+function bindElementStyles(
+  element: HTMLElement,
+  description: ElementDescription,
+  { complete, error, subscription, suspense }: BindingContext,
+) {
+  if (Object.keys(description.classBind).length > 0) {
+    const entries: Observable<Entry>[] = []
+    for (const [key, observable] of Object.entries(description.classBind)) {
+      entries.push(makeEntries(key, observable))
+    }
+    subscription.add(
+      bindObjectChanges(
+        element.style,
+        bufferEntries(merge(...entries), suspense),
+        error,
+        complete,
+      ),
+    )
+  }
+
+  for (const [key, observable] of Object.entries(
+    description.immediateClassBind,
+  )) {
+    subscription.add(
+      bindObjectKey(element.style, key, observable, error, complete),
+    )
+  }
+}
+
+export function bindElement(
+  element: Element,
+  description: ElementDescription,
+  context: BindingContext,
+  document = globalThis.document,
+) {
+  const { subscription } = context
+
+  bindElementBinds(element, description, context)
+  bindElementEvents(element, description, context)
+  bindElementChildren(element, description, context, document)
+  bindElementClasses(element, description, context)
+  // TODO: Should we test this assumption somehow that style bindings only apply to HTMLElement and not Element in general?
+  bindElementStyles(element as HTMLElement, description, context)
 
   return subscription
 }

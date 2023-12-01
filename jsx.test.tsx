@@ -22,6 +22,10 @@ describe('jsx', () => {
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -38,6 +42,10 @@ describe('jsx', () => {
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -55,6 +63,52 @@ describe('jsx', () => {
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a simple static element with a class bind', () => {
+    const header = of(true)
+    const test = <h1 classBind={{ header }}>Hello</h1>
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: ['Hello'],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: { header },
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a simple static element with a style bind', () => {
+    const red = of('red')
+    const test = <h1 styleBind={{ backgroundColor: red }}>Hello</h1>
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: ['Hello'],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: { backgroundColor: red },
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -77,6 +131,10 @@ describe('jsx', () => {
       childrenBind,
       childrenBindMode: 'replace',
       events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -94,6 +152,10 @@ describe('jsx', () => {
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: { click },
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -192,6 +254,10 @@ describe('jsx', () => {
           childrenBind: undefined,
           childrenBindMode: undefined,
           events: {},
+          styleBind: {},
+          immediateStyleBind: {},
+          classBind: {},
+          immediateClassBind: {},
         },
       ],
       childrenBind: undefined,
@@ -224,6 +290,10 @@ describe('jsx', () => {
           childrenBind: undefined,
           childrenBindMode: undefined,
           events: {},
+          styleBind: {},
+          immediateStyleBind: {},
+          classBind: {},
+          immediateClassBind: {},
         },
       ],
     }

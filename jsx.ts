@@ -9,6 +9,7 @@ import {
   ComponentContext,
   NodeDescription,
   DefaultBind,
+  DefaultStyleBind,
 } from './component'
 import { ButterfloatEvents, DefaultEvents, ObservableEvent } from './events'
 
@@ -66,11 +67,20 @@ namespace JSXInternal {
     ButterfloatEvents &
     DefaultEvents
 
-  export type ButterfloatElementAttributes<T> = HtmlElementAttributes<T> &
-    ButterfloatIntrinsicAttributes<
-      ButterfloatElementBind<T>,
-      ButterfloatElementEvents
-    >
+  export type HtmlElementStyleBind<T extends HTMLElement> = {
+    [Property in keyof T['style']]?: Observable<T['style'][Property]>
+  }
+
+  export type ButterfloatElementStyleBind<T extends HTMLElement> =
+    HtmlElementStyleBind<T> & DefaultStyleBind
+
+  export type ButterfloatElementAttributes<T extends HTMLElement> =
+    HtmlElementAttributes<T> &
+      ButterfloatIntrinsicAttributes<
+        ButterfloatElementBind<T>,
+        ButterfloatElementEvents,
+        ButterfloatElementStyleBind<T>
+      >
 
   export type HtmlElements = {
     [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes<
@@ -150,6 +160,10 @@ export function jsx(
       childrenBind,
       childrenBindMode,
       events,
+      styleBind,
+      immediateStyleBind,
+      classBind,
+      immediateClassBind,
       ...otherAttributes
     } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
     return {
@@ -162,6 +176,10 @@ export function jsx(
       childrenBind,
       childrenBindMode,
       events: events ?? {},
+      styleBind: styleBind ?? {},
+      immediateStyleBind: immediateStyleBind ?? {},
+      classBind: classBind ?? {},
+      immediateClassBind: immediateClassBind ?? {},
     }
   }
   if (typeof element === 'function') {

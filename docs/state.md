@@ -258,4 +258,10 @@ function Garden(
 }
 ```
 
+## Next Steps
+
+With the basics of State Management down, we can more easily discuss
+[Class and Style Binding][style].
+
 [started]: ./getting-started.md
+[style]: ./style.md
