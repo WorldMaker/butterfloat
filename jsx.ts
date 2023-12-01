@@ -67,20 +67,21 @@ namespace JSXInternal {
     ButterfloatEvents &
     DefaultEvents
 
-  export type HtmlElementStyleBind<T extends HTMLElement> = {
-    [Property in keyof T['style']]?: Observable<T['style'][Property]>
+  export type HtmlElementStyleBind = {
+    [Property in keyof ElementCSSInlineStyle]?: Observable<
+      ElementCSSInlineStyle[Property]
+    >
   }
 
-  export type ButterfloatElementStyleBind<T extends HTMLElement> =
-    HtmlElementStyleBind<T> & DefaultStyleBind
+  export type ButterfloatElementStyleBind = HtmlElementStyleBind &
+    DefaultStyleBind
 
-  export type ButterfloatElementAttributes<T extends HTMLElement> =
-    HtmlElementAttributes<T> &
-      ButterfloatIntrinsicAttributes<
-        ButterfloatElementBind<T>,
-        ButterfloatElementEvents,
-        ButterfloatElementStyleBind<T>
-      >
+  export type ButterfloatElementAttributes<T> = HtmlElementAttributes<T> &
+    ButterfloatIntrinsicAttributes<
+      ButterfloatElementBind<T>,
+      ButterfloatElementEvents,
+      ButterfloatElementStyleBind
+    >
 
   export type HtmlElements = {
     [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes<

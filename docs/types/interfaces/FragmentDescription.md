@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[component.ts:139](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L139)
+[component.ts:139](https://github.com/WorldMaker/butterfloat/blob/99c5827/component.ts#L139)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[component.ts:112](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L112)
+[component.ts:112](https://github.com/WorldMaker/butterfloat/blob/99c5827/component.ts#L112)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[component.ts:113](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L113)
+[component.ts:113](https://github.com/WorldMaker/butterfloat/blob/99c5827/component.ts#L113)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L114)
+[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/99c5827/component.ts#L114)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[component.ts:138](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L138)
+[component.ts:138](https://github.com/WorldMaker/butterfloat/blob/99c5827/component.ts#L138)
