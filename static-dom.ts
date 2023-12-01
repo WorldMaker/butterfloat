@@ -18,7 +18,7 @@ export function buildElement(
     } else if (key === 'class') {
       element.className = value as string
     } else if (key === 'for') {
-      (element as HTMLLabelElement).htmlFor = value as string
+      ;(element as HTMLLabelElement).htmlFor = value as string
     } else {
       // This is intentional metaprogramming
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
