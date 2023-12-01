@@ -312,9 +312,9 @@ function bindElementStyles(
   description: ElementDescription,
   { complete, error, subscription, suspense }: BindingContext,
 ) {
-  if (Object.keys(description.classBind).length > 0) {
+  if (Object.keys(description.styleBind).length > 0) {
     const entries: Observable<Entry>[] = []
-    for (const [key, observable] of Object.entries(description.classBind)) {
+    for (const [key, observable] of Object.entries(description.styleBind)) {
       entries.push(makeEntries(key, observable))
     }
     subscription.add(
@@ -328,7 +328,7 @@ function bindElementStyles(
   }
 
   for (const [key, observable] of Object.entries(
-    description.immediateClassBind,
+    description.immediateStyleBind,
   )) {
     subscription.add(
       bindObjectKey(element.style, key, observable, error, complete),
