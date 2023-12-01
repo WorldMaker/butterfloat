@@ -40,6 +40,16 @@ describe('static-dom', () => {
     test.remove()
   })
 
+  it('builds a single label with dataset for attribute', () => {
+    const desc = <label for="example" />
+    equal(desc.type, 'element')
+    const test = buildElement(desc, document)
+    equal(test.tagName, 'LABEL')
+    equal((test as HTMLLabelElement).htmlFor, 'example')
+
+    test.remove()
+  })
+
   it('builds a basic static tree', () => {
     const tree = (
       <div className="test">

@@ -17,6 +17,8 @@ export function buildElement(
       element.dataset[key.replace(/^data-/, '')] = value as string | undefined
     } else if (key === 'class') {
       element.className = value as string
+    } else if (key === 'for') {
+      (element as HTMLLabelElement).htmlFor = value as string
     } else {
       // This is intentional metaprogramming
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
