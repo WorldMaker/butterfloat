@@ -1,6 +1,6 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { ComponentContext, ObservableEvent, butterfly, jsx } from '../index'
+import { ComponentContext, ObservableEvent, butterfly, jsx } from '../index.js'
 import { interval, map, shareReplay } from 'rxjs'
 
 describe('class and style bind documentation', () => {
