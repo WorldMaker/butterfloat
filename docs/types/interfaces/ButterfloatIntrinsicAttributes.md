@@ -1,6 +1,6 @@
 [butterfloat](../README.md) / [Exports](../modules.md) / ButterfloatIntrinsicAttributes
 
-# Interface: ButterfloatIntrinsicAttributes\<Bind, Events\>
+# Interface: ButterfloatIntrinsicAttributes\<Bind, Events, Style\>
 
 ## Type parameters
 
@@ -8,6 +8,7 @@
 | :------ | :------ |
 | `Bind` | [`DefaultBind`](../modules.md#defaultbind) |
 | `Events` | [`DefaultEvents`](../modules.md#defaultevents) & [`ButterfloatEvents`](ButterfloatEvents.md) |
+| `Style` | [`DefaultStyleBind`](../modules.md#defaultstylebind) |
 
 ## Hierarchy
 
@@ -22,8 +23,12 @@
 - [bind](ButterfloatIntrinsicAttributes.md#bind)
 - [childrenBind](ButterfloatIntrinsicAttributes.md#childrenbind)
 - [childrenBindMode](ButterfloatIntrinsicAttributes.md#childrenbindmode)
+- [classBind](ButterfloatIntrinsicAttributes.md#classbind)
 - [events](ButterfloatIntrinsicAttributes.md#events)
 - [immediateBind](ButterfloatIntrinsicAttributes.md#immediatebind)
+- [immediateClassBind](ButterfloatIntrinsicAttributes.md#immediateclassbind)
+- [immediateStyleBind](ButterfloatIntrinsicAttributes.md#immediatestylebind)
+- [styleBind](ButterfloatIntrinsicAttributes.md#stylebind)
 
 ## Properties
 
@@ -37,7 +42,7 @@ May use an non-immediate scheduler. Obvious exception: all "value" bindings are 
 
 #### Defined in
 
-[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L67)
+[component.ts:72](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L72)
 
 ___
 
@@ -53,7 +58,7 @@ ButterfloatAttributes.childrenBind
 
 #### Defined in
 
-[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L47)
+[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L47)
 
 ___
 
@@ -69,7 +74,19 @@ ButterfloatAttributes.childrenBindMode
 
 #### Defined in
 
-[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L51)
+[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L51)
+
+___
+
+### classBind
+
+• `Optional` **classBind**: [`ClassBind`](../modules.md#classbind)
+
+Bind a boolean observable to the appearance of a class in classList.
+
+#### Defined in
+
+[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L92)
 
 ___
 
@@ -81,7 +98,7 @@ Bind an event observable to a DOM event.
 
 #### Defined in
 
-[component.ts:75](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L75)
+[component.ts:80](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L80)
 
 ___
 
@@ -93,4 +110,40 @@ Immediately bind an observable to a DOM property
 
 #### Defined in
 
-[component.ts:71](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L71)
+[component.ts:76](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L76)
+
+___
+
+### immediateClassBind
+
+• `Optional` **immediateClassBind**: [`ClassBind`](../modules.md#classbind)
+
+Immediately bind a boolean observable to the appearance of a class in classList.
+
+#### Defined in
+
+[component.ts:96](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L96)
+
+___
+
+### immediateStyleBind
+
+• `Optional` **immediateStyleBind**: `Style`
+
+Immediately bind an observable to a style property.
+
+#### Defined in
+
+[component.ts:88](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L88)
+
+___
+
+### styleBind
+
+• `Optional` **styleBind**: `Style`
+
+Bind an observable to a style property.
+
+#### Defined in
+
+[component.ts:84](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L84)
