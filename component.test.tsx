@@ -62,6 +62,10 @@ describe('component', () => {
       children: [],
       childrenBind: undefined,
       childrenBindMode: undefined,
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -109,6 +113,10 @@ describe('component', () => {
           events: {},
           childrenBind: undefined,
           childrenBindMode: undefined,
+          styleBind: {},
+          immediateStyleBind: {},
+          classBind: {},
+          immediateClassBind: {},
         },
       ],
       childrenBind: undefined,
@@ -127,6 +135,10 @@ describe('component', () => {
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
       children: [
         {
           type: 'element',
@@ -138,6 +150,10 @@ describe('component', () => {
           children: [],
           childrenBind: undefined,
           childrenBindMode: undefined,
+          styleBind: {},
+          immediateStyleBind: {},
+          classBind: {},
+          immediateClassBind: {},
         },
         {
           type: 'children',

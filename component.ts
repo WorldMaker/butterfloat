@@ -55,9 +55,14 @@ export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 
 export type DefaultBind = Record<string, Observable<unknown>>
 
+export type DefaultStyleBind = Record<string, Observable<unknown>>
+
+export type ClassBind = Record<string, Observable<boolean>>
+
 export interface ButterfloatIntrinsicAttributes<
   Bind = DefaultBind,
   Events = DefaultEvents & ButterfloatEvents,
+  Style = DefaultStyleBind,
 > extends ButterfloatAttributes {
   /**
    * Bind an observable to an DOM property.
@@ -73,6 +78,22 @@ export interface ButterfloatIntrinsicAttributes<
    * Bind an event observable to a DOM event.
    */
   events?: Events
+  /**
+   * Bind an observable to a style property.
+   */
+  styleBind?: Style
+  /**
+   * Immediately bind an observable to a style property.
+   */
+  immediateStyleBind?: Style
+  /**
+   * Bind a boolean observable to the appearance of a class in classList.
+   */
+  classBind?: ClassBind
+  /**
+   * Immediately bind a boolean observable to the appearance of a class in classList.
+   */
+  immediateClassBind?: ClassBind
 }
 
 /*
@@ -101,6 +122,10 @@ export interface ElementDescription<Bind = DefaultBind>
   bind: Bind
   immediateBind: Bind
   events: DefaultEvents
+  styleBind: DefaultStyleBind
+  immediateStyleBind: DefaultStyleBind
+  classBind: ClassBind
+  immediateClassBind: ClassBind
 }
 
 export interface ComponentDescription extends ChildrenBindDescription {
@@ -158,6 +183,10 @@ export function hasAnyBinds(description: ElementDescription) {
     description.childrenBind ||
     Object.keys(description.bind).length > 0 ||
     Object.keys(description.immediateBind).length > 0 ||
-    Object.keys(description.events).length > 0
+    Object.keys(description.events).length > 0 ||
+    Object.keys(description.styleBind).length > 0 ||
+    Object.keys(description.immediateStyleBind).length > 0 ||
+    Object.keys(description.classBind).length > 0 ||
+    Object.keys(description.immediateClassBind).length > 0
   )
 }

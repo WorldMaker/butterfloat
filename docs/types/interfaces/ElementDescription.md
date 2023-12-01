@@ -23,9 +23,13 @@
 - [children](ElementDescription.md#children)
 - [childrenBind](ElementDescription.md#childrenbind)
 - [childrenBindMode](ElementDescription.md#childrenbindmode)
+- [classBind](ElementDescription.md#classbind)
 - [element](ElementDescription.md#element)
 - [events](ElementDescription.md#events)
 - [immediateBind](ElementDescription.md#immediatebind)
+- [immediateClassBind](ElementDescription.md#immediateclassbind)
+- [immediateStyleBind](ElementDescription.md#immediatestylebind)
+- [styleBind](ElementDescription.md#stylebind)
 - [type](ElementDescription.md#type)
 
 ## Properties
@@ -36,7 +40,7 @@
 
 #### Defined in
 
-[component.ts:100](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L100)
+[component.ts:121](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L121)
 
 ___
 
@@ -46,7 +50,7 @@ ___
 
 #### Defined in
 
-[component.ts:101](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L101)
+[component.ts:122](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L122)
 
 ___
 
@@ -60,7 +64,7 @@ ___
 
 #### Defined in
 
-[component.ts:91](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L91)
+[component.ts:112](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L112)
 
 ___
 
@@ -74,7 +78,7 @@ ___
 
 #### Defined in
 
-[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L92)
+[component.ts:113](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L113)
 
 ___
 
@@ -88,7 +92,17 @@ ___
 
 #### Defined in
 
-[component.ts:93](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L93)
+[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L114)
+
+___
+
+### classBind
+
+• **classBind**: [`ClassBind`](../modules.md#classbind)
+
+#### Defined in
+
+[component.ts:127](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L127)
 
 ___
 
@@ -98,7 +112,7 @@ ___
 
 #### Defined in
 
-[component.ts:99](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L99)
+[component.ts:120](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L120)
 
 ___
 
@@ -108,7 +122,7 @@ ___
 
 #### Defined in
 
-[component.ts:103](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L103)
+[component.ts:124](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L124)
 
 ___
 
@@ -118,7 +132,37 @@ ___
 
 #### Defined in
 
-[component.ts:102](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L102)
+[component.ts:123](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L123)
+
+___
+
+### immediateClassBind
+
+• **immediateClassBind**: [`ClassBind`](../modules.md#classbind)
+
+#### Defined in
+
+[component.ts:128](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L128)
+
+___
+
+### immediateStyleBind
+
+• **immediateStyleBind**: [`DefaultStyleBind`](../modules.md#defaultstylebind)
+
+#### Defined in
+
+[component.ts:126](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L126)
+
+___
+
+### styleBind
+
+• **styleBind**: [`DefaultStyleBind`](../modules.md#defaultstylebind)
+
+#### Defined in
+
+[component.ts:125](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L125)
 
 ___
 
@@ -128,4 +172,4 @@ ___
 
 #### Defined in
 
-[component.ts:98](https://github.com/WorldMaker/butterfloat/blob/290ead7/component.ts#L98)
+[component.ts:119](https://github.com/WorldMaker/butterfloat/blob/3b708ff/component.ts#L119)
