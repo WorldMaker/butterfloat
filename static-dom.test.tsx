@@ -19,6 +19,27 @@ describe('static-dom', () => {
     test.remove()
   })
 
+  it('builds a single element with class shortcut', () => {
+    const desc = <div class="cool" />
+    equal(desc.type, 'element')
+    const test = buildElement(desc, document)
+    equal(test.tagName, 'DIV')
+    equal(test.className, 'cool')
+
+    test.remove()
+  })
+
+  it('builds a single element with dataset data- attributes', () => {
+    const desc = <div data-test="something" data-funkyThing="music" />
+    equal(desc.type, 'element')
+    const test = buildElement(desc, document)
+    equal(test.tagName, 'DIV')
+    equal(test.dataset.test, 'something')
+    equal(test.dataset.funkyThing, 'music')
+
+    test.remove()
+  })
+
   it('builds a basic static tree', () => {
     const tree = (
       <div className="test">

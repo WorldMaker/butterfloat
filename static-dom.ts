@@ -13,9 +13,15 @@ export function buildElement(
 ) {
   const element = document.createElement(description.element)
   for (const [key, value] of Object.entries(description.attributes)) {
-    // This is intentional metaprogramming
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ;(element as any)[key] = value
+    if (key.startsWith('data-')) {
+      element.dataset[key.replace(/^data-/, '')] = value as string | undefined
+    } else if (key === 'class') {
+      element.className = value as string
+    } else {
+      // This is intentional metaprogramming
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ;(element as any)[key] = value
+    }
   }
   return element
 }
