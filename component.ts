@@ -6,7 +6,7 @@ import { ButterfloatEvents, DefaultEvents } from './events.js'
  */
 export type EffectHandler = <T>(
   observable: Observable<T>,
-  effect: (item: T) => void,
+  effect: (item: T) => void | Promise<void>,
 ) => void
 
 /**
