@@ -43,7 +43,12 @@ export function wireInternal(
       context.isStaticComponent = false
       subscription.add(
         observable.pipe(observeOn(animationFrameScheduler)).subscribe({
-          next: effect,
+          next(value) {
+            const promise = effect(value)
+            if (promise && 'catch' in promise) {
+              promise.catch(error)
+            }
+          },
           error,
           complete: () => {
             console.debug(
@@ -58,7 +63,12 @@ export function wireInternal(
       context.isStaticComponent = false
       subscription.add(
         observable.subscribe({
-          next: effect,
+          next(value) {
+            const promise = effect(value)
+            if (promise && 'catch' in promise) {
+              promise.catch(error)
+            }
+          },
           error,
           complete: () => {
             console.debug(
