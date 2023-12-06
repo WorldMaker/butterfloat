@@ -3,6 +3,7 @@ import { Component, ComponentDescription } from './component.js'
 
 export interface WiringContext {
   suspense?: Observable<boolean>
+  treeError?: (error: unknown) => void
   isStaticComponent: boolean
   isStaticTree: boolean
   preserveOnComplete?: boolean

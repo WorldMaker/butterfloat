@@ -228,6 +228,23 @@ unfinished components to rerun on client side.
 Expect things to get more complicated in the future if such
 features are added.
 
+## Error Boundary
+
+The `ErrorBoundary` system-provided component can be used to catch
+errors in any of the components below it in the tree and provide
+an error view when that happens.
+
+The `ErrorBoundary` also lets you set the `preserveOnComplete` flag
+for debugging the static parts of the DOM left behind after error
+states.
+
+In the case of `ErrorBoundary` your error view component may be
+enough to explain leftover "dead" components in your user
+experience, so using an `ErrorBoundary` to set a `preserveOnComplete`
+may make sense in some production builds, though keep in mind that
+other completions that are not errors will not present your error
+view.
+
 [children]: ./children.md
 [started]: ./getting-started.md
 [spy]: https://github.com/cartant/rxjs-spy

@@ -18,6 +18,7 @@ import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { Suspense, wireSuspense } from './suspense.js'
 import { ObservableComponent, WiringContext } from './wiring-context.js'
+import { ErrorBoundary, wireErrorBoundary } from './error-boundary.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -30,13 +31,21 @@ export function wireInternal(
   context: WiringContext,
   document = globalThis.document,
 ) {
+  const { treeError } = context
   const subscription = new Subscription()
 
-  const error = (error: unknown) => {
-    console.error(`Error in component ${description.component.name}`, error)
-  }
+  const componentName = description.component.name
 
-  const { events, handler } = makeEventProxy(description.component.name)
+  const error = treeError
+    ? (error: unknown) => {
+        console.error(`Error in component ${componentName}`, error)
+        treeError(error)
+      }
+    : (error: unknown) => {
+        console.error(`Error in component ${componentName}`, error)
+      }
+
+  const { events, handler } = makeEventProxy(componentName)
 
   const componentContext: ComponentContext = {
     bindEffect(observable, effect) {
@@ -51,9 +60,7 @@ export function wireInternal(
           },
           error,
           complete: () => {
-            console.debug(
-              `Effect in component ${description.component.name} completed`,
-            )
+            console.debug(`Effect in component ${componentName} completed`)
             subscriber.complete()
           },
         }),
@@ -72,7 +79,7 @@ export function wireInternal(
           error,
           complete: () => {
             console.debug(
-              `Immediate effect in component ${description.component.name} completed`,
+              `Immediate effect in component ${componentName} completed`,
             )
             subscriber.complete()
           },
@@ -99,9 +106,7 @@ export function wireInternal(
   const bindContext: BindingContext = {
     ...context,
     complete: () => {
-      console.debug(
-        `Binding in component ${description.component.name} completed`,
-      )
+      console.debug(`Binding in component ${componentName} completed`)
       subscriber.complete()
     },
     error,
@@ -221,6 +226,10 @@ export function wire(
     }
   }
 
+  if (description.component === ErrorBoundary) {
+    return wireErrorBoundary(description, context, document)
+  }
+
   if (description.component === Suspense) {
     return wireSuspense(description, context, document)
   }
@@ -255,6 +264,8 @@ export function runInternal(
         document,
       )
   let previousNode: Element | null = null
+  const componentName =
+    'type' in component ? component.component.name : component.name
   return observable.subscribe({
     next(node) {
       if (previousNode) {
@@ -275,11 +286,7 @@ export function runInternal(
       previousNode = node
     },
     error(error) {
-      if ('type' in component) {
-        console.error(`Error in component ${component.component.name}`, error)
-      } else {
-        console.error(`Error in component ${component.name}`, error)
-      }
+      console.error(`Error in component ${componentName}`, error)
     },
     complete() {
       if (!context?.preserveOnComplete && previousNode) {
