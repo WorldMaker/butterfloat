@@ -11,6 +11,13 @@ export * from './component.js'
 export * from './butterfly.js'
 export * from './jsx.js'
 
+// Export just the ErrorBoundary component
+export {
+  ErrorBoundary,
+  ErrorBoundaryProps,
+  ErrorViewProps,
+} from './error-boundary.js'
+
 // Export just the Suspense component
 export { Suspense, SuspenseProps } from './suspense.js'
 

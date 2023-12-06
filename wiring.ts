@@ -18,6 +18,7 @@ import { makeEventProxy } from './events.js'
 import { buildTree } from './static-dom.js'
 import { Suspense, wireSuspense } from './suspense.js'
 import { ObservableComponent, WiringContext } from './wiring-context.js'
+import { ErrorBoundary, wireErrorBoundary } from './error-boundary.js'
 
 const contextChildrenDescriptions = new WeakMap<
   ComponentContext<unknown>,
@@ -223,6 +224,10 @@ export function wire(
       children: [],
       properties: {},
     }
+  }
+
+  if (description.component === ErrorBoundary) {
+    return wireErrorBoundary(description, context, document)
   }
 
   if (description.component === Suspense) {
