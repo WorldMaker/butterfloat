@@ -1,8 +1,8 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "0.7.0",
-  "description": "The greatest view engine the web has ever seen.",
+  "version": "1.0.0",
+  "description": "Knockout-inspired view engine for RxJS with TSX",
   "repository": "github:WorldMaker/butterfloat",
   "exports": "./index.js",
   "scripts": {
