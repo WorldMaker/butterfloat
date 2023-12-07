@@ -14,35 +14,35 @@ based on the value observed. (It binds `classList.add` and
 `classList.remove`.) One very simple example would be a button that
 toggles a "highlight" effect by toggling a `.highlight` CSS class:
 
-```ts
+```tsx
 import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
 
 interface HighlightProps {}
 
 interface HighlightEvents {
-    toggleHighlight: ObservableEvent<MouseEvent>
+  toggleHighlight: ObservableEvent<MouseEvent>
 }
 
 function Highlight(
-    props: HighlightProps,
-    { bindEffect, events }: ComponentContext<HighlightEvents>,
+  props: HighlightProps,
+  { bindEffect, events }: ComponentContext<HighlightEvents>,
 ) {
-    const { toggleHighlight } = events
+  const { toggleHighlight } = events
 
-    const [highlight, setHighlighted] = butterfly(false)
+  const [highlight, setHighlighted] = butterfly(false)
 
-    bindEffect(toggleHighlight, () =>
-      setHighlighted((highlighted) => !highlighted),
-    )
+  bindEffect(toggleHighlight, () =>
+    setHighlighted((highlighted) => !highlighted),
+  )
 
-    return (
+  return (
     <div classBind={{ highlight }}>
-        Click the button to toggle the highlight on this{' '}
-        <button type="button" events={{ click: toggleHighlight }}>
-          Toggle Highlight
-        </button>
+      Click the button to toggle the highlight on this{' '}
+      <button type="button" events={{ click: toggleHighlight }}>
+        Toggle Highlight
+      </button>
     </div>
-    )
+  )
 }
 ```
 
@@ -57,26 +57,26 @@ properties on the element.
 An example using a terrible random traffic light (maybe it is
 representing a child playing "Red Light, Green Light"):
 
-```ts
+```tsx
 import { jsx } from 'butterfloat'
 import { interval, map, shareReplay } from 'rxjs'
 
 const colors = ['red', 'yellow', 'green']
 
 function TrafficLight() {
-    const color = interval(5_000 /* ms */).pipe(
+  const color = interval(5_000 /* ms */).pipe(
     map(() => colors[Math.round(colors.length * Math.random())]),
     shareReplay(1),
-    )
+  )
 
-    const lightName = color.pipe(map((color) => `${color} light`))
+  const lightName = color.pipe(map((color) => `${color} light`))
 
-    return (
-      <div
-        styleBind={{ backgroundColor: color }}
-        bind={{ innerText: lightName }}
-      />
-    )
+  return (
+    <div
+      styleBind={{ backgroundColor: color }}
+      bind={{ innerText: lightName }}
+    />
+  )
 }
 ```
 

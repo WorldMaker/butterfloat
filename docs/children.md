@@ -15,35 +15,35 @@ component's lifetime.
 
 A simple example of a fancy list wrapper:
 
-```ts
+```tsx
 import { Children, ComponentContext, jsx } from 'butterfloat'
 
 interface CoolListProps {}
 
 function CoolList(props: CoolListProps, context: ComponentContext) {
-    return (
+  return (
     <div className="cool-list-wrapper">
-        <ul className="cool-list">
-            <Children context={context} />
-        </ul>
+      <ul className="cool-list">
+        <Children context={context} />
+      </ul>
     </div>
-    )
+  )
 }
 
 function ListPage() {
-    return (
+  return (
     <div className="list-page">
-        <CoolList>
-            <li>This</li>
-            <li>Is</li>
-            <li>Wrapped</li>
-            <li>In</li>
-            <li>A</li>
-            <li>Cool</li>
-            <li>List</li>
-        </CoolList>
+      <CoolList>
+        <li>This</li>
+        <li>Is</li>
+        <li>Wrapped</li>
+        <li>In</li>
+        <li>A</li>
+        <li>Cool</li>
+        <li>List</li>
+      </CoolList>
     </div>
-    )
+  )
 }
 ```
 
@@ -68,7 +68,7 @@ appends them (by default) as children.
 
 An example dynamic list:
 
-```ts
+```tsx
 import { jsx } from 'butterfloat'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 

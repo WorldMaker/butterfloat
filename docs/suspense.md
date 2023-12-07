@@ -100,24 +100,21 @@ There's one other optional feature, the Suspense object can take
 an optional `suspenseView` component to be swapped into place while
 the suspense `when` observable is true:
 
-```ts
-function LoadViewModel(
-    { vm }: LoadViewModelProps,
-    context: ComponentContext,
-) {
-    vm.load()
-    return (
+```tsx
+function LoadViewModel({ vm }: LoadViewModelProps, context: ComponentContext) {
+  vm.load()
+  return (
     <Suspense
-        when={vm.loading}
-        suspenseView={() => (
+      when={vm.loading}
+      suspenseView={() => (
         <p>
-            Loading… <progress />
+          Loading… <progress />
         </p>
-        )}
+      )}
     >
-        <Children context={context} />
+      <Children context={context} />
     </Suspense>
-    )
+  )
 }
 ```
 
@@ -137,45 +134,45 @@ be useful for bridging to classic Vanilla JS components, for
 instance. To provide for this need, you can bind to the `bfDomAttach`
 event on a static element.
 
-```ts
+```tsx
 import { ComponentContext, jsx } from 'butterfloat'
 import { Observable, shareReplay, switchMap } from 'rxjs'
 
 interface SomeVanillaComponent {
-    destroy(): void
+  destroy(): void
 }
 
 interface SomeVanillaComponentFactory {
-    render(element: HTMLElement): SomeVanillaComponent
+  render(element: HTMLElement): SomeVanillaComponent
 }
 
 interface VanillaWrapperProps {
-    vanillaFactory: SomeVanillaComponentFactory
+  vanillaFactory: SomeVanillaComponentFactory
 }
 
 interface VanillaWrapperEvents {
-    attach: ObservableEvent<HTMLElement>
+  attach: ObservableEvent<HTMLElement>
 }
 
 function VanillaWrapper(
-    { vanillaFactory }: VanillaWrapperProps,
-    { bindEffect, events }: ComponentContext<VanillaWrapperEvents>,
+  { vanillaFactory }: VanillaWrapperProps,
+  { bindEffect, events }: ComponentContext<VanillaWrapperEvents>,
 ) {
-    const wrappedVanilla = events.attach.pipe(
-      switchMap(
-        (element) =>
+  const wrappedVanilla = events.attach.pipe(
+    switchMap(
+      (element) =>
         new Observable<SomeVanillaComponent>((subscriber) => {
-            const component = vanillaFactory.render(element)
-            subscriber.next(component)
-            return () => component.destroy()
+          const component = vanillaFactory.render(element)
+          subscriber.next(component)
+          return () => component.destroy()
         }),
-      ),
-      shareReplay(1)
-    )
+    ),
+    shareReplay(1),
+  )
 
-    bindEffect(wrappedVanilla, () => {})
+  bindEffect(wrappedVanilla, () => {})
 
-    return <div events={{ bfDomAttach: events.attach }} />
+  return <div events={{ bfDomAttach: events.attach }} />
 }
 ```
 
