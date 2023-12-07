@@ -23,30 +23,36 @@ management here is imaginatively called `butterfly`.
 Let's add a few butterflies to represent our resources, with very
 simple HTML status bars.
 
-```ts
+```tsx
 import { butterfly, jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
 export function Garden() {
-    const [money, setMoney] = butterfly(1)
-    const [labor, setLabor] = butterfly(0)
+  const [money, setMoney] = butterfly(1)
+  const [labor, setLabor] = butterfly(0)
 
-    const moneyPercent = money.pipe(
-      map(money => money.toLocaleString(undefined, { style: 'percent '}))
-    )
+  const moneyPercent = money.pipe(
+    map((money) => money.toLocaleString(undefined, { style: 'percent ' })),
+  )
 
-    const laborPercent = labor.pipe(
-      map(labor => labor.toLocaleString(undefined, { style: 'percent' }))
-    )
+  const laborPercent = labor.pipe(
+    map((labor) => labor.toLocaleString(undefined, { style: 'percent' })),
+  )
 
-    return (
+  return (
     <div className="garden">
-        <div className="stat-label">Money</div>
-        <progress title="Money" bind={{ value: money, innerText: moneyPercent }} />
-        <div className="stat-label">Labor</div>
-        <progress title="Labor" bind={{ value: labor, innerText: laborPercent }} />
+      <div className="stat-label">Money</div>
+      <progress
+        title="Money"
+        bind={{ value: money, innerText: moneyPercent }}
+      />
+      <div className="stat-label">Labor</div>
+      <progress
+        title="Labor"
+        bind={{ value: labor, innerText: laborPercent }}
+      />
     </div>
-    )
+  )
 }
 ```
 
@@ -68,54 +74,54 @@ it's just a funny way to spell `new BehaviorSubject()`.)
 Let's add our first garden activity. We'll call it "Rake" and have
 it take 15% of our money budget and use 30% of our labor resources.
 
-```ts
+```tsx
 import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}
 
 interface GardenEvents {
-    rake: ObservableEvent<MouseEvent>
+  rake: ObservableEvent<MouseEvent>
 }
 
 function Garden(
-    props: GardenProps,
-    { bindEffect, events }: ComponentContext<GardenEvents>,
+  props: GardenProps,
+  { bindEffect, events }: ComponentContext<GardenEvents>,
 ) {
-    const [money, setMoney] = butterfly(1)
-    const [labor, setLabor] = butterfly(0)
+  const [money, setMoney] = butterfly(1)
+  const [labor, setLabor] = butterfly(0)
 
-    const moneyPercent = money.pipe(
-      map((money) => money.toLocaleString(undefined, { style: 'percent ' })),
-    )
+  const moneyPercent = money.pipe(
+    map((money) => money.toLocaleString(undefined, { style: 'percent ' })),
+  )
 
-    const laborPercent = labor.pipe(
-      map((labor) => labor.toLocaleString(undefined, { style: 'percent' })),
-    )
+  const laborPercent = labor.pipe(
+    map((labor) => labor.toLocaleString(undefined, { style: 'percent' })),
+  )
 
-    bindEffect(events.rake, () => {
-        setMoney((money) => money - 0.15)
-        setLabor((labor) => labor + 0.3)
-    })
+  bindEffect(events.rake, () => {
+    setMoney((money) => money - 0.15)
+    setLabor((labor) => labor + 0.3)
+  })
 
-    return (
-        <div className="garden">
-            <div className="stat-label">Money</div>
-            <progress
-                title="Money"
-                bind={{ value: money, innerText: moneyPercent }}
-            />
-            <div className="stat-label">Labor</div>
-            <progress
-                title="Labor"
-                bind={{ value: labor, innerText: laborPercent }}
-            />
-            <div className="section-label">Activities</div>
-            <button type="button" events={{ click: events.rake }}>
-                Rake
-            </button>
-        </div>
-    )
+  return (
+    <div className="garden">
+      <div className="stat-label">Money</div>
+      <progress
+        title="Money"
+        bind={{ value: money, innerText: moneyPercent }}
+      />
+      <div className="stat-label">Labor</div>
+      <progress
+        title="Labor"
+        bind={{ value: labor, innerText: laborPercent }}
+      />
+      <div className="section-label">Activities</div>
+      <button type="button" events={{ click: events.rake }}>
+        Rake
+      </button>
+    </div>
+  )
 }
 ```
 
@@ -152,7 +158,7 @@ more, smaller controls using a shared view model class.
 Let's pull the logic as it currently is into its own view model
 class so that we can test it on its own:
 
-```ts
+```tsx
 import { StateSetter, butterfly } from 'butterfloat'
 import { Observable } from 'rxjs'
 
@@ -219,42 +225,42 @@ components.
 It's just as simple to update our Garden component to use this VM
 instead of directly embedding its state:
 
-```ts
+```tsx
 import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}
 
 interface GardenEvents {
-    rake: ObservableEvent<MouseEvent>
+  rake: ObservableEvent<MouseEvent>
 }
 
 function Garden(
-    props: GardenProps,
-    { bindEffect, events }: ComponentContext<GardenEvents>,
+  props: GardenProps,
+  { bindEffect, events }: ComponentContext<GardenEvents>,
 ) {
-    const vm = new GardenState()
+  const vm = new GardenState()
 
-    bindEffect(events.rake, () => vm.rake())
+  bindEffect(events.rake, () => vm.rake())
 
-    return (
-        <div className="garden">
-            <div className="stat-label">Money</div>
-            <progress
-                title="Money"
-                bind={{ value: vm.money, innerText: vm.moneyPercent }}
-            />
-            <div className="stat-label">Labor</div>
-            <progress
-                title="Labor"
-                bind={{ value: vm.labor, innerText: vm.laborPercent }}
-            />
-            <div className="section-label">Activities</div>
-            <button type="button" events={{ click: events.rake }}>
-                Rake
-            </button>
-        </div>
-    )
+  return (
+    <div className="garden">
+      <div className="stat-label">Money</div>
+      <progress
+        title="Money"
+        bind={{ value: vm.money, innerText: vm.moneyPercent }}
+      />
+      <div className="stat-label">Labor</div>
+      <progress
+        title="Labor"
+        bind={{ value: vm.labor, innerText: vm.laborPercent }}
+      />
+      <div className="section-label">Activities</div>
+      <button type="button" events={{ click: events.rake }}>
+        Rake
+      </button>
+    </div>
+  )
 }
 ```
 

@@ -47,19 +47,19 @@ Start with a basic `index.html`:
 We can create a simple Hello World `Hello` and `Main` component in
 `main.tsx`:
 
-```ts
+```tsx
 import { jsx, run } from 'butterfloat'
 
 interface HelloProps {
-    to: string
+  to: string
 }
 
 function Hello({ to }: HelloProps) {
-    return <p className='hello'>Hello {to}</p>
+  return <p className="hello">Hello {to}</p>
 }
 
 function Main() {
-    return <Hello to="World" />
+  return <Hello to="World" />
 }
 
 const container = document.getElementById('container')!
@@ -89,33 +89,31 @@ Butterfloat components (which, if you are curious, are wired into
 Observables). To add some dynamic changes to our we'll need to
 _bind_ an Observable.
 
-```ts
+```tsx
 import { jsx, run } from 'butterfloat'
 import { Observable, concat, interval, of, map } from 'rxjs'
 
 interface HelloProps {
-    to: Observable<string>
+  to: Observable<string>
 }
 
 function Hello({ to }: HelloProps) {
-    const innerText = to.pipe(
-        map((to) => `Hello ${to}`)
-    )
-    return <p className='hello' bind={{ innerText }} />
+  const innerText = to.pipe(map((to) => `Hello ${to}`))
+  return <p className="hello" bind={{ innerText }} />
 }
 
 function Main() {
-    const greetable = ['World', 'Butterfloat', 'User']
+  const greetable = ['World', 'Butterfloat', 'User']
 
-    // starting with "World" show a random greeting every 15 seconds
-    const helloTo = concat(
-        of('World'),
-        interval(15_000 /* ms */).pipe(
-            map(() => greetable[Math.round(Math.random() * greetable.length)])
-        )
-    )
+  // starting with "World" show a random greeting every 15 seconds
+  const helloTo = concat(
+    of('World'),
+    interval(15_000 /* ms */).pipe(
+      map(() => greetable[Math.round(Math.random() * greetable.length)]),
+    ),
+  )
 
-    return <Hello to={helloTo} />
+  return <Hello to={helloTo} />
 }
 
 const container = document.getElementById('container')!
@@ -139,50 +137,71 @@ above.
 An application isn't all that exciting if you can't interact with it,
 so let's add a simple button to press to change it's mood:
 
-```ts
-import { ComponentContext, ObservableEvent, butterfly, jsx, run } from 'butterfloat'
-import { Observable, combineLatest, concat, interval, of, map, scan } from 'rxjs'
+```tsx
+import {
+  ComponentContext,
+  ObservableEvent,
+  butterfly,
+  jsx,
+  run,
+} from 'butterfloat'
+import {
+  Observable,
+  combineLatest,
+  concat,
+  interval,
+  of,
+  map,
+  scan,
+} from 'rxjs'
 
 interface HelloProps {
-    to: Observable<string>
+  to: Observable<string>
 }
 
 interface HelloEvents {
-    toggleGreeting: ObservableEvent<MouseEvent>
+  toggleGreeting: ObservableEvent<MouseEvent>
 }
 
-export function Hello({ to }: HelloProps, { events }: ComponentContext<HelloEvents>) {
-    const { toggleGreeting } = events
+export function Hello(
+  { to }: HelloProps,
+  { events }: ComponentContext<HelloEvents>,
+) {
+  const { toggleGreeting } = events
 
-    // starting with "Hello", alternate "Hello" and "Good Night"
-    const greeting = concat(
-        of('Hello'),
-        toggleGreeting.pipe(
-            scan((greet) => greet === 'Hello' ? 'Good Night' : 'Hello', 'Hello')
-        )
-    )
+  // starting with "Hello", alternate "Hello" and "Good Night"
+  const greeting = concat(
+    of('Hello'),
+    toggleGreeting.pipe(
+      scan((greet) => (greet === 'Hello' ? 'Good Night' : 'Hello'), 'Hello'),
+    ),
+  )
 
-    const innerText = combineLatest([greeting, to]).pipe(
-        map(([greeting, to]) => `${greeting} ${to}`)
-    )
-    return <div>
-        <p className='hello' bind={{ innerText }} />
-        <button type='button' events={{ click: toggleGreeting }}>Change Mood</button>
+  const innerText = combineLatest([greeting, to]).pipe(
+    map(([greeting, to]) => `${greeting} ${to}`),
+  )
+  return (
+    <div>
+      <p className="hello" bind={{ innerText }} />
+      <button type="button" events={{ click: toggleGreeting }}>
+        Change Mood
+      </button>
     </div>
+  )
 }
 
 function Main() {
-    const greetable = ['World', 'Butterfloat', 'User']
+  const greetable = ['World', 'Butterfloat', 'User']
 
-    // starting with "World" show a random greeting every 15 seconds
-    const helloTo = concat(
-        of('World'),
-        interval(15_000 /* ms */).pipe(
-            map(() => greetable[Math.round(Math.random() * greetable.length)])
-        )
-    )
+  // starting with "World" show a random greeting every 15 seconds
+  const helloTo = concat(
+    of('World'),
+    interval(15_000 /* ms */).pipe(
+      map(() => greetable[Math.round(Math.random() * greetable.length)]),
+    ),
+  )
 
-    return <Hello to={helloTo} />
+  return <Hello to={helloTo} />
 }
 
 const container = document.getElementById('container')!
