@@ -68,8 +68,8 @@ namespace JSXInternal {
     DefaultEvents
 
   export type HtmlElementStyleBind = {
-    [Property in keyof ElementCSSInlineStyle]?: Observable<
-      ElementCSSInlineStyle[Property]
+    [Property in keyof CSSStyleDeclaration]?: Observable<
+      CSSStyleDeclaration[Property]
     >
   }
 
