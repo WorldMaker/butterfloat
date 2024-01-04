@@ -71,6 +71,27 @@ describe('jsx', () => {
     deepEqual(test, expected)
   })
 
+  it('describes a simple static element with a delayed value bind', () => {
+    const percent = of(0.35)
+    const test = <progress bind={{ bfDelayValue: percent }} />
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'progress',
+      attributes: {},
+      bind: { bfDelayValue: percent },
+      immediateBind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
   it('describes a simple static element with a class bind', () => {
     const header = of(true)
     const test = <h1 classBind={{ header }}>Hello</h1>

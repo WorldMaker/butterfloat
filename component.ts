@@ -55,6 +55,18 @@ export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 
 export type DefaultBind = Record<string, Observable<unknown>>
 
+export interface DelayBind {
+  /**
+   * Delay scheduled binding for the "value" property.
+   *
+   * Value is bound immediately by default to avoid user interaction
+   * problems. This provides an opt-in for tested interaction patterns
+   * and rare elements that use "value" for things aren't user
+   * interaction such as <progress />.
+   */
+  bfDelayValue?: Observable<unknown>
+}
+
 export type DefaultStyleBind = Record<string, Observable<unknown>>
 
 export type ClassBind = Record<string, Observable<boolean>>
@@ -69,7 +81,7 @@ export interface ButterfloatIntrinsicAttributes<
    *
    * May use an non-immediate scheduler. Obvious exception: all "value" bindings are immediate, given their role in user inputs.
    */
-  bind?: Bind
+  bind?: Bind & DelayBind
   /**
    * Immediately bind an observable to a DOM property
    */

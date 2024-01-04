@@ -8,6 +8,7 @@ import {
   bufferEntries,
   makeEntries,
   schedulable,
+  scheduledKey,
 } from './binding.js'
 import { ElementDescription } from './component.js'
 import { jsx } from './jsx.js'
@@ -26,10 +27,23 @@ describe('binding', () => {
     deepEqual(actual, expected)
   })
 
-  it('considers other keys schedulable', () => {
-    const actual = schedulable('example', false)
+  it('schedules bfDelayValue as value', () => {
+    const key = 'bfDelayValue'
+    const actual = schedulable(key, false)
     const expected = true
     deepEqual(actual, expected)
+    const actualKey = scheduledKey(key)
+    const expectedKey = 'value'
+    deepEqual(actualKey, expectedKey)
+  })
+
+  it('considers other keys schedulable', () => {
+    const key = 'example'
+    const actual = schedulable(key, false)
+    const expected = true
+    deepEqual(actual, expected)
+    const actualKey = scheduledKey(key)
+    deepEqual(actualKey, key)
   })
 
   it('makes entry observables', () => {

@@ -167,6 +167,13 @@ export function schedulable(key: string | number | symbol, immediate: boolean) {
   return !(immediate || key === 'value')
 }
 
+export function scheduledKey(key: string | number | symbol) {
+  if (key === 'bfDelayValue') {
+    return 'value'
+  }
+  return key
+}
+
 export function makeEntries(
   key: string | number | symbol,
   observable: Observable<unknown>,
@@ -192,7 +199,7 @@ function bindElementBinds(
 
   for (const [key, observable, immediate] of binds) {
     if (schedulable(key, immediate)) {
-      schedulables.push([key, observable] as ObservableEntry)
+      schedulables.push([scheduledKey(key), observable] as ObservableEntry)
     } else {
       subscription.add(bindObjectKey(element, key, observable, error, complete))
     }
