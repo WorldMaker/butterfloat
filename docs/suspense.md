@@ -6,17 +6,17 @@ on several types of binding by this point, we should be able to dig
 into some of the meatier aspects of Butterfloat's binding mechanics
 and some of its advanced features, especially Suspense binding.
 
-## Default Scheduling versus Immediate Scheduling
+## Default Scheduling (Delayed Scheduling) versus Immediate Scheduling
 
-There are two common "flavors" of binds in Butterfloat: default and
-immediate. The primary places you see these flavors are in the JSX
-`bind` versus `immediateBind` attributes, `classBind` versus
-`immediateClassBind`, `styleBind` versus `immediateStyleBind`,
+There are two common "flavors" of binds in Butterfloat: delayed (which is
+largely the default) and immediate. The primary places you see these
+flavors are in the JSX `bind` versus `immediateBind` attributes, `classBind`
+versus `immediateClassBind`, `styleBind` versus `immediateStyleBind`,
 and in the `ComponentContext` the differences between `bindEffect`
 and `bindImmediateEffect` helpers.
 
 The immediate flavor gets the longer names because it shouldn't be
-the default. The default scheduling flavor tries to be smarter by
+the default. The delayed scheduling flavor tries to be smarter by
 default.
 
 There's one obvious exception to note that fields named `value` are
@@ -26,7 +26,13 @@ space where delays would be most noticeable to users and most
 detrimental to user interaction. (Though the advice here is that
 you should consider twice if you need to bind an input's value.)
 
-Default scheduling exists to orchestrate bound changes to hopefully
+If you do want to opt-in to a delay scheduled `value` field, such
+as for elements that use `value` outside of direct user interaction
+such as `<progress />` elements, or in cases where you have tested
+and are careful of the user interaction repercussions, you can use
+the `bfDelayValue` special key to the default `bind` attribute.
+
+Delayed scheduling exists to orchestrate bound changes to hopefully
 maximize responsiveness of the application. The general basics are
 that changes are aggregated and buffered so that they happen no
 _faster_ than `requestAnimationFrame` time. This allows the browser
@@ -36,8 +42,8 @@ noticeable "churn" of changes from a user's perspective (very basic
 debouncing/throttling), and increase the priorities of user
 interaction responsiveness.
 
-It is suggested to start with default scheduling and then as a
-developer where you learn that some updates provide a better
+It is suggested to start with delayed scheduling as your default and
+then as a developer where you learn that some updates provide a better
 user experience when immediately bound, you can move those bindings
 to the appropriate `immediateBind` or `bindImmediateEffect`.
 

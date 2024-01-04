@@ -20,7 +20,7 @@ Component to view when an error occurs below this boundary.
 
 #### Defined in
 
-[error-boundary.ts:22](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/error-boundary.ts#L22)
+[error-boundary.ts:22](https://github.com/WorldMaker/butterfloat/blob/75c28b8/error-boundary.ts#L22)
 
 ___
 
@@ -32,7 +32,7 @@ Bind mode for error views. Defaults to 'prepend'.
 
 #### Defined in
 
-[error-boundary.ts:27](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/error-boundary.ts#L27)
+[error-boundary.ts:27](https://github.com/WorldMaker/butterfloat/blob/75c28b8/error-boundary.ts#L27)
 
 ___
 
@@ -51,4 +51,4 @@ well (as opposed to setting this in a raw `RuntimeOptions`).
 
 #### Defined in
 
-[error-boundary.ts:38](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/error-boundary.ts#L38)
+[error-boundary.ts:38](https://github.com/WorldMaker/butterfloat/blob/75c28b8/error-boundary.ts#L38)

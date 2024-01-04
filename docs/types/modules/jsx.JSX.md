@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[jsx.ts:79](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L79)
+[jsx.ts:79](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L79)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:63](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L63)
+[jsx.ts:63](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L63)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L66)
+[jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L66)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:76](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L76)
+[jsx.ts:76](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L76)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:17](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L17)
+[jsx.ts:17](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L17)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:47](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L47)
+[jsx.ts:47](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L47)
 
 ___
 
@@ -118,17 +118,17 @@ ___
 
 #### Defined in
 
-[jsx.ts:53](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L53)
+[jsx.ts:53](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L53)
 
 ___
 
 ### HtmlElementStyleBind
 
-Ƭ **HtmlElementStyleBind**: \{ [Property in keyof ElementCSSInlineStyle]?: Observable\<ElementCSSInlineStyle[Property]\> }
+Ƭ **HtmlElementStyleBind**: \{ [Property in keyof CSSStyleDeclaration]?: Observable\<CSSStyleDeclaration[Property]\> }
 
 #### Defined in
 
-[jsx.ts:70](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L70)
+[jsx.ts:70](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L70)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:86](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L86)
+[jsx.ts:86](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L86)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:59](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L59)
+[jsx.ts:59](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L59)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:33](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L33)
+[jsx.ts:33](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L33)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:96](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L96)
+[jsx.ts:96](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L96)
 
 ___
 
@@ -199,4 +199,4 @@ ___
 
 #### Defined in
 
-[jsx.ts:39](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L39)
+[jsx.ts:39](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L39)
