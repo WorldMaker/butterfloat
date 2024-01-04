@@ -22,4 +22,4 @@ in the tree.
 
 #### Defined in
 
-[jsx.ts:107](https://github.com/WorldMaker/butterfloat/blob/37e9dd5/jsx.ts#L107)
+[jsx.ts:107](https://github.com/WorldMaker/butterfloat/blob/75c28b8/jsx.ts#L107)

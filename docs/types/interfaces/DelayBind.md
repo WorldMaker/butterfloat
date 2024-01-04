@@ -1,0 +1,26 @@
+[butterfloat](../README.md) / [Exports](../modules.md) / DelayBind
+
+# Interface: DelayBind
+
+## Table of contents
+
+### Properties
+
+- [bfDelayValue](DelayBind.md#bfdelayvalue)
+
+## Properties
+
+### bfDelayValue
+
+• `Optional` **bfDelayValue**: `Observable`\<`unknown`\>
+
+Delay scheduled binding for the "value" property.
+
+Value is bound immediately by default to avoid user interaction
+problems. This provides an opt-in for tested interaction patterns
+and rare elements that use "value" for things aren't user
+interaction such as <progress />.
+
+#### Defined in
+
+[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/75c28b8/component.ts#L67)
