@@ -30,12 +30,26 @@ describe('static-dom', () => {
   })
 
   it('builds a single element with dataset data- attributes', () => {
-    const desc = <div data-test="something" data-funkyThing="music" />
+    const desc = <div data-test="something" data-funky-thing="music" />
     equal(desc.type, 'element')
     const test = buildElement(desc, document)
     equal(test.tagName, 'DIV')
     equal(test.dataset.test, 'something')
     equal(test.dataset.funkyThing, 'music')
+
+    test.remove()
+  })
+
+  it('builds a single element with aria- attributes', () => {
+    const desc = (
+      <div role="navigation" aria-label="something" aria-expanded="true" />
+    )
+    equal(desc.type, 'element')
+    const test = buildElement(desc, document)
+    equal(test.tagName, 'DIV')
+    equal(test.role, 'navigation')
+    equal(test.getAttribute('aria-label'), 'something')
+    equal(test.getAttribute('aria-expanded'), 'true')
 
     test.remove()
   })
