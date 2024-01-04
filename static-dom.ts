@@ -13,8 +13,9 @@ export function buildElement(
 ) {
   const element = document.createElement(description.element)
   for (const [key, value] of Object.entries(description.attributes)) {
-    if (key.startsWith('data-')) {
-      element.dataset[key.replace(/^data-/, '')] = value as string | undefined
+    if (key.includes('-')) {
+      // for example: aria- and data-
+      element.setAttribute(key, (value ?? '').toString())
     } else if (key === 'class') {
       element.className = value as string
     } else if (key === 'for') {

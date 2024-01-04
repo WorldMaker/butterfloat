@@ -45,13 +45,21 @@ namespace JSXInternal {
   }[keyof T]
 
   export type HtmlElementAttributes<T> = {
-    [Property in WritableKeys<T> as T[Property] extends string | number
+    [Property in WritableKeys<T> as T[Property] extends
+      | string
+      | number
+      | null
+      | undefined
       ? Property
       : never]?: T[Property]
   }
 
   export type HtmlElementAttributesBind<T> = {
-    [Property in WritableKeys<T> as T[Property] extends string | number
+    [Property in WritableKeys<T> as T[Property] extends
+      | string
+      | number
+      | null
+      | undefined
       ? Property
       : never]?: Observable<T[Property]>
   }
