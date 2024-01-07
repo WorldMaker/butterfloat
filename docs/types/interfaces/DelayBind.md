@@ -23,4 +23,4 @@ interaction such as <progress />.
 
 #### Defined in
 
-[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/75c28b8/component.ts#L67)
+[component.ts:67](https://github.com/WorldMaker/butterfloat/blob/eeb3fc2/component.ts#L67)
