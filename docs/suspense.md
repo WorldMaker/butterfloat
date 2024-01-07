@@ -192,6 +192,19 @@ suggests using Observable lifetimes for handling resource cleanup.
 but if you had other bindings that depended on that `wrappedVanilla`
 component you may not that empty `bindEffect` at all.
 
+### `Static` attachment
+
+As a final bypass and alternative to `innerHTML` JSX attributes,
+you can use the `<Static element={staticDomElement} />`
+pseudo-component. Static does no lifetime handling and provides
+no teardown lifecycle events. The DOM elements attached this way
+_should be_ truly static (no event handlers, as a big for
+instance).
+
+`Static` can be considered an escape hatch for things such as
+SVG and MathML and vanilla JS template systems that populate their
+own DOM elements.
+
 ## Completion versus Removal
 
 In Butterfloat, when a binding completes it signals completion for

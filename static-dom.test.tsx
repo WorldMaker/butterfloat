@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom'
-import { equal, notStrictEqual } from 'node:assert/strict'
+import { deepEqual, equal, notStrictEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { jsx, Fragment, Children } from './jsx.js'
+import { jsx, Fragment, Children, Static } from './jsx.js'
 import { buildElement, buildTree } from './static-dom.js'
 import { NEVER, of } from 'rxjs'
 
@@ -127,5 +127,14 @@ describe('static-dom', () => {
     equal(div.hasChildNodes(), true)
 
     div.remove()
+  })
+
+  it('returns a static element directly', () => {
+    const staticElement = document.createElement('span')
+    const test = <Static element={staticElement} />
+    const actual = buildTree(test, undefined, undefined, undefined, document)
+    equal(actual.elementBinds.length, 0)
+    equal(actual.nodeBinds.length, 0)
+    deepEqual(actual.container, staticElement)
   })
 })

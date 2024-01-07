@@ -136,7 +136,7 @@ export function Children({ context }: ChildrenProperties): NodeDescription {
  * @returns Fragment node
  */
 export function Fragment(
-  attributes: ButterfloatAttributes | null,
+  attributes: ButterfloatAttributes,
   ...children: JsxChildren
 ): NodeDescription {
   const { childrenBind, childrenBindMode, ...otherAttributes } =
@@ -147,6 +147,26 @@ export function Fragment(
     children,
     childrenBind,
     childrenBindMode,
+  }
+}
+
+export interface StaticProperties {
+  /**
+   * A static element to attach to the DOM tree.
+   */
+  element: Element
+}
+
+/**
+ * Attach a static DOM element
+ *
+ * @param props Static properties
+ * @returns Static node
+ */
+export function Static({ element }: StaticProperties): NodeDescription {
+  return {
+    type: 'static',
+    element,
   }
 }
 
@@ -192,25 +212,17 @@ export function jsx(
     }
   }
   if (typeof element === 'function') {
+    // immediately flatten fragments or children or statics
+    if (element === Fragment || element === Children || element === Static) {
+      const func = element as (
+        attributes: unknown,
+        ...children: JsxChildren
+      ) => NodeDescription
+      return func(attributes ?? {}, ...children)
+    }
+
     const { childrenBind, childrenBindMode, ...otherAttributes } =
       attributes ?? {}
-
-    // immediately flatten fragments or children
-    if (element === Fragment) {
-      return {
-        type: 'fragment',
-        attributes: otherAttributes,
-        children,
-        childrenBind,
-        childrenBindMode,
-      }
-    } else if (element === Children) {
-      const { context } = otherAttributes
-      return {
-        type: 'children',
-        context: context as ComponentContext<unknown>,
-      }
-    }
 
     return {
       type: 'component',
