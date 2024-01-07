@@ -156,11 +156,17 @@ export interface ChildrenDescription {
   context?: ComponentContext<unknown>
 }
 
+export interface StaticDescription {
+  type: 'static'
+  element: Element
+}
+
 export type NodeDescription =
   | ElementDescription
   | ComponentDescription
   | FragmentDescription
   | ChildrenDescription
+  | StaticDescription
 
 /**
  * Make a test context for testing context components.

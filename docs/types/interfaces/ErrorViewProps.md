@@ -18,4 +18,4 @@ Error that occurred.
 
 #### Defined in
 
-[error-boundary.ts:15](https://github.com/WorldMaker/butterfloat/blob/75c28b8/error-boundary.ts#L15)
+[error-boundary.ts:15](https://github.com/WorldMaker/butterfloat/blob/eeb3fc2/error-boundary.ts#L15)

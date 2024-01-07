@@ -4,7 +4,7 @@ import { describe, it } from 'node:test'
 import { Observable, of } from 'rxjs'
 import { ComponentContext, NodeDescription } from './component.js'
 import { ObservableEvent, makeTestEvent } from './events.js'
-import { Fragment, jsx } from './jsx.js'
+import { Fragment, Static, jsx } from './jsx.js'
 
 describe('jsx', () => {
   const { window } = new JSDOM()
@@ -317,6 +317,18 @@ describe('jsx', () => {
           immediateClassBind: {},
         },
       ],
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a static', () => {
+    const { window } = new JSDOM()
+    const { document } = window
+    const staticElement = document.createElement('div')
+    const test = <Static element={staticElement} />
+    const expected: NodeDescription = {
+      type: 'static',
+      element: staticElement,
     }
     deepEqual(test, expected)
   })

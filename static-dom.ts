@@ -93,6 +93,9 @@ export function buildNode(
       }
 
       return container
+    case 'static':
+      container.appendChild(description.element)
+      return container
   }
 }
 
@@ -108,6 +111,12 @@ export function buildTree(
     container = element
     if (hasAnyBinds(description)) {
       elementBinds.push([element, description])
+    }
+  } else if (!container && description.type === 'static') {
+    return {
+      elementBinds,
+      nodeBinds,
+      container: description.element,
     }
   } else if (!container) {
     container = document.createDocumentFragment()
@@ -127,7 +136,8 @@ export function buildTree(
 
   if (
     description.type !== 'children' /* don't allow children */ &&
-    description.type !== 'fragment' /* already flattened */
+    description.type !== 'fragment' /* already flattened */ &&
+    description.type !== 'static' /* don't allow children */
   ) {
     for (const child of description.children) {
       if (typeof child === 'string') {
