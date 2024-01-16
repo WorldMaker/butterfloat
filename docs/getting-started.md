@@ -23,6 +23,48 @@ properties so that it compiles TSX for Butterfloat:
 }
 ```
 
+<details>
+<summary>Explanation and Alternatives</summary>
+
+## Typescript Compiler Options
+
+Typescript has several "modes" for handling TSX files.
+`"jsx": "react"` is the most generic, despite the name of the option
+and tells Typescript not to try to auto-import anything and use the
+cleanest compilation to just basic function calls.
+
+`"jsxFactory": "jsx"` tells Typescript that our TSX function that
+it compiles to call is named `jsx`. You will see this reflected
+as a common import `import { jsx } from 'butterfloat'`, in all of the
+examples to follow.
+
+`"jsxFragmentFactory": "Fragment"` tells Typescript that our
+"component" to use when it encounters a TSX fragment `<>…</>`. In
+this case Butterfloat's is named just `Fragment` and will be imported
+anywhere fragments are used. `import { Fragment, jsx } from 'butterfloat'`
+
+## TSX Alternatives
+
+The developer experience is best tuned for using Typescript to
+compile TSX files to JSX. Especially in application testing you
+may only need Typescript compilation and can directly use
+`<script type="module">` and an `importmap` for `node_modules`
+imports in 2024's browsers.
+
+Other alternatives to compiling TSX with Typescript:
+
+- babel: If you are still using Babel in 2024, it has similar
+  settings to the three above. (You probably don't need Babel
+  and it is not recommended.)
+- esbuild: esbuild uses the exact same settings as Typescript and
+  will pick them up from your `tsconfig.json` file. (esbuild is the
+  current recommended bundler. You may not need a bundler, but if
+  you do, esbuild is handy.)
+- "no build": the `jsx` function of Butterfloat may be used like an
+  `h` function directly in JS.
+
+</details>
+
 ## An Example Hello World App
 
 Start with a basic `index.html`:
@@ -40,6 +82,7 @@ Start with a basic `index.html`:
     </div>
 
     <script type="module" src="main.js"></script>
+    <!-- TODO: Example importmap -->
   </body>
 </html>
 ```
