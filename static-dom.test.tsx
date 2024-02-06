@@ -74,6 +74,21 @@ describe('static-dom', () => {
     equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
   })
 
+  it('builds a single svg with multiple xmlns', () => {
+    const desc = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      />
+    )
+    equal(desc.type, 'element')
+    const { element: test, nsContext } = buildElement(desc, undefined, document)
+    equal(nsContext?.defaultNamespace, 'http://www.w3.org/2000/svg')
+    equal(nsContext.namespaceMap.xlink, 'http://www.w3.org/1999/xlink')
+    equal(test.tagName, 'svg')
+    equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
+  })
+
   it('builds a basic static tree', () => {
     const tree = (
       <div className="test">
