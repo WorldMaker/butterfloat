@@ -7,13 +7,60 @@ import {
 export type ElementBinds = Array<[Element, ElementDescription]>
 export type NodeBinds = Array<[CharacterData, NodeDescription]>
 
+export interface NamespaceContext {
+  defaultNamespace: string | null
+  namespaceMap: Record<string, string>
+}
+
 export function buildElement(
   description: ElementDescription,
+  nsContext?: NamespaceContext,
   document = globalThis.document,
 ) {
-  const element = document.createElement(description.element)
+  if (description.attributes.xmlns) {
+    nsContext = {
+      defaultNamespace: description.attributes.xmlns as string,
+      namespaceMap: { ...nsContext?.namespaceMap },
+    }
+  }
+  let element: Element
+  if (nsContext) {
+    if (description.element.includes(':')) {
+      const [nsAbbrev, elementName] = description.element.split(':')
+      const ns = nsContext.namespaceMap[nsAbbrev]
+      if (!ns) {
+        throw new Error(`Unknown namespace for '${description.element}'`)
+      }
+      element = document.createElementNS(ns, elementName)
+    } else if (nsContext.defaultNamespace) {
+      element = document.createElementNS(
+        nsContext.defaultNamespace,
+        description.element,
+      )
+    } else {
+      element = document.createElement(description.element)
+    }
+  } else {
+    element = document.createElement(description.element)
+  }
   for (const [key, value] of Object.entries(description.attributes)) {
-    if (key.includes('-')) {
+    if (key.startsWith('xmlns:')) {
+      const nsAbbrev = key.replace('xmlns:', '')
+      nsContext = {
+        defaultNamespace: nsContext?.defaultNamespace ?? null,
+        namespaceMap: {
+          ...nsContext?.namespaceMap,
+          [nsAbbrev]: value as string,
+        },
+      }
+    } else if (key.includes(':')) {
+      const [nsAbbrev, attributeName] = key.split(':')
+      const ns = nsContext?.namespaceMap?.[nsAbbrev]
+      if (!ns) {
+        throw new Error(`Unknown namespace for '${key}' attribute`)
+      }
+      element.setAttributeNS(ns, attributeName, (value ?? '').toString())
+    } else if (key.includes('-')) {
       // for example: aria- and data-
       element.setAttribute(key, (value ?? '').toString())
     } else if (key === 'class') {
@@ -26,7 +73,7 @@ export function buildElement(
       ;(element as any)[key] = value
     }
   }
-  return element
+  return { element, nsContext }
 }
 
 export function buildNode(
@@ -34,16 +81,21 @@ export function buildNode(
   container: Element | DocumentFragment,
   elementBinds: ElementBinds,
   nodeBinds: NodeBinds,
+  nsContext?: NamespaceContext,
   document = globalThis.document,
 ) {
   switch (description.type) {
     case 'element': {
-      const element = buildElement(description, document)
+      const { element, nsContext: newContext } = buildElement(
+        description,
+        nsContext,
+        document,
+      )
       if (hasAnyBinds(description)) {
         elementBinds.push([element, description])
       }
       container.appendChild(element)
-      return element
+      return { container: element, nsContext: newContext }
     }
     case 'children': {
       const childrenComment = document.createComment('Children component')
@@ -77,7 +129,14 @@ export function buildNode(
           container.appendChild(document.createTextNode(child))
           continue
         }
-        buildTree(child, container, elementBinds, nodeBinds, document)
+        buildTree(
+          child,
+          container,
+          elementBinds,
+          nodeBinds,
+          nsContext,
+          document,
+        )
       }
 
       if (
@@ -92,10 +151,10 @@ export function buildNode(
         nodeBinds.push([fragmentComment, description])
       }
 
-      return container
+      return { container, nsContext }
     case 'static':
       container.appendChild(description.element)
-      return container
+      return { container, nsContext }
   }
 }
 
@@ -104,10 +163,16 @@ export function buildTree(
   container: Element | DocumentFragment | null = null,
   elementBinds: ElementBinds = [],
   nodeBinds: NodeBinds = [],
+  nsContext?: NamespaceContext,
   document = globalThis.document,
 ) {
   if (!container && description.type === 'element') {
-    const element = buildElement(description, document)
+    const { element, nsContext: newContext } = buildElement(
+      description,
+      nsContext,
+      document,
+    )
+    nsContext = newContext
     container = element
     if (hasAnyBinds(description)) {
       elementBinds.push([element, description])
@@ -120,17 +185,27 @@ export function buildTree(
     }
   } else if (!container) {
     container = document.createDocumentFragment()
-    buildNode(description, container, elementBinds, nodeBinds, document)
+    buildNode(
+      description,
+      container,
+      elementBinds,
+      nodeBinds,
+      nsContext,
+      document,
+    )
   } else {
     const nextNode = buildNode(
       description,
       container,
       elementBinds,
       nodeBinds,
+      nsContext,
       document,
     )
     if (nextNode !== null) {
-      container = nextNode
+      const { container: newContainer, nsContext: newContext } = nextNode
+      container = newContainer
+      nsContext = newContext
     }
   }
 
@@ -144,7 +219,7 @@ export function buildTree(
         container.appendChild(document.createTextNode(child))
         continue
       }
-      buildTree(child, container, elementBinds, nodeBinds, document)
+      buildTree(child, container, elementBinds, nodeBinds, nsContext, document)
     }
   }
 

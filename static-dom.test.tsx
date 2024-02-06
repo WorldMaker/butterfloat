@@ -12,7 +12,7 @@ describe('static-dom', () => {
   it('builds a single element', () => {
     const desc = <hr className="cute" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'HR')
     equal(test.className, 'cute')
 
@@ -22,7 +22,7 @@ describe('static-dom', () => {
   it('builds a single element with class shortcut', () => {
     const desc = <div class="cool" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
     equal(test.className, 'cool')
 
@@ -32,10 +32,11 @@ describe('static-dom', () => {
   it('builds a single element with dataset data- attributes', () => {
     const desc = <div data-test="something" data-funky-thing="music" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
-    equal(test.dataset.test, 'something')
-    equal(test.dataset.funkyThing, 'music')
+    const htest = test as HTMLElement
+    equal(htest.dataset.test, 'something')
+    equal(htest.dataset.funkyThing, 'music')
 
     test.remove()
   })
@@ -45,7 +46,7 @@ describe('static-dom', () => {
       <div role="navigation" aria-label="something" aria-expanded="true" />
     )
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
     equal(test.role, 'navigation')
     equal(test.getAttribute('aria-label'), 'something')
@@ -57,7 +58,7 @@ describe('static-dom', () => {
   it('builds a single label with dataset for attribute', () => {
     const desc = <label for="example" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'LABEL')
     equal((test as HTMLLabelElement).htmlFor, 'example')
 
@@ -75,6 +76,7 @@ describe('static-dom', () => {
       null,
       [],
       [],
+      undefined,
       document,
     )
     equal(elementBinds.length, 0)
@@ -114,6 +116,7 @@ describe('static-dom', () => {
       null,
       [],
       [],
+      undefined,
       document,
     )
     // div element bind
@@ -132,7 +135,14 @@ describe('static-dom', () => {
   it('returns a static element directly', () => {
     const staticElement = document.createElement('span')
     const test = <Static element={staticElement} />
-    const actual = buildTree(test, undefined, undefined, undefined, document)
+    const actual = buildTree(
+      test,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      document,
+    )
     equal(actual.elementBinds.length, 0)
     equal(actual.nodeBinds.length, 0)
     deepEqual(actual.container, staticElement)
