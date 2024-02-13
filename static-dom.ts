@@ -24,22 +24,33 @@ export function buildElement(
     }
   }
   let element: Element
-  if (nsContext) {
-    if (description.element.includes(':')) {
-      const [nsAbbrev, elementName] = description.element.split(':')
-      const ns = nsContext.namespaceMap[nsAbbrev]
+  if (description.element.includes(':')) {
+    const [nsAbbrev, elementName] = description.element.split(':')
+    let ns = nsContext?.namespaceMap[nsAbbrev]
+    if (!ns) {
+      for (const [key, value] of Object.entries(description.attributes)) {
+        if (key.startsWith('xmlns:')) {
+          const nsAbbrev = key.replace('xmlns:', '')
+          nsContext = {
+            defaultNamespace: nsContext?.defaultNamespace ?? null,
+            namespaceMap: {
+              ...nsContext?.namespaceMap,
+              [nsAbbrev]: value as string,
+            },
+          }
+        }
+      }
+      ns = nsContext?.namespaceMap[nsAbbrev]
       if (!ns) {
         throw new Error(`Unknown namespace for '${description.element}'`)
       }
-      element = document.createElementNS(ns, elementName)
-    } else if (nsContext.defaultNamespace) {
-      element = document.createElementNS(
-        nsContext.defaultNamespace,
-        description.element,
-      )
-    } else {
-      element = document.createElement(description.element)
     }
+    element = document.createElementNS(ns, elementName)
+  } else if (nsContext?.defaultNamespace) {
+    element = document.createElementNS(
+      nsContext.defaultNamespace,
+      description.element,
+    )
   } else {
     element = document.createElement(description.element)
   }

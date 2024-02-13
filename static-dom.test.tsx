@@ -65,7 +65,7 @@ describe('static-dom', () => {
     test.remove()
   })
 
-  it('builds a single svg with xmlns', () => {
+  it('builds a single svg element with xmlns', () => {
     const desc = <svg xmlns="http://www.w3.org/2000/svg" />
     equal(desc.type, 'element')
     const { element: test, nsContext } = buildElement(desc, undefined, document)
@@ -74,7 +74,16 @@ describe('static-dom', () => {
     equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
   })
 
-  it('builds a single svg with multiple xmlns', () => {
+  it('builds a single svg element with xmlns:svg', () => {
+    const desc = <svg:svg xmlns:svg="http://www.w3.org/2000/svg" />
+    equal(desc.type, 'element')
+    equal(desc.element, 'svg:svg')
+    const { element: test } = buildElement(desc, undefined, document)
+    equal(test.tagName, 'svg')
+    equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
+  })
+
+  it('builds a single svg element with multiple xmlns', () => {
     const desc = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +127,46 @@ describe('static-dom', () => {
     equal(text.data, 'Hello World')
 
     div.remove()
+  })
+
+  it('builds a basic svg static tree', () => {
+    const tree = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 14 16"
+        width="50"
+      >
+        <use xlink:href="example.svg#id" fill="red" />
+      </svg>
+    )
+    const { container, elementBinds, nodeBinds } = buildTree(
+      tree,
+      null,
+      [],
+      [],
+      undefined,
+      document,
+    )
+    equal(elementBinds.length, 0)
+    equal(nodeBinds.length, 0)
+    const svg = container as SVGSVGElement
+    notStrictEqual(svg, null)
+    equal(svg.tagName, 'svg')
+    equal(svg.namespaceURI, 'http://www.w3.org/2000/svg')
+    equal(svg.viewBox, '0 0 14 16')
+    equal(svg.width, '50')
+    equal(svg.hasChildNodes(), true)
+    const use = svg.firstElementChild as SVGUseElement
+    notStrictEqual(use, null)
+    equal(use.tagName, 'use')
+    equal(use.namespaceURI, 'http://www.w3.org/2000/svg')
+    equal(
+      use.getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
+      'example.svg#id',
+    )
+
+    svg.remove()
   })
 
   it('builds a basic dynamic tree', () => {
