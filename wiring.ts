@@ -97,6 +97,7 @@ export function wireInternal(
     undefined,
     undefined,
     undefined,
+    undefined,
     document,
   )
   context.isStaticComponent &&= elementBinds.length === 0

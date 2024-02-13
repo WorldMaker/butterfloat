@@ -12,7 +12,7 @@ describe('static-dom', () => {
   it('builds a single element', () => {
     const desc = <hr className="cute" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'HR')
     equal(test.className, 'cute')
 
@@ -22,7 +22,7 @@ describe('static-dom', () => {
   it('builds a single element with class shortcut', () => {
     const desc = <div class="cool" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
     equal(test.className, 'cool')
 
@@ -32,10 +32,11 @@ describe('static-dom', () => {
   it('builds a single element with dataset data- attributes', () => {
     const desc = <div data-test="something" data-funky-thing="music" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
-    equal(test.dataset.test, 'something')
-    equal(test.dataset.funkyThing, 'music')
+    const htest = test as HTMLElement
+    equal(htest.dataset.test, 'something')
+    equal(htest.dataset.funkyThing, 'music')
 
     test.remove()
   })
@@ -45,7 +46,7 @@ describe('static-dom', () => {
       <div role="navigation" aria-label="something" aria-expanded="true" />
     )
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'DIV')
     equal(test.role, 'navigation')
     equal(test.getAttribute('aria-label'), 'something')
@@ -57,11 +58,44 @@ describe('static-dom', () => {
   it('builds a single label with dataset for attribute', () => {
     const desc = <label for="example" />
     equal(desc.type, 'element')
-    const test = buildElement(desc, document)
+    const { element: test } = buildElement(desc, undefined, document)
     equal(test.tagName, 'LABEL')
     equal((test as HTMLLabelElement).htmlFor, 'example')
 
     test.remove()
+  })
+
+  it('builds a single svg element with xmlns', () => {
+    const desc = <svg xmlns="http://www.w3.org/2000/svg" />
+    equal(desc.type, 'element')
+    const { element: test, nsContext } = buildElement(desc, undefined, document)
+    equal(nsContext?.defaultNamespace, 'http://www.w3.org/2000/svg')
+    equal(test.tagName, 'svg')
+    equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
+  })
+
+  it('builds a single svg element with xmlns:svg', () => {
+    const desc = <svg:svg xmlns:svg="http://www.w3.org/2000/svg" />
+    equal(desc.type, 'element')
+    equal(desc.element, 'svg:svg')
+    const { element: test } = buildElement(desc, undefined, document)
+    equal(test.tagName, 'svg')
+    equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
+  })
+
+  it('builds a single svg element with multiple xmlns', () => {
+    const desc = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      />
+    )
+    equal(desc.type, 'element')
+    const { element: test, nsContext } = buildElement(desc, undefined, document)
+    equal(nsContext?.defaultNamespace, 'http://www.w3.org/2000/svg')
+    equal(nsContext.namespaceMap.xlink, 'http://www.w3.org/1999/xlink')
+    equal(test.tagName, 'svg')
+    equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
   })
 
   it('builds a basic static tree', () => {
@@ -75,6 +109,7 @@ describe('static-dom', () => {
       null,
       [],
       [],
+      undefined,
       document,
     )
     equal(elementBinds.length, 0)
@@ -92,6 +127,46 @@ describe('static-dom', () => {
     equal(text.data, 'Hello World')
 
     div.remove()
+  })
+
+  it('builds a basic svg static tree', () => {
+    const tree = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 14 16"
+        width="50"
+      >
+        <use xlink:href="example.svg#id" fill="red" />
+      </svg>
+    )
+    const { container, elementBinds, nodeBinds } = buildTree(
+      tree,
+      null,
+      [],
+      [],
+      undefined,
+      document,
+    )
+    equal(elementBinds.length, 0)
+    equal(nodeBinds.length, 0)
+    const svg = container as SVGSVGElement
+    notStrictEqual(svg, null)
+    equal(svg.tagName, 'svg')
+    equal(svg.namespaceURI, 'http://www.w3.org/2000/svg')
+    equal(svg.viewBox, '0 0 14 16')
+    equal(svg.width, '50')
+    equal(svg.hasChildNodes(), true)
+    const use = svg.firstElementChild as SVGUseElement
+    notStrictEqual(use, null)
+    equal(use.tagName, 'use')
+    equal(use.namespaceURI, 'http://www.w3.org/2000/svg')
+    equal(
+      use.getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
+      'example.svg#id',
+    )
+
+    svg.remove()
   })
 
   it('builds a basic dynamic tree', () => {
@@ -114,6 +189,7 @@ describe('static-dom', () => {
       null,
       [],
       [],
+      undefined,
       document,
     )
     // div element bind
@@ -132,7 +208,14 @@ describe('static-dom', () => {
   it('returns a static element directly', () => {
     const staticElement = document.createElement('span')
     const test = <Static element={staticElement} />
-    const actual = buildTree(test, undefined, undefined, undefined, document)
+    const actual = buildTree(
+      test,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      document,
+    )
     equal(actual.elementBinds.length, 0)
     equal(actual.nodeBinds.length, 0)
     deepEqual(actual.container, staticElement)
