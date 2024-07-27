@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "butterfloat",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Knockout-inspired view engine for RxJS with TSX",
   "homepage": "https://worldmaker.net/butterfloat/",
   "repository": "github:WorldMaker/butterfloat",

@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs'
 import { Component, ComponentDescription } from './component.js'
 import { runInternal } from './wiring.js'
 
@@ -27,7 +28,7 @@ export function run(
   options?: RuntimeOptions,
   placeholder?: Element | CharacterData,
   document = globalThis.document,
-) {
+): Subscription {
   const { preserveOnComplete } = options ?? {}
   return runInternal(
     container,
