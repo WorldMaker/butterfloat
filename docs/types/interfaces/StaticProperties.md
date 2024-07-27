@@ -18,4 +18,4 @@ A static element to attach to the DOM tree.
 
 #### Defined in
 
-[jsx.ts:157](https://github.com/WorldMaker/butterfloat/blob/eeb3fc2/jsx.ts#L157)
+[jsx.ts:157](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L157)
