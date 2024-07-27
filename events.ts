@@ -19,7 +19,9 @@ export type DefaultEvents = Record<string, ObservableEvent<unknown>>
  * @param observable Observable of events that occur
  * @returns ObservableEvent
  */
-export function makeTestEvent<T>(observable: Observable<T>) {
+export function makeTestEvent<T>(
+  observable: Observable<T>,
+): ObservableEvent<T> {
   const event = observable as ObservableEvent<T>
   event[ButterfloatEvent] = '⚠ Test Event'
   return event

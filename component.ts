@@ -168,6 +168,15 @@ export type NodeDescription =
   | ChildrenDescription
   | StaticDescription
 
+export interface TestComponentContext<Events = DefaultEvents> {
+  context: ComponentContext<Events>
+  // Types here are just for examing test results
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  effects: Array<[Observable<unknown>, (item: any) => void]>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  immediateEffects: Array<[Observable<unknown>, (item: any) => void]>
+}
+
 /**
  * Make a test context for testing context components.
  * @param events Mocked events for testing
@@ -175,7 +184,7 @@ export type NodeDescription =
  */
 export function makeTestComponentContext<Events = DefaultEvents>(
   events: Events,
-) {
+): TestComponentContext<Events> {
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const effects: Array<[Observable<unknown>, (item: any) => void]> = []
@@ -196,9 +205,9 @@ export function makeTestComponentContext<Events = DefaultEvents>(
  * @param description Element description
  * @returns True if any dynamic binds
  */
-export function hasAnyBinds(description: ElementDescription) {
+export function hasAnyBinds(description: ElementDescription): boolean {
   return (
-    description.childrenBind ||
+    Boolean(description.childrenBind) ||
     Object.keys(description.bind).length > 0 ||
     Object.keys(description.immediateBind).length > 0 ||
     Object.keys(description.events).length > 0 ||

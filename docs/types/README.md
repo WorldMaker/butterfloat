@@ -83,4 +83,4 @@ and operators.
 [Getting Started][started] can lead you through a gentle tour of
 Butterfloat features.
 
-[started]: ../getting-started.md
+[started]: ./docs/getting-started.md
