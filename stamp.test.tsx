@@ -57,7 +57,7 @@ describe('stamp', () => {
       const [comment, bindDesc] = nodeBinds[i]
       const selElement = stamp.querySelector(selector)
       const selElementComment = selElement?.childNodes[0] as CharacterData
-      equal(selElementComment.data, comment.data)
+      equal(selElementComment.data, (comment as CharacterData).data)
       equal(selDesc, bindDesc)
     }
   })

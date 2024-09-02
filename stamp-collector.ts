@@ -85,4 +85,6 @@ export function collectBindings(
       }
       break
   }
+
+  return { elementBinds, nodeBinds }
 }
