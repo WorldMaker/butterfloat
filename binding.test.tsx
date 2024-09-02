@@ -13,6 +13,7 @@ import {
 import { ElementDescription } from './component.js'
 import { jsx } from './jsx.js'
 import { ObservableEvent, makeEventProxy } from './events.js'
+import buildDomStrategy from './wiring-dom-build.js'
 
 describe('binding', () => {
   it("doesn't schedule immediates", () => {
@@ -104,6 +105,7 @@ describe('binding', () => {
     const complete = () => {}
     const subscription = new Subscription()
     bindElement(element, (<div />) as ElementDescription, {
+      domStrategy: buildDomStrategy,
       error,
       complete,
       componentRunner(_container, description, _context, _placeholder) {
@@ -152,6 +154,7 @@ describe('binding', () => {
       element,
       (<div events={{ bfDomAttach }} />) as ElementDescription,
       {
+        domStrategy: buildDomStrategy,
         error,
         complete,
         componentRunner(_container, description, _context, _placeholder) {

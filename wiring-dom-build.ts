@@ -6,6 +6,7 @@ const buildDomStrategy: DomStrategy = (
   component: Component,
   properties: unknown,
   context: ComponentContext,
+  document: Document,
 ) => {
   const tree = component(properties, context)
   return buildTree(tree, undefined, undefined, undefined, undefined, document)

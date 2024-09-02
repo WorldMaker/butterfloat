@@ -17,11 +17,11 @@ export function nodeNamePrefix(desc: NodeDescription): string {
 
 export function collectBindings(
   description: NodeDescription,
-  elementBinds?: BindSelectors,
-  nodeBinds?: BindSelectors,
+  elementSelectors?: BindSelectors,
+  nodeSelectors?: BindSelectors,
 ) {
-  elementBinds ??= []
-  nodeBinds ??= []
+  elementSelectors ??= []
+  nodeSelectors ??= []
   // for this to work we need to collectBindings in exact same traversal as `buildTree`
   // `buildStamp` always provides a top-level container (the `<template>`) so we can start
   // by inlining `buildNode` equivalent here
@@ -31,25 +31,27 @@ export function collectBindings(
         const idSelector = description.attributes.id
           ? `#${description.attributes.id}`
           : ''
-        elementBinds.push([
+        elementSelectors.push([
           `${
             description.element
-          }${idSelector}[data-bf-bind="${elementBinds.length.toString(36)}"]`,
+          }${idSelector}[data-bf-bind="${elementSelectors.length.toString(
+            36,
+          )}"]`,
           description,
         ])
       }
       for (const child of description.children) {
         if (typeof child !== 'string') {
-          collectBindings(child, elementBinds, nodeBinds)
+          collectBindings(child, elementSelectors, nodeSelectors)
         }
       }
       break
     case 'children':
     case 'component':
-      nodeBinds.push([
-        `slot[name="${nodeNamePrefix(description)}${nodeBinds.length.toString(
-          36,
-        )}"]`,
+      nodeSelectors.push([
+        `slot[name="${nodeNamePrefix(
+          description,
+        )}${nodeSelectors.length.toString(36)}"]`,
         description,
       ])
       break
@@ -58,17 +60,17 @@ export function collectBindings(
         description.childrenBind &&
         description.childrenBindMode === 'prepend'
       ) {
-        nodeBinds.push([
-          `slot[name="${nodeNamePrefix(description)}${nodeBinds.length.toString(
-            36,
-          )}"]`,
+        nodeSelectors.push([
+          `slot[name="${nodeNamePrefix(
+            description,
+          )}${nodeSelectors.length.toString(36)}"]`,
           description,
         ])
       }
 
       for (const child of description.children) {
         if (typeof child !== 'string') {
-          collectBindings(child, elementBinds, nodeBinds)
+          collectBindings(child, elementSelectors, nodeSelectors)
         }
       }
 
@@ -76,15 +78,15 @@ export function collectBindings(
         description.childrenBind &&
         description.childrenBindMode !== 'prepend'
       ) {
-        nodeBinds.push([
-          `slot[name="${nodeNamePrefix(description)}${nodeBinds.length.toString(
-            36,
-          )}"]`,
+        nodeSelectors.push([
+          `slot[name="${nodeNamePrefix(
+            description,
+          )}${nodeSelectors.length.toString(36)}"]`,
           description,
         ])
       }
       break
   }
 
-  return { elementBinds, nodeBinds }
+  return { elementSelectors, nodeSelectors }
 }

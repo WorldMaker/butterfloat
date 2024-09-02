@@ -14,22 +14,24 @@ const qs = (container: DocumentFragment, selector: string) => {
 
 const stampOrBuildStrategy: (stamps: StampCollection) => DomStrategy =
   (stamps: StampCollection) =>
-  (component: Component, properties: unknown, context: ComponentContext) => {
+  (
+    component: Component,
+    properties: unknown,
+    context: ComponentContext,
+    document: Document,
+  ) => {
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
       const container = stamp.content.cloneNode(true) as DocumentFragment
       const tree = component(properties, context)
-      const {
-        elementBinds: elementBindSelectors,
-        nodeBinds: nodeBindSelectors,
-      } = collectBindings(tree)
-      const elementBinds: ElementBinds = elementBindSelectors.map(
+      const { elementSelectors, nodeSelectors } = collectBindings(tree)
+      const elementBinds: ElementBinds = elementSelectors.map(
         ([selector, desc]) => [
           qs(container, selector),
           desc as ElementDescription,
         ],
       )
-      const nodeBinds: NodeBinds = nodeBindSelectors.map(([selector, desc]) => [
+      const nodeBinds: NodeBinds = nodeSelectors.map(([selector, desc]) => [
         qs(container, selector),
         desc,
       ])

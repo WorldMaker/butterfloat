@@ -5,6 +5,7 @@ import { firstValueFrom } from 'rxjs'
 import { SimpleComponent } from './component.js'
 import { jsx } from './jsx.js'
 import { WiringContext } from './wiring-context.js'
+import buildDomStrategy from './wiring-dom-build.js'
 import { wire } from './wiring.js'
 
 describe('wiring', () => {
@@ -14,6 +15,7 @@ describe('wiring', () => {
 
     const example: SimpleComponent = () => <h1>Hello World</h1>
     const context: WiringContext = {
+      domStrategy: buildDomStrategy,
       isStaticComponent: true,
       isStaticTree: true,
     }

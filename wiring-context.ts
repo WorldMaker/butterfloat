@@ -14,7 +14,7 @@ export type DomStrategy = (
   component: Component,
   properties: unknown,
   componentContext: ComponentContext,
-  document?: typeof globalThis.document,
+  document: Document,
 ) => {
   container: Element | DocumentFragment
   elementBinds: ElementBinds
