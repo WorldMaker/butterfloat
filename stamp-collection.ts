@@ -1,9 +1,14 @@
 import { Component, ContextComponent } from './component.js'
 
+/**
+ * Property filter function for a Stamp alternative
+ */
 // Want to be forgiving in what we accept
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PropertiesApply<Props = any> = (properties: Props) => boolean
-export type StampAlternatives = Array<[PropertiesApply, HTMLTemplateElement]>
+export type StampPropertiesApply<Props = any> = (properties: Props) => boolean
+export type StampAlternatives = Array<
+  [StampPropertiesApply, HTMLTemplateElement]
+>
 
 /**
  * A collection of Stamps that include the static DOM elements of Butterfloat components
@@ -48,7 +53,7 @@ export class StampCollection {
    */
   registerStampAlternative<Props>(
     c: ContextComponent<Props>,
-    when: PropertiesApply<Props>,
+    when: StampPropertiesApply<Props>,
     stamp: HTMLTemplateElement,
   ): StampCollection {
     const alternatives = this.map.get(c) ?? []
