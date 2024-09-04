@@ -1,6 +1,8 @@
-import { Component } from './component.js'
+import { Component, ContextComponent } from './component.js'
 
-export type PropertiesApply = (properties: unknown) => boolean
+// Want to be forgiving in what we accept
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type PropertiesApply<Props = any> = (properties: Props) => boolean
 export type StampAlternatives = Array<[PropertiesApply, HTMLTemplateElement]>
 
 /**
@@ -44,9 +46,9 @@ export class StampCollection {
    * @param stamp Stamp to register
    * @returns this (for chaining)
    */
-  registerStampAlternative(
-    c: Component,
-    when: PropertiesApply,
+  registerStampAlternative<Props>(
+    c: ContextComponent<Props>,
+    when: PropertiesApply<Props>,
     stamp: HTMLTemplateElement,
   ): StampCollection {
     const alternatives = this.map.get(c) ?? []
