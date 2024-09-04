@@ -2,10 +2,16 @@ import { NodeDescription } from './component.js'
 import { nodeNamePrefix } from './stamp-collector.js'
 import { buildTree } from './static-dom.js'
 
+/**
+ * Build a Stamp of the static DOM parts from the tree produced by a Component
+ * @param description Node description tree
+ * @param document DOM document
+ * @returns Stamp (template tag)
+ */
 export function buildStamp(
   description: NodeDescription,
   document = globalThis.document,
-) {
+): HTMLTemplateElement {
   const template = document.createElement('template')
   const { elementBinds, nodeBinds } = buildTree(
     description,

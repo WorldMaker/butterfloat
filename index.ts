@@ -21,6 +21,10 @@ export {
 // Export just the Suspense component
 export { Suspense, SuspenseProps } from './suspense.js'
 
+// Export just the Stamp builder and StampCollection
+export { buildStamp } from './stamp-builder.js'
+export { StampCollection } from './stamp-collection.js'
+
 // Export just the outermost runtimes
 export * from './runtime-model.js'
 export * from './runtime.js'
