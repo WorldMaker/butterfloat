@@ -13,7 +13,13 @@ import {
 } from './component'
 import { ButterfloatEvents, DefaultEvents, ObservableEvent } from './events'
 
+/**
+ * Overloads to Typescript's JSX typing
+ */
 namespace JSXInternal {
+  /**
+   * JSX Element type
+   */
   export type Element = NodeDescription
 
   /*
@@ -30,12 +36,18 @@ namespace JSXInternal {
         IfEquals/WritableKeys: https://stackoverflow.com/questions/52443276/how-to-exclude-getter-only-properties-from-type-in-typescript/52473108#52473108
     */
 
+  /**
+   * If types are equal. Meta-type for complex conditional types.
+   */
   export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X
     ? 1
     : 2) extends <T>() => T extends Y ? 1 : 2
     ? A
     : B
 
+  /**
+   * Collect the writable keys of a type.
+   */
   export type WritableKeys<T> = {
     [P in keyof T]-?: IfEquals<
       { [Q in P]: T[P] },
@@ -44,6 +56,9 @@ namespace JSXInternal {
     >
   }[keyof T]
 
+  /**
+   * Attributes of an HTML Element
+   */
   export type HtmlElementAttributes<T> = {
     [Property in WritableKeys<T> as T[Property] extends
       | string
@@ -54,6 +69,9 @@ namespace JSXInternal {
       : never]?: T[Property]
   }
 
+  /**
+   * Observable bindable attributes of an HTML Element
+   */
   export type HtmlElementAttributesBind<T> = {
     [Property in WritableKeys<T> as T[Property] extends
       | string
@@ -64,26 +82,44 @@ namespace JSXInternal {
       : never]?: Observable<T[Property]>
   }
 
+  /**
+   * Bindable DOM events
+   */
   export type HtmlEvents<EventMap = HTMLElementEventMap> = {
     [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]>
   }
 
+  /**
+   * All Butterfloat bindable attributes of an element
+   */
   export type ButterfloatElementBind<T> = HtmlElementAttributesBind<T> &
     DefaultBind
 
+  /**
+   * All Butterfloat bindable events of an element
+   */
   export type ButterfloatElementEvents = HtmlEvents &
     ButterfloatEvents &
     DefaultEvents
 
+  /**
+   * All bindable CSS styles of an HTML element
+   */
   export type HtmlElementStyleBind = {
     [Property in keyof CSSStyleDeclaration]?: Observable<
       CSSStyleDeclaration[Property]
     >
   }
 
+  /**
+   * All Butterfloat bindable CSS styles
+   */
   export type ButterfloatElementStyleBind = HtmlElementStyleBind &
     DefaultStyleBind
 
+  /**
+   * Attributes available in Butterfloat from an HTML element
+   */
   export type ButterfloatElementAttributes<T> = HtmlElementAttributes<T> &
     ButterfloatIntrinsicAttributes<
       ButterfloatElementBind<T>,
@@ -91,19 +127,31 @@ namespace JSXInternal {
       ButterfloatElementStyleBind
     >
 
+  /**
+   * Available HTML Elements
+   */
   export type HtmlElements = {
     [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes<
       HTMLElementTagNameMap[Property]
     >
   }
 
+  /**
+   * JSX "intrinsic" elements (HTML elements for DOM binding)
+   */
   export interface IntrinsicElements extends HtmlElements {
     [ele: string]: ButterfloatIntrinsicAttributes
   }
 
+  /**
+   * JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")
+   */
   export type IntrinsicAttributes = ChildrenBindable
 }
 
+/**
+ * Properties supported by the `<Children>` pseudo-component
+ */
 export interface ChildrenProperties {
   /**
    * Context for the component to bind the children from, for deep binding.
@@ -150,6 +198,9 @@ export function Fragment(
   }
 }
 
+/**
+ * Properties supported by the `<Static>` pseudo-component
+ */
 export interface StaticProperties {
   /**
    * A static element to attach to the DOM tree.
@@ -171,7 +222,7 @@ export function Static({ element }: StaticProperties): NodeDescription {
 }
 
 /**
- * Describe a node. Builder for JSX and TSX tranformation.
+ * Describe a node. Builder for JSX and TSX transformation.
  * @param element An element to build
  * @param attributes Attributes
  * @param children Children
@@ -236,6 +287,12 @@ export function jsx(
   throw new Error(`Unsupported jsx in ${element}`)
 }
 
+/**
+ * Describe a node. Builder for JSX and TSX transformation.
+ */
 export namespace jsx {
+  /**
+   * JSX typing internals
+   */
   export import JSX = JSXInternal
 }

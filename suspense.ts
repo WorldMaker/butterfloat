@@ -8,6 +8,9 @@ import {
 import { WiringContext } from './wiring-context.js'
 import { wire } from './wiring.js'
 
+/**
+ * Properties supported by the `<Suspense>` pseudo-component
+ */
 export interface SuspenseProps {
   /**
    * Suspend children bindings when true.
