@@ -261,6 +261,12 @@ may make sense in some production builds, though keep in mind that
 other completions that are not errors will not present your error
 view.
 
+## Next Steps
+
+[Stamps][stamps] can be a useful building block for advanced optimization
+like server-side rendering and other progressive enhancement scenarios.
+
 [children]: ./children.md
 [started]: ./getting-started.md
+[stamps]: ./stamps.md
 [spy]: https://github.com/cartant/rxjs-spy
