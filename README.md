@@ -143,5 +143,12 @@ component can't be (moving the `butterfly` state to its own "view model")
 in the [State Management][state] documentation, but it is suggested you
 take the scenic route and start with [Getting Started][started].
 
+## Other Examples
+
+Example projects migrated from Knockout:
+
+- [compradprog](https://github.com/WorldMaker/compradprog)
+- [macrotx](https://github.com/WorldMaker/macrotx)
+
 [started]: ./docs/getting-started.md
 [state]: ./docs/state.md
