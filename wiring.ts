@@ -28,6 +28,7 @@ export function wireInternal(
   description: ComponentDescription,
   subscriber: Subscriber<Node>,
   context: WiringContext,
+  outerContainer?: Element | DocumentFragment,
   document = globalThis.document,
 ) {
   const { treeError } = context
@@ -91,15 +92,21 @@ export function wireInternal(
   contextChildrenDescriptions.set(componentContext, description)
 
   try {
-    const { elementBinds, nodeBinds, container } = context.domStrategy(
-      description.component,
-      description.properties,
-      componentContext,
-      document,
-    )
+    const { elementBinds, nodeBinds, container, isSameContainer } =
+      context.domStrategy(
+        description.component,
+        description.properties,
+        componentContext,
+        outerContainer,
+        document,
+      )
     context.isStaticComponent &&= elementBinds.length === 0
     context.isStaticTree &&= context.isStaticComponent
-    subscriber.next(container)
+    if (!isSameContainer) {
+      subscriber.next(container)
+    } else {
+      subscriber.next(document.createComment('prestamp bound'))
+    }
 
     const bindContext: BindingContext = {
       ...context,
@@ -209,6 +216,7 @@ function wireChildrenComponent(
 export function wire(
   component: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
+  outerContainer?: Element | DocumentFragment,
   document = globalThis.document,
 ): Observable<Element> {
   if (isObservable(component)) {
@@ -236,7 +244,7 @@ export function wire(
   }
 
   return new Observable((subscriber: Subscriber<Element>) =>
-    wireInternal(description, subscriber, context, document),
+    wireInternal(description, subscriber, context, outerContainer, document),
   )
 }
 
@@ -259,7 +267,7 @@ export function runInternal(
 ) {
   const observable = isObservable(component)
     ? component
-    : wire(component, context, document)
+    : wire(component, context, container, document)
   let previousNode: Element | null = null
   const componentName =
     'type' in component ? component.component.name : component.name

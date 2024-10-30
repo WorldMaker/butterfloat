@@ -92,6 +92,6 @@ export function wireErrorBoundary(
   }
   const mainComponent = () => errorViewComponentFragment
   const mainContext = { ...context, treeError, preserveOnComplete }
-  const main = wire(mainComponent, mainContext, document)
+  const main = wire(mainComponent, mainContext, undefined, document)
   return main
 }

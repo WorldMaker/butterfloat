@@ -19,7 +19,7 @@ describe('wiring', () => {
       isStaticComponent: true,
       isStaticTree: true,
     }
-    const obs = wire(example, context, document)
+    const obs = wire(example, context, undefined, document)
     const element = (await firstValueFrom(obs)) as HTMLElement
     equal(context.isStaticComponent, true)
     equal(context.isStaticTree, true)

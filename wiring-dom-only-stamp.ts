@@ -9,16 +9,22 @@ const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
     component: Component,
     properties: unknown,
     context: ComponentContext,
+    container: Element | DocumentFragment | undefined,
     _document: Document,
-    container?: Element | DocumentFragment,
   ) => {
     if (container && stamps.isPrestamp(component, properties, container)) {
-      return selectBindings(container, component(properties, context))
+      return {
+        ...selectBindings(container, component(properties, context)),
+        isSameContainer: true,
+      }
     }
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
       const container = stamp.content.cloneNode(true) as DocumentFragment
-      return selectBindings(container, component(properties, context))
+      return {
+        ...selectBindings(container, component(properties, context)),
+        isSameContainer: false,
+      }
     }
     throw new Error(`Stamp "${component.name}" not found`)
   }

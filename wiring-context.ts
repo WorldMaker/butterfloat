@@ -14,10 +14,11 @@ export type DomStrategy = (
   component: Component,
   properties: unknown,
   componentContext: ComponentContext,
+  container: Element | DocumentFragment | undefined,
   document: Document,
-  container?: Element | DocumentFragment,
 ) => {
   container: Element | DocumentFragment
+  isSameContainer: boolean
   elementBinds: ElementBinds
   nodeBinds: NodeBinds
 }
@@ -44,5 +45,6 @@ export type ComponentRunner = (
 export type ComponentWirer = (
   component: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
+  container?: Element | DocumentFragment,
   document?: Document,
 ) => Observable<Element>

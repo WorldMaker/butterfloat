@@ -6,11 +6,14 @@ const buildDomStrategy: DomStrategy = (
   component: Component,
   properties: unknown,
   context: ComponentContext,
+  container: Element | DocumentFragment | undefined,
   document: Document,
-  container?: Element | DocumentFragment,
 ) => {
   const tree = component(properties, context)
-  return buildTree(tree, container, undefined, undefined, undefined, document)
+  return {
+    ...buildTree(tree, undefined, undefined, undefined, undefined, document),
+    isSameContainer: false,
+  }
 }
 
 export default buildDomStrategy
