@@ -1,4 +1,9 @@
-import { hasAnyBinds, NodeDescription } from './component.js'
+import {
+  ElementDescription,
+  hasAnyBinds,
+  NodeDescription,
+} from './component.js'
+import { ElementBinds, NodeBinds } from './wiring-context.js'
 
 export type BindSelectors = Array<[string, NodeDescription]>
 
@@ -89,4 +94,27 @@ export function collectBindings(
   }
 
   return { elementSelectors, nodeSelectors }
+}
+
+const qs = (container: Element | DocumentFragment, selector: string) => {
+  const node = container.querySelector(selector)
+  if (node) {
+    return node
+  }
+  throw new Error('Stamp does not match component')
+}
+
+export function selectBindings(
+  container: Element | DocumentFragment,
+  description: NodeDescription,
+) {
+  const { elementSelectors, nodeSelectors } = collectBindings(description)
+  const elementBinds: ElementBinds = elementSelectors.map(
+    ([selector, desc]) => [qs(container, selector), desc as ElementDescription],
+  )
+  const nodeBinds: NodeBinds = nodeSelectors.map(([selector, desc]) => [
+    qs(container, selector),
+    desc,
+  ])
+  return { container, nodeBinds, elementBinds }
 }

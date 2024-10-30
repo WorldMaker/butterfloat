@@ -7,9 +7,10 @@ const buildDomStrategy: DomStrategy = (
   properties: unknown,
   context: ComponentContext,
   document: Document,
+  container?: Element | DocumentFragment,
 ) => {
   const tree = component(properties, context)
-  return buildTree(tree, undefined, undefined, undefined, undefined, document)
+  return buildTree(tree, container, undefined, undefined, undefined, document)
 }
 
 export default buildDomStrategy

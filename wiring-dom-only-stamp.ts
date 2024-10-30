@@ -1,15 +1,7 @@
-import { Component, ComponentContext, ElementDescription } from './component.js'
+import { Component, ComponentContext } from './component.js'
 import { StampCollection } from './stamp-collection.js'
-import { collectBindings } from './stamp-collector.js'
-import { DomStrategy, ElementBinds, NodeBinds } from './wiring-context.js'
-
-const qs = (container: DocumentFragment, selector: string) => {
-  const node = container.querySelector(selector)
-  if (node) {
-    return node
-  }
-  throw new Error('Stamp does not match component')
-}
+import { selectBindings } from './stamp-collector.js'
+import { DomStrategy } from './wiring-context.js'
 
 const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
   (stamps: StampCollection) =>
@@ -18,23 +10,15 @@ const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
     properties: unknown,
     context: ComponentContext,
     _document: Document,
+    container?: Element | DocumentFragment,
   ) => {
+    if (container && stamps.isPrestamp(component, properties, container)) {
+      return selectBindings(container, component(properties, context))
+    }
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
       const container = stamp.content.cloneNode(true) as DocumentFragment
-      const tree = component(properties, context)
-      const { elementSelectors, nodeSelectors } = collectBindings(tree)
-      const elementBinds: ElementBinds = elementSelectors.map(
-        ([selector, desc]) => [
-          qs(container, selector),
-          desc as ElementDescription,
-        ],
-      )
-      const nodeBinds: NodeBinds = nodeSelectors.map(([selector, desc]) => [
-        qs(container, selector),
-        desc,
-      ])
-      return { container, elementBinds, nodeBinds }
+      return selectBindings(container, component(properties, context))
     }
     throw new Error('Stamp not found')
   }
