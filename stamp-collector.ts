@@ -10,13 +10,13 @@ export type BindSelectors = Array<[string, NodeDescription]>
 export function nodeNamePrefix(desc: NodeDescription): string {
   switch (desc.type) {
     case 'children':
-      return 'c'
+      return 'bf-c'
     case 'component':
-      return 'x'
+      return 'bf-x'
     case 'fragment':
-      return 'f'
+      return 'bf-f'
     default:
-      return 'u'
+      return 'bf-u'
   }
 }
 
