@@ -20,7 +20,7 @@ const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
       const container = stamp.content.cloneNode(true) as DocumentFragment
       return selectBindings(container, component(properties, context))
     }
-    throw new Error('Stamp not found')
+    throw new Error(`Stamp "${component.name}" not found`)
   }
 
 export default stampOnlyStrategy
