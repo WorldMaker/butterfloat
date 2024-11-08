@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom'
-import { deepEqual, equal, match } from 'node:assert/strict'
+import { deepEqual, equal, match, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, of } from 'rxjs'
 import { Children, Fragment, jsx } from './jsx.js'
@@ -39,6 +39,8 @@ describe('stamp', () => {
     )
     const { nodeSelectors, elementSelectors } = collectBindings(tree)
 
+    ok(stamp.innerHTML.length > 0, 'produces html')
+
     bindsEqual(
       stamp,
       container,
@@ -73,6 +75,8 @@ describe('stamp', () => {
     )
     const { nodeSelectors, elementSelectors } = collectBindings(tree)
 
+    ok(stamp.innerHTML.length > 0, 'produces html')
+
     bindsEqual(
       stamp,
       container,
@@ -94,14 +98,14 @@ function bindsEqual(
   nodeSelectors: BindSelectors,
   nodeBinds: NodeBinds,
 ) {
-  equal(stamp.children.length, container.children.length)
+  equal(stamp.content.childNodes.length, container.childNodes.length)
   equal(elementSelectors.length, elementBinds.length)
   equal(nodeSelectors.length, nodeBinds.length)
 
   for (let i = 0; i < elementSelectors.length; i++) {
     const [selector, selDesc] = elementSelectors[i]
     const [element, bindDesc] = elementBinds[i]
-    const selElement = stamp.querySelector(selector)
+    const selElement = stamp.content.querySelector(selector)
     deepEqual(selElement, element)
     equal(selDesc, bindDesc)
   }
@@ -109,7 +113,7 @@ function bindsEqual(
   for (let i = 0; i < nodeSelectors.length; i++) {
     const [selector, selDesc] = nodeSelectors[i]
     const [comment, bindDesc] = nodeBinds[i]
-    const selElement = stamp.querySelector(selector)
+    const selElement = stamp.content.querySelector(selector)
     const selElementComment = selElement?.childNodes[0] as CharacterData
     equal(selElementComment.data, (comment as CharacterData).data)
     equal(selDesc, bindDesc)

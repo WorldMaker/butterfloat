@@ -15,7 +15,7 @@ export function buildStamp(
   const template = document.createElement('template')
   const { elementBinds, nodeBinds } = buildTree(
     description,
-    template,
+    template.content,
     undefined,
     undefined,
     undefined,
