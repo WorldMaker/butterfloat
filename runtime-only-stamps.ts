@@ -6,6 +6,8 @@ import stampStrategy from './wiring-dom-only-stamp.js'
 import { runInternal } from './wiring.js'
 
 /**
+ * @experimental Preview only functionality because Butterfloat internally uses anonymous components
+ *
  * Run a Butterfloat component with only Stamps
  *
  * @param container Container the component will be a child in
