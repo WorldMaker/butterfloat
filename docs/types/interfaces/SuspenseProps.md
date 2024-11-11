@@ -2,6 +2,8 @@
 
 # Interface: SuspenseProps
 
+Properties supported by the `<Suspense>` pseudo-component
+
 ## Table of contents
 
 ### Properties
@@ -19,7 +21,7 @@ Show an optional component instead when suspended.
 
 #### Defined in
 
-[suspense.ts:19](https://github.com/WorldMaker/butterfloat/blob/d39706f/suspense.ts#L19)
+[suspense.ts:22](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/suspense.ts#L22)
 
 ___
 
@@ -31,4 +33,4 @@ Suspend children bindings when true.
 
 #### Defined in
 
-[suspense.ts:15](https://github.com/WorldMaker/butterfloat/blob/d39706f/suspense.ts#L15)
+[suspense.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/suspense.ts#L18)

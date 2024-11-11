@@ -8,6 +8,10 @@
 
 - [jsx](modules/jsx.md)
 
+### Classes
+
+- [StampCollection](classes/StampCollection.md)
+
 ### Interfaces
 
 - [ButterfloatEvents](interfaces/ButterfloatEvents.md)
@@ -47,6 +51,7 @@
 - [NodeDescription](modules.md#nodedescription)
 - [ObservableEvent](modules.md#observableevent)
 - [SimpleComponent](modules.md#simplecomponent)
+- [StampPropertiesApply](modules.md#stamppropertiesapply)
 - [StateSetter](modules.md#statesetter)
 
 ### Functions
@@ -56,12 +61,15 @@
 - [Fragment](modules.md#fragment)
 - [Static](modules.md#static)
 - [Suspense](modules.md#suspense)
+- [buildStamp](modules.md#buildstamp)
 - [butterfly](modules.md#butterfly)
 - [hasAnyBinds](modules.md#hasanybinds)
 - [jsx](modules.md#jsx)
 - [makeTestComponentContext](modules.md#maketestcomponentcontext)
 - [makeTestEvent](modules.md#maketestevent)
 - [run](modules.md#run)
+- [runOnlyStamps](modules.md#runonlystamps)
+- [runStamps](modules.md#runstamps)
 
 ## Type Aliases
 
@@ -69,9 +77,11 @@
 
 Ƭ **Attributes**: `Record`\<`string`, `unknown`\>
 
+Attributes of a Node Description
+
 #### Defined in
 
-[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L35)
+[component.ts:50](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L50)
 
 ___
 
@@ -79,9 +89,11 @@ ___
 
 Ƭ **ButterfloatAttributes**: [`HtmlAttributes`](modules.md#htmlattributes) & [`ChildrenBindable`](interfaces/ChildrenBindable.md)
 
+Butterfloat Attributes
+
 #### Defined in
 
-[component.ts:54](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L54)
+[component.ts:84](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L84)
 
 ___
 
@@ -89,9 +101,11 @@ ___
 
 Ƭ **ChildrenBind**: `Observable`\<[`Component`](modules.md#component)\>
 
+An Observable that produces child Components
+
 #### Defined in
 
-[component.ts:39](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L39)
+[component.ts:60](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L60)
 
 ___
 
@@ -99,9 +113,11 @@ ___
 
 Ƭ **ChildrenBindMode**: ``"append"`` \| ``"prepend"`` \| ``"replace"``
 
+The mode to bind new children to a container
+
 #### Defined in
 
-[component.ts:41](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L41)
+[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L65)
 
 ___
 
@@ -109,9 +125,11 @@ ___
 
 Ƭ **ClassBind**: `Record`\<`string`, `Observable`\<`boolean`\>\>
 
+Bind for classBind
+
 #### Defined in
 
-[component.ts:72](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L72)
+[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L114)
 
 ___
 
@@ -119,9 +137,11 @@ ___
 
 Ƭ **Component**: [`ContextComponent`](modules.md#contextcomponent) \| [`SimpleComponent`](modules.md#simplecomponent)
 
+A Butterfloat Component
+
 #### Defined in
 
-[component.ts:31](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L31)
+[component.ts:40](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L40)
 
 ___
 
@@ -140,6 +160,8 @@ ___
 
 ▸ (`props`, `context`): [`NodeDescription`](modules.md#nodedescription)
 
+A Butterfloat Component provided properties and additional context-sensitive tools
+
 ##### Parameters
 
 | Name | Type |
@@ -153,7 +175,7 @@ ___
 
 #### Defined in
 
-[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L24)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
 
 ___
 
@@ -161,9 +183,11 @@ ___
 
 Ƭ **DefaultBind**: `Record`\<`string`, `Observable`\<`unknown`\>\>
 
+Default bind attribute accepted binds
+
 #### Defined in
 
-[component.ts:56](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L56)
+[component.ts:89](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L89)
 
 ___
 
@@ -171,9 +195,11 @@ ___
 
 Ƭ **DefaultEvents**: `Record`\<`string`, [`ObservableEvent`](modules.md#observableevent)\<`unknown`\>\>
 
+Default collection of Butterfloat bindings to DOM events
+
 #### Defined in
 
-[events.ts:15](https://github.com/WorldMaker/butterfloat/blob/d39706f/events.ts#L15)
+[events.ts:24](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L24)
 
 ___
 
@@ -181,9 +207,11 @@ ___
 
 Ƭ **DefaultStyleBind**: `Record`\<`string`, `Observable`\<`unknown`\>\>
 
+Default styleBind attribute accepted binds
+
 #### Defined in
 
-[component.ts:70](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L70)
+[component.ts:109](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L109)
 
 ___
 
@@ -216,7 +244,7 @@ Handles an effect
 
 #### Defined in
 
-[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L7)
+[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L7)
 
 ___
 
@@ -224,9 +252,11 @@ ___
 
 Ƭ **HtmlAttributes**: `Record`\<`string`, `unknown`\>
 
+HTML Attributes
+
 #### Defined in
 
-[component.ts:37](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L37)
+[component.ts:55](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L55)
 
 ___
 
@@ -234,9 +264,11 @@ ___
 
 Ƭ **JsxChildren**: ([`NodeDescription`](modules.md#nodedescription) \| `string`)[]
 
+Possible children to a JSX node
+
 #### Defined in
 
-[component.ts:33](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L33)
+[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L45)
 
 ___
 
@@ -244,15 +276,19 @@ ___
 
 Ƭ **NodeDescription**: [`ElementDescription`](interfaces/ElementDescription.md) \| [`ComponentDescription`](interfaces/ComponentDescription.md) \| [`FragmentDescription`](interfaces/FragmentDescription.md) \| [`ChildrenDescription`](interfaces/ChildrenDescription.md) \| [`StaticDescription`](interfaces/StaticDescription.md)
 
+A description of a node in a Butterfloat DOM tree
+
 #### Defined in
 
-[component.ts:164](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L164)
+[component.ts:230](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L230)
 
 ___
 
 ### ObservableEvent
 
 Ƭ **ObservableEvent**\<`T`\>: `Observable`\<`T`\> & \{ `[ButterfloatEvent]`: `unknown`  }
+
+An Observable intended for binding to a DOM event
 
 #### Type parameters
 
@@ -262,7 +298,7 @@ ___
 
 #### Defined in
 
-[events.ts:5](https://github.com/WorldMaker/butterfloat/blob/d39706f/events.ts#L5)
+[events.ts:8](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L8)
 
 ___
 
@@ -274,13 +310,47 @@ ___
 
 ▸ (): [`NodeDescription`](modules.md#nodedescription)
 
+The simplest form of Butterfloat Component
+
 ##### Returns
 
 [`NodeDescription`](modules.md#nodedescription)
 
 #### Defined in
 
-[component.ts:29](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L29)
+[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L35)
+
+___
+
+### StampPropertiesApply
+
+Ƭ **StampPropertiesApply**\<`Props`\>: (`properties`: `Props`) => `boolean`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Props` | `any` |
+
+#### Type declaration
+
+▸ (`properties`): `boolean`
+
+Property filter function for a Stamp alternative
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `properties` | `Props` |
+
+##### Returns
+
+`boolean`
+
+#### Defined in
+
+[stamp-collection.ts:8](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L8)
 
 ___
 
@@ -296,7 +366,7 @@ ___
 
 #### Defined in
 
-[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/d39706f/butterfly.ts#L3)
+[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/butterfly.ts#L3)
 
 ## Functions
 
@@ -320,7 +390,7 @@ Children node
 
 #### Defined in
 
-[jsx.ts:124](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L124)
+[jsx.ts:172](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L172)
 
 ___
 
@@ -343,7 +413,7 @@ Present an error view when errors occur below this in the tree.
 
 #### Defined in
 
-[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L24)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
 
 ___
 
@@ -368,7 +438,7 @@ Fragment node
 
 #### Defined in
 
-[jsx.ts:138](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L138)
+[jsx.ts:186](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L186)
 
 ___
 
@@ -392,7 +462,7 @@ Static node
 
 #### Defined in
 
-[jsx.ts:166](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L166)
+[jsx.ts:217](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L217)
 
 ___
 
@@ -415,7 +485,32 @@ Suspend the bindings in children when a observable flag has been raised.
 
 #### Defined in
 
-[component.ts:24](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L24)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
+
+___
+
+### buildStamp
+
+▸ **buildStamp**(`description`, `document?`): `HTMLTemplateElement`
+
+Build a Stamp of the static DOM parts from the tree produced by a Component
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `description` | [`NodeDescription`](modules.md#nodedescription) | `undefined` | Node description tree |
+| `document` | `Document` | `globalThis.document` | DOM document |
+
+#### Returns
+
+`HTMLTemplateElement`
+
+Stamp (template tag)
+
+#### Defined in
+
+[stamp-builder.ts:11](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-builder.ts#L11)
 
 ___
 
@@ -455,7 +550,7 @@ boundaries by thinking of it as a tuple of two to four things, three of which sh
 
 #### Defined in
 
-[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/d39706f/butterfly.ts#L20)
+[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/butterfly.ts#L20)
 
 ___
 
@@ -479,7 +574,7 @@ True if any dynamic binds
 
 #### Defined in
 
-[component.ts:208](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L208)
+[component.ts:277](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L277)
 
 ___
 
@@ -487,7 +582,7 @@ ___
 
 ▸ **jsx**(`element`, `attributes`, `...children`): [`NodeDescription`](modules.md#nodedescription)
 
-Describe a node. Builder for JSX and TSX tranformation.
+Describe a node. Builder for JSX and TSX transformation.
 
 #### Parameters
 
@@ -505,7 +600,7 @@ Node description
 
 #### Defined in
 
-[jsx.ts:180](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L180)
+[jsx.ts:231](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L231)
 
 ___
 
@@ -535,7 +630,7 @@ A test context for testing context component
 
 #### Defined in
 
-[component.ts:185](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L185)
+[component.ts:254](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L254)
 
 ___
 
@@ -565,7 +660,7 @@ ObservableEvent
 
 #### Defined in
 
-[events.ts:22](https://github.com/WorldMaker/butterfloat/blob/d39706f/events.ts#L22)
+[events.ts:31](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L31)
 
 ___
 
@@ -593,4 +688,64 @@ Subscription
 
 #### Defined in
 
-[runtime.ts:25](https://github.com/WorldMaker/butterfloat/blob/d39706f/runtime.ts#L25)
+[runtime.ts:17](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime.ts#L17)
+
+___
+
+### runOnlyStamps
+
+▸ **runOnlyStamps**(`container`, `component`, `stamps`, `options?`, `placeholder?`, `document?`): `Subscription`
+
+Preview only functionality because Butterfloat internally uses anonymous components
+
+Run a Butterfloat component with only Stamps
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `container` | `Element` | `undefined` | Container the component will be a child in |
+| `component` | [`ComponentDescription`](interfaces/ComponentDescription.md) \| [`Component`](modules.md#component) | `undefined` | Component or description of component to run |
+| `stamps` | [`StampCollection`](classes/StampCollection.md) | `undefined` | - |
+| `options?` | [`RuntimeOptions`](interfaces/RuntimeOptions.md) | `undefined` | - |
+| `placeholder?` | `Element` \| `CharacterData` | `undefined` | Optional placeholder child of the container to replace |
+| `document` | `Document` | `globalThis.document` | Document to use for creating new nodes |
+
+#### Returns
+
+`Subscription`
+
+Subscription
+
+#### Defined in
+
+[runtime-only-stamps.ts:20](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime-only-stamps.ts#L20)
+
+___
+
+### runStamps
+
+▸ **runStamps**(`container`, `component`, `stamps`, `options?`, `placeholder?`, `document?`): `Subscription`
+
+Run a Butterfloat component with Stamps
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `container` | `Element` | `undefined` | Container the component will be a child in |
+| `component` | [`ComponentDescription`](interfaces/ComponentDescription.md) \| [`Component`](modules.md#component) | `undefined` | Component or description of component to run |
+| `stamps` | [`StampCollection`](classes/StampCollection.md) | `undefined` | - |
+| `options?` | [`RuntimeOptions`](interfaces/RuntimeOptions.md) | `undefined` | - |
+| `placeholder?` | `Element` \| `CharacterData` | `undefined` | Optional placeholder child of the container to replace |
+| `document` | `Document` | `globalThis.document` | Document to use for creating new nodes |
+
+#### Returns
+
+`Subscription`
+
+Subscription
+
+#### Defined in
+
+[runtime-stamps.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime-stamps.ts#L18)

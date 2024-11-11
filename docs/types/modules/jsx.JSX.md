@@ -4,6 +4,8 @@
 
 [jsx](jsx.md).JSX
 
+Overloads to Typescript's JSX typing
+
 ## Table of contents
 
 ### Interfaces
@@ -32,6 +34,8 @@
 
 Ƭ **ButterfloatElementAttributes**\<`T`\>: [`HtmlElementAttributes`](jsx.JSX.md#htmlelementattributes)\<`T`\> & [`ButterfloatIntrinsicAttributes`](../interfaces/ButterfloatIntrinsicAttributes.md)\<[`ButterfloatElementBind`](jsx.JSX.md#butterfloatelementbind)\<`T`\>, [`ButterfloatElementEvents`](jsx.JSX.md#butterfloatelementevents), [`ButterfloatElementStyleBind`](jsx.JSX.md#butterfloatelementstylebind)\>
 
+Attributes available in Butterfloat from an HTML element
+
 #### Type parameters
 
 | Name |
@@ -40,7 +44,7 @@
 
 #### Defined in
 
-[jsx.ts:87](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L87)
+[jsx.ts:123](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L123)
 
 ___
 
@@ -48,6 +52,8 @@ ___
 
 Ƭ **ButterfloatElementBind**\<`T`\>: [`HtmlElementAttributesBind`](jsx.JSX.md#htmlelementattributesbind)\<`T`\> & [`DefaultBind`](../modules.md#defaultbind)
 
+All Butterfloat bindable attributes of an element
+
 #### Type parameters
 
 | Name |
@@ -56,7 +62,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:71](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L71)
+[jsx.ts:95](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L95)
 
 ___
 
@@ -64,9 +70,11 @@ ___
 
 Ƭ **ButterfloatElementEvents**: [`HtmlEvents`](jsx.JSX.md#htmlevents) & [`ButterfloatEvents`](../interfaces/ButterfloatEvents.md) & [`DefaultEvents`](../modules.md#defaultevents)
 
+All Butterfloat bindable events of an element
+
 #### Defined in
 
-[jsx.ts:74](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L74)
+[jsx.ts:101](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L101)
 
 ___
 
@@ -74,9 +82,11 @@ ___
 
 Ƭ **ButterfloatElementStyleBind**: [`HtmlElementStyleBind`](jsx.JSX.md#htmlelementstylebind) & [`DefaultStyleBind`](../modules.md#defaultstylebind)
 
+All Butterfloat bindable CSS styles
+
 #### Defined in
 
-[jsx.ts:84](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L84)
+[jsx.ts:117](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L117)
 
 ___
 
@@ -84,9 +94,11 @@ ___
 
 Ƭ **Element**: [`NodeDescription`](../modules.md#nodedescription)
 
+JSX Element type
+
 #### Defined in
 
-[jsx.ts:17](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L17)
+[jsx.ts:23](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L23)
 
 ___
 
@@ -94,6 +106,8 @@ ___
 
 Ƭ **HtmlElementAttributes**\<`T`\>: \{ [Property in WritableKeys\<T\> as T[Property] extends string \| number \| null \| undefined ? Property : never]?: T[Property] }
 
+Attributes of an HTML Element
+
 #### Type parameters
 
 | Name |
@@ -102,7 +116,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:47](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L47)
+[jsx.ts:62](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L62)
 
 ___
 
@@ -110,6 +124,8 @@ ___
 
 Ƭ **HtmlElementAttributesBind**\<`T`\>: \{ [Property in WritableKeys\<T\> as T[Property] extends string \| number \| null \| undefined ? Property : never]?: Observable\<T[Property]\> }
 
+Observable bindable attributes of an HTML Element
+
 #### Type parameters
 
 | Name |
@@ -118,7 +134,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:57](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L57)
+[jsx.ts:75](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L75)
 
 ___
 
@@ -126,9 +142,11 @@ ___
 
 Ƭ **HtmlElementStyleBind**: \{ [Property in keyof CSSStyleDeclaration]?: Observable\<CSSStyleDeclaration[Property]\> }
 
+All bindable CSS styles of an HTML element
+
 #### Defined in
 
-[jsx.ts:78](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L78)
+[jsx.ts:108](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L108)
 
 ___
 
@@ -136,15 +154,19 @@ ___
 
 Ƭ **HtmlElements**: \{ [Property in keyof HTMLElementTagNameMap]: ButterfloatElementAttributes\<HTMLElementTagNameMap[Property]\> }
 
+Available HTML Elements
+
 #### Defined in
 
-[jsx.ts:94](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L94)
+[jsx.ts:133](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L133)
 
 ___
 
 ### HtmlEvents
 
 Ƭ **HtmlEvents**\<`EventMap`\>: \{ [Property in keyof EventMap]?: ObservableEvent\<EventMap[Property]\> }
+
+Bindable DOM events
 
 #### Type parameters
 
@@ -154,13 +176,15 @@ ___
 
 #### Defined in
 
-[jsx.ts:67](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L67)
+[jsx.ts:88](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L88)
 
 ___
 
 ### IfEquals
 
 Ƭ **IfEquals**\<`X`, `Y`, `A`, `B`\>: \<T\>() => `T` extends `X` ? ``1`` : ``2`` extends \<T\>() => `T` extends `Y` ? ``1`` : ``2`` ? `A` : `B`
+
+If types are equal. Meta-type for complex conditional types.
 
 #### Type parameters
 
@@ -173,7 +197,7 @@ ___
 
 #### Defined in
 
-[jsx.ts:33](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L33)
+[jsx.ts:42](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L42)
 
 ___
 
@@ -181,15 +205,19 @@ ___
 
 Ƭ **IntrinsicAttributes**: [`ChildrenBindable`](../interfaces/ChildrenBindable.md)
 
+JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")
+
 #### Defined in
 
-[jsx.ts:104](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L104)
+[jsx.ts:149](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L149)
 
 ___
 
 ### WritableKeys
 
 Ƭ **WritableKeys**\<`T`\>: \{ [P in keyof T]-?: IfEquals\<\{ [Q in P]: T[P] }, \{ -readonly [Q in P]: T[P] }, P\> }[keyof `T`]
+
+Collect the writable keys of a type.
 
 #### Type parameters
 
@@ -199,4 +227,4 @@ ___
 
 #### Defined in
 
-[jsx.ts:39](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L39)
+[jsx.ts:51](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L51)

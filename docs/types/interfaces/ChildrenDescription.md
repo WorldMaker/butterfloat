@@ -2,6 +2,8 @@
 
 # Interface: ChildrenDescription
 
+Description of the `<Children>` pseudo-component
+
 ## Table of contents
 
 ### Properties
@@ -17,7 +19,7 @@
 
 #### Defined in
 
-[component.ts:156](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L156)
+[component.ts:216](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L216)
 
 ___
 
@@ -27,4 +29,4 @@ ___
 
 #### Defined in
 
-[component.ts:155](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L155)
+[component.ts:215](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L215)

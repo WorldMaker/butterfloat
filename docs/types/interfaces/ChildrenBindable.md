@@ -2,6 +2,8 @@
 
 # Interface: ChildrenBindable
 
+A JSX node that may produce child Components
+
 ## Table of contents
 
 ### Properties
@@ -19,7 +21,7 @@ Bind children as they are observed.
 
 #### Defined in
 
-[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L47)
+[component.ts:74](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L74)
 
 ___
 
@@ -31,4 +33,4 @@ Mode in which to bind children. Defaults to 'append'.
 
 #### Defined in
 
-[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L51)
+[component.ts:78](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L78)

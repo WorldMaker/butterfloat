@@ -2,6 +2,8 @@
 
 # Interface: TestComponentContext\<Events\>
 
+A Component Context for Testing purposes
+
 ## Type parameters
 
 | Name | Type |
@@ -24,7 +26,7 @@
 
 #### Defined in
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L172)
+[component.ts:241](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L241)
 
 ___
 
@@ -34,7 +36,7 @@ ___
 
 #### Defined in
 
-[component.ts:175](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L175)
+[component.ts:244](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L244)
 
 ___
 
@@ -44,4 +46,4 @@ ___
 
 #### Defined in
 
-[component.ts:177](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L177)
+[component.ts:246](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L246)

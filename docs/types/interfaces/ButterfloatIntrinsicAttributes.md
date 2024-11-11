@@ -2,6 +2,8 @@
 
 # Interface: ButterfloatIntrinsicAttributes\<Bind, Events, Style\>
 
+JSX attributes for "intrinics" (elements) supported by Butterfloat
+
 ## Type parameters
 
 | Name | Type |
@@ -42,7 +44,7 @@ May use an non-immediate scheduler. Obvious exception: all "value" bindings are 
 
 #### Defined in
 
-[component.ts:84](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L84)
+[component.ts:129](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L129)
 
 ___
 
@@ -58,7 +60,7 @@ ButterfloatAttributes.childrenBind
 
 #### Defined in
 
-[component.ts:47](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L47)
+[component.ts:74](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L74)
 
 ___
 
@@ -74,7 +76,7 @@ ButterfloatAttributes.childrenBindMode
 
 #### Defined in
 
-[component.ts:51](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L51)
+[component.ts:78](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L78)
 
 ___
 
@@ -86,7 +88,7 @@ Bind a boolean observable to the appearance of a class in classList.
 
 #### Defined in
 
-[component.ts:104](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L104)
+[component.ts:149](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L149)
 
 ___
 
@@ -98,7 +100,7 @@ Bind an event observable to a DOM event.
 
 #### Defined in
 
-[component.ts:92](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L92)
+[component.ts:137](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L137)
 
 ___
 
@@ -110,7 +112,7 @@ Immediately bind an observable to a DOM property
 
 #### Defined in
 
-[component.ts:88](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L88)
+[component.ts:133](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L133)
 
 ___
 
@@ -122,7 +124,7 @@ Immediately bind a boolean observable to the appearance of a class in classList.
 
 #### Defined in
 
-[component.ts:108](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L108)
+[component.ts:153](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L153)
 
 ___
 
@@ -134,7 +136,7 @@ Immediately bind an observable to a style property.
 
 #### Defined in
 
-[component.ts:100](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L100)
+[component.ts:145](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L145)
 
 ___
 
@@ -146,4 +148,4 @@ Bind an observable to a style property.
 
 #### Defined in
 
-[component.ts:96](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L96)
+[component.ts:141](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L141)
