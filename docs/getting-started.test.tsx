@@ -58,7 +58,7 @@ describe('getting started documentation', () => {
       const helloTo = concat(
         of('World'),
         interval(15_000 /* ms */).pipe(
-          map(() => greetable[Math.round(Math.random() * greetable.length)]),
+          map(() => greetable[Math.floor(Math.random() * greetable.length)]),
         ),
       )
 
@@ -115,7 +115,7 @@ describe('getting started documentation', () => {
       const helloTo = concat(
         of('World'),
         interval(15_000 /* ms */).pipe(
-          map(() => greetable[Math.round(Math.random() * greetable.length)]),
+          map(() => greetable[Math.floor(Math.random() * greetable.length)]),
         ),
       )
 

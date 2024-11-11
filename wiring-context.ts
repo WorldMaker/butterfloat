@@ -1,7 +1,30 @@
 import { Observable, Subscription } from 'rxjs'
-import { Component, ComponentDescription } from './component.js'
+import {
+  Component,
+  ComponentContext,
+  ComponentDescription,
+  ElementDescription,
+  NodeDescription,
+} from './component.js'
+
+export type ElementBinds = Array<[Element, ElementDescription]>
+export type NodeBinds = Array<[CharacterData | Element, NodeDescription]>
+
+export type DomStrategy = (
+  component: Component,
+  properties: unknown,
+  componentContext: ComponentContext,
+  container: Element | DocumentFragment | undefined,
+  document: Document,
+) => {
+  container: Element | DocumentFragment
+  isSameContainer: boolean
+  elementBinds: ElementBinds
+  nodeBinds: NodeBinds
+}
 
 export interface WiringContext {
+  domStrategy: DomStrategy
   suspense?: Observable<boolean>
   treeError?: (error: unknown) => void
   isStaticComponent: boolean
@@ -22,5 +45,6 @@ export type ComponentRunner = (
 export type ComponentWirer = (
   component: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
+  container?: Element | DocumentFragment,
   document?: Document,
 ) => Observable<Element>

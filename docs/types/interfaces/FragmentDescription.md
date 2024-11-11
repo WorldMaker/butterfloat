@@ -2,6 +2,8 @@
 
 # Interface: FragmentDescription
 
+Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>` fragment notation)
+
 ## Hierarchy
 
 - [`ChildrenBindDescription`](ChildrenBindDescription.md)
@@ -26,7 +28,7 @@
 
 #### Defined in
 
-[component.ts:151](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L151)
+[component.ts:208](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L208)
 
 ___
 
@@ -40,7 +42,7 @@ ___
 
 #### Defined in
 
-[component.ts:124](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L124)
+[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L172)
 
 ___
 
@@ -54,7 +56,7 @@ ___
 
 #### Defined in
 
-[component.ts:125](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L125)
+[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L173)
 
 ___
 
@@ -68,7 +70,7 @@ ___
 
 #### Defined in
 
-[component.ts:126](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L126)
+[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L174)
 
 ___
 
@@ -78,4 +80,4 @@ ___
 
 #### Defined in
 
-[component.ts:150](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L150)
+[component.ts:207](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L207)

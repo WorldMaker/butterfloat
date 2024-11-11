@@ -19,6 +19,9 @@ export interface ComponentContext<Events = DefaultEvents> {
   bindImmediateEffect: EffectHandler
 }
 
+/**
+ * A Butterfloat Component provided properties and additional context-sensitive tools
+ */
 // Want to be forgiving in what we accept as a "component"
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ContextComponent<Props = any, Events = any> = (
@@ -26,20 +29,44 @@ export type ContextComponent<Props = any, Events = any> = (
   context: ComponentContext<Events>,
 ) => NodeDescription
 
+/**
+ * The simplest form of Butterfloat Component
+ */
 export type SimpleComponent = () => NodeDescription
 
+/**
+ * A Butterfloat Component
+ */
 export type Component = ContextComponent | SimpleComponent
 
+/**
+ * Possible children to a JSX node
+ */
 export type JsxChildren = Array<NodeDescription | string>
 
+/**
+ * Attributes of a Node Description
+ */
 export type Attributes = Record<string, unknown>
 
+/**
+ * HTML Attributes
+ */
 export type HtmlAttributes = Record<string, unknown>
 
+/**
+ * An Observable that produces child Components
+ */
 export type ChildrenBind = Observable<Component>
 
+/**
+ * The mode to bind new children to a container
+ */
 export type ChildrenBindMode = 'append' | 'prepend' | 'replace'
 
+/**
+ * A JSX node that may produce child Components
+ */
 export interface ChildrenBindable {
   /**
    * Bind children as they are observed.
@@ -51,10 +78,19 @@ export interface ChildrenBindable {
   childrenBindMode?: ChildrenBindMode
 }
 
+/**
+ * Butterfloat Attributes
+ */
 export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 
+/**
+ * Default bind attribute accepted binds
+ */
 export type DefaultBind = Record<string, Observable<unknown>>
 
+/**
+ * Support for delay binding special properties
+ */
 export interface DelayBind {
   /**
    * Delay scheduled binding for the "value" property.
@@ -67,10 +103,19 @@ export interface DelayBind {
   bfDelayValue?: Observable<unknown>
 }
 
+/**
+ * Default styleBind attribute accepted binds
+ */
 export type DefaultStyleBind = Record<string, Observable<unknown>>
 
+/**
+ * Bind for classBind
+ */
 export type ClassBind = Record<string, Observable<boolean>>
 
+/**
+ * JSX attributes for "intrinics" (elements) supported by Butterfloat
+ */
 export interface ButterfloatIntrinsicAttributes<
   Bind = DefaultBind,
   Events = DefaultEvents & ButterfloatEvents,
@@ -120,12 +165,18 @@ export interface ButterfloatIntrinsicAttributes<
     So it makes sense to use full words. Users may work with these in their tests.
 */
 
+/**
+ * A Description that supports binding Children
+ */
 export interface ChildrenBindDescription {
   children: JsxChildren
   childrenBind?: ChildrenBind
   childrenBindMode?: ChildrenBindMode
 }
 
+/**
+ * Description of a DOM element and its bindings
+ */
 export interface ElementDescription<Bind = DefaultBind>
   extends ChildrenBindDescription {
   type: 'element'
@@ -140,27 +191,42 @@ export interface ElementDescription<Bind = DefaultBind>
   immediateClassBind: ClassBind
 }
 
+/**
+ * Description of a Component binding
+ */
 export interface ComponentDescription extends ChildrenBindDescription {
   type: 'component'
   component: Component
   properties: Attributes
 }
 
+/**
+ * Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>` fragment notation)
+ */
 export interface FragmentDescription extends ChildrenBindDescription {
   type: 'fragment'
   attributes: Attributes
 }
 
+/**
+ * Description of the `<Children>` pseudo-component
+ */
 export interface ChildrenDescription {
   type: 'children'
   context?: ComponentContext<unknown>
 }
 
+/**
+ * Description of the `<Static>` pseudo-component
+ */
 export interface StaticDescription {
   type: 'static'
   element: Element
 }
 
+/**
+ * A description of a node in a Butterfloat DOM tree
+ */
 export type NodeDescription =
   | ElementDescription
   | ComponentDescription
@@ -168,6 +234,9 @@ export type NodeDescription =
   | ChildrenDescription
   | StaticDescription
 
+/**
+ * A Component Context for Testing purposes
+ */
 export interface TestComponentContext<Events = DefaultEvents> {
   context: ComponentContext<Events>
   // Types here are just for examing test results

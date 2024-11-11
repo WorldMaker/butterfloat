@@ -3,9 +3,7 @@ import {
   NodeDescription,
   hasAnyBinds,
 } from './component.js'
-
-export type ElementBinds = Array<[Element, ElementDescription]>
-export type NodeBinds = Array<[CharacterData, NodeDescription]>
+import { ElementBinds, NodeBinds } from './wiring-context.js'
 
 export interface NamespaceContext {
   defaultNamespace: string | null

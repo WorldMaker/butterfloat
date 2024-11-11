@@ -15,7 +15,6 @@ import {
   SimpleComponent,
 } from './component.js'
 import { makeEventProxy } from './events.js'
-import { buildTree } from './static-dom.js'
 import { Suspense, wireSuspense } from './suspense.js'
 import { ObservableComponent, WiringContext } from './wiring-context.js'
 import { ErrorBoundary, wireErrorBoundary } from './error-boundary.js'
@@ -29,6 +28,7 @@ export function wireInternal(
   description: ComponentDescription,
   subscriber: Subscriber<Node>,
   context: WiringContext,
+  outerContainer?: Element | DocumentFragment,
   document = globalThis.document,
 ) {
   const { treeError } = context
@@ -91,77 +91,84 @@ export function wireInternal(
 
   contextChildrenDescriptions.set(componentContext, description)
 
-  const tree = description.component(description.properties, componentContext)
-  const { elementBinds, nodeBinds, container } = buildTree(
-    tree,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    document,
-  )
-  context.isStaticComponent &&= elementBinds.length === 0
-  context.isStaticTree &&= context.isStaticComponent
-  subscriber.next(container)
-
-  const bindContext: BindingContext = {
-    ...context,
-    complete: () => {
-      console.debug(`Binding in component ${componentName} completed`)
-      subscriber.complete()
-    },
-    error,
-    componentRunner: runInternal,
-    componentWirer: wire,
-    eventBinder: handler,
-    subscription,
-  }
-
-  for (const [element, bindDescription] of elementBinds) {
-    subscription.add(
-      bindElement(element, bindDescription, bindContext, document),
-    )
-  }
-
-  for (const [node, nodeDescription] of nodeBinds) {
-    switch (nodeDescription.type) {
-      case 'component': {
-        const nestedContext = {
-          ...context,
-          isStaticComponent: true,
-          isStaticTree: true,
-        }
-        subscription.add(
-          runInternal(container, nodeDescription, nestedContext, node),
-        )
-        context.isStaticTree &&= nestedContext.isStaticTree
-        break
-      }
-      case 'children': {
-        const nestedContext = {
-          ...context,
-          isStaticComponent: true,
-          isStaticTree: true,
-        }
-        subscription.add(
-          wireChildrenComponent(
-            nodeDescription,
-            componentContext,
-            description,
-            container,
-            nestedContext,
-            node,
-          ),
-        )
-        context.isStaticTree &&= nestedContext.isStaticTree
-        break
-      }
-      case 'fragment':
-        context.isStaticComponent = false
-        context.isStaticTree = false
-        bindFragmentChildren(nodeDescription, node, subscription, bindContext)
-        break
+  try {
+    const { elementBinds, nodeBinds, container, isSameContainer } =
+      context.domStrategy(
+        description.component,
+        description.properties,
+        componentContext,
+        outerContainer,
+        document,
+      )
+    context.isStaticComponent &&= elementBinds.length === 0
+    context.isStaticTree &&= context.isStaticComponent
+    if (!isSameContainer) {
+      subscriber.next(container)
+    } else {
+      subscriber.next(document.createComment('prestamp bound'))
     }
+
+    const bindContext: BindingContext = {
+      ...context,
+      complete: () => {
+        console.debug(`Binding in component ${componentName} completed`)
+        subscriber.complete()
+      },
+      error,
+      componentRunner: runInternal,
+      componentWirer: wire,
+      eventBinder: handler,
+      subscription,
+    }
+
+    for (const [element, bindDescription] of elementBinds) {
+      subscription.add(
+        bindElement(element, bindDescription, bindContext, document),
+      )
+    }
+
+    for (const [node, nodeDescription] of nodeBinds) {
+      switch (nodeDescription.type) {
+        case 'component': {
+          const nestedContext = {
+            ...context,
+            isStaticComponent: true,
+            isStaticTree: true,
+          }
+          subscription.add(
+            runInternal(container, nodeDescription, nestedContext, node),
+          )
+          context.isStaticTree &&= nestedContext.isStaticTree
+          break
+        }
+        case 'children': {
+          const nestedContext = {
+            ...context,
+            isStaticComponent: true,
+            isStaticTree: true,
+          }
+          subscription.add(
+            wireChildrenComponent(
+              nodeDescription,
+              componentContext,
+              description,
+              container,
+              nestedContext,
+              node,
+            ),
+          )
+          context.isStaticTree &&= nestedContext.isStaticTree
+          break
+        }
+        case 'fragment':
+          context.isStaticComponent = false
+          context.isStaticTree = false
+          bindFragmentChildren(nodeDescription, node, subscription, bindContext)
+          break
+      }
+    }
+  } catch (err) {
+    subscriber.error(err)
   }
 
   return () => {
@@ -209,6 +216,7 @@ function wireChildrenComponent(
 export function wire(
   component: ComponentDescription | Component | ObservableComponent,
   context: WiringContext,
+  outerContainer?: Element | DocumentFragment,
   document = globalThis.document,
 ): Observable<Element> {
   if (isObservable(component)) {
@@ -236,7 +244,7 @@ export function wire(
   }
 
   return new Observable((subscriber: Subscriber<Element>) =>
-    wireInternal(description, subscriber, context, document),
+    wireInternal(description, subscriber, context, outerContainer, document),
   )
 }
 
@@ -253,17 +261,13 @@ export function wire(
 export function runInternal(
   container: Element | DocumentFragment,
   component: ComponentDescription | Component | ObservableComponent,
-  context?: WiringContext,
+  context: WiringContext,
   placeholder?: Element | CharacterData,
   document = globalThis.document,
 ) {
   const observable = isObservable(component)
     ? component
-    : wire(
-        component,
-        context ?? { isStaticComponent: true, isStaticTree: true },
-        document,
-      )
+    : wire(component, context, container, document)
   let previousNode: Element | null = null
   const componentName =
     'type' in component ? component.component.name : component.name

@@ -1,11 +1,14 @@
 import { Subscription } from 'rxjs'
 import { Component, ComponentDescription } from './component.js'
 import { RuntimeOptions } from './runtime-model.js'
-import buildDomStrategy from './wiring-dom-build.js'
+import { StampCollection } from './stamp-collection.js'
+import stampStrategy from './wiring-dom-only-stamp.js'
 import { runInternal } from './wiring.js'
 
 /**
- * Run a Butterfloat component
+ * @experimental Preview only functionality because Butterfloat internally uses anonymous components
+ *
+ * Run a Butterfloat component with only Stamps
  *
  * @param container Container the component will be a child in
  * @param component Component or description of component to run
@@ -14,9 +17,10 @@ import { runInternal } from './wiring.js'
  * @param document Document to use for creating new nodes
  * @returns Subscription
  */
-export function run(
+export function runOnlyStamps(
   container: Element,
   component: ComponentDescription | Component,
+  stamps: StampCollection,
   options?: RuntimeOptions,
   placeholder?: Element | CharacterData,
   document = globalThis.document,
@@ -26,7 +30,7 @@ export function run(
     container,
     component,
     {
-      domStrategy: buildDomStrategy,
+      domStrategy: stampStrategy(stamps),
       isStaticComponent: true,
       isStaticTree: true,
       preserveOnComplete,

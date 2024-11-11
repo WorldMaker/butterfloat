@@ -218,7 +218,7 @@ component and has no way to change it in the future.
 In Butterfloat, static HTML looks _static_ and the only things that
 can dynamically change things are RxJS Observables and other
 Butterfloat components (which, if you are curious, are wired into
-Observables). To add some dynamic changes to our we'll need to
+Observables). To add some dynamic changes to our example we'll need to
 _bind_ an Observable.
 
 ```tsx
@@ -241,7 +241,7 @@ function Main() {
   const helloTo = concat(
     of('World'),
     interval(15_000 /* ms */).pipe(
-      map(() => greetable[Math.round(Math.random() * greetable.length)]),
+      map(() => greetable[Math.floor(Math.random() * greetable.length)]),
     ),
   )
 
@@ -323,7 +323,7 @@ function Main() {
   const helloTo = concat(
     of('World'),
     interval(15_000 /* ms */).pipe(
-      map(() => greetable[Math.round(Math.random() * greetable.length)]),
+      map(() => greetable[Math.floor(Math.random() * greetable.length)]),
     ),
   )
 

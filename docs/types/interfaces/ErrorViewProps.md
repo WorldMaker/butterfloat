@@ -2,6 +2,8 @@
 
 # Interface: ErrorViewProps
 
+Properties passed to an Error View
+
 ## Table of contents
 
 ### Properties
@@ -18,4 +20,4 @@ Error that occurred.
 
 #### Defined in
 
-[error-boundary.ts:15](https://github.com/WorldMaker/butterfloat/blob/d39706f/error-boundary.ts#L15)
+[error-boundary.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/error-boundary.ts#L18)

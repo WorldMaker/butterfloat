@@ -2,6 +2,8 @@
 
 # Interface: ButterfloatEvents
 
+DOM events unique to Butterfloat
+
 ## Table of contents
 
 ### Properties
@@ -19,4 +21,4 @@ boundaries to vanilla JS components.
 
 #### Defined in
 
-[events.ts:12](https://github.com/WorldMaker/butterfloat/blob/d39706f/events.ts#L12)
+[events.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L18)

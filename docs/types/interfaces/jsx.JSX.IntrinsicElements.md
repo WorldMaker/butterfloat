@@ -4,6 +4,8 @@
 
 [jsx](../modules/jsx.md).[JSX](../modules/jsx.JSX.md).IntrinsicElements
 
+JSX "intrinsic" elements (HTML elements for DOM binding)
+
 ## Hierarchy
 
 - [`HtmlElements`](../modules/jsx.JSX.md#htmlelements)

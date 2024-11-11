@@ -8,6 +8,9 @@ import {
 import { WiringContext } from './wiring-context.js'
 import { wire } from './wiring.js'
 
+/**
+ * Properties supported by the `<Suspense>` pseudo-component
+ */
 export interface SuspenseProps {
   /**
    * Suspend children bindings when true.
@@ -50,9 +53,14 @@ export function wireSuspense(
   }
   const mainComponent = () => mainComponentFragment
   const mainContext = { ...context, suspense }
-  const main = wire(mainComponent, mainContext, document)
+  const main = wire(mainComponent, mainContext, undefined, document)
   if (props.suspenseView) {
-    const suspenseView = wire(props.suspenseView, { ...context }, document)
+    const suspenseView = wire(
+      props.suspenseView,
+      { ...context },
+      undefined,
+      document,
+    )
     return combineLatest([props.when, main, suspenseView]).pipe(
       map(([suspend, main, suspenseView]) => (suspend ? suspenseView : main)),
       distinctUntilChanged(),

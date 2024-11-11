@@ -4,4 +4,5 @@
 - [Class and Style Binding](/style.md)
 - [Children Binding and Dynamic Children](/children.md)
 - [Suspense and Advanced Binding](/suspense.md)
+- [Stamps](/stamps.md)
 - [Modules](/types/modules.md)

@@ -2,6 +2,8 @@
 
 # Interface: StaticDescription
 
+Description of the `<Static>` pseudo-component
+
 ## Table of contents
 
 ### Properties
@@ -17,7 +19,7 @@
 
 #### Defined in
 
-[component.ts:161](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L161)
+[component.ts:224](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L224)
 
 ___
 
@@ -27,4 +29,4 @@ ___
 
 #### Defined in
 
-[component.ts:160](https://github.com/WorldMaker/butterfloat/blob/d39706f/component.ts#L160)
+[component.ts:223](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L223)

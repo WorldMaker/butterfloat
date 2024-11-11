@@ -2,6 +2,8 @@
 
 # Interface: ChildrenProperties
 
+Properties supported by the `<Children>` pseudo-component
+
 ## Table of contents
 
 ### Properties
@@ -22,4 +24,4 @@ in the tree.
 
 #### Defined in
 
-[jsx.ts:115](https://github.com/WorldMaker/butterfloat/blob/d39706f/jsx.ts#L115)
+[jsx.ts:163](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L163)

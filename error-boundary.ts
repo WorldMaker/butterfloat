@@ -8,6 +8,9 @@ import {
 import { WiringContext } from './wiring-context.js'
 import { wire } from './wiring.js'
 
+/**
+ * Properties passed to an Error View
+ */
 export interface ErrorViewProps {
   /**
    * Error that occurred.
@@ -15,6 +18,9 @@ export interface ErrorViewProps {
   error: unknown
 }
 
+/**
+ * Properties supported by the `<ErrorBoundary>` pseudo-component
+ */
 export interface ErrorBoundaryProps {
   /**
    * Component to view when an error occurs below this boundary.
@@ -86,6 +92,6 @@ export function wireErrorBoundary(
   }
   const mainComponent = () => errorViewComponentFragment
   const mainContext = { ...context, treeError, preserveOnComplete }
-  const main = wire(mainComponent, mainContext, document)
+  const main = wire(mainComponent, mainContext, undefined, document)
   return main
 }

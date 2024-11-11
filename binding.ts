@@ -243,7 +243,9 @@ function bindElementChildren(
       const placeholder = document.createComment(`replaceable child component`)
       element.append(placeholder)
       const activeChild = description.childrenBind.pipe(
-        switchMap((child) => componentWirer(child, context, document)),
+        switchMap((child) =>
+          componentWirer(child, context, undefined, document),
+        ),
       )
       const childComponent = activeChild as ObservableComponent
       childComponent.name = `${element.nodeName} replaceable child`
@@ -377,7 +379,9 @@ export function bindFragmentChildren(
 
     if (nodeDescription.childrenBindMode === 'replace') {
       const activeChild = nodeDescription.childrenBind.pipe(
-        switchMap((child) => componentWirer(child, context, document)),
+        switchMap((child) =>
+          componentWirer(child, context, undefined, document),
+        ),
       )
       const childComponent = activeChild as ObservableComponent
       childComponent.name = `${node.nodeName} replaceable child`

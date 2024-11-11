@@ -2,8 +2,14 @@ import { Observable, Subject, Subscription, fromEvent } from 'rxjs'
 
 const ButterfloatEvent = Symbol('Butterfloat Event')
 
+/**
+ * An Observable intended for binding to a DOM event
+ */
 export type ObservableEvent<T> = Observable<T> & { [ButterfloatEvent]: unknown }
 
+/**
+ * DOM events unique to Butterfloat
+ */
 export interface ButterfloatEvents {
   /**
    * Observe the raw HTMLElement. Useful as a last resort or for working on
@@ -12,6 +18,9 @@ export interface ButterfloatEvents {
   bfDomAttach?: ObservableEvent<HTMLElement>
 }
 
+/**
+ * Default collection of Butterfloat bindings to DOM events
+ */
 export type DefaultEvents = Record<string, ObservableEvent<unknown>>
 
 /**
