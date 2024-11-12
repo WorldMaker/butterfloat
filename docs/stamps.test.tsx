@@ -49,9 +49,8 @@ describe('stamps documentation', () => {
     }
 
     const appContainer = document.getElementById('app')!
-    const helloStamp = appContainer.querySelector(
-      'hello-component',
-    ) as HTMLTemplateElement
+    const helloStamp =
+      appContainer.querySelector<HTMLTemplateElement>('hello-component')!
 
     const stamps = new StampCollection()
     // This component only has one Stamp
@@ -136,15 +135,13 @@ describe('stamps documentation', () => {
 
     const appContainer = document.getElementById('app')!
 
-    const d6stamp = appContainer.querySelector(
-      'roll-result-d6',
-    ) as HTMLTemplateElement
-    const d20stamp = appContainer.querySelector(
-      'roll-result-d20',
-    ) as HTMLTemplateElement
-    const genericRollStamp = appContainer.querySelector(
+    const d6stamp =
+      appContainer.querySelector<HTMLTemplateElement>('roll-result-d6')!
+    const d20stamp =
+      appContainer.querySelector<HTMLTemplateElement>('roll-result-d20')!
+    const genericRollStamp = appContainer.querySelector<HTMLTemplateElement>(
       'roll-result-generic',
-    ) as HTMLTemplateElement
+    )!
 
     const stamps = new StampCollection()
     stamps
