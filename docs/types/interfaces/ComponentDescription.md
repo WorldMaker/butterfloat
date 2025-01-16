@@ -33,7 +33,7 @@ Description of a Component binding
 
 #### Defined in
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L172)
+[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L172)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L173)
+[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L173)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L174)
+[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L174)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[component.ts:199](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L199)
+[component.ts:199](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L199)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[component.ts:200](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L200)
+[component.ts:200](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L200)
 
 ___
 
@@ -91,4 +91,4 @@ ___
 
 #### Defined in
 
-[component.ts:198](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L198)
+[component.ts:198](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L198)

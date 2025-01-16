@@ -25,4 +25,4 @@ interaction such as <progress />.
 
 #### Defined in
 
-[component.ts:103](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L103)
+[component.ts:103](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L103)

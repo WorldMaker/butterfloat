@@ -81,7 +81,7 @@ Attributes of a Node Description
 
 #### Defined in
 
-[component.ts:50](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L50)
+[component.ts:50](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L50)
 
 ___
 
@@ -93,7 +93,7 @@ Butterfloat Attributes
 
 #### Defined in
 
-[component.ts:84](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L84)
+[component.ts:84](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L84)
 
 ___
 
@@ -105,7 +105,7 @@ An Observable that produces child Components
 
 #### Defined in
 
-[component.ts:60](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L60)
+[component.ts:60](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L60)
 
 ___
 
@@ -117,7 +117,7 @@ The mode to bind new children to a container
 
 #### Defined in
 
-[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L65)
+[component.ts:65](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L65)
 
 ___
 
@@ -129,7 +129,7 @@ Bind for classBind
 
 #### Defined in
 
-[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L114)
+[component.ts:114](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L114)
 
 ___
 
@@ -141,7 +141,7 @@ A Butterfloat Component
 
 #### Defined in
 
-[component.ts:40](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L40)
+[component.ts:40](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L40)
 
 ___
 
@@ -175,7 +175,7 @@ A Butterfloat Component provided properties and additional context-sensitive too
 
 #### Defined in
 
-[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L27)
 
 ___
 
@@ -187,7 +187,7 @@ Default bind attribute accepted binds
 
 #### Defined in
 
-[component.ts:89](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L89)
+[component.ts:89](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L89)
 
 ___
 
@@ -199,7 +199,7 @@ Default collection of Butterfloat bindings to DOM events
 
 #### Defined in
 
-[events.ts:24](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L24)
+[events.ts:24](https://github.com/WorldMaker/butterfloat/blob/981cdb4/events.ts#L24)
 
 ___
 
@@ -211,7 +211,7 @@ Default styleBind attribute accepted binds
 
 #### Defined in
 
-[component.ts:109](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L109)
+[component.ts:109](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L109)
 
 ___
 
@@ -244,7 +244,7 @@ Handles an effect
 
 #### Defined in
 
-[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L7)
+[component.ts:7](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L7)
 
 ___
 
@@ -256,7 +256,7 @@ HTML Attributes
 
 #### Defined in
 
-[component.ts:55](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L55)
+[component.ts:55](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L55)
 
 ___
 
@@ -268,7 +268,7 @@ Possible children to a JSX node
 
 #### Defined in
 
-[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L45)
+[component.ts:45](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L45)
 
 ___
 
@@ -280,7 +280,7 @@ A description of a node in a Butterfloat DOM tree
 
 #### Defined in
 
-[component.ts:230](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L230)
+[component.ts:230](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L230)
 
 ___
 
@@ -298,7 +298,7 @@ An Observable intended for binding to a DOM event
 
 #### Defined in
 
-[events.ts:8](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L8)
+[events.ts:8](https://github.com/WorldMaker/butterfloat/blob/981cdb4/events.ts#L8)
 
 ___
 
@@ -318,7 +318,7 @@ The simplest form of Butterfloat Component
 
 #### Defined in
 
-[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L35)
+[component.ts:35](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L35)
 
 ___
 
@@ -350,7 +350,7 @@ Property filter function for a Stamp alternative
 
 #### Defined in
 
-[stamp-collection.ts:8](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L8)
+[stamp-collection.ts:8](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L8)
 
 ___
 
@@ -366,7 +366,7 @@ ___
 
 #### Defined in
 
-[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/butterfly.ts#L3)
+[butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/981cdb4/butterfly.ts#L3)
 
 ## Functions
 
@@ -390,7 +390,7 @@ Children node
 
 #### Defined in
 
-[jsx.ts:172](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L172)
+[jsx.ts:176](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L176)
 
 ___
 
@@ -413,7 +413,7 @@ Present an error view when errors occur below this in the tree.
 
 #### Defined in
 
-[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L27)
 
 ___
 
@@ -438,7 +438,7 @@ Fragment node
 
 #### Defined in
 
-[jsx.ts:186](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L186)
+[jsx.ts:190](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L190)
 
 ___
 
@@ -462,7 +462,7 @@ Static node
 
 #### Defined in
 
-[jsx.ts:217](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L217)
+[jsx.ts:221](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L221)
 
 ___
 
@@ -485,7 +485,7 @@ Suspend the bindings in children when a observable flag has been raised.
 
 #### Defined in
 
-[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L27)
+[component.ts:27](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L27)
 
 ___
 
@@ -510,7 +510,7 @@ Stamp (template tag)
 
 #### Defined in
 
-[stamp-builder.ts:11](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-builder.ts#L11)
+[stamp-builder.ts:11](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-builder.ts#L11)
 
 ___
 
@@ -550,7 +550,7 @@ boundaries by thinking of it as a tuple of two to four things, three of which sh
 
 #### Defined in
 
-[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/butterfly.ts#L20)
+[butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/981cdb4/butterfly.ts#L20)
 
 ___
 
@@ -574,7 +574,7 @@ True if any dynamic binds
 
 #### Defined in
 
-[component.ts:277](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L277)
+[component.ts:277](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L277)
 
 ___
 
@@ -600,7 +600,7 @@ Node description
 
 #### Defined in
 
-[jsx.ts:231](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/jsx.ts#L231)
+[jsx.ts:235](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L235)
 
 ___
 
@@ -630,7 +630,7 @@ A test context for testing context component
 
 #### Defined in
 
-[component.ts:254](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L254)
+[component.ts:254](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L254)
 
 ___
 
@@ -660,7 +660,7 @@ ObservableEvent
 
 #### Defined in
 
-[events.ts:31](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L31)
+[events.ts:31](https://github.com/WorldMaker/butterfloat/blob/981cdb4/events.ts#L31)
 
 ___
 
@@ -688,7 +688,7 @@ Subscription
 
 #### Defined in
 
-[runtime.ts:17](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime.ts#L17)
+[runtime.ts:17](https://github.com/WorldMaker/butterfloat/blob/981cdb4/runtime.ts#L17)
 
 ___
 
@@ -719,7 +719,7 @@ Subscription
 
 #### Defined in
 
-[runtime-only-stamps.ts:20](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime-only-stamps.ts#L20)
+[runtime-only-stamps.ts:20](https://github.com/WorldMaker/butterfloat/blob/981cdb4/runtime-only-stamps.ts#L20)
 
 ___
 
@@ -748,4 +748,4 @@ Subscription
 
 #### Defined in
 
-[runtime-stamps.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/runtime-stamps.ts#L18)
+[runtime-stamps.ts:18](https://github.com/WorldMaker/butterfloat/blob/981cdb4/runtime-stamps.ts#L18)

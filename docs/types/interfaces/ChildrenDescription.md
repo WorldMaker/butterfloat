@@ -19,7 +19,7 @@ Description of the `<Children>` pseudo-component
 
 #### Defined in
 
-[component.ts:216](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L216)
+[component.ts:216](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L216)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[component.ts:215](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L215)
+[component.ts:215](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L215)

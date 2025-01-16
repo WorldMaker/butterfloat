@@ -21,4 +21,4 @@ boundaries to vanilla JS components.
 
 #### Defined in
 
-[events.ts:18](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/events.ts#L18)
+[events.ts:18](https://github.com/WorldMaker/butterfloat/blob/981cdb4/events.ts#L18)
