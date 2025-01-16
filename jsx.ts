@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import { Observable } from 'rxjs'
-import {
+import type { Observable } from 'rxjs'
+import type {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
   JsxChildren,
@@ -11,12 +11,16 @@ import {
   DefaultBind,
   DefaultStyleBind,
 } from './component'
-import { ButterfloatEvents, DefaultEvents, ObservableEvent } from './events'
+import type {
+  ButterfloatEvents,
+  DefaultEvents,
+  ObservableEvent,
+} from './events'
 
 /**
  * Overloads to Typescript's JSX typing
  */
-namespace JSXInternal {
+declare namespace JSXInternal {
   /**
    * JSX Element type
    */
@@ -290,7 +294,7 @@ export function jsx(
 /**
  * Describe a node. Builder for JSX and TSX transformation.
  */
-export namespace jsx {
+export declare namespace jsx {
   /**
    * JSX typing internals
    */

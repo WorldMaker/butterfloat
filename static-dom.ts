@@ -1,9 +1,9 @@
 import {
-  ElementDescription,
-  NodeDescription,
+  type ElementDescription,
+  type NodeDescription,
   hasAnyBinds,
 } from './component.js'
-import { ElementBinds, NodeBinds } from './wiring-context.js'
+import type { ElementBinds, NodeBinds } from './wiring-context.js'
 
 export interface NamespaceContext {
   defaultNamespace: string | null

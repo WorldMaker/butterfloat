@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom'
 import { equal } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { ContextComponent } from './component.js'
+import type { ContextComponent } from './component.js'
 import { jsx } from './jsx.js'
 import { buildStamp } from './stamp-builder.js'
 import { StampCollection } from './stamp-collection.js'

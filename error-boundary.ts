@@ -1,11 +1,11 @@
-import { Observable, Subject, map } from 'rxjs'
-import {
+import { type Observable, Subject, map } from 'rxjs'
+import type {
   ComponentDescription,
   ContextComponent,
   FragmentDescription,
   SimpleComponent,
 } from './component.js'
-import { WiringContext } from './wiring-context.js'
+import type { WiringContext } from './wiring-context.js'
 import { wire } from './wiring.js'
 
 /**

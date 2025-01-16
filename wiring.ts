@@ -1,13 +1,17 @@
 import {
   Observable,
-  Subscriber,
+  type Subscriber,
   Subscription,
   animationFrameScheduler,
   isObservable,
   observeOn,
 } from 'rxjs'
-import { BindingContext, bindElement, bindFragmentChildren } from './binding.js'
 import {
+  type BindingContext,
+  bindElement,
+  bindFragmentChildren,
+} from './binding.js'
+import type {
   ChildrenDescription,
   Component,
   ComponentContext,
@@ -16,7 +20,7 @@ import {
 } from './component.js'
 import { makeEventProxy } from './events.js'
 import { Suspense, wireSuspense } from './suspense.js'
-import { ObservableComponent, WiringContext } from './wiring-context.js'
+import type { ObservableComponent, WiringContext } from './wiring-context.js'
 import { ErrorBoundary, wireErrorBoundary } from './error-boundary.js'
 
 const contextChildrenDescriptions = new WeakMap<

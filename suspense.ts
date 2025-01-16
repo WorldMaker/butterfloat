@@ -1,11 +1,11 @@
-import { Observable, combineLatest, distinctUntilChanged, map } from 'rxjs'
-import {
+import { type Observable, combineLatest, distinctUntilChanged, map } from 'rxjs'
+import type {
   Component,
   ComponentDescription,
   ContextComponent,
   FragmentDescription,
 } from './component.js'
-import { WiringContext } from './wiring-context.js'
+import type { WiringContext } from './wiring-context.js'
 import { wire } from './wiring.js'
 
 /**

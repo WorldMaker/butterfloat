@@ -5,8 +5,8 @@ import { NEVER, of } from 'rxjs'
 import { Children, Fragment, jsx } from './jsx.js'
 import { buildTree } from './static-dom.js'
 import { buildStamp } from './stamp-builder.js'
-import { BindSelectors, collectBindings } from './stamp-collector.js'
-import { ElementBinds, NodeBinds } from './wiring-context.js'
+import { type BindSelectors, collectBindings } from './stamp-collector.js'
+import type { ElementBinds, NodeBinds } from './wiring-context.js'
 
 describe('stamp', () => {
   const { window } = new JSDOM()

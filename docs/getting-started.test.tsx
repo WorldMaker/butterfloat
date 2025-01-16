@@ -2,7 +2,7 @@ import { JSDOM } from 'jsdom'
 import { deepEqual, equal, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
-  Observable,
+  type Observable,
   combineLatest,
   concat,
   interval,
@@ -12,8 +12,8 @@ import {
 } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
 import {
-  ComponentContext,
-  ObservableEvent,
+  type ComponentContext,
+  type ObservableEvent,
   jsx,
   makeTestComponentContext,
   makeTestEvent,

@@ -1,12 +1,12 @@
 import { describe, it } from 'node:test'
 import {
-  ComponentContext,
-  ObservableEvent,
-  StateSetter,
+  type ComponentContext,
+  type ObservableEvent,
+  type StateSetter,
   butterfly,
   jsx,
 } from '../index.js'
-import { Observable, map } from 'rxjs'
+import { type Observable, map } from 'rxjs'
 import { ok } from 'assert/strict'
 
 describe('state management documentation', () => {

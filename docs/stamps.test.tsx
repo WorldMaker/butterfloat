@@ -1,11 +1,11 @@
 import { JSDOM } from 'jsdom'
 import { writeFile } from 'node:fs/promises'
 import { describe, it } from 'node:test'
-import { NEVER, Observable, map } from 'rxjs'
+import { NEVER, type Observable, map } from 'rxjs'
 import { ok } from 'node:assert/strict'
 import {
-  ComponentContext,
-  ObservableEvent,
+  type ComponentContext,
+  type ObservableEvent,
   StampCollection,
   buildStamp,
   jsx,

@@ -1,5 +1,5 @@
-import { Observable, Subscription } from 'rxjs'
-import {
+import type { Observable, Subscription } from 'rxjs'
+import type {
   Component,
   ComponentContext,
   ComponentDescription,

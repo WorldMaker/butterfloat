@@ -1,8 +1,8 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { Observable, map, scan } from 'rxjs'
-import { StateSetter, butterfly } from './butterfly.js'
-import { Component } from './component.js'
+import { type Observable, map, scan } from 'rxjs'
+import { type StateSetter, butterfly } from './butterfly.js'
+import type { Component } from './component.js'
 import { jsx } from './jsx.js'
 
 describe('butterfly', () => {

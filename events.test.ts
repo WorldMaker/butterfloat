@@ -2,7 +2,7 @@ import { JSDOM } from 'jsdom'
 import { equal } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { firstValueFrom } from 'rxjs'
-import { ObservableEvent, makeEventProxy } from './events.js'
+import { type ObservableEvent, makeEventProxy } from './events.js'
 
 describe('event proxy', () => {
   const { window } = new JSDOM()
