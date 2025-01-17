@@ -51,7 +51,7 @@ A stamp
 
 #### Defined in
 
-[stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L30)
+[stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L30)
 
 ___
 
@@ -77,7 +77,7 @@ Is registered as a valid prestamp
 
 #### Defined in
 
-[stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L48)
+[stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L48)
 
 ___
 
@@ -102,7 +102,7 @@ this (for chaining)
 
 #### Defined in
 
-[stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L66)
+[stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L66)
 
 ___
 
@@ -134,7 +134,7 @@ this (for chaining)
 
 #### Defined in
 
-[stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L96)
+[stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L96)
 
 ___
 
@@ -166,4 +166,4 @@ this (for chaining)
 
 #### Defined in
 
-[stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/stamp-collection.ts#L78)
+[stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/981cdb4/stamp-collection.ts#L78)

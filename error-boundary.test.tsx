@@ -1,6 +1,6 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { ErrorBoundary, ErrorViewProps } from './error-boundary.js'
+import { ErrorBoundary, type ErrorViewProps } from './error-boundary.js'
 import { jsx } from './jsx.js'
 
 describe('error boundary', () => {

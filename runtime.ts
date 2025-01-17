@@ -1,6 +1,6 @@
-import { Subscription } from 'rxjs'
-import { Component, ComponentDescription } from './component.js'
-import { RuntimeOptions } from './runtime-model.js'
+import type { Subscription } from 'rxjs'
+import type { Component, ComponentDescription } from './component.js'
+import type { RuntimeOptions } from './runtime-model.js'
 import buildDomStrategy from './wiring-dom-build.js'
 import { runInternal } from './wiring.js'
 

@@ -1,6 +1,6 @@
 import {
-  Observable,
-  Subscription,
+  type Observable,
+  type Subscription,
   animationFrameScheduler,
   bufferTime,
   combineLatest,
@@ -10,9 +10,9 @@ import {
   scan,
   switchMap,
 } from 'rxjs'
-import { ElementDescription, FragmentDescription } from './component.js'
-import { EventBinder } from './events.js'
-import {
+import type { ElementDescription, FragmentDescription } from './component.js'
+import type { EventBinder } from './events.js'
+import type {
   ComponentRunner,
   ComponentWirer,
   ObservableComponent,

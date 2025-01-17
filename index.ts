@@ -1,8 +1,8 @@
 // Export the event model and testing but nothing else
 export {
-  ButterfloatEvents,
-  DefaultEvents,
-  ObservableEvent,
+  type ButterfloatEvents,
+  type DefaultEvents,
+  type ObservableEvent,
   makeTestEvent,
 } from './events.js'
 
@@ -14,16 +14,19 @@ export * from './jsx.js'
 // Export just the ErrorBoundary component
 export {
   ErrorBoundary,
-  ErrorBoundaryProps,
-  ErrorViewProps,
+  type ErrorBoundaryProps,
+  type ErrorViewProps,
 } from './error-boundary.js'
 
 // Export just the Suspense component
-export { Suspense, SuspenseProps } from './suspense.js'
+export { Suspense, type SuspenseProps } from './suspense.js'
 
 // Export just the Stamp builder and StampCollection
 export { buildStamp } from './stamp-builder.js'
-export { StampCollection, StampPropertiesApply } from './stamp-collection.js'
+export {
+  StampCollection,
+  type StampPropertiesApply,
+} from './stamp-collection.js'
 
 // Export just the outermost runtimes
 export * from './runtime-model.js'

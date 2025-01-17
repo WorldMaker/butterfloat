@@ -1,13 +1,13 @@
 import { JSDOM } from 'jsdom'
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { Observable, of } from 'rxjs'
+import { type Observable, of } from 'rxjs'
 import {
-  ComponentContext,
-  NodeDescription,
+  type ComponentContext,
+  type NodeDescription,
   makeTestComponentContext,
 } from './component.js'
-import { ObservableEvent, makeTestEvent } from './events.js'
+import { type ObservableEvent, makeTestEvent } from './events.js'
 import { Children, jsx } from './jsx.js'
 
 describe('component', () => {

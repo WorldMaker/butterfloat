@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject, type Observable } from 'rxjs'
 
 export type StateSetter<T> = T | ((currentValue: T) => T)
 

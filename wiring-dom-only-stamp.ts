@@ -1,7 +1,7 @@
-import { Component, ComponentContext } from './component.js'
-import { StampCollection } from './stamp-collection.js'
+import type { Component, ComponentContext } from './component.js'
+import type { StampCollection } from './stamp-collection.js'
 import { selectBindings } from './stamp-collector.js'
-import { DomStrategy } from './wiring-context.js'
+import type { DomStrategy } from './wiring-context.js'
 
 const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
   (stamps: StampCollection) =>

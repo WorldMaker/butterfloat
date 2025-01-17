@@ -1,4 +1,4 @@
-import { NodeDescription } from './component.js'
+import type { NodeDescription } from './component.js'
 import { nodeNamePrefix } from './stamp-collector.js'
 import { buildTree } from './static-dom.js'
 

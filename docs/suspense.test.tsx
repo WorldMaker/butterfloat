@@ -3,8 +3,8 @@ import { describe, it } from 'node:test'
 import { Observable, shareReplay, switchMap } from 'rxjs'
 import {
   Children,
-  ComponentContext,
-  ObservableEvent,
+  type ComponentContext,
+  type ObservableEvent,
   Suspense,
   jsx,
 } from '../index.js'

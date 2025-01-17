@@ -1,9 +1,9 @@
 import {
-  ElementDescription,
+  type ElementDescription,
   hasAnyBinds,
-  NodeDescription,
+  type NodeDescription,
 } from './component.js'
-import { ElementBinds, NodeBinds } from './wiring-context.js'
+import type { ElementBinds, NodeBinds } from './wiring-context.js'
 
 export type BindSelectors = Array<[string, NodeDescription]>
 

@@ -1,6 +1,6 @@
-import { Component, ComponentContext } from './component.js'
+import type { Component, ComponentContext } from './component.js'
 import { buildTree } from './static-dom.js'
-import { DomStrategy } from './wiring-context.js'
+import type { DomStrategy } from './wiring-context.js'
 
 const buildDomStrategy: DomStrategy = (
   component: Component,

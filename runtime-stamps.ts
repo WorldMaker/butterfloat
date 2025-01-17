@@ -1,7 +1,7 @@
-import { Subscription } from 'rxjs'
-import { Component, ComponentDescription } from './component.js'
-import { RuntimeOptions } from './runtime-model.js'
-import { StampCollection } from './stamp-collection.js'
+import type { Subscription } from 'rxjs'
+import type { Component, ComponentDescription } from './component.js'
+import type { RuntimeOptions } from './runtime-model.js'
+import type { StampCollection } from './stamp-collection.js'
 import stampOrBuildStrategy from './wiring-dom-stamp.js'
 import { runInternal } from './wiring.js'
 

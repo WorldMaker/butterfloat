@@ -21,7 +21,7 @@ Bind children as they are observed.
 
 #### Defined in
 
-[component.ts:74](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L74)
+[component.ts:74](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L74)
 
 ___
 
@@ -33,4 +33,4 @@ Mode in which to bind children. Defaults to 'append'.
 
 #### Defined in
 
-[component.ts:78](https://github.com/WorldMaker/butterfloat/blob/0fc9e0b/component.ts#L78)
+[component.ts:78](https://github.com/WorldMaker/butterfloat/blob/981cdb4/component.ts#L78)

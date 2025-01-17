@@ -10,9 +10,9 @@ import {
   schedulable,
   scheduledKey,
 } from './binding.js'
-import { ElementDescription } from './component.js'
+import type { ElementDescription } from './component.js'
 import { jsx } from './jsx.js'
-import { ObservableEvent, makeEventProxy } from './events.js'
+import { type ObservableEvent, makeEventProxy } from './events.js'
 import buildDomStrategy from './wiring-dom-build.js'
 
 describe('binding', () => {

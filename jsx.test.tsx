@@ -1,9 +1,9 @@
 import { JSDOM } from 'jsdom'
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { Observable, of } from 'rxjs'
-import { ComponentContext, NodeDescription } from './component.js'
-import { ObservableEvent, makeTestEvent } from './events.js'
+import { type Observable, of } from 'rxjs'
+import type { ComponentContext, NodeDescription } from './component.js'
+import { type ObservableEvent, makeTestEvent } from './events.js'
 import { Fragment, Static, jsx } from './jsx.js'
 
 describe('jsx', () => {

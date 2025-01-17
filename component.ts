@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs'
-import { ButterfloatEvents, DefaultEvents } from './events.js'
+import type { Observable } from 'rxjs'
+import type { ButterfloatEvents, DefaultEvents } from './events.js'
 
 /**
  * Handles an effect

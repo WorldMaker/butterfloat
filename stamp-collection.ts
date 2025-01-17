@@ -1,4 +1,4 @@
-import { Component, ContextComponent } from './component.js'
+import type { Component, ContextComponent } from './component.js'
 
 /**
  * Property filter function for a Stamp alternative

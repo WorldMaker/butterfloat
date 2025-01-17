@@ -1,7 +1,7 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
-import { Children, ComponentContext, jsx } from '../index.js'
+import { Children, type ComponentContext, jsx } from '../index.js'
 
 describe('children documentation', () => {
   it('shows a simple list wrapper with children', () => {
