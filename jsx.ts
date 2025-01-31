@@ -237,6 +237,13 @@ export function jsx(
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
 ): NodeDescription {
+  children = children.flat().map((child: string | NodeDescription | number) => {
+    if (typeof child === 'number') {
+      return child.toLocaleString()
+    }
+    return child
+  })
+
   if (typeof element === 'string') {
     const {
       bind,
