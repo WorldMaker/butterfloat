@@ -145,6 +145,11 @@ take the scenic route and start with [Getting Started][started].
 
 ## Other Examples
 
+Fresh projects built with Butterfloat:
+
+- [jocobookclub](https://github.com/WorldMaker/jocobookclub) (progressive
+  enhancement via Web Components)
+
 Example projects migrated from Knockout:
 
 - [compradprog](https://github.com/WorldMaker/compradprog)
