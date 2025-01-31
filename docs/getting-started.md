@@ -223,7 +223,7 @@ _bind_ an Observable.
 
 ```tsx
 import { jsx, run } from 'butterfloat'
-import { Observable, concat, interval, of, map } from 'rxjs'
+import { type Observable, concat, interval, of, map } from 'rxjs'
 
 interface HelloProps {
   to: Observable<string>
@@ -270,9 +270,14 @@ An application isn't all that exciting if you can't interact with it,
 so let's add a simple button to press to change it's mood:
 
 ```tsx
-import { ComponentContext, ObservableEvent, jsx, run } from 'butterfloat'
 import {
-  Observable,
+  type ComponentContext,
+  type ObservableEvent,
+  jsx,
+  run,
+} from 'butterfloat'
+import {
+  type Observable,
   combineLatest,
   concat,
   interval,

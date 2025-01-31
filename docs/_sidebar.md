@@ -5,4 +5,6 @@
 - [Children Binding and Dynamic Children](/children.md)
 - [Suspense and Advanced Binding](/suspense.md)
 - [Stamps](/stamps.md)
+- Guides
+  - [Web Components](./guides/web-components.md)
 - [Modules](/types/modules.md)

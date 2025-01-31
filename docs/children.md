@@ -16,7 +16,7 @@ component's lifetime.
 A simple example of a fancy list wrapper:
 
 ```tsx
-import { Children, ComponentContext, jsx } from 'butterfloat'
+import { Children, type ComponentContext, jsx } from 'butterfloat'
 
 interface CoolListProps {}
 
