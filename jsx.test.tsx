@@ -332,4 +332,49 @@ describe('jsx', () => {
     }
     deepEqual(test, expected)
   })
+
+  it('describes gracefully a numeric child', () => {
+    const test = <h1>{42}</h1>
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: ['42'],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes gracefully an array child', () => {
+    const test = (
+      <h1>
+        {['Hello', ' ', 'world']}
+        {['!']}
+      </h1>
+    )
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: ['Hello', ' ', 'world', '!'],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
 })
