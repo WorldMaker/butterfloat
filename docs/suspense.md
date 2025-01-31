@@ -62,8 +62,8 @@ To configure suspense, you use the Suspense system-provided
 component:
 
 ```tsx
-import { Children, ComponentContext, Suspense, jsx } from 'butterfloat'
-import { Observable } from 'rxjs'
+import { Children, type ComponentContext, Suspense, jsx } from 'butterfloat'
+import type { Observable } from 'rxjs'
 
 export interface LoadableVm {
   loading: Observable<boolean>
@@ -141,8 +141,8 @@ instance. To provide for this need, you can bind to the `bfDomAttach`
 event on a static element.
 
 ```tsx
-import { ComponentContext, jsx } from 'butterfloat'
-import { Observable, shareReplay, switchMap } from 'rxjs'
+import { type ComponentContext, jsx } from 'butterfloat'
+import { type Observable, shareReplay, switchMap } from 'rxjs'
 
 interface SomeVanillaComponent {
   destroy(): void

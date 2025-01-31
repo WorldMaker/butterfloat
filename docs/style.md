@@ -15,7 +15,12 @@ based on the value observed. (It binds `classList.add` and
 toggles a "highlight" effect by toggling a `.highlight` CSS class:
 
 ```tsx
-import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
+import {
+  type ComponentContext,
+  type ObservableEvent,
+  butterfly,
+  jsx,
+} from 'butterfloat'
 
 interface HighlightProps {}
 

@@ -75,7 +75,12 @@ Let's add our first garden activity. We'll call it "Rake" and have
 it take 15% of our money budget and use 30% of our labor resources.
 
 ```tsx
-import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
+import {
+  type ComponentContext,
+  type ObservableEvent,
+  butterfly,
+  jsx,
+} from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}
@@ -159,8 +164,8 @@ Let's pull the logic as it currently is into its own view model
 class so that we can test it on its own:
 
 ```tsx
-import { StateSetter, butterfly } from 'butterfloat'
-import { Observable } from 'rxjs'
+import { type StateSetter, butterfly } from 'butterfloat'
+import type { Observable } from 'rxjs'
 
 export class GardenState {
   // *** Resources ***
@@ -226,7 +231,12 @@ It's just as simple to update our Garden component to use this VM
 instead of directly embedding its state:
 
 ```tsx
-import { ComponentContext, ObservableEvent, butterfly, jsx } from 'butterfloat'
+import {
+  type ComponentContext,
+  type ObservableEvent,
+  butterfly,
+  jsx,
+} from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}

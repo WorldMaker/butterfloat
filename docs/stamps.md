@@ -127,7 +127,7 @@ For a simple example:
 
 ```ts
 import { jsx } from 'butterfloat'
-import { Observable, map } from 'rxjs'
+import { type Observable, map } from 'rxjs'
 
 export interface RollResultProps {
     faces: number
@@ -231,7 +231,7 @@ To build a Stamp from a component that needs a Context, use the same
 same component.
 
 ```ts
-import { ComponentContext, ObservableEvent, buildStamp, jsx, makeTestEvent, makeTestComponent } from 'butterfloat'
+import { type ComponentContext, type ObservableEvent, buildStamp, jsx, makeTestEvent, makeTestComponent } from 'butterfloat'
 import { NEVER } from 'rxjs'
 
 export interface WinButtonProps {}
