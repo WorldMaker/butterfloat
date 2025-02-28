@@ -299,7 +299,7 @@ export function runInternal(
     },
     complete() {
       if (!context?.preserveOnComplete && previousNode) {
-        container.removeChild(previousNode)
+        previousNode.remove()
       }
     },
   })
