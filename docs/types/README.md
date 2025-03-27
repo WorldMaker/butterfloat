@@ -152,5 +152,5 @@ Example projects migrated from Knockout:
 - [compradprog](https://github.com/WorldMaker/compradprog)
 - [macrotx](https://github.com/WorldMaker/macrotx)
 
-[started]: ./docs/getting-started.md
-[state]: ./docs/state.md
+[started]: ./getting-started.md
+[state]: ./state.md
