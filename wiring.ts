@@ -28,6 +28,10 @@ const contextChildrenDescriptions = new WeakMap<
   ComponentDescription
 >()
 
+function isCommentNode(node: Node): node is Comment {
+  return node.nodeType === node.COMMENT_NODE
+}
+
 export function wireInternal(
   description: ComponentDescription,
   subscriber: Subscriber<Node>,
@@ -110,6 +114,19 @@ export function wireInternal(
       subscriber.next(container)
     } else {
       subscriber.next(document.createComment('prestamp bound'))
+    }
+
+    if (isCommentNode(container)) {
+      // If the container is a comment node, it is EMPTY and can't be bound, so early exit
+      if (elementBinds.length > 0 || nodeBinds.length > 0) {
+        console.warn(
+          `Trying to bind to an empty component named ${componentName}`,
+        )
+      }
+
+      return () => {
+        subscription.unsubscribe()
+      }
     }
 
     const bindContext: BindingContext = {
@@ -269,7 +286,8 @@ export function runInternal(
   placeholder?: Element | CharacterData,
   document = globalThis.document,
 ) {
-  const observable = isObservable(component)
+  const isObservableComponent = isObservable(component)
+  const observable = isObservableComponent
     ? component
     : wire(component, context, container, document)
   let previousNode: Element | null = null
@@ -277,12 +295,18 @@ export function runInternal(
     'type' in component ? component.component.name : component.name
   return observable.subscribe({
     next(node) {
-      if (previousNode) {
+      if (isObservableComponent) {
+        // NOTE: Assume all ObservableComponents are full replacements
+        // For now all ObservableComponents are internal and meet this assumption
+        // (Children bindings, Suspense, ErrorBoundary, etc)
+        container.replaceChildren(node)
+      } else if (previousNode) {
         try {
           previousNode.replaceWith(node)
         } catch (error) {
           console.warn(
-            'Cannot exactly replace previous node, replacing all children in container',
+            `Cannot exactly replace previous node in ${componentName}, replacing all children in container`,
+            node,
             previousNode,
           )
           container.replaceChildren(node)

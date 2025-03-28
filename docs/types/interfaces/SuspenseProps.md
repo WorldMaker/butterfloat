@@ -21,7 +21,7 @@ Show an optional component instead when suspended.
 
 #### Defined in
 
-[suspense.ts:22](https://github.com/WorldMaker/butterfloat/blob/981cdb4/suspense.ts#L22)
+[suspense.ts:22](https://github.com/WorldMaker/butterfloat/blob/098685f/suspense.ts#L22)
 
 ___
 
@@ -33,4 +33,4 @@ Suspend children bindings when true.
 
 #### Defined in
 
-[suspense.ts:18](https://github.com/WorldMaker/butterfloat/blob/981cdb4/suspense.ts#L18)
+[suspense.ts:18](https://github.com/WorldMaker/butterfloat/blob/098685f/suspense.ts#L18)

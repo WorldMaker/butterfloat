@@ -4,7 +4,7 @@ import { describe, it } from 'node:test'
 import { type Observable, of } from 'rxjs'
 import type { ComponentContext, NodeDescription } from './component.js'
 import { type ObservableEvent, makeTestEvent } from './events.js'
-import { Fragment, Static, jsx } from './jsx.js'
+import { Comment, Empty, Fragment, Static, jsx } from './jsx.js'
 
 describe('jsx', () => {
   const { window } = new JSDOM()
@@ -329,6 +329,23 @@ describe('jsx', () => {
     const expected: NodeDescription = {
       type: 'static',
       element: staticElement,
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes an empty component', () => {
+    const test = <Empty />
+    const expected: NodeDescription = {
+      type: 'empty',
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a comment', () => {
+    const test = <Comment comment="Hello" />
+    const expected: NodeDescription = {
+      type: 'comment',
+      comment: 'Hello',
     }
     deepEqual(test, expected)
   })

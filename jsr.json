@@ -1,5 +1,5 @@
 {
   "name": "@worldmaker/butterfloat",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "exports": "./index.ts"
 }

@@ -44,7 +44,7 @@ Attributes available in Butterfloat from an HTML element
 
 #### Defined in
 
-[jsx.ts:127](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L127)
+[jsx.ts:127](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L127)
 
 ___
 
@@ -62,7 +62,7 @@ All Butterfloat bindable attributes of an element
 
 #### Defined in
 
-[jsx.ts:99](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L99)
+[jsx.ts:99](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L99)
 
 ___
 
@@ -74,7 +74,7 @@ All Butterfloat bindable events of an element
 
 #### Defined in
 
-[jsx.ts:105](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L105)
+[jsx.ts:105](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L105)
 
 ___
 
@@ -86,7 +86,7 @@ All Butterfloat bindable CSS styles
 
 #### Defined in
 
-[jsx.ts:121](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L121)
+[jsx.ts:121](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L121)
 
 ___
 
@@ -98,7 +98,7 @@ JSX Element type
 
 #### Defined in
 
-[jsx.ts:27](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L27)
+[jsx.ts:27](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L27)
 
 ___
 
@@ -116,7 +116,7 @@ Attributes of an HTML Element
 
 #### Defined in
 
-[jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L66)
+[jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L66)
 
 ___
 
@@ -134,7 +134,7 @@ Observable bindable attributes of an HTML Element
 
 #### Defined in
 
-[jsx.ts:79](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L79)
+[jsx.ts:79](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L79)
 
 ___
 
@@ -146,7 +146,7 @@ All bindable CSS styles of an HTML element
 
 #### Defined in
 
-[jsx.ts:112](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L112)
+[jsx.ts:112](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L112)
 
 ___
 
@@ -158,7 +158,7 @@ Available HTML Elements
 
 #### Defined in
 
-[jsx.ts:137](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L137)
+[jsx.ts:137](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L137)
 
 ___
 
@@ -176,7 +176,7 @@ Bindable DOM events
 
 #### Defined in
 
-[jsx.ts:92](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L92)
+[jsx.ts:92](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L92)
 
 ___
 
@@ -197,7 +197,7 @@ If types are equal. Meta-type for complex conditional types.
 
 #### Defined in
 
-[jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L46)
+[jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L46)
 
 ___
 
@@ -209,7 +209,7 @@ JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")
 
 #### Defined in
 
-[jsx.ts:153](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L153)
+[jsx.ts:153](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L153)
 
 ___
 
@@ -227,4 +227,4 @@ Collect the writable keys of a type.
 
 #### Defined in
 
-[jsx.ts:55](https://github.com/WorldMaker/butterfloat/blob/981cdb4/jsx.ts#L55)
+[jsx.ts:55](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L55)

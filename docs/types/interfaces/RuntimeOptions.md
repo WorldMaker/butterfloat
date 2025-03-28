@@ -20,4 +20,4 @@ Primarily a tool for debugging: Don't remove unbound DOM nodes when components c
 
 #### Defined in
 
-[runtime-model.ts:8](https://github.com/WorldMaker/butterfloat/blob/981cdb4/runtime-model.ts#L8)
+[runtime-model.ts:8](https://github.com/WorldMaker/butterfloat/blob/098685f/runtime-model.ts#L8)

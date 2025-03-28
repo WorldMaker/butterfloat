@@ -1,7 +1,13 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
-import { Children, type ComponentContext, jsx } from '../index.js'
+import {
+  Children,
+  type ComponentContext,
+  Comment,
+  Empty,
+  jsx,
+} from '../index.js'
 
 describe('children documentation', () => {
   it('shows a simple list wrapper with children', () => {
@@ -49,5 +55,15 @@ describe('children documentation', () => {
     }
 
     ok(DynamicList)
+  })
+
+  it('mentions comment', () => {
+    const desc = <Comment comment="This is a comment" />
+    ok(desc)
+  })
+
+  it('mentions empty', () => {
+    const desc = <Empty />
+    ok(desc)
   })
 })

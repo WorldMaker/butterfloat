@@ -226,6 +226,40 @@ export function Static({ element }: StaticProperties): NodeDescription {
 }
 
 /**
+ * Properties supported by the `<Comment>` pseudo-component
+ */
+export interface CommentProperties {
+  /**
+   * A comment to attach to the DOM tree.
+   */
+  comment: string
+}
+
+/**
+ * Attach a comment to the DOM tree
+ *
+ * @param props Comment properties
+ * @returns Comment node
+ */
+export function Comment({ comment }: CommentProperties): NodeDescription {
+  return {
+    type: 'comment',
+    comment,
+  }
+}
+
+/**
+ * Empty node
+ *
+ * @returns Empty node
+ */
+export function Empty(): NodeDescription {
+  return {
+    type: 'empty',
+  }
+}
+
+/**
  * Describe a node. Builder for JSX and TSX transformation.
  * @param element An element to build
  * @param attributes Attributes
@@ -275,7 +309,13 @@ export function jsx(
   }
   if (typeof element === 'function') {
     // immediately flatten fragments or children or statics
-    if (element === Fragment || element === Children || element === Static) {
+    if (
+      element === Fragment ||
+      element === Children ||
+      element === Static ||
+      element === Empty ||
+      element === Comment
+    ) {
       const func = element as (
         attributes: unknown,
         ...children: JsxChildren
