@@ -286,7 +286,8 @@ export function runInternal(
   placeholder?: Element | CharacterData,
   document = globalThis.document,
 ) {
-  const observable = isObservable(component)
+  const isObservableComponent = isObservable(component)
+  const observable = isObservableComponent
     ? component
     : wire(component, context, container, document)
   let previousNode: Element | null = null
@@ -294,7 +295,12 @@ export function runInternal(
     'type' in component ? component.component.name : component.name
   return observable.subscribe({
     next(node) {
-      if (previousNode) {
+      if (isObservableComponent) {
+        // NOTE: Assume all ObservableComponents are full replacements
+        // For now all ObservableComponents are internal and meet this assumption
+        // (Children bindings, Suspense, ErrorBoundary, etc)
+        container.replaceChildren(node)
+      } else if (previousNode) {
         try {
           previousNode.replaceWith(node)
         } catch (error) {
