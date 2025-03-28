@@ -299,7 +299,8 @@ export function runInternal(
           previousNode.replaceWith(node)
         } catch (error) {
           console.warn(
-            'Cannot exactly replace previous node, replacing all children in container',
+            `Cannot exactly replace previous node in ${componentName}, replacing all children in container`,
+            node,
             previousNode,
           )
           container.replaceChildren(node)
