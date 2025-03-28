@@ -295,10 +295,7 @@ export function runInternal(
     'type' in component ? component.component.name : component.name
   return observable.subscribe({
     next(node) {
-      if (isObservableComponent) {
-        // NOTE: Assume all ObservableComponents are full replacements
-        // For now all ObservableComponents are internal and meet this assumption
-        // (Children bindings, Suspense, ErrorBoundary, etc)
+      if (isObservableComponent && component.isReplaceAll) {
         container.replaceChildren(node)
       } else if (previousNode) {
         try {

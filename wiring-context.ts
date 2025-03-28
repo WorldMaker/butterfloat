@@ -32,7 +32,10 @@ export interface WiringContext {
   preserveOnComplete?: boolean
 }
 
-export type ObservableComponent = Observable<Element> & { name: string }
+export type ObservableComponent = Observable<Element> & {
+  name: string
+  isReplaceAll?: boolean
+}
 
 export type ComponentRunner = (
   container: Element,

@@ -249,6 +249,7 @@ function bindElementChildren(
       )
       const childComponent = activeChild as ObservableComponent
       childComponent.name = `${element.nodeName} replaceable child`
+      childComponent.isReplaceAll = true
       subscription.add(
         componentRunner(
           element,
