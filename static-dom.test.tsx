@@ -1,13 +1,13 @@
 import { JSDOM } from 'jsdom'
 import { deepEqual, equal, notStrictEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { jsx, Fragment, Children, Static } from './jsx.js'
+import { jsx, Fragment, Children, Comment, Static, Empty } from './jsx.js'
 import { buildElement, buildTree } from './static-dom.js'
 import { NEVER, of } from 'rxjs'
 
 describe('static-dom', () => {
   const { window } = new JSDOM()
-  const { document } = window
+  const { document, Node } = window
 
   it('builds a single element', () => {
     const desc = <hr className="cute" />
@@ -68,7 +68,11 @@ describe('static-dom', () => {
   it('builds a single svg element with xmlns', () => {
     const desc = <svg xmlns="http://www.w3.org/2000/svg" />
     equal(desc.type, 'element')
-    const { element: test, nsContext } = buildElement(desc, undefined, document)
+    const { element: test, context: nsContext } = buildElement(
+      desc,
+      undefined,
+      document,
+    )
     equal(nsContext?.defaultNamespace, 'http://www.w3.org/2000/svg')
     equal(test.tagName, 'svg')
     equal(test.namespaceURI, 'http://www.w3.org/2000/svg')
@@ -91,7 +95,11 @@ describe('static-dom', () => {
       />
     )
     equal(desc.type, 'element')
-    const { element: test, nsContext } = buildElement(desc, undefined, document)
+    const { element: test, context: nsContext } = buildElement(
+      desc,
+      undefined,
+      document,
+    )
     equal(nsContext?.defaultNamespace, 'http://www.w3.org/2000/svg')
     equal(nsContext.namespaceMap.xlink, 'http://www.w3.org/1999/xlink')
     equal(test.tagName, 'svg')
@@ -219,5 +227,73 @@ describe('static-dom', () => {
     equal(actual.elementBinds.length, 0)
     equal(actual.nodeBinds.length, 0)
     deepEqual(actual.container, staticElement)
+  })
+
+  it('builds an empty comment', () => {
+    const container = document.createElement('div')
+    const test = <Empty />
+    const actual = buildTree(
+      test,
+      container,
+      undefined,
+      undefined,
+      undefined,
+      document,
+    )
+    equal(actual.elementBinds.length, 0)
+    equal(actual.nodeBinds.length, 0)
+    equal(container.childNodes.length, 1)
+    equal(container.firstChild?.nodeType, Node.COMMENT_NODE)
+    equal(container.firstChild?.nodeValue, 'empty')
+  })
+
+  it('returns an empty directly', () => {
+    const test = <Empty />
+    const actual = buildTree(
+      test,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      document,
+    )
+    equal(actual.elementBinds.length, 0)
+    equal(actual.nodeBinds.length, 0)
+    deepEqual(actual.container.nodeType, Node.COMMENT_NODE)
+    deepEqual(actual.container.nodeValue, 'empty')
+  })
+
+  it('builds a comment', () => {
+    const container = document.createElement('div')
+    const test = <Comment comment="test" />
+    const actual = buildTree(
+      test,
+      container,
+      undefined,
+      undefined,
+      undefined,
+      document,
+    )
+    equal(actual.elementBinds.length, 0)
+    equal(actual.nodeBinds.length, 0)
+    equal(container.childNodes.length, 1)
+    equal(container.firstChild?.nodeType, Node.COMMENT_NODE)
+    equal(container.firstChild?.nodeValue, 'test')
+  })
+
+  it('does not build an empty comment when told to skip empty', () => {
+    const container = document.createElement('div')
+    const test = <Empty />
+    const actual = buildTree(
+      test,
+      container,
+      undefined,
+      undefined,
+      { skipEmpty: true, defaultNamespace: null, namespaceMap: {} },
+      document,
+    )
+    equal(actual.elementBinds.length, 0)
+    equal(actual.nodeBinds.length, 0)
+    equal(container.childNodes.length, 0)
   })
 })

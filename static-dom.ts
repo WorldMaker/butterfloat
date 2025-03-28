@@ -5,48 +5,50 @@ import {
 } from './component.js'
 import type { ElementBinds, NodeBinds } from './wiring-context.js'
 
-export interface NamespaceContext {
+export interface BuildContext {
+  skipEmpty?: boolean
   defaultNamespace: string | null
   namespaceMap: Record<string, string>
 }
 
 export function buildElement(
   description: ElementDescription,
-  nsContext?: NamespaceContext,
+  context?: BuildContext,
   document = globalThis.document,
 ) {
   if (description.attributes.xmlns) {
-    nsContext = {
+    context = {
       defaultNamespace: description.attributes.xmlns as string,
-      namespaceMap: { ...nsContext?.namespaceMap },
+      namespaceMap: { ...context?.namespaceMap },
     }
   }
   let element: Element
   if (description.element.includes(':')) {
     const [nsAbbrev, elementName] = description.element.split(':')
-    let ns = nsContext?.namespaceMap[nsAbbrev]
+    let ns = context?.namespaceMap[nsAbbrev]
     if (!ns) {
       for (const [key, value] of Object.entries(description.attributes)) {
         if (key.startsWith('xmlns:')) {
           const nsAbbrev = key.replace('xmlns:', '')
-          nsContext = {
-            defaultNamespace: nsContext?.defaultNamespace ?? null,
+          context = {
+            ...context,
+            defaultNamespace: context?.defaultNamespace ?? null,
             namespaceMap: {
-              ...nsContext?.namespaceMap,
+              ...context?.namespaceMap,
               [nsAbbrev]: value as string,
             },
           }
         }
       }
-      ns = nsContext?.namespaceMap[nsAbbrev]
+      ns = context?.namespaceMap[nsAbbrev]
       if (!ns) {
         throw new Error(`Unknown namespace for '${description.element}'`)
       }
     }
     element = document.createElementNS(ns, elementName)
-  } else if (nsContext?.defaultNamespace) {
+  } else if (context?.defaultNamespace) {
     element = document.createElementNS(
-      nsContext.defaultNamespace,
+      context.defaultNamespace,
       description.element,
     )
   } else {
@@ -55,16 +57,17 @@ export function buildElement(
   for (const [key, value] of Object.entries(description.attributes)) {
     if (key.startsWith('xmlns:')) {
       const nsAbbrev = key.replace('xmlns:', '')
-      nsContext = {
-        defaultNamespace: nsContext?.defaultNamespace ?? null,
+      context = {
+        ...context,
+        defaultNamespace: context?.defaultNamespace ?? null,
         namespaceMap: {
-          ...nsContext?.namespaceMap,
+          ...context?.namespaceMap,
           [nsAbbrev]: value as string,
         },
       }
     } else if (key.includes(':')) {
       const [nsAbbrev, attributeName] = key.split(':')
-      const ns = nsContext?.namespaceMap?.[nsAbbrev]
+      const ns = context?.namespaceMap?.[nsAbbrev]
       if (!ns) {
         throw new Error(`Unknown namespace for '${key}' attribute`)
       }
@@ -82,7 +85,7 @@ export function buildElement(
       ;(element as any)[key] = value
     }
   }
-  return { element, nsContext }
+  return { element, context }
 }
 
 export function buildNode(
@@ -90,21 +93,21 @@ export function buildNode(
   container: Element | DocumentFragment,
   elementBinds: ElementBinds,
   nodeBinds: NodeBinds,
-  nsContext?: NamespaceContext,
+  context?: BuildContext,
   document = globalThis.document,
 ) {
   switch (description.type) {
     case 'element': {
-      const { element, nsContext: newContext } = buildElement(
+      const { element, context: newContext } = buildElement(
         description,
-        nsContext,
+        context,
         document,
       )
       if (hasAnyBinds(description)) {
         elementBinds.push([element, description])
       }
       container.appendChild(element)
-      return { container: element, nsContext: newContext }
+      return { container: element, context: newContext }
     }
     case 'children': {
       const childrenComment = document.createComment('Children component')
@@ -138,14 +141,7 @@ export function buildNode(
           container.appendChild(document.createTextNode(child))
           continue
         }
-        buildTree(
-          child,
-          container,
-          elementBinds,
-          nodeBinds,
-          nsContext,
-          document,
-        )
+        buildTree(child, container, elementBinds, nodeBinds, context, document)
       }
 
       if (
@@ -160,10 +156,21 @@ export function buildNode(
         nodeBinds.push([fragmentComment, description])
       }
 
-      return { container, nsContext }
+      return { container, context }
     case 'static':
       container.appendChild(description.element)
-      return { container, nsContext }
+      return { container, context }
+    case 'empty':
+      if (!context?.skipEmpty) {
+        const emptyComment = document.createComment('empty')
+        container.appendChild(emptyComment)
+      }
+      return { container, context }
+    case 'comment': {
+      const comment = document.createComment(description.comment)
+      container.appendChild(comment)
+      return { container, context }
+    }
   }
 }
 
@@ -172,16 +179,16 @@ export function buildTree(
   container: Element | DocumentFragment | null = null,
   elementBinds: ElementBinds = [],
   nodeBinds: NodeBinds = [],
-  nsContext?: NamespaceContext,
+  context?: BuildContext,
   document = globalThis.document,
 ) {
   if (!container && description.type === 'element') {
-    const { element, nsContext: newContext } = buildElement(
+    const { element, context: newContext } = buildElement(
       description,
-      nsContext,
+      context,
       document,
     )
-    nsContext = newContext
+    context = newContext
     container = element
     if (hasAnyBinds(description)) {
       elementBinds.push([element, description])
@@ -192,6 +199,17 @@ export function buildTree(
       nodeBinds,
       container: description.element,
     }
+  } else if (
+    !container &&
+    description.type === 'empty' &&
+    !context?.skipEmpty
+  ) {
+    const emptyComment = document.createComment('empty')
+    return {
+      elementBinds,
+      nodeBinds,
+      container: emptyComment,
+    }
   } else if (!container) {
     container = document.createDocumentFragment()
     buildNode(
@@ -199,7 +217,7 @@ export function buildTree(
       container,
       elementBinds,
       nodeBinds,
-      nsContext,
+      context,
       document,
     )
   } else {
@@ -208,27 +226,29 @@ export function buildTree(
       container,
       elementBinds,
       nodeBinds,
-      nsContext,
+      context,
       document,
     )
     if (nextNode !== null) {
-      const { container: newContainer, nsContext: newContext } = nextNode
+      const { container: newContainer, context: newContext } = nextNode
       container = newContainer
-      nsContext = newContext
+      context = newContext
     }
   }
 
   if (
     description.type !== 'children' /* don't allow children */ &&
     description.type !== 'fragment' /* already flattened */ &&
-    description.type !== 'static' /* don't allow children */
+    description.type !== 'static' /* don't allow children */ &&
+    description.type !== 'comment' /* don't allow children */ &&
+    description.type !== 'empty' /* don't allow children */
   ) {
     for (const child of description.children) {
       if (typeof child === 'string') {
         container.appendChild(document.createTextNode(child))
         continue
       }
-      buildTree(child, container, elementBinds, nodeBinds, nsContext, document)
+      buildTree(child, container, elementBinds, nodeBinds, context, document)
     }
   }
 

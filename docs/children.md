@@ -97,6 +97,16 @@ components need `<Children />` to display their children) and
 fragments as well (by expanding `<></>` to
 `<Fragment childrenBind={children}></Fragment>`).
 
+## Comments and the Empty Component
+
+The `<Comment comment="Some static comment" />` pseudo-component is
+useful for adding HTML comments. The web was built on View Source, and
+sometimes it is still nice to add visible comments to the DOM.
+
+The `<Empty />` pseudo-component is an explicitly empty return state.
+It's a bit more optimized than alternatives like using an empty fragment
+(`<></>`, the "empty fish").
+
 ## Next Steps
 
 If you have gotten this far in the general tour you might be

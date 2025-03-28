@@ -17,7 +17,7 @@ export type DomStrategy = (
   container: Element | DocumentFragment | undefined,
   document: Document,
 ) => {
-  container: Element | DocumentFragment
+  container: Element | DocumentFragment | Comment
   isSameContainer: boolean
   elementBinds: ElementBinds
   nodeBinds: NodeBinds

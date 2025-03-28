@@ -225,6 +225,21 @@ export interface StaticDescription {
 }
 
 /**
+ * Description of the `<Empty>` pseudo-component
+ */
+export interface EmptyDescription {
+  type: 'empty'
+}
+
+/**
+ * Description of the `<Comment>` pseudo-component
+ */
+export interface CommentDescription {
+  type: 'comment'
+  comment: string
+}
+
+/**
  * A description of a node in a Butterfloat DOM tree
  */
 export type NodeDescription =
@@ -233,6 +248,8 @@ export type NodeDescription =
   | FragmentDescription
   | ChildrenDescription
   | StaticDescription
+  | EmptyDescription
+  | CommentDescription
 
 /**
  * A Component Context for Testing purposes

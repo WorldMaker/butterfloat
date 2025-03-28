@@ -13,12 +13,15 @@ export function buildStamp(
   document = globalThis.document,
 ): HTMLTemplateElement {
   const template = document.createElement('template')
+  if (description.type === 'empty') {
+    return template
+  }
   const { elementBinds, nodeBinds } = buildTree(
     description,
     template.content,
     undefined,
     undefined,
-    undefined,
+    { skipEmpty: true, defaultNamespace: null, namespaceMap: {} },
     document,
   )
   let i = 0

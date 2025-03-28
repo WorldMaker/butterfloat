@@ -28,6 +28,10 @@ const contextChildrenDescriptions = new WeakMap<
   ComponentDescription
 >()
 
+function isCommentNode(node: Node): node is Comment {
+  return node.nodeType === node.COMMENT_NODE
+}
+
 export function wireInternal(
   description: ComponentDescription,
   subscriber: Subscriber<Node>,
@@ -110,6 +114,19 @@ export function wireInternal(
       subscriber.next(container)
     } else {
       subscriber.next(document.createComment('prestamp bound'))
+    }
+
+    if (isCommentNode(container)) {
+      // If the container is a comment node, it is EMPTY and can't be bound, so early exit
+      if (elementBinds.length > 0 || nodeBinds.length > 0) {
+        console.warn(
+          `Trying to bind to an empty component named ${componentName}`,
+        )
+      }
+
+      return () => {
+        subscription.unsubscribe()
+      }
     }
 
     const bindContext: BindingContext = {
