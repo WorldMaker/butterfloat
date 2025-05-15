@@ -5,7 +5,11 @@ import { NEVER, of } from 'rxjs'
 import { Children, Fragment, jsx } from './jsx.js'
 import { buildTree } from './static-dom.js'
 import { buildStamp } from './stamp-builder.js'
-import { type BindSelectors, collectBindings } from './stamp-collector.js'
+import {
+  type BindSelectors,
+  collectBindings,
+  selectBindings,
+} from './stamp-collector.js'
 import type { ElementBinds, NodeBinds } from './wiring-context.js'
 
 describe('stamp', () => {
@@ -87,6 +91,51 @@ describe('stamp', () => {
     )
 
     match(elementSelectors[0][0], /^h1#example/)
+  })
+
+  it('selects bindings for a top-level element', () => {
+    const template = document.createElement('template')
+    template.innerHTML = `
+    <div data-bf-bind="0">
+      <h1 id="example" data-bf-bind="1">
+        Example
+      </h1>
+    </div>
+  `
+
+    const tree = (
+      <div classBind={{ test: of(true) }}>
+        <h1 id="example" styleBind={{ color: of('red') }}>
+          Example
+        </h1>
+      </div>
+    )
+
+    const stamped = template.content.cloneNode(true) as DocumentFragment
+    const { nodeBinds: expectedNodeBinds, elementBinds: expectedElementBinds } =
+      selectBindings(stamped, tree)
+
+    const stamped2 = (
+      template.content.cloneNode(true) as DocumentFragment
+    ).querySelector('div') as HTMLElement
+    const { nodeBinds, elementBinds } = selectBindings(stamped2, tree)
+
+    equal(nodeBinds.length, expectedNodeBinds.length)
+    equal(elementBinds.length, expectedElementBinds.length)
+
+    for (let i = 0; i < expectedNodeBinds.length; i++) {
+      const [nodeBind, bindDesc] = nodeBinds[i]
+      const [expectedNodeBind, expectedBindDesc] = expectedNodeBinds[i]
+      deepEqual(nodeBind, expectedNodeBind)
+      equal(bindDesc, expectedBindDesc)
+    }
+
+    for (let i = 0; i < expectedElementBinds.length; i++) {
+      const [elementBind, bindDesc] = elementBinds[i]
+      const [expectedElementBind, expectedBindDesc] = expectedElementBinds[i]
+      deepEqual(elementBind, expectedElementBind)
+      equal(bindDesc, expectedBindDesc)
+    }
   })
 })
 
