@@ -320,7 +320,20 @@ export function runInternal(
     },
     complete() {
       if (!context?.preserveOnComplete && previousNode) {
-        previousNode.remove()
+        try {
+          previousNode.remove()
+        } catch (error1) {
+          try {
+            container.removeChild(previousNode)
+          } catch (error2) {
+            console.error(
+              `Could not remove completed node in ${componentName}`,
+              previousNode,
+              error1,
+              error2,
+            )
+          }
+        }
       }
     },
   })
