@@ -96,10 +96,17 @@ export function collectBindings(
   return { elementSelectors, nodeSelectors }
 }
 
+function isElement(node: Node): node is Element {
+  return node.nodeType === node.ELEMENT_NODE
+}
+
 const qs = (container: Element | DocumentFragment, selector: string) => {
   const node = container.querySelector(selector)
   if (node) {
     return node
+  }
+  if (isElement(container) && container.matches(selector)) {
+    return container
   }
   throw new Error('Stamp does not match component')
 }
