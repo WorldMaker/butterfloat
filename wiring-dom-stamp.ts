@@ -24,7 +24,10 @@ const stampOrBuildStrategy: (stamps: StampCollection) => DomStrategy =
       let container = stamp.content.cloneNode(true) as
         | Element
         | DocumentFragment
-      if (container.nodeType === Node.DOCUMENT_FRAGMENT_NODE && container.children.length === 1) {
+      if (
+        container.nodeType === container.DOCUMENT_FRAGMENT_NODE &&
+        container.children.length === 1
+      ) {
         const child = container.firstElementChild
         if (child) {
           container = child
