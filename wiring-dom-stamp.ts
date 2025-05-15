@@ -21,9 +21,18 @@ const stampOrBuildStrategy: (stamps: StampCollection) => DomStrategy =
     }
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
-      const container = stamp.content.cloneNode(true) as
+      let container = stamp.content.cloneNode(true) as
         | Element
         | DocumentFragment
+      if (
+        container.nodeType === container.DOCUMENT_FRAGMENT_NODE &&
+        container.children.length === 1
+      ) {
+        const child = container.firstElementChild
+        if (child) {
+          container = child
+        }
+      }
       return {
         ...selectBindings(container, component(properties, context)),
         isSameContainer: false,
