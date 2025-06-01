@@ -8,6 +8,7 @@ import {
   toElement,
   type Ring,
   toBinds,
+  inertRing,
 } from '../ring.js'
 
 /**
@@ -55,9 +56,7 @@ export function Comment({ comment }: CommentProperties, mat: Mat): Ring {
         [toBinds]: () => null,
       }
     default:
-      return {
-        [ringType]: 'inert',
-      }
+      return inertRing
   }
 }
 ;(Comment as unknown as RingProvider)[canProvideRing] = true

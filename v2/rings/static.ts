@@ -8,6 +8,7 @@ import {
   toElement,
   type Ring,
   toBinds,
+  inertRing,
 } from '../ring.js'
 
 /**
@@ -51,9 +52,7 @@ export function Static({ element }: StaticProperties, mat: Mat): Ring {
         [toBinds]: () => null,
       }
     default:
-      return {
-        [ringType]: 'inert',
-      }
+      return inertRing
   }
 }
 ;(Static as unknown as RingProvider)[canProvideRing] = true

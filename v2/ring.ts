@@ -34,6 +34,10 @@ export interface InertRing {
   [ringType]: 'inert'
 }
 
+export const inertRing: InertRing = Object.freeze({
+  [ringType]: 'inert' as const,
+})
+
 export interface RunnableRing {
   [ringType]: 'runnable'
   [toBinds](): ElementBindDescription | null

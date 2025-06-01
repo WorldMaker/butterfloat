@@ -8,6 +8,7 @@ import {
   toElement,
   type Ring,
   toBinds,
+  inertRing,
 } from '../ring.js'
 
 /**
@@ -37,9 +38,7 @@ export function Empty(_: object, mat: Mat): Ring {
         [toBinds]: () => null,
       }
     default:
-      return {
-        [ringType]: 'inert',
-      }
+      return inertRing
   }
 }
 ;(Empty as unknown as RingProvider)[canProvideRing] = true
