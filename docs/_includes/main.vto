@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        {{ if title }}
+        <title>{{ title }} &middot; Butterfloat</title>
+        {{ else }}
+        <title>Butterfloat</title>
+        {{ /if }}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <link rel="stylesheet" href="{{ "/assets/style.css" |> url }}">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" title="Butterfloat" href="/">
+                        <img src="{{ "/assets/butterfloat.svg" |> url }}" alt="Butterfloat Logo in butterfly-like colors" width="28" height="28">
+                        <strong>Butterfloat</strong>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        {{ content }}
+
+        <footer class="footer">
+            <p>
+                <strong>Butterfloat</strong> by <a href="https://worldmaker.net/">Max Battcher</a>.
+                The <a href="https://github.com/WorldMaker/butterfloat/">source code (GH)</a> is licensed
+                <a href="https://opensource.org/license/mit">MIT</a>. The website content is licensed
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The butterfly-colored
+                boxing glove logo started with a boxing glove shape by
+                <a href="https://lorcblog.blogspot.com/">Lorc</a> under
+                <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </footer>
+    </body>
+</html>

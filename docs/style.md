@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Class and Style Binding
+order: 3
+tags: ['top']
+---
+
 # Class and Style Binding
 
 Previously in the [Getting Started][started] tour was an introduction

@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Getting Started with Butterfloat (and a Brief Tour of Butterfloat)
+order: 1
+tags: ['top']
+---
+
 # Getting Started with Butterfloat (and a Brief Tour of Butterfloat)
 
 First of all, install Butterfloat into your project:

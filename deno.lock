@@ -1,0 +1,25 @@
+{
+  "version": "5",
+  "remote": {
+    "https://deno.land/x/lume@v3.0.2/core/utils/lume_config.ts": "3715adca952a4c6054b0f4a25792859ae683a85b11c225b36d027ac26baabe95",
+    "https://deno.land/x/lume@v3.0.2/lint.ts": "4b369361e0cff20a8dfd9e3ff8cb642aa805e7532825ea3a5378eb1f80901fc6"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@types/jsdom@^21.1.4",
+        "npm:@types/node@^20.8.3",
+        "npm:@typescript-eslint/eslint-plugin@^6.9.0",
+        "npm:@typescript-eslint/parser@^6.9.0",
+        "npm:eslint-config-prettier@9",
+        "npm:eslint@^8.52.0",
+        "npm:jsdom@^22.1.0",
+        "npm:prettier@^3.0.3",
+        "npm:rxjs@^7.8.1",
+        "npm:typedoc-plugin-markdown@^3.17.1",
+        "npm:typedoc@~0.25.4",
+        "npm:typescript@^5.2.2"
+      ]
+    }
+  }
+}

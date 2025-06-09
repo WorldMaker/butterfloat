@@ -1,0 +1,81 @@
+.menu-label {
+  text-transform: none;
+  font-variant: small-caps;
+}
+
+footer.footer {
+  padding: 1.5rem;
+}
+
+/* bulma tablet breakpoint */
+@media (min-width: 769px) {
+  body:has(.page-content) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      'header header'
+      'crumbs crumbs'
+      'menu   content'
+      'footer footer';
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  .page-menu {
+    overflow: auto;
+  }
+  .page-content {
+    overflow: auto;
+  }
+}
+
+/* bulma desktop breakpoint */
+@media (min-width: 1024px) {
+  body:has(.page-content) {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      'header header  header'
+      'crumbs crumbs  crumbs'
+      'menu   article toc'
+      'menu   pages   toc'
+      'footer footer  footer';
+  }
+
+  .page-content {
+    display: contents;
+  }
+
+  .page-content article {
+    grid-area: article;
+    overflow: auto;
+  }
+
+  .toc-menu {
+    overflow: auto;
+  }
+}
+
+header {
+  grid-area: header;
+}
+footer {
+  grid-area: footer;
+}
+.breadcrumb {
+  grid-area: crumbs;
+}
+.toc-menu {
+  grid-area: toc;
+}
+.page-content {
+  grid-area: content;
+}
+.page-menu {
+  grid-area: menu;
+}
+.pagination {
+  grid-area: pages;
+}
+
+/* insert-theme-here */
