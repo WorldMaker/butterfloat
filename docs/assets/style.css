@@ -78,4 +78,10 @@ footer {
   grid-area: pages;
 }
 
-/* insert-theme-here */
+@media (prefers-color-scheme: dark) {
+  /* insert-prism-dark-theme-here */
+}
+
+@media (prefers-color-scheme: light) {
+  /* insert-prism-light-theme-here */
+}

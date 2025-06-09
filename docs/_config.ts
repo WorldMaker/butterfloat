@@ -18,11 +18,18 @@ site.use(nav({ order: 'order=asc title basename' }))
 site.use(pagefind())
 site.use(
   prism({
-    theme: {
-      name: 'tomorrow',
-      cssFile: '/assets/style.css',
-      placeholder: '/* insert-theme-here */',
-    },
+    theme: [
+      {
+        name: 'tomorrow',
+        cssFile: '/assets/style.css',
+        placeholder: '/* insert-prism-dark-theme-here */',
+      },
+      {
+        name: 'default',
+        cssFile: '/assets/style.css',
+        placeholder: '/* insert-prism-light-theme-here */',
+      },
+    ],
   }),
 )
 site.use(toc())
