@@ -2,7 +2,7 @@
 layout: page.vto
 title: Suspense and Advanced Binding
 order: 5
-tags: ['top']
+tags: ['stable']
 ---
 
 # Suspense and Advanced Binding

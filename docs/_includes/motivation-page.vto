@@ -43,13 +43,13 @@ layout: main.vto
         {{ content }}
     </article>
 
-    {{ include "paginator.vto" { searchTag: 'stable' } }}
+    {{ include "paginator.vto" { searchTag: 'motivation' } }}
 </section>
 
 <nav class="menu page-menu">
-    <p class="menu-label">Butterfloat</p>
+    <p class="menu-label">Butterfloat Motivation</p>
     <ul class="menu-list">
-        {{ for item of nav.menu("/", "stable").children }}
+        {{ for item of nav.menu("/", "motivation").children }}
         <li>
             {{ include "menu-item.vto" { item } }}
         </li>

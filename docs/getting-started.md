@@ -2,7 +2,7 @@
 layout: page.vto
 title: Getting Started with Butterfloat (and a Brief Tour of Butterfloat)
 order: 1
-tags: ['top']
+tags: ['stable']
 ---
 
 # Getting Started with Butterfloat (and a Brief Tour of Butterfloat)

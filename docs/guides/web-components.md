@@ -2,7 +2,7 @@
 layout: page.vto
 title: Web Components with Butterfloat
 order: 1
-tags: ['top']
+tags: ['stable']
 ---
 
 # Web Components with Butterfloat

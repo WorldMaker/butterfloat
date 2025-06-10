@@ -2,7 +2,7 @@
 layout: page.vto
 title: Class and Style Binding
 order: 3
-tags: ['top']
+tags: ['stable']
 ---
 
 # Class and Style Binding

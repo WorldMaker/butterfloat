@@ -2,7 +2,7 @@
 layout: page.vto
 title: Stamps
 order: 6
-tags: ['top']
+tags: ['stable']
 ---
 
 # Stamps

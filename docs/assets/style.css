@@ -78,6 +78,50 @@ footer {
   grid-area: pages;
 }
 
+/* *** Markdown Alerts *** */
+
+.markdown-alert {
+  padding: 1em;
+  border-left: 0.25rem solid;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  border-color: var(--border-color);
+}
+
+.markdown-alert > span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--border-color);
+}
+
+.markdown-alert .markdown-alert-icon {
+  margin-right: 0.5em;
+  fill: var(--border-color);
+}
+
+.markdown-alert.note {
+  --border-color: var(--bulma-info);
+}
+
+.markdown-alert.warning {
+  --border-color: var(--bulma-warning);
+}
+
+.markdown-alert.important {
+  --border-color: var(--bulma-link);
+}
+
+.markdown-alert.caution {
+  --border-color: var(--bulma-danger);
+}
+
+.markdown-alert.tip {
+  --border-color: var(--bulma-primary);
+}
+
+/* *** Prisma themes *** */
+
 @media (prefers-color-scheme: dark) {
   /* insert-prism-dark-theme-here */
 }

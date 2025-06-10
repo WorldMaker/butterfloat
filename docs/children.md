@@ -2,7 +2,7 @@
 layout: page.vto
 title: Component Children and Dynamic Children
 order: 4
-tags: ['top']
+tags: ['stable']
 ---
 
 # Component Children and Dynamic Children

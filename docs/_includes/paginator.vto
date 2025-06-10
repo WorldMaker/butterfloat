@@ -1,5 +1,5 @@
 <nav class="pagination" role="navigation" aria-label="pagination">
-    {{> const prevPage = nav.previousPage(url, "top") }}
+    {{> const prevPage = nav.previousPage(url, searchTag) }}
     {{ if prevPage }}
     <a href="{{ prevPage.url }}" class="pagination-previous">
         Previous: {{ prevPage.title }}
@@ -9,7 +9,7 @@
         No previous page
     </a>
     {{ /if }}
-    {{> const nextPage = nav.nextPage(url, "top") }}
+    {{> const nextPage = nav.nextPage(url, searchTag) }}
     {{ if nextPage }}
     <a href="{{ nextPage.url }}" class="pagination-next">
         Next: {{ nextPage.title }}

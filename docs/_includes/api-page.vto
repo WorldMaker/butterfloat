@@ -2,20 +2,6 @@
 layout: main.vto
 ---
 
-<nav class="breadcrumb">
-    <ul>
-        {{ for item of nav.breadcrumb(url) }}
-        <li>
-            {{ if item.data }}
-            <a href="{{ item.data.url }}">{{ item.data.title }}</a>
-            {{ else }}
-            <span>{{ item.slug }}</span>
-            {{ /if }}
-        </li>
-        {{ /for }}
-    </ul>
-</nav>
-
 <section class="section page-content">
     {{ if toc?.length }}
     <nav class="menu toc-menu">
@@ -43,13 +29,13 @@ layout: main.vto
         {{ content }}
     </article>
 
-    {{ include "paginator.vto" { searchTag: 'stable' } }}
+    {{ include "paginator.vto" { searchTag: 'api' } }}
 </section>
 
 <nav class="menu page-menu">
-    <p class="menu-label">Butterfloat</p>
+    <p class="menu-label">Butterfloat API</p>
     <ul class="menu-list">
-        {{ for item of nav.menu("/", "stable").children }}
+        {{ for item of nav.menu("/", "api").children }}
         <li>
             {{ include "menu-item.vto" { item } }}
         </li>
