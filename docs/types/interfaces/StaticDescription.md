@@ -19,7 +19,7 @@ Description of the `<Static>` pseudo-component
 
 #### Defined in
 
-[component.ts:224](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L224)
+[component.ts:224](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L224)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[component.ts:223](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L223)
+[component.ts:223](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L223)

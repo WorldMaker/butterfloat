@@ -20,4 +20,4 @@ A comment to attach to the DOM tree.
 
 #### Defined in
 
-[jsx.ts:235](https://github.com/WorldMaker/butterfloat/blob/098685f/jsx.ts#L235)
+[jsx.ts:235](https://github.com/WorldMaker/butterfloat/blob/51a08e2/jsx.ts#L235)

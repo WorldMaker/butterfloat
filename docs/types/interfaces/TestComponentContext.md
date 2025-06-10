@@ -26,7 +26,7 @@ A Component Context for Testing purposes
 
 #### Defined in
 
-[component.ts:258](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L258)
+[component.ts:258](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L258)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[component.ts:261](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L261)
+[component.ts:261](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L261)
 
 ___
 
@@ -46,4 +46,4 @@ ___
 
 #### Defined in
 
-[component.ts:263](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L263)
+[component.ts:263](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L263)

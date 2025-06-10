@@ -28,7 +28,7 @@ Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>
 
 #### Defined in
 
-[component.ts:208](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L208)
+[component.ts:208](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L208)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L172)
+[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L172)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L173)
+[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L173)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L174)
+[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L174)
 
 ___
 
@@ -80,4 +80,4 @@ ___
 
 #### Defined in
 
-[component.ts:207](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L207)
+[component.ts:207](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L207)

@@ -8,5 +8,6 @@
     "jsxFragmentFactory": "Fragment",
     "strict": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["docs/**"]
 }

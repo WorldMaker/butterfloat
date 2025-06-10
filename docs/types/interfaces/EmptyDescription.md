@@ -18,4 +18,4 @@ Description of the `<Empty>` pseudo-component
 
 #### Defined in
 
-[component.ts:231](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L231)
+[component.ts:231](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L231)

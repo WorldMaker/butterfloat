@@ -19,7 +19,7 @@ Description of the `<Comment>` pseudo-component
 
 #### Defined in
 
-[component.ts:239](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L239)
+[component.ts:239](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L239)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[component.ts:238](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L238)
+[component.ts:238](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L238)
