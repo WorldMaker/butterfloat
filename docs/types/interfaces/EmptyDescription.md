@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / EmptyDescription
+[butterfloat](../index.md) / EmptyDescription
 
 # Interface: EmptyDescription
 
-Defined in: [component.ts:230](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L230)
+Defined in: [component.ts:230](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L230)
 
 Description of the `<Empty>` pseudo-component
 
@@ -16,4 +16,4 @@ Description of the `<Empty>` pseudo-component
 
 > **type**: `"empty"`
 
-Defined in: [component.ts:231](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L231)
+Defined in: [component.ts:231](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L231)

@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / runOnlyStamps
+[butterfloat](../index.md) / runOnlyStamps
 
 # Function: runOnlyStamps()
 
 > **runOnlyStamps**(`container`, `component`, `stamps`, `options?`, `placeholder?`, `document?`): `Subscription`
 
-Defined in: [runtime-only-stamps.ts:20](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/runtime-only-stamps.ts#L20)
+Defined in: [runtime-only-stamps.ts:19](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime-only-stamps.ts#L19)
 
 **`Experimental`**
 

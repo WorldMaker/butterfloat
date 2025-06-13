@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / StaticProperties
+[butterfloat](../index.md) / StaticProperties
 
 # Interface: StaticProperties
 
-Defined in: [jsx.ts:208](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L208)
+Defined in: [jsx.ts:208](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L208)
 
 Properties supported by the `<Static>` pseudo-component
 
@@ -16,6 +16,6 @@ Properties supported by the `<Static>` pseudo-component
 
 > **element**: `Element`
 
-Defined in: [jsx.ts:212](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L212)
+Defined in: [jsx.ts:212](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L212)
 
 A static element to attach to the DOM tree.

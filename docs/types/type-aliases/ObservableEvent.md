@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / ObservableEvent
+[butterfloat](../index.md) / ObservableEvent
 
 # Type Alias: ObservableEvent\<T\>
 
 > **ObservableEvent**\<`T`\> = `Observable`\<`T`\> & `object`
 
-Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/events.ts#L8)
+Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/events.ts#L8)
 
 An Observable intended for binding to a DOM event
 

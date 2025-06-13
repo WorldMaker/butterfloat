@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / ComponentContext
+[butterfloat](../index.md) / ComponentContext
 
 # Interface: ComponentContext\<Events\>
 
-Defined in: [component.ts:16](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L16)
+Defined in: [component.ts:16](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L16)
 
 Context for a component. Dependency injection mechanism for
 effect binders and events proxies.
@@ -23,7 +23,7 @@ effect binders and events proxies.
 
 > **bindEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-Defined in: [component.ts:18](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L18)
+Defined in: [component.ts:18](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L18)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [component.ts:18](https://github.com/WorldMaker/butterfloat/blob/f0f
 
 > **bindImmediateEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-Defined in: [component.ts:19](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L19)
+Defined in: [component.ts:19](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L19)
 
 ***
 
@@ -39,4 +39,4 @@ Defined in: [component.ts:19](https://github.com/WorldMaker/butterfloat/blob/f0f
 
 > **events**: `Events`
 
-Defined in: [component.ts:17](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L17)
+Defined in: [component.ts:17](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L17)

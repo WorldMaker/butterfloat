@@ -1,13 +1,13 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / DefaultStyleBind
+[butterfloat](../index.md) / DefaultStyleBind
 
 # Type Alias: DefaultStyleBind
 
 > **DefaultStyleBind** = `Record`\<`string`, `Observable`\<`unknown`\>\>
 
-Defined in: [component.ts:109](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L109)
+Defined in: [component.ts:109](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L109)
 
 Default styleBind attribute accepted binds

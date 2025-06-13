@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / ContextComponent
+[butterfloat](../index.md) / ContextComponent
 
 # Type Alias: ContextComponent()\<Props, Events\>
 
 > **ContextComponent**\<`Props`, `Events`\> = (`props`, `context`) => [`NodeDescription`](NodeDescription.md)
 
-Defined in: [component.ts:27](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L27)
+Defined in: [component.ts:27](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L27)
 
 A Butterfloat Component provided properties and additional context-sensitive tools
 

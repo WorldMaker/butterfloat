@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / SimpleComponent
+[butterfloat](../index.md) / SimpleComponent
 
 # Type Alias: SimpleComponent()
 
 > **SimpleComponent** = () => [`NodeDescription`](NodeDescription.md)
 
-Defined in: [component.ts:35](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L35)
+Defined in: [component.ts:35](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L35)
 
 The simplest form of Butterfloat Component
 

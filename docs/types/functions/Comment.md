@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / Comment
+[butterfloat](../index.md) / Comment
 
 # Function: Comment()
 
 > **Comment**(`props`): [`NodeDescription`](../type-aliases/NodeDescription.md)
 
-Defined in: [jsx.ts:244](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L244)
+Defined in: [jsx.ts:244](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L244)
 
 Attach a comment to the DOM tree
 

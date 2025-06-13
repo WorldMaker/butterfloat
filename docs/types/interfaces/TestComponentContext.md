@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / TestComponentContext
+[butterfloat](../index.md) / TestComponentContext
 
 # Interface: TestComponentContext\<Events\>
 
-Defined in: [component.ts:257](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L257)
+Defined in: [component.ts:257](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L257)
 
 A Component Context for Testing purposes
 
@@ -22,7 +22,7 @@ A Component Context for Testing purposes
 
 > **context**: [`ComponentContext`](ComponentContext.md)\<`Events`\>
 
-Defined in: [component.ts:258](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L258)
+Defined in: [component.ts:258](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L258)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [component.ts:258](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > **effects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [component.ts:261](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L261)
+Defined in: [component.ts:261](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L261)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [component.ts:261](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > **immediateEffects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [component.ts:263](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L263)
+Defined in: [component.ts:263](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L263)

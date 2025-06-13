@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / FragmentDescription
+[butterfloat](../index.md) / FragmentDescription
 
 # Interface: FragmentDescription
 
-Defined in: [component.ts:206](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L206)
+Defined in: [component.ts:206](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L206)
 
 Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>` fragment notation)
 
@@ -20,7 +20,7 @@ Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>
 
 > **attributes**: [`Attributes`](../type-aliases/Attributes.md)
 
-Defined in: [component.ts:208](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L208)
+Defined in: [component.ts:208](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L208)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [component.ts:208](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
 
-Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L172)
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L172)
 
 #### Inherited from
 
@@ -40,7 +40,7 @@ Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L173)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L173)
 
 #### Inherited from
 
@@ -52,7 +52,7 @@ Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L174)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L174)
 
 #### Inherited from
 
@@ -64,4 +64,4 @@ Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > **type**: `"fragment"`
 
-Defined in: [component.ts:207](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L207)
+Defined in: [component.ts:207](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L207)

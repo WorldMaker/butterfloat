@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / StaticDescription
+[butterfloat](../index.md) / StaticDescription
 
 # Interface: StaticDescription
 
-Defined in: [component.ts:222](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L222)
+Defined in: [component.ts:222](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L222)
 
 Description of the `<Static>` pseudo-component
 
@@ -16,7 +16,7 @@ Description of the `<Static>` pseudo-component
 
 > **element**: `Element`
 
-Defined in: [component.ts:224](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L224)
+Defined in: [component.ts:224](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L224)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [component.ts:224](https://github.com/WorldMaker/butterfloat/blob/f0
 
 > **type**: `"static"`
 
-Defined in: [component.ts:223](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L223)
+Defined in: [component.ts:223](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L223)

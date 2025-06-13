@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / ChildrenProperties
+[butterfloat](../index.md) / ChildrenProperties
 
 # Interface: ChildrenProperties
 
-Defined in: [jsx.ts:159](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L159)
+Defined in: [jsx.ts:159](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L159)
 
 Properties supported by the `<Children>` pseudo-component
 
@@ -16,7 +16,7 @@ Properties supported by the `<Children>` pseudo-component
 
 > `optional` **context**: [`ComponentContext`](ComponentContext.md)\<`unknown`\>
 
-Defined in: [jsx.ts:167](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L167)
+Defined in: [jsx.ts:167](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L167)
 
 Context for the component to bind the children from, for deep binding.
 

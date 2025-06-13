@@ -1,14 +1,14 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / run
+[butterfloat](../index.md) / run
 
 # Function: run()
 
 > **run**(`container`, `component`, `options?`, `placeholder?`, `document?`): `Subscription`
 
-Defined in: [runtime.ts:17](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/runtime.ts#L17)
+Defined in: [runtime.ts:16](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime.ts#L16)
 
 Run a Butterfloat component
 

@@ -1,12 +1,12 @@
-[**butterfloat**](../README.md)
+[**butterfloat**](../index.md)
 
 ***
 
-[butterfloat](../globals.md) / RuntimeOptions
+[butterfloat](../index.md) / RuntimeOptions
 
 # Interface: RuntimeOptions
 
-Defined in: [runtime-model.ts:4](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/runtime-model.ts#L4)
+Defined in: [runtime-model.ts:4](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime-model.ts#L4)
 
 Options for how Butterfloat should run
 
@@ -16,6 +16,6 @@ Options for how Butterfloat should run
 
 > `optional` **preserveOnComplete**: `boolean`
 
-Defined in: [runtime-model.ts:8](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/runtime-model.ts#L8)
+Defined in: [runtime-model.ts:8](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime-model.ts#L8)
 
 Primarily a tool for debugging: Don't remove unbound DOM nodes when components complete.

@@ -1,8 +1,8 @@
-[**butterfloat**](../../../../../README.md)
+[**butterfloat**](../../../../../index.md)
 
 ***
 
-[butterfloat](../../../../../globals.md) / [jsx](../../README.md) / JSX
+[butterfloat](../../../../../index.md) / [jsx](../../index.md) / JSX
 
 # JSX
 

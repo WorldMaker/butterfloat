@@ -1,12 +1,12 @@
-[**butterfloat**](../../../../../../README.md)
+[**butterfloat**](../../../../../../index.md)
 
 ***
 
-[butterfloat](../../../../../../globals.md) / [jsx](../../../README.md) / [JSX](../README.md) / IntrinsicElements
+[butterfloat](../../../../../../index.md) / [jsx](../../../index.md) / [JSX](../index.md) / IntrinsicElements
 
 # Interface: IntrinsicElements
 
-Defined in: [jsx.ts:146](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L146)
+Defined in: [jsx.ts:146](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L146)
 
 JSX "intrinsic" elements (HTML elements for DOM binding)
 
