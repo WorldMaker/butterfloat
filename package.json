@@ -29,8 +29,8 @@
     "eslint-config-prettier": "^9.0.0",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
-    "typedoc": "^0.25.4",
-    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.6.4",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.0"
   },

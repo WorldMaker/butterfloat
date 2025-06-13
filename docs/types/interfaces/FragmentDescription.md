@@ -1,83 +1,67 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / FragmentDescription
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / FragmentDescription
 
 # Interface: FragmentDescription
 
+Defined in: [component.ts:206](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L206)
+
 Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>` fragment notation)
 
-## Hierarchy
+## Extends
 
 - [`ChildrenBindDescription`](ChildrenBindDescription.md)
-
-  ↳ **`FragmentDescription`**
-
-## Table of contents
-
-### Properties
-
-- [attributes](FragmentDescription.md#attributes)
-- [children](FragmentDescription.md#children)
-- [childrenBind](FragmentDescription.md#childrenbind)
-- [childrenBindMode](FragmentDescription.md#childrenbindmode)
-- [type](FragmentDescription.md#type)
 
 ## Properties
 
 ### attributes
 
-• **attributes**: [`Attributes`](../modules.md#attributes)
+> **attributes**: [`Attributes`](../type-aliases/Attributes.md)
 
-#### Defined in
+Defined in: [component.ts:208](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L208)
 
-[component.ts:208](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L208)
-
-___
+***
 
 ### children
 
-• **children**: [`JsxChildren`](../modules.md#jsxchildren)
+> **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
+
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L172)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[children](ChildrenBindDescription.md#children)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-#### Defined in
+***
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L172)
+### childrenBind?
 
-___
+> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-### childrenBind
-
-• `Optional` **childrenBind**: [`ChildrenBind`](../modules.md#childrenbind)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L173)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBind](ChildrenBindDescription.md#childrenbind)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-#### Defined in
+***
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L173)
+### childrenBindMode?
 
-___
+> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-### childrenBindMode
-
-• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L174)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBindMode](ChildrenBindDescription.md#childrenbindmode)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-#### Defined in
-
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L174)
-
-___
+***
 
 ### type
 
-• **type**: ``"fragment"``
+> **type**: `"fragment"`
 
-#### Defined in
-
-[component.ts:207](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L207)
+Defined in: [component.ts:207](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L207)

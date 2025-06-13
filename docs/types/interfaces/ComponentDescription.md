@@ -1,94 +1,75 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / ComponentDescription
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / ComponentDescription
 
 # Interface: ComponentDescription
 
+Defined in: [component.ts:197](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L197)
+
 Description of a Component binding
 
-## Hierarchy
+## Extends
 
 - [`ChildrenBindDescription`](ChildrenBindDescription.md)
-
-  ↳ **`ComponentDescription`**
-
-## Table of contents
-
-### Properties
-
-- [children](ComponentDescription.md#children)
-- [childrenBind](ComponentDescription.md#childrenbind)
-- [childrenBindMode](ComponentDescription.md#childrenbindmode)
-- [component](ComponentDescription.md#component)
-- [properties](ComponentDescription.md#properties)
-- [type](ComponentDescription.md#type)
 
 ## Properties
 
 ### children
 
-• **children**: [`JsxChildren`](../modules.md#jsxchildren)
+> **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
+
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L172)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[children](ChildrenBindDescription.md#children)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-#### Defined in
+***
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L172)
+### childrenBind?
 
-___
+> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-### childrenBind
-
-• `Optional` **childrenBind**: [`ChildrenBind`](../modules.md#childrenbind)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L173)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBind](ChildrenBindDescription.md#childrenbind)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-#### Defined in
+***
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L173)
+### childrenBindMode?
 
-___
+> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-### childrenBindMode
-
-• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L174)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBindMode](ChildrenBindDescription.md#childrenbindmode)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-#### Defined in
-
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L174)
-
-___
+***
 
 ### component
 
-• **component**: [`Component`](../modules.md#component)
+> **component**: [`Component`](../type-aliases/Component.md)
 
-#### Defined in
+Defined in: [component.ts:199](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L199)
 
-[component.ts:199](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L199)
-
-___
+***
 
 ### properties
 
-• **properties**: [`Attributes`](../modules.md#attributes)
+> **properties**: [`Attributes`](../type-aliases/Attributes.md)
 
-#### Defined in
+Defined in: [component.ts:200](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L200)
 
-[component.ts:200](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L200)
-
-___
+***
 
 ### type
 
-• **type**: ``"component"``
+> **type**: `"component"`
 
-#### Defined in
-
-[component.ts:198](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L198)
+Defined in: [component.ts:198](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L198)

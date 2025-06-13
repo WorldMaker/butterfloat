@@ -188,7 +188,7 @@ export function Children({ context }: ChildrenProperties): NodeDescription {
  * @returns Fragment node
  */
 export function Fragment(
-  attributes: ButterfloatAttributes,
+  attributes: ChildrenBindable,
   ...children: JsxChildren
 ): NodeDescription {
   const { childrenBind, childrenBindMode, ...otherAttributes } =

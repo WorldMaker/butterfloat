@@ -1,32 +1,27 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / CommentDescription
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / CommentDescription
 
 # Interface: CommentDescription
 
+Defined in: [component.ts:237](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L237)
+
 Description of the `<Comment>` pseudo-component
-
-## Table of contents
-
-### Properties
-
-- [comment](CommentDescription.md#comment)
-- [type](CommentDescription.md#type)
 
 ## Properties
 
 ### comment
 
-• **comment**: `string`
+> **comment**: `string`
 
-#### Defined in
+Defined in: [component.ts:239](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L239)
 
-[component.ts:239](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L239)
-
-___
+***
 
 ### type
 
-• **type**: ``"comment"``
+> **type**: `"comment"`
 
-#### Defined in
-
-[component.ts:238](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L238)
+Defined in: [component.ts:238](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L238)

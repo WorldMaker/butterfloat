@@ -17,8 +17,8 @@
         "npm:jsdom@^22.1.0",
         "npm:prettier@^3.0.3",
         "npm:rxjs@^7.8.1",
-        "npm:typedoc-plugin-markdown@^3.17.1",
-        "npm:typedoc@~0.25.4",
+        "npm:typedoc-plugin-markdown@^4.6.4",
+        "npm:typedoc@~0.28.5",
         "npm:typescript-eslint@^8.34.0",
         "npm:typescript@^5.8.3"
       ]

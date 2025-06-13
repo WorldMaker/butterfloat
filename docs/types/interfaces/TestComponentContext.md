@@ -1,49 +1,41 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / TestComponentContext
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / TestComponentContext
 
 # Interface: TestComponentContext\<Events\>
 
+Defined in: [component.ts:257](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L257)
+
 A Component Context for Testing purposes
 
-## Type parameters
+## Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `Events` | [`DefaultEvents`](../modules.md#defaultevents) |
+### Events
 
-## Table of contents
-
-### Properties
-
-- [context](TestComponentContext.md#context)
-- [effects](TestComponentContext.md#effects)
-- [immediateEffects](TestComponentContext.md#immediateeffects)
+`Events` = [`DefaultEvents`](../type-aliases/DefaultEvents.md)
 
 ## Properties
 
 ### context
 
-• **context**: [`ComponentContext`](ComponentContext.md)\<`Events`\>
+> **context**: [`ComponentContext`](ComponentContext.md)\<`Events`\>
 
-#### Defined in
+Defined in: [component.ts:258](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L258)
 
-[component.ts:258](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L258)
-
-___
+***
 
 ### effects
 
-• **effects**: [`Observable`\<`unknown`\>, (`item`: `any`) => `void`][]
+> **effects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-#### Defined in
+Defined in: [component.ts:261](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L261)
 
-[component.ts:261](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L261)
-
-___
+***
 
 ### immediateEffects
 
-• **immediateEffects**: [`Observable`\<`unknown`\>, (`item`: `any`) => `void`][]
+> **immediateEffects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-#### Defined in
-
-[component.ts:263](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L263)
+Defined in: [component.ts:263](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L263)

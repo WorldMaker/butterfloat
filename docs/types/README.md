@@ -1,4 +1,6 @@
-butterfloat / [Exports](modules.md)
+**butterfloat**
+
+***
 
 # Butterfloat
 
@@ -89,8 +91,8 @@ Example projects migrated from Knockout:
 - [compradprog](https://github.com/WorldMaker/compradprog)
 - [macrotx](https://github.com/WorldMaker/macrotx)
 
-[Knockout-inspired]: ./docs/motivation/knockout.md
-[tsx]: ./docs/motivation/tsx.md
-[observables]: ./docs/motivation/pure-observables.md
-[started]: ./docs/getting-started.md
-[state]: ./docs/state.md
+[Knockout-inspired]: _media/knockout.md
+[tsx]: _media/tsx.md
+[observables]: _media/pure-observables.md
+[started]: _media/getting-started.md
+[state]: _media/state.md

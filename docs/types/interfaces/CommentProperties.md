@@ -1,23 +1,21 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / CommentProperties
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / CommentProperties
 
 # Interface: CommentProperties
 
+Defined in: [jsx.ts:231](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L231)
+
 Properties supported by the `<Comment>` pseudo-component
-
-## Table of contents
-
-### Properties
-
-- [comment](CommentProperties.md#comment)
 
 ## Properties
 
 ### comment
 
-• **comment**: `string`
+> **comment**: `string`
+
+Defined in: [jsx.ts:235](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/jsx.ts#L235)
 
 A comment to attach to the DOM tree.
-
-#### Defined in
-
-[jsx.ts:235](https://github.com/WorldMaker/butterfloat/blob/51a08e2/jsx.ts#L235)

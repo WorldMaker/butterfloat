@@ -1,53 +1,41 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / ChildrenBindDescription
+[**butterfloat**](../README.md)
+
+***
+
+[butterfloat](../globals.md) / ChildrenBindDescription
 
 # Interface: ChildrenBindDescription
 
+Defined in: [component.ts:171](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L171)
+
 A Description that supports binding Children
 
-## Hierarchy
+## Extended by
 
-- **`ChildrenBindDescription`**
-
-  ↳ [`ElementDescription`](ElementDescription.md)
-
-  ↳ [`ComponentDescription`](ComponentDescription.md)
-
-  ↳ [`FragmentDescription`](FragmentDescription.md)
-
-## Table of contents
-
-### Properties
-
-- [children](ChildrenBindDescription.md#children)
-- [childrenBind](ChildrenBindDescription.md#childrenbind)
-- [childrenBindMode](ChildrenBindDescription.md#childrenbindmode)
+- [`ElementDescription`](ElementDescription.md)
+- [`ComponentDescription`](ComponentDescription.md)
+- [`FragmentDescription`](FragmentDescription.md)
 
 ## Properties
 
 ### children
 
-• **children**: [`JsxChildren`](../modules.md#jsxchildren)
+> **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
 
-#### Defined in
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L172)
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L172)
+***
 
-___
+### childrenBind?
 
-### childrenBind
+> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-• `Optional` **childrenBind**: [`ChildrenBind`](../modules.md#childrenbind)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L173)
 
-#### Defined in
+***
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L173)
+### childrenBindMode?
 
-___
+> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-### childrenBindMode
-
-• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
-
-#### Defined in
-
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/51a08e2/component.ts#L174)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/f0f5f6205e72911354af687f4fb1c543d3ebd586/component.ts#L174)
