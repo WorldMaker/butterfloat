@@ -1,7 +1,8 @@
 import lume from 'lume/mod.ts'
 import nav from 'lume/plugins/nav.ts'
-import pagefind from 'lume/plugins/pagefind.ts'
 import prism from 'lume/plugins/prism.ts'
+import resolveUrls from 'lume/plugins/resolve_urls.ts'
+import sass from 'lume/plugins/sass.ts'
 import title from 'lume_markdown_plugins/title.ts'
 import toc from 'lume_markdown_plugins/toc.ts'
 import { alertPlugin } from 'npm:markdown-it-github-alert'
@@ -24,18 +25,18 @@ const site = lume(
 )
 
 site.use(nav({ order: 'order=asc title basename' }))
-site.use(pagefind())
+site.use(resolveUrls())
 site.use(
   prism({
     theme: [
       {
         name: 'tomorrow',
-        cssFile: '/assets/style.css',
+        cssFile: '/assets/style.scss',
         placeholder: '/* insert-prism-dark-theme-here */',
       },
       {
         name: 'default',
-        cssFile: '/assets/style.css',
+        cssFile: '/assets/style.scss',
         placeholder: '/* insert-prism-light-theme-here */',
       },
     ],
@@ -45,6 +46,7 @@ site.use(title())
 site.use(toc())
 
 site.add('assets/butterfloat.svg')
-site.add('assets/style.css')
+site.use(sass())
+site.add('assets/style.scss')
 
 export default site

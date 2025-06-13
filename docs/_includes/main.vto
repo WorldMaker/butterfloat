@@ -7,7 +7,7 @@
         <title>Butterfloat</title>
         {{ /if }}
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <script src="https://kit.fontawesome.com/6a60c780d1.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ "/assets/style.css" |> url }}">
     </head>
 
@@ -19,17 +19,30 @@
                         <img src="{{ "/assets/butterfloat.svg" |> url }}" alt="Butterfloat Logo in butterfly-like colors" width="28" height="28">
                         <strong>Butterfloat</strong>
                     </a>
-                    <a class="navbar-item" href="/getting-started/">
-                        Getting Started
+                    <a class="navbar-item" href="/getting-started/" title="Getting Started">
+                        <span class="icon">
+                            <i class="fa-duotone fa-regular fa-play"></i>
+                        </span>
                     </a>
-                    <a class="navbar-item" href="/guides/">
-                        Guides
+                    <a class="navbar-item" href="/guides/" title="Guides">
+                        <span class="icon">
+                            <i class="fa-duotone fa-regular fa-book"></i>
+                        </span>
                     </a>
-                    <a class="navbar-item" href="/types/">
-                        API Reference
+                    <a class="navbar-item" href="/types/modules/" title="API Reference">
+                        <span class="icon">
+                            <i class="fa-duotone fa-regular fa-code"></i>
+                        </span>
                     </a>
-                    <a class="navbar-item" href="/motivation/">
-                        Motivation
+                    <a class="navbar-item" href="/motivation/" title="Motivation">
+                        <span class="icon">
+                            <i class="fa-duotone fa-regular fa-thought-bubble"></i>
+                        </span>
+                    </a>
+                    <a class="navbar-item" href="https://github.com/WorldMaker/butterfloat/" target="_blank" rel="noopener" title="GitHub Repository">
+                        <span class="icon">
+                            <i class="fa-duotone fa-regular fa-code-compare"></i>
+                        </span>
                     </a>
                 </div>
             </nav>

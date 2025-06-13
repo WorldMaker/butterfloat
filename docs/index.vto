@@ -60,4 +60,53 @@ tags: ['top']
     </div>
 </section>
 
+<section class="section">
+    <div class="container grid">
+        <a class="button is-primary is-large" href="/getting-started/">
+            <span class="icon">
+                <i class="fa-duotone fa-regular fa-play is-full-width"></i>
+            </span>
+            <span>Getting Started</span>
+        </a>
+        <a class="button is-link is-large is-full-width" href="/guides/">
+            <span class="icon">
+                <i class="fa-duotone fa-regular fa-book"></i>
+            </span>
+            <span>Guides</span>
+        </a>
+        <a class="button is-info is-large is-full-width" href="/types/modules/">
+            <span class="icon">
+                <i class="fa-duotone fa-regular fa-code"></i>
+            </span>
+            <span>API Reference</span>
+        </a>
+        <a class="button is-light is-large is-full-width" href="/motivation/">
+            <span class="icon">
+                <i class="fa-duotone fa-regular fa-thought-bubble"></i>
+            </span>
+            <span>Motivation</span>
+        </a>
+        <a class="button is-dark is-large is-full-width" href="https://github.com/WorldMaker/butterfloat" target="_blank" rel="noopener">
+            <span class="icon">
+                <i class="fa-duotone fa-regular fa-code-compare"></i>
+            </span>
+            <span>GitHub</span>
+        </a>
+    </div>
+</section>
+
 {{ include "paginator.vto" }}
+
+<script type="module">
+// Redirect old hash links
+const regex = /^#\/(?<path>[^\?]+)(\?id=(?<id>[^&]+))?/
+const match = location.hash.match(regex)
+if (match) {
+    const { path, id } = match.groups
+    if (path && id) {
+        location.href = `{{ basepath }}/${path}/#${id}`
+    } else if (path) {
+        location.href = `{{ basepath }}/${path}/`
+    }
+}
+</script>

@@ -6,6 +6,7 @@
   <span>{{ item.data.basename }}</span>
 {{ /if }}
 
+{{ if item.children?.length }}
 <ul>
   {{ for child of item.children }}
   <li>
@@ -13,3 +14,4 @@
   </li>
   {{ /for }}
 </ul>
+{{ /if }}
