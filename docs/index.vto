@@ -104,9 +104,9 @@ const match = location.hash.match(regex)
 if (match) {
     const { path, id } = match.groups
     if (path && id) {
-        location.href = `{{ basepath }}/${path}/#${id}`
+        location.href = `{{ "/" |> url }}${path}/#${id}`
     } else if (path) {
-        location.href = `{{ basepath }}/${path}/`
+        location.href = `{{ "/" |> url }}${path}/`
     }
 }
 </script>
