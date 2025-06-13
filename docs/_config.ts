@@ -1,4 +1,5 @@
 import lume from 'lume/mod.ts'
+import basePath from 'lume/plugins/base_path.ts'
 import nav from 'lume/plugins/nav.ts'
 import prism from 'lume/plugins/prism.ts'
 import resolveUrls from 'lume/plugins/resolve_urls.ts'
@@ -24,6 +25,7 @@ const site = lume(
   },
 )
 
+site.use(basePath())
 site.use(nav({ order: 'order=asc title basename' }))
 site.use(resolveUrls())
 site.use(
