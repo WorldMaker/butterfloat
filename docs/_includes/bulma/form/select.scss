@@ -1,19 +1,19 @@
-@use "shared";
-@use "../utilities/controls";
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
+@use 'shared';
+@use '../utilities/controls';
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
 
 $select-colors: shared.$form-colors !default;
 
 .#{iv.$class-prefix}select {
   @include cv.register-vars(
     (
-      "input-h": #{cv.getVar("scheme-h")},
-      "input-s": #{cv.getVar("scheme-s")},
-      "input-border-style": solid,
-      "input-border-width": 1px,
-      "input-border-l": #{cv.getVar("border-l")},
+      'input-h': #{cv.getVar('scheme-h')},
+      'input-s': #{cv.getVar('scheme-s')},
+      'input-border-style': solid,
+      'input-border-width': 1px,
+      'input-border-l': #{cv.getVar('border-l')},
     )
   );
 
@@ -36,7 +36,7 @@ $select-colors: shared.$form-colors !default;
 
   &.#{iv.$class-prefix}is-rounded {
     select {
-      border-radius: cv.getVar("radius-rounded");
+      border-radius: cv.getVar('radius-rounded');
       padding-inline-start: 1em;
     }
   }
@@ -77,14 +77,14 @@ $select-colors: shared.$form-colors !default;
     &.#{iv.$class-prefix}is-#{$name} {
       @include cv.register-vars(
         (
-          "input-h": #{cv.getVar($name, "", "-h")},
-          "input-s": #{cv.getVar($name, "", "-s")},
-          "input-l": #{cv.getVar($name, "", "-l")},
-          "input-focus-h": #{cv.getVar($name, "", "-h")},
-          "input-focus-s": #{cv.getVar($name, "", "-s")},
-          "input-focus-l": #{cv.getVar($name, "", "-l")},
-          "input-border-l": #{cv.getVar($name, "", "-l")},
-          "arrow-color": #{cv.getVar($name)},
+          'input-h': #{cv.getVar($name, '', '-h')},
+          'input-s': #{cv.getVar($name, '', '-s')},
+          'input-l': #{cv.getVar($name, '', '-l')},
+          'input-focus-h': #{cv.getVar($name, '', '-h')},
+          'input-focus-s': #{cv.getVar($name, '', '-s')},
+          'input-focus-l': #{cv.getVar($name, '', '-l')},
+          'input-border-l': #{cv.getVar($name, '', '-l')},
+          'arrow-color': #{cv.getVar($name)},
         )
       );
     }
@@ -130,15 +130,15 @@ $select-colors: shared.$form-colors !default;
     }
 
     &.#{iv.$class-prefix}is-small:after {
-      font-size: cv.getVar("size-small");
+      font-size: cv.getVar('size-small');
     }
 
     &.#{iv.$class-prefix}is-medium:after {
-      font-size: cv.getVar("size-medium");
+      font-size: cv.getVar('size-medium');
     }
 
     &.#{iv.$class-prefix}is-large:after {
-      font-size: cv.getVar("size-large");
+      font-size: cv.getVar('size-large');
     }
   }
 }

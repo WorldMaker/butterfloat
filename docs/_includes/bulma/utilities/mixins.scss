@@ -1,13 +1,13 @@
-@use "sass:map";
+@use 'sass:map';
 
-@use "initial-variables" as iv;
-@use "css-variables" as cv;
+@use 'initial-variables' as iv;
+@use 'css-variables' as cv;
 
-@mixin arrow($color: #{cv.getVar("arrow-color")}) {
+@mixin arrow($color: #{cv.getVar('arrow-color')}) {
   border: 0.125em solid $color;
   border-right: 0;
   border-top: 0;
-  content: " ";
+  content: ' ';
   display: block;
   height: 0.625em;
   margin-top: -0.4375em;
@@ -16,12 +16,12 @@
   top: 50%;
   transform: rotate(-45deg);
   transform-origin: center;
-  transition-duration: cv.getVar("duration");
+  transition-duration: cv.getVar('duration');
   transition-property: border-color;
   width: 0.625em;
 }
 
-@mixin block($spacing: cv.getVar("block-spacing")) {
+@mixin block($spacing: cv.getVar('block-spacing')) {
   &:not(:last-child) {
     margin-bottom: $spacing;
   }
@@ -41,7 +41,7 @@
 @mixin clearfix {
   &::after {
     clear: both;
-    content: " ";
+    content: ' ';
     display: table;
   }
 }
@@ -49,42 +49,42 @@
 @mixin delete {
   @include cv.register-vars(
     (
-      "delete-dimensions": 1.25rem,
-      "delete-background-l": 0%,
-      "delete-background-alpha": 0.5,
-      "delete-color": #{cv.getVar("white")},
+      'delete-dimensions': 1.25rem,
+      'delete-background-l': 0%,
+      'delete-background-alpha': 0.5,
+      'delete-color': #{cv.getVar('white')},
     )
   );
 
   appearance: none;
   background-color: hsla(
-    #{cv.getVar("scheme-h")},
-    #{cv.getVar("scheme-s")},
-    #{cv.getVar("delete-background-l")},
-    #{cv.getVar("delete-background-alpha")}
+    #{cv.getVar('scheme-h')},
+    #{cv.getVar('scheme-s')},
+    #{cv.getVar('delete-background-l')},
+    #{cv.getVar('delete-background-alpha')}
   );
   border: none;
-  border-radius: cv.getVar("radius-rounded");
+  border-radius: cv.getVar('radius-rounded');
   cursor: pointer;
   pointer-events: auto;
   display: inline-flex;
   flex-grow: 0;
   flex-shrink: 0;
   font-size: 1em;
-  height: cv.getVar("delete-dimensions");
-  max-height: cv.getVar("delete-dimensions");
-  max-width: cv.getVar("delete-dimensions");
-  min-height: cv.getVar("delete-dimensions");
-  min-width: cv.getVar("delete-dimensions");
+  height: cv.getVar('delete-dimensions');
+  max-height: cv.getVar('delete-dimensions');
+  max-width: cv.getVar('delete-dimensions');
+  min-height: cv.getVar('delete-dimensions');
+  min-width: cv.getVar('delete-dimensions');
   outline: none;
   position: relative;
   vertical-align: top;
-  width: cv.getVar("delete-dimensions");
+  width: cv.getVar('delete-dimensions');
 
   &::before,
   &::after {
-    background-color: cv.getVar("delete-color");
-    content: "";
+    background-color: cv.getVar('delete-color');
+    content: '';
     display: block;
     left: 50%;
     position: absolute;
@@ -105,24 +105,24 @@
 
   &:hover,
   &:focus {
-    @include cv.register-var("delete-background-alpha", 0.4);
+    @include cv.register-var('delete-background-alpha', 0.4);
   }
 
   &:active {
-    @include cv.register-var("delete-background-alpha", 0.5);
+    @include cv.register-var('delete-background-alpha', 0.5);
   }
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    @include cv.register-var("delete-dimensions", 1rem);
+    @include cv.register-var('delete-dimensions', 1rem);
   }
 
   &.#{iv.$class-prefix}is-medium {
-    @include cv.register-var("delete-dimensions", 1.5rem);
+    @include cv.register-var('delete-dimensions', 1.5rem);
   }
 
   &.#{iv.$class-prefix}is-large {
-    @include cv.register-var("delete-dimensions", 2rem);
+    @include cv.register-var('delete-dimensions', 2rem);
   }
 }
 
@@ -141,11 +141,11 @@
   appearance: none;
   background: none;
   border: none;
-  border-radius: cv.getVar("burger-border-radius");
+  border-radius: cv.getVar('burger-border-radius');
   color: hsl(
-    cv.getVar("burger-h"),
-    cv.getVar("burger-s"),
-    cv.getVar("burger-l")
+    cv.getVar('burger-h'),
+    cv.getVar('burger-s'),
+    cv.getVar('burger-l')
   );
   cursor: pointer;
   display: inline-flex;
@@ -160,43 +160,43 @@
   span {
     background-color: currentColor;
     display: block;
-    height: cv.getVar("burger-item-height");
-    left: calc(50% - calc(#{cv.getVar("burger-item-width")}) / 2);
+    height: cv.getVar('burger-item-height');
+    left: calc(50% - calc(#{cv.getVar('burger-item-width')}) / 2);
     position: absolute;
     transform-origin: center;
-    transition-duration: cv.getVar("duration");
+    transition-duration: cv.getVar('duration');
     transition-property: background-color, color, opacity, transform;
-    transition-timing-function: cv.getVar("easing");
-    width: cv.getVar("burger-item-width");
+    transition-timing-function: cv.getVar('easing');
+    width: cv.getVar('burger-item-width');
 
     &:nth-child(1),
     &:nth-child(2) {
-      top: calc(50% - calc(#{cv.getVar("burger-item-height")}) / 2);
+      top: calc(50% - calc(#{cv.getVar('burger-item-height')}) / 2);
     }
 
     &:nth-child(3) {
-      bottom: calc(50% + #{cv.getVar("burger-gap")});
+      bottom: calc(50% + #{cv.getVar('burger-gap')});
     }
 
     &:nth-child(4) {
-      top: calc(50% + #{cv.getVar("burger-gap")});
+      top: calc(50% + #{cv.getVar('burger-gap')});
     }
   }
 
   &:hover {
     background-color: hsla(
-      cv.getVar("burger-h"),
-      cv.getVar("burger-s"),
-      cv.getVar("burger-l"),
+      cv.getVar('burger-h'),
+      cv.getVar('burger-s'),
+      cv.getVar('burger-l'),
       0.1
     );
   }
 
   &:active {
     background-color: hsla(
-      cv.getVar("burger-h"),
-      cv.getVar("burger-s"),
-      cv.getVar("burger-l"),
+      cv.getVar('burger-h'),
+      cv.getVar('burger-s'),
+      cv.getVar('burger-l'),
       0.2
     );
   }
@@ -225,7 +225,7 @@
 }
 
 @mixin placeholder {
-  $placeholders: ":-moz" ":-webkit-input" "-moz" "-ms-input";
+  $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
 
   @each $placeholder in $placeholders {
     &:#{$placeholder}-placeholder {
@@ -365,8 +365,8 @@
   $breakpoint: map.get(iv.$breakpoints, $name);
 
   @if $breakpoint {
-    $from: map.get($breakpoint, "from");
-    $until: map.get($breakpoint, "until");
+    $from: map.get($breakpoint, 'from');
+    $until: map.get($breakpoint, 'until');
 
     @if $from and $until {
       @include between($from, $until) {
@@ -409,8 +409,8 @@
 }
 
 @mixin ltr-property($property, $spacing, $right: true) {
-  $normal: if($right, "right", "left");
-  $opposite: if($right, "left", "right");
+  $normal: if($right, 'right', 'left');
+  $opposite: if($right, 'left', 'right');
 
   @if iv.$rtl {
     #{$property}-#{$opposite}: $spacing;
@@ -420,8 +420,8 @@
 }
 
 @mixin ltr-position($spacing, $right: true) {
-  $normal: if($right, "right", "left");
-  $opposite: if($right, "left", "right");
+  $normal: if($right, 'right', 'left');
+  $opposite: if($right, 'left', 'right');
 
   @if iv.$rtl {
     #{$opposite}: $spacing;
@@ -442,11 +442,11 @@
 
 @mixin loader {
   animation: spinAround 500ms infinite linear;
-  border: 2px solid cv.getVar("loading-color");
-  border-radius: cv.getVar("radius-rounded");
+  border: 2px solid cv.getVar('loading-color');
+  border-radius: cv.getVar('radius-rounded');
   border-right-color: transparent;
   border-top-color: transparent;
-  content: "";
+  content: '';
   display: block;
   height: 1em;
   position: relative;

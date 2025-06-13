@@ -1,14 +1,14 @@
-@use "sass:list";
+@use 'sass:list';
 
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/mixins" as mx;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/mixins' as mx;
 
-@mixin typography-size($target: "") {
+@mixin typography-size($target: '') {
   @each $size in dv.$sizes {
     $i: list.index(dv.$sizes, $size);
 
-    .#{iv.$class-prefix}#{iv.$helpers-prefix}size-#{$i}#{if($target == "", "", "-" + $target)} {
+    .#{iv.$class-prefix}#{iv.$helpers-prefix}size-#{$i}#{if($target == '', '', '-' + $target)} {
       font-size: $size !important;
     }
   }
@@ -17,34 +17,34 @@
 @include typography-size;
 
 @include mx.mobile {
-  @include typography-size("mobile");
+  @include typography-size('mobile');
 }
 
 @include mx.tablet {
-  @include typography-size("tablet");
+  @include typography-size('tablet');
 }
 
 @include mx.touch {
-  @include typography-size("touch");
+  @include typography-size('touch');
 }
 
 @include mx.desktop {
-  @include typography-size("desktop");
+  @include typography-size('desktop');
 }
 
 @include mx.widescreen {
-  @include typography-size("widescreen");
+  @include typography-size('widescreen');
 }
 
 @include mx.fullhd {
-  @include typography-size("fullhd");
+  @include typography-size('fullhd');
 }
 
 $alignments: (
-  "centered": "center",
-  "justified": "justify",
-  "left": "left",
-  "right": "right",
+  'centered': 'center',
+  'justified': 'justify',
+  'left': 'left',
+  'right': 'right',
 );
 
 @each $alignment, $text-align in $alignments {

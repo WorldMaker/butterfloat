@@ -1,12 +1,12 @@
-@use "sass:math";
-@use "sass:string";
-@use "../utilities/initial-variables" as iv;
+@use 'sass:math';
+@use 'sass:string';
+@use '../utilities/initial-variables' as iv;
 
 .#{iv.$class-prefix}#{iv.$helpers-prefix}gapless {
   gap: 0 !important;
 }
 
-$gaps: "gap", "column-gap", "row-gap";
+$gaps: 'gap', 'column-gap', 'row-gap';
 $gap-base: 0.5rem;
 
 @each $gap in $gaps {

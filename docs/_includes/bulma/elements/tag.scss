@@ -1,17 +1,17 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins' as mx;
 
-$tag-h: cv.getVar("scheme-h");
-$tag-s: cv.getVar("scheme-s");
-$tag-background-l: cv.getVar("background-l");
+$tag-h: cv.getVar('scheme-h');
+$tag-s: cv.getVar('scheme-s');
+$tag-background-l: cv.getVar('background-l');
 $tag-background-l-delta: 0%;
-$tag-hover-background-l-delta: cv.getVar("hover-background-l-delta");
-$tag-active-background-l-delta: cv.getVar("active-background-l-delta");
-$tag-color-l: cv.getVar("text-l");
-$tag-radius: cv.getVar("radius") !default;
+$tag-hover-background-l-delta: cv.getVar('hover-background-l-delta');
+$tag-active-background-l-delta: cv.getVar('active-background-l-delta');
+$tag-color-l: cv.getVar('text-l');
+$tag-radius: cv.getVar('radius') !default;
 $tag-delete-margin: 1px !default;
 
 $tag-colors: dv.$colors !default;
@@ -20,7 +20,7 @@ $tag-colors: dv.$colors !default;
   @extend %block;
 
   align-items: center;
-  color: hsl(cv.getVar("tag-h"), cv.getVar("tag-s"), cv.getVar("tag-color-l"));
+  color: hsl(cv.getVar('tag-h'), cv.getVar('tag-s'), cv.getVar('tag-color-l'));
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -31,7 +31,7 @@ $tag-colors: dv.$colors !default;
     .#{iv.$class-prefix}tag:not(.#{iv.$class-prefix}is-normal):not(
         .#{iv.$class-prefix}is-large
       ) {
-      font-size: cv.getVar("size-normal");
+      font-size: cv.getVar('size-normal');
     }
   }
 
@@ -39,7 +39,7 @@ $tag-colors: dv.$colors !default;
     .#{iv.$class-prefix}tag:not(.#{iv.$class-prefix}is-normal):not(
         .#{iv.$class-prefix}is-medium
       ) {
-      font-size: cv.getVar("size-medium");
+      font-size: cv.getVar('size-medium');
     }
   }
 
@@ -72,30 +72,30 @@ $tag-colors: dv.$colors !default;
 .#{iv.$class-prefix}tag {
   @include cv.register-vars(
     (
-      "tag-h": #{$tag-h},
-      "tag-s": #{$tag-s},
-      "tag-background-l": #{$tag-background-l},
-      "tag-background-l-delta": #{$tag-background-l-delta},
-      "tag-hover-background-l-delta": #{$tag-hover-background-l-delta},
-      "tag-active-background-l-delta": #{$tag-active-background-l-delta},
-      "tag-color-l": #{$tag-color-l},
-      "tag-radius": #{$tag-radius},
-      "tag-delete-margin": #{$tag-delete-margin},
+      'tag-h': #{$tag-h},
+      'tag-s': #{$tag-s},
+      'tag-background-l': #{$tag-background-l},
+      'tag-background-l-delta': #{$tag-background-l-delta},
+      'tag-hover-background-l-delta': #{$tag-hover-background-l-delta},
+      'tag-active-background-l-delta': #{$tag-active-background-l-delta},
+      'tag-color-l': #{$tag-color-l},
+      'tag-radius': #{$tag-radius},
+      'tag-delete-margin': #{$tag-delete-margin},
     )
   );
 
   align-items: center;
   background-color: hsl(
-    cv.getVar("tag-h"),
-    cv.getVar("tag-s"),
+    cv.getVar('tag-h'),
+    cv.getVar('tag-s'),
     calc(
-      #{cv.getVar("tag-background-l")} + #{cv.getVar("tag-background-l-delta")}
+      #{cv.getVar('tag-background-l')} + #{cv.getVar('tag-background-l-delta')}
     )
   );
   border-radius: $tag-radius;
-  color: hsl(cv.getVar("tag-h"), cv.getVar("tag-s"), cv.getVar("tag-color-l"));
+  color: hsl(cv.getVar('tag-h'), cv.getVar('tag-s'), cv.getVar('tag-color-l'));
   display: inline-flex;
-  font-size: cv.getVar("size-small");
+  font-size: cv.getVar('size-small');
   height: 2em;
   justify-content: center;
   line-height: 1.5;
@@ -113,18 +113,18 @@ $tag-colors: dv.$colors !default;
     &.#{iv.$class-prefix}is-#{$name} {
       @include cv.register-vars(
         (
-          "tag-h": #{cv.getVar($name, "", "-h")},
-          "tag-s": #{cv.getVar($name, "", "-s")},
-          "tag-background-l": #{cv.getVar($name, "", "-l")},
-          "tag-color-l": #{cv.getVar($name, "", "-invert-l")},
+          'tag-h': #{cv.getVar($name, '', '-h')},
+          'tag-s': #{cv.getVar($name, '', '-s')},
+          'tag-background-l': #{cv.getVar($name, '', '-l')},
+          'tag-color-l': #{cv.getVar($name, '', '-invert-l')},
         )
       );
 
       &.#{iv.$class-prefix}is-light {
         @include cv.register-vars(
           (
-            "tag-background-l": #{cv.getVar("light-l")},
-            "tag-color-l": #{cv.getVar($name, "", "-light-invert-l")},
+            'tag-background-l': #{cv.getVar('light-l')},
+            'tag-color-l': #{cv.getVar($name, '', '-light-invert-l')},
           )
         );
       }
@@ -133,15 +133,15 @@ $tag-colors: dv.$colors !default;
 
   // Sizes
   &.#{iv.$class-prefix}is-normal {
-    font-size: cv.getVar("size-small");
+    font-size: cv.getVar('size-small');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    font-size: cv.getVar("size-normal");
+    font-size: cv.getVar('size-normal');
   }
 
   &.#{iv.$class-prefix}is-large {
-    font-size: cv.getVar("size-medium");
+    font-size: cv.getVar('size-medium');
   }
 
   .#{iv.$class-prefix}icon {
@@ -163,7 +163,7 @@ $tag-colors: dv.$colors !default;
 
   // Modifiers
   &.#{iv.$class-prefix}is-delete {
-    margin-inline-start: cv.getVar("tag-delete-margin");
+    margin-inline-start: cv.getVar('tag-delete-margin');
     padding: 0;
     position: relative;
     width: 2em;
@@ -171,7 +171,7 @@ $tag-colors: dv.$colors !default;
     &::before,
     &::after {
       background-color: currentColor;
-      content: "";
+      content: '';
       display: block;
       left: 50%;
       position: absolute;
@@ -192,7 +192,7 @@ $tag-colors: dv.$colors !default;
   }
 
   &.#{iv.$class-prefix}is-rounded {
-    border-radius: cv.getVar("radius-rounded");
+    border-radius: cv.getVar('radius-rounded');
   }
 }
 
@@ -204,7 +204,7 @@ button.#{iv.$class-prefix}tag,
   &:hover {
     @include cv.register-vars(
       (
-        "tag-background-l-delta": #{cv.getVar("tag-hover-background-l-delta")},
+        'tag-background-l-delta': #{cv.getVar('tag-hover-background-l-delta')},
       )
     );
   }
@@ -212,7 +212,7 @@ button.#{iv.$class-prefix}tag,
   &:active {
     @include cv.register-vars(
       (
-        "tag-background-l-delta": #{cv.getVar("tag-active-background-l-delta")},
+        'tag-background-l-delta': #{cv.getVar('tag-active-background-l-delta')},
       )
     );
   }

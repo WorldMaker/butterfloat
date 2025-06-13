@@ -1,5 +1,5 @@
-@use "shared";
-@use "../utilities/initial-variables" as iv;
+@use 'shared';
+@use '../utilities/initial-variables' as iv;
 
 %checkbox-radio {
   cursor: pointer;

@@ -1,45 +1,45 @@
-@use "sass:color";
-@use "sass:list";
-@use "sass:map";
-@use "sass:math";
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
 
-@use "initial-variables" as iv;
-@use "functions" as fn;
+@use 'initial-variables' as iv;
+@use 'functions' as fn;
 
-@function buildVarName($name, $prefix: "", $suffix: "") {
-  @return "--#{iv.$cssvars-prefix}#{$prefix}#{$name}#{$suffix}";
+@function buildVarName($name, $prefix: '', $suffix: '') {
+  @return '--#{iv.$cssvars-prefix}#{$prefix}#{$name}#{$suffix}';
 }
 
 @function buildHslaString($name, $l, $a: 1) {
-  $lightness: getVar($name, "", "-l");
+  $lightness: getVar($name, '', '-l');
   @if ($l) {
     $lightness: $l;
   }
   @return "hsla(#{getVar($name, '', '-h')}, #{getVar($name, '', '-s')}, #{$lightness}, #{$a})";
 }
 
-@function getVar($name, $prefix: "", $suffix: "") {
+@function getVar($name, $prefix: '', $suffix: '') {
   $varName: buildVarName($name, $prefix, $suffix);
   @return var(#{$varName});
 }
 
-@function getVarWithBackup($name, $backup, $prefix: "", $suffix: "") {
+@function getVarWithBackup($name, $backup, $prefix: '', $suffix: '') {
   $varName: buildVarName($name, $prefix, $suffix);
   $backupName: buildVarName($backup, $prefix, $suffix);
   @return var(#{$varName}, var(#{$backupName}));
 }
 
-@function getRgbaVar($name, $alpha, $prefix: "", $suffix: "") {
+@function getRgbaVar($name, $alpha, $prefix: '', $suffix: '') {
   $varName: buildVarName($name, $prefix, $suffix);
-  @return unquote("rgba(var(#{$varName}), #{$alpha})");
+  @return unquote('rgba(var(#{$varName}), #{$alpha})');
 }
 
-@mixin register-var($name, $value, $prefix: "", $suffix: "") {
+@mixin register-var($name, $value, $prefix: '', $suffix: '') {
   $varName: buildVarName($name, $prefix, $suffix);
   #{$varName}: #{$value};
 }
 
-@mixin register-vars($vars, $prefix: "", $suffix: "") {
+@mixin register-vars($vars, $prefix: '', $suffix: '') {
   @each $name, $value in $vars {
     @include register-var($name, $value, $prefix, $suffix);
   }
@@ -49,33 +49,33 @@
   @include register-var(
     $name,
     (
-      color.channel($value, "red", $space: rgb),
-      color.channel($value, "green", $space: rgb),
-      color.channel($value, "blue", $space: rgb)
+      color.channel($value, 'red', $space: rgb),
+      color.channel($value, 'green', $space: rgb),
+      color.channel($value, 'blue', $space: rgb)
     ),
-    "",
-    "-rgb"
+    '',
+    '-rgb'
   );
 }
 
 @mixin register-hsl($name, $value) {
   @include register-var(
     $name,
-    math.round(color.channel($value, "hue", $space: hsl)),
-    "",
-    "-h"
+    math.round(color.channel($value, 'hue', $space: hsl)),
+    '',
+    '-h'
   );
   @include register-var(
     $name,
-    math.round(color.channel($value, "saturation", $space: hsl)),
-    "",
-    "-s"
+    math.round(color.channel($value, 'saturation', $space: hsl)),
+    '',
+    '-s'
   );
   @include register-var(
     $name,
-    math.round(color.channel($value, "lightness", $space: hsl)),
-    "",
-    "-l"
+    math.round(color.channel($value, 'lightness', $space: hsl)),
+    '',
+    '-l'
   );
 }
 
@@ -122,13 +122,13 @@
 
   $on-scheme-lightness: color.channel(
     $on-scheme-color,
-    "lightness",
+    'lightness',
     $space: hsl
   );
-  @include register-var($name, $on-scheme-lightness, "", "-on-scheme-l");
-  $on-scheme-l: getVar($name, "", "-on-scheme-l");
+  @include register-var($name, $on-scheme-lightness, '', '-on-scheme-l');
+  $on-scheme-l: getVar($name, '', '-on-scheme-l');
   @include register-var(
-    "#{$name}-on-scheme",
+    '#{$name}-on-scheme',
     buildHslaString($name, $on-scheme-l)
   );
 }
@@ -138,7 +138,7 @@
   $scheme-main-brightness: fn.bulmaColorBrightness($scheme-main);
   $on-scheme-color: $base;
 
-  @if ($scheme-main-brightness == "bright") {
+  @if ($scheme-main-brightness == 'bright') {
     @while (fn.bulmaEnoughContrast($on-scheme-color, #fff) == false) {
       // We're on a light background, so we'll darken the test color step by step.
       $on-scheme-color: color.adjust(
@@ -160,16 +160,16 @@
 
   $on-scheme-lightness: color.channel(
     $on-scheme-color,
-    "lightness",
+    'lightness',
     $space: hsl
   );
-  @include register-var($name, $on-scheme-lightness, "", "-on-scheme-l");
+  @include register-var($name, $on-scheme-lightness, '', '-on-scheme-l');
 }
 
 @mixin register-base-color($name, $base) {
-  $hsla: buildHslaString($name, getVar($name, "", "-l"));
+  $hsla: buildHslaString($name, getVar($name, '', '-l'));
   @include register-var($name, $hsla);
-  @include register-var($name, $hsla, "", "-base"); // Just for reference
+  @include register-var($name, $hsla, '', '-base'); // Just for reference
   @include register-rgb($name, $base);
   @include register-hsl($name, $base);
 }
@@ -180,11 +180,11 @@
   @if $invert {
     @include register-var(
       $name,
-      color.channel($invert, "lightness", $space: hsl),
-      "",
-      "-invert-l"
+      color.channel($invert, 'lightness', $space: hsl),
+      '',
+      '-invert-l'
     );
-    @include register-var("#{$name}-invert", $invert);
+    @include register-var('#{$name}-invert', $invert);
   }
 }
 
@@ -196,15 +196,15 @@
   $light: null,
   $dark: null
 ) {
-  $h:math.round(color.channel($base, "hue", $space: hsl)); // Hue
-  $s:math.round(color.channel($base, "saturation", $space: hsl)); // Saturation
-  $l:math.round(color.channel($base, "lightness", $space: hsl)); // Lightness
+  $h: math.round(color.channel($base, 'hue', $space: hsl)); // Hue
+  $s: math.round(color.channel($base, 'saturation', $space: hsl)); // Saturation
+  $l: math.round(color.channel($base, 'lightness', $space: hsl)); // Lightness
   $base-lum: fn.bulmaColorLuminance($base);
   $l-base: math.round($l % 10); // Get lightness second digit: 53% -> 3%
   $l-0: 0%; // 5% or less
   $l-5: 5%; // More than 5%
   $a: 1; // Alpha
-  $base-digits: "00";
+  $base-digits: '00';
 
   // Calculate digits like "40" for the scheme-main
   $scheme-l-0: 0%;
@@ -246,22 +246,22 @@
     // if $l-base = 3%, then we get 8%, 18%, 28%, 38% etc.
     $color-l-5: $l-5 + $i * 10;
 
-    $shades: map.set($shades, "#{$i}0", $color-l-0);
-    $shades: map.set($shades, "#{$i}5", $color-l-5);
+    $shades: map.set($shades, '#{$i}0', $color-l-0);
+    $shades: map.set($shades, '#{$i}5', $color-l-5);
 
-    @include register-var($name, $color-l-0, "", "-#{$i}0-l");
-    @include register-var($name, $color-l-5, "", "-#{$i}5-l");
+    @include register-var($name, $color-l-0, '', '-#{$i}0-l');
+    @include register-var($name, $color-l-5, '', '-#{$i}5-l');
 
     @if $color-l-0 == $l {
-      $base-digits: "#{$i}0";
+      $base-digits: '#{$i}0';
     } @else if $color-l-5 == $l {
-      $base-digits: "#{$i}5";
+      $base-digits: '#{$i}5';
     }
   }
 
   $l-100: math.min($l-0 + 100%, 100%);
-  $shades: map.set($shades, "100", $l-100);
-  @include register-var($name, $l-100, "", "-100-l");
+  $shades: map.set($shades, '100', $l-100);
+  @include register-var($name, $l-100, '', '-100-l');
 
   // === STEP 3 ===
   // Find accessible color combinations
@@ -283,15 +283,15 @@
       // doesn't have an appropriate foreground,
       // we still add to the list of "valid" contrast combos for now.
       @if $bg-is-light {
-        $combos: map.set($combos, $base-digits, "10");
+        $combos: map.set($combos, $base-digits, '10');
       } @else {
-        $combos: map.set($combos, $base-digits, "100");
+        $combos: map.set($combos, $base-digits, '100');
       }
     }
 
     // We capture all contrast ratios for any given background
     // using all foreground options
-    $current-best-digits: "00";
+    $current-best-digits: '00';
     $current-best-ratio: 0;
 
     @each $digits-fg, $fg-l in $shades {
@@ -303,8 +303,8 @@
       $fg-lum: fn.bulmaColorLuminance($foreground);
 
       @if (
-        color.channel($foreground, "lightness", $space: hsl) >
-          color.channel($background, "lightness", $space: hsl)
+        color.channel($foreground, 'lightness', $space: hsl) >
+          color.channel($background, 'lightness', $space: hsl)
       ) {
         $is-light-fg: true;
         $ratio: math.div(($fg-lum + 0.05), ($bg-lum + 0.05));
@@ -339,10 +339,10 @@
       @if (map.has-key($combos, $digits-bg) == false) {
         @if ($bg-is-light) {
           // Light background so we set a dark foreground
-          $combos: map.set($combos, $digits-bg, "00");
+          $combos: map.set($combos, $digits-bg, '00');
         } @else {
           // Dark background so we set a light foreground
-          $combos: map.set($combos, $digits-bg, "100");
+          $combos: map.set($combos, $digits-bg, '100');
         }
       }
     }
@@ -353,21 +353,21 @@
 
   @each $bg, $fg in $combos {
     // Just using this loop to register all 20 digits
-    $bg-l: getVar($name, "", "-#{$bg}-l");
-    @include register-var("#{$name}-#{$bg}", buildHslaString($name, $bg-l));
+    $bg-l: getVar($name, '', '-#{$bg}-l');
+    @include register-var('#{$name}-#{$bg}', buildHslaString($name, $bg-l));
 
     // Register the lightness
     @include register-var(
       $name,
-      getVar($name, "", "-#{$fg}-l"),
-      "",
-      "-#{$bg}-invert-l"
+      getVar($name, '', '-#{$fg}-l'),
+      '',
+      '-#{$bg}-invert-l'
     );
 
     // Resiter the color using that lightness
-    $bg-invert-l: getVar($name, "", "-#{$bg}-invert-l");
+    $bg-invert-l: getVar($name, '', '-#{$bg}-invert-l');
     @include register-var(
-      "#{$name}-#{$bg}-invert",
+      '#{$name}-#{$bg}-invert',
       buildHslaString($name, $bg-invert-l)
     );
   }
@@ -376,23 +376,23 @@
   @if $invert {
     @include register-var(
       $name,
-      color.channel($invert, "lightness", $space: hsl),
-      "",
-      "-invert-l"
+      color.channel($invert, 'lightness', $space: hsl),
+      '',
+      '-invert-l'
     );
-    @include register-var("#{$name}-invert", $invert);
+    @include register-var('#{$name}-invert', $invert);
   } @else {
     $base-invert-l-digits: map.get($combos, $base-digits);
     @include register-var(
       $name,
-      getVar($name, "", "-#{$base-invert-l-digits}-l"),
-      "",
-      "-invert-l"
+      getVar($name, '', '-#{$base-invert-l-digits}-l'),
+      '',
+      '-invert-l'
     );
 
-    $base-invert-l: getVar($name, "", "-invert-l");
+    $base-invert-l: getVar($name, '', '-invert-l');
     @include register-var(
-      "#{$name}-invert",
+      '#{$name}-invert',
       buildHslaString($name, $base-invert-l)
     );
   }
@@ -401,93 +401,93 @@
   @if $light and $dark {
     @include register-var(
       $name,
-      color.channel($light, "lightness", $space: hsl),
-      "",
-      "-light-l"
+      color.channel($light, 'lightness', $space: hsl),
+      '',
+      '-light-l'
     );
     @include register-var(
       $name,
-      color.channel($light, "lightness", $space: hsl),
-      "",
-      "-dark-invert-l"
+      color.channel($light, 'lightness', $space: hsl),
+      '',
+      '-dark-invert-l'
     );
-    @include register-var("#{$name}-light", $light);
-    @include register-var("#{$name}-dark-invert", $light);
+    @include register-var('#{$name}-light', $light);
+    @include register-var('#{$name}-dark-invert', $light);
 
     @include register-var(
       $name,
-      color.channel($dark, "lightness", $space: hsl),
-      "",
-      "-dark-l"
+      color.channel($dark, 'lightness', $space: hsl),
+      '',
+      '-dark-l'
     );
     @include register-var(
       $name,
-      color.channel($dark, "lightness", $space: hsl),
-      "",
-      "-light-invert-l"
+      color.channel($dark, 'lightness', $space: hsl),
+      '',
+      '-light-invert-l'
     );
-    @include register-var("#{$name}-dark", $dark);
-    @include register-var("#{$name}-light-invert", $dark);
+    @include register-var('#{$name}-dark', $dark);
+    @include register-var('#{$name}-light-invert', $dark);
   } @else {
-    @include register-var($name, getVar($name, "", "-90-l"), "", "-light-l");
+    @include register-var($name, getVar($name, '', '-90-l'), '', '-light-l');
 
-    $light-l: getVar($name, "", "-light-l");
-    @include register-var("#{$name}-light", buildHslaString($name, $light-l));
+    $light-l: getVar($name, '', '-light-l');
+    @include register-var('#{$name}-light', buildHslaString($name, $light-l));
 
-    $light-invert-l-digits: map.get($combos, "90");
+    $light-invert-l-digits: map.get($combos, '90');
     @include register-var(
       $name,
-      getVar($name, "", "-#{$light-invert-l-digits}-l"),
-      "",
-      "-light-invert-l"
+      getVar($name, '', '-#{$light-invert-l-digits}-l'),
+      '',
+      '-light-invert-l'
     );
 
-    $light-invert-l: getVar($name, "", "-light-invert-l");
+    $light-invert-l: getVar($name, '', '-light-invert-l');
     @include register-var(
-      "#{$name}-light-invert",
+      '#{$name}-light-invert',
       buildHslaString($name, $light-invert-l)
     );
 
     // Good color on dark background (10% lightness)
-    @include register-var($name, getVar($name, "", "-10-l"), "", "-dark-l");
+    @include register-var($name, getVar($name, '', '-10-l'), '', '-dark-l');
 
-    $dark-l: getVar($name, "", "-dark-l");
-    @include register-var("#{$name}-dark", buildHslaString($name, $dark-l));
+    $dark-l: getVar($name, '', '-dark-l');
+    @include register-var('#{$name}-dark', buildHslaString($name, $dark-l));
 
-    $dark-invert-l-digits: map.get($combos, "10");
+    $dark-invert-l-digits: map.get($combos, '10');
     @include register-var(
       $name,
-      getVar($name, "", "-#{$dark-invert-l-digits}-l"),
-      "",
-      "-dark-invert-l"
+      getVar($name, '', '-#{$dark-invert-l-digits}-l'),
+      '',
+      '-dark-invert-l'
     );
 
-    $dark-invert-l: getVar($name, "", "-dark-invert-l");
+    $dark-invert-l: getVar($name, '', '-dark-invert-l');
     @include register-var(
-      "#{$name}-dark-invert",
+      '#{$name}-dark-invert',
       buildHslaString($name, $dark-invert-l)
     );
 
     // Soft and Bold colors
-    $soft-l: getVar("soft-l");
-    $soft-invert-l: getVar("soft-invert-l");
-    $bold-l: getVar("bold-l");
-    $bold-invert-l: getVar("bold-invert-l");
-    @include register-var("#{$name}-soft", buildHslaString($name, $soft-l));
-    @include register-var("#{$name}-bold", buildHslaString($name, $bold-l));
+    $soft-l: getVar('soft-l');
+    $soft-invert-l: getVar('soft-invert-l');
+    $bold-l: getVar('bold-l');
+    $bold-invert-l: getVar('bold-invert-l');
+    @include register-var('#{$name}-soft', buildHslaString($name, $soft-l));
+    @include register-var('#{$name}-bold', buildHslaString($name, $bold-l));
     @include register-var(
-      "#{$name}-soft-invert",
+      '#{$name}-soft-invert',
       buildHslaString($name, $soft-invert-l)
     );
     @include register-var(
-      "#{$name}-bold-invert",
+      '#{$name}-bold-invert',
       buildHslaString($name, $bold-invert-l)
     );
   }
 }
 
 @mixin bulma-theme($name) {
-  [data-#{iv.$class-prefix}theme="#{$name}"],
+  [data-#{iv.$class-prefix}theme='#{$name}'],
   .#{iv.$class-prefix}theme-#{$name} {
     @content;
   }

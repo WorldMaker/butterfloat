@@ -1,51 +1,51 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins' as mx;
 
-$content-heading-color: #{cv.getVar("text-strong")} !default;
-$content-heading-weight: #{cv.getVar("weight-extrabold")} !default;
+$content-heading-color: #{cv.getVar('text-strong')} !default;
+$content-heading-weight: #{cv.getVar('weight-extrabold')} !default;
 $content-heading-line-height: 1.125 !default;
 
 $content-block-margin-bottom: 1em !default;
 
-$content-blockquote-background-color: #{cv.getVar("background")} !default;
-$content-blockquote-border-left: 5px solid #{cv.getVar("border")} !default;
+$content-blockquote-background-color: #{cv.getVar('background')} !default;
+$content-blockquote-border-left: 5px solid #{cv.getVar('border')} !default;
 $content-blockquote-padding: 1.25em 1.5em !default;
 
 $content-pre-padding: 1.25em 1.5em !default;
 
-$content-table-cell-border: 1px solid #{cv.getVar("border")} !default;
+$content-table-cell-border: 1px solid #{cv.getVar('border')} !default;
 $content-table-cell-border-width: 0 0 1px !default;
 $content-table-cell-padding: 0.5em 0.75em !default;
-$content-table-cell-heading-color: #{cv.getVar("text-strong")} !default;
+$content-table-cell-heading-color: #{cv.getVar('text-strong')} !default;
 $content-table-head-cell-border-width: 0 0 2px !default;
-$content-table-head-cell-color: #{cv.getVar("text-strong")} !default;
+$content-table-head-cell-color: #{cv.getVar('text-strong')} !default;
 $content-table-body-last-row-cell-border-bottom-width: 0 !default;
 $content-table-foot-cell-border-width: 2px 0 0 !default;
-$content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
+$content-table-foot-cell-color: #{cv.getVar('text-strong')} !default;
 
 .#{iv.$class-prefix}content {
   @include cv.register-vars(
     (
-      "content-heading-color": #{$content-heading-color},
-      "content-heading-weight": #{$content-heading-weight},
-      "content-heading-line-height": #{$content-heading-line-height},
-      "content-block-margin-bottom": #{$content-block-margin-bottom},
-      "content-blockquote-background-color": #{$content-blockquote-background-color},
-      "content-blockquote-border-left": #{$content-blockquote-border-left},
-      "content-blockquote-padding": #{$content-blockquote-padding},
-      "content-pre-padding": #{$content-pre-padding},
-      "content-table-cell-border": #{$content-table-cell-border},
-      "content-table-cell-border-width": #{$content-table-cell-border-width},
-      "content-table-cell-padding": #{$content-table-cell-padding},
-      "content-table-cell-heading-color": #{$content-table-cell-heading-color},
-      "content-table-head-cell-border-width": #{$content-table-head-cell-border-width},
-      "content-table-head-cell-color": #{$content-table-head-cell-color},
-      "content-table-body-last-row-cell-border-bottom-width": #{$content-table-body-last-row-cell-border-bottom-width},
-      "content-table-foot-cell-border-width": #{$content-table-foot-cell-border-width},
-      "content-table-foot-cell-color": #{$content-table-foot-cell-color},
+      'content-heading-color': #{$content-heading-color},
+      'content-heading-weight': #{$content-heading-weight},
+      'content-heading-line-height': #{$content-heading-line-height},
+      'content-block-margin-bottom': #{$content-block-margin-bottom},
+      'content-blockquote-background-color': #{$content-blockquote-background-color},
+      'content-blockquote-border-left': #{$content-blockquote-border-left},
+      'content-blockquote-padding': #{$content-blockquote-padding},
+      'content-pre-padding': #{$content-pre-padding},
+      'content-table-cell-border': #{$content-table-cell-border},
+      'content-table-cell-border-width': #{$content-table-cell-border-width},
+      'content-table-cell-padding': #{$content-table-cell-padding},
+      'content-table-cell-heading-color': #{$content-table-cell-heading-color},
+      'content-table-head-cell-border-width': #{$content-table-head-cell-border-width},
+      'content-table-head-cell-color': #{$content-table-head-cell-color},
+      'content-table-body-last-row-cell-border-bottom-width': #{$content-table-body-last-row-cell-border-bottom-width},
+      'content-table-foot-cell-border-width': #{$content-table-foot-cell-border-width},
+      'content-table-foot-cell-color': #{$content-table-foot-cell-color},
     )
   );
 }
@@ -67,7 +67,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   pre,
   table {
     &:not(:last-child) {
-      margin-bottom: cv.getVar("content-block-margin-bottom");
+      margin-bottom: cv.getVar('content-block-margin-bottom');
     }
   }
 
@@ -77,9 +77,9 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   h4,
   h5,
   h6 {
-    color: cv.getVar("content-heading-color");
-    font-weight: cv.getVar("content-heading-weight");
-    line-height: cv.getVar("content-heading-line-height");
+    color: cv.getVar('content-heading-color');
+    font-weight: cv.getVar('content-heading-weight');
+    line-height: cv.getVar('content-heading-line-height');
   }
 
   h1 {
@@ -125,9 +125,9 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   }
 
   blockquote {
-    background-color: cv.getVar("content-blockquote-background-color");
-    border-inline-start: cv.getVar("content-blockquote-border-left");
-    padding: cv.getVar("content-blockquote-padding");
+    background-color: cv.getVar('content-blockquote-background-color');
+    border-inline-start: cv.getVar('content-blockquote-border-left');
+    padding: cv.getVar('content-blockquote-padding');
   }
 
   ol {
@@ -207,7 +207,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   pre {
     @include mx.overflow-touch;
     overflow-x: auto;
-    padding: cv.getVar("content-pre-padding");
+    padding: cv.getVar('content-pre-padding');
     white-space: pre;
     word-wrap: normal;
   }
@@ -220,14 +220,14 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
   table {
     td,
     th {
-      border: cv.getVar("content-table-cell-border");
-      border-width: cv.getVar("content-table-cell-border-width");
-      padding: cv.getVar("content-table-cell-padding");
+      border: cv.getVar('content-table-cell-border');
+      border-width: cv.getVar('content-table-cell-border-width');
+      padding: cv.getVar('content-table-cell-padding');
       vertical-align: top;
     }
 
     th {
-      color: cv.getVar("content-table-cell-heading-color");
+      color: cv.getVar('content-table-cell-heading-color');
 
       &:not([align]) {
         text-align: inherit;
@@ -237,16 +237,16 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
     thead {
       td,
       th {
-        border-width: cv.getVar("content-table-head-cell-border-width");
-        color: cv.getVar("content-table-head-cell-color");
+        border-width: cv.getVar('content-table-head-cell-border-width');
+        color: cv.getVar('content-table-head-cell-color');
       }
     }
 
     tfoot {
       td,
       th {
-        border-width: cv.getVar("content-table-foot-cell-border-width");
-        color: cv.getVar("content-table-foot-cell-color");
+        border-width: cv.getVar('content-table-foot-cell-border-width');
+        color: cv.getVar('content-table-foot-cell-color');
       }
     }
 
@@ -256,7 +256,7 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
           td,
           th {
             border-bottom-width: cv.getVar(
-              "content-table-body-last-row-cell-border-bottom-width"
+              'content-table-body-last-row-cell-border-bottom-width'
             );
           }
         }
@@ -272,18 +272,18 @@ $content-table-foot-cell-color: #{cv.getVar("text-strong")} !default;
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    font-size: cv.getVar("size-small");
+    font-size: cv.getVar('size-small');
   }
 
   &.#{iv.$class-prefix}is-normal {
-    font-size: cv.getVar("size-normal");
+    font-size: cv.getVar('size-normal');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    font-size: cv.getVar("size-medium");
+    font-size: cv.getVar('size-medium');
   }
 
   &.#{iv.$class-prefix}is-large {
-    font-size: cv.getVar("size-large");
+    font-size: cv.getVar('size-large');
   }
 }

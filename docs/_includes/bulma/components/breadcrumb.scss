@@ -1,26 +1,26 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins";
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins';
 
-$breadcrumb-item-color: cv.getVar("link-text") !default;
-$breadcrumb-item-hover-color: cv.getVar("link-text-hover") !default;
-$breadcrumb-item-active-color: cv.getVar("link-text-active") !default;
+$breadcrumb-item-color: cv.getVar('link-text') !default;
+$breadcrumb-item-hover-color: cv.getVar('link-text-hover') !default;
+$breadcrumb-item-active-color: cv.getVar('link-text-active') !default;
 
 $breadcrumb-item-padding-vertical: 0 !default;
 $breadcrumb-item-padding-horizontal: 0.75em !default;
 
-$breadcrumb-item-separator-color: cv.getVar("border") !default;
+$breadcrumb-item-separator-color: cv.getVar('border') !default;
 
 .#{iv.$class-prefix}breadcrumb {
   @include cv.register-vars(
     (
-      "breadcrumb-item-color": #{$breadcrumb-item-color},
-      "breadcrumb-item-hover-color": #{$breadcrumb-item-hover-color},
-      "breadcrumb-item-active-color": #{$breadcrumb-item-active-color},
-      "breadcrumb-item-padding-vertical": #{$breadcrumb-item-padding-vertical},
-      "breadcrumb-item-padding-horizontal": #{$breadcrumb-item-padding-horizontal},
-      "breadcrumb-item-separator-color": #{$breadcrumb-item-separator-color},
+      'breadcrumb-item-color': #{$breadcrumb-item-color},
+      'breadcrumb-item-hover-color': #{$breadcrumb-item-hover-color},
+      'breadcrumb-item-active-color': #{$breadcrumb-item-active-color},
+      'breadcrumb-item-padding-vertical': #{$breadcrumb-item-padding-vertical},
+      'breadcrumb-item-padding-horizontal': #{$breadcrumb-item-padding-horizontal},
+      'breadcrumb-item-separator-color': #{$breadcrumb-item-separator-color},
     )
   );
 }
@@ -28,19 +28,19 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
 .#{iv.$class-prefix}breadcrumb {
   @extend %block;
   @extend %unselectable;
-  font-size: cv.getVar("size-normal");
+  font-size: cv.getVar('size-normal');
   white-space: nowrap;
 
   a {
     align-items: center;
-    color: cv.getVar("breadcrumb-item-color");
+    color: cv.getVar('breadcrumb-item-color');
     display: flex;
     justify-content: center;
-    padding: cv.getVar("breadcrumb-item-padding-vertical")
-      cv.getVar("breadcrumb-item-padding-horizontal");
+    padding: cv.getVar('breadcrumb-item-padding-vertical')
+      cv.getVar('breadcrumb-item-padding-horizontal');
 
     &:hover {
-      color: cv.getVar("breadcrumb-item-hover-color");
+      color: cv.getVar('breadcrumb-item-hover-color');
     }
   }
 
@@ -54,15 +54,15 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
 
     &.#{iv.$class-prefix}is-active {
       a {
-        color: cv.getVar("breadcrumb-item-active-color");
+        color: cv.getVar('breadcrumb-item-active-color');
         cursor: default;
         pointer-events: none;
       }
     }
 
     & + li::before {
-      color: cv.getVar("breadcrumb-item-separator-color");
-      content: "/";
+      color: cv.getVar('breadcrumb-item-separator-color');
+      content: '/';
     }
   }
 
@@ -101,39 +101,39 @@ $breadcrumb-item-separator-color: cv.getVar("border") !default;
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    font-size: cv.getVar("size-small");
+    font-size: cv.getVar('size-small');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    font-size: cv.getVar("size-medium");
+    font-size: cv.getVar('size-medium');
   }
 
   &.#{iv.$class-prefix}is-large {
-    font-size: cv.getVar("size-large");
+    font-size: cv.getVar('size-large');
   }
 
   // Styles
   &.#{iv.$class-prefix}has-arrow-separator {
     li + li::before {
-      content: "→";
+      content: '→';
     }
   }
 
   &.#{iv.$class-prefix}has-bullet-separator {
     li + li::before {
-      content: "•";
+      content: '•';
     }
   }
 
   &.#{iv.$class-prefix}has-dot-separator {
     li + li::before {
-      content: "·";
+      content: '·';
     }
   }
 
   &.#{iv.$class-prefix}has-succeeds-separator {
     li + li::before {
-      content: "≻";
+      content: '≻';
     }
   }
 }

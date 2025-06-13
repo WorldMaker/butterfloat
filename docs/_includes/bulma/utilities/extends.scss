@@ -1,5 +1,5 @@
-@use "controls";
-@use "mixins";
+@use 'controls';
+@use 'mixins';
 
 %arrow {
   @include mixins.arrow;

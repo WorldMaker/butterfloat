@@ -1,11 +1,11 @@
-@use "sass:list";
+@use 'sass:list';
 
-@use "shared";
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/controls";
+@use 'shared';
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/controls';
 
-$textarea-padding: cv.getVar("control-padding-horizontal") !default;
+$textarea-padding: cv.getVar('control-padding-horizontal') !default;
 $textarea-max-height: 40em !default;
 $textarea-min-height: 8em !default;
 
@@ -29,13 +29,13 @@ $textarea-colors: shared.$form-colors !default;
     &.#{iv.$class-prefix}is-#{$name} {
       @include cv.register-vars(
         (
-          "input-h": #{cv.getVar($name, "", "-h")},
-          "input-s": #{cv.getVar($name, "", "-s")},
-          "input-l": #{cv.getVar($name, "", "-l")},
-          "input-focus-h": #{cv.getVar($name, "", "-h")},
-          "input-focus-s": #{cv.getVar($name, "", "-s")},
-          "input-focus-l": #{cv.getVar($name, "", "-l")},
-          "input-border-l": #{cv.getVar($name, "", "-l")},
+          'input-h': #{cv.getVar($name, '', '-h')},
+          'input-s': #{cv.getVar($name, '', '-s')},
+          'input-l': #{cv.getVar($name, '', '-l')},
+          'input-focus-h': #{cv.getVar($name, '', '-h')},
+          'input-focus-s': #{cv.getVar($name, '', '-s')},
+          'input-focus-l': #{cv.getVar($name, '', '-l')},
+          'input-border-l': #{cv.getVar($name, '', '-l')},
         )
       );
     }
@@ -70,7 +70,7 @@ $textarea-colors: shared.$form-colors !default;
   @extend %input-textarea;
 
   &.#{iv.$class-prefix}is-rounded {
-    border-radius: cv.getVar("radius-rounded");
+    border-radius: cv.getVar('radius-rounded');
     padding-left: calc(#{controls.$control-padding-horizontal} + 0.375em);
     padding-right: calc(#{controls.$control-padding-horizontal} + 0.375em);
   }
@@ -88,20 +88,20 @@ $textarea-colors: shared.$form-colors !default;
   @extend %input-textarea;
   @include cv.register-vars(
     (
-      "textarea-padding": #{$textarea-padding},
-      "textarea-max-height": #{$textarea-max-height},
-      "textarea-min-height": #{$textarea-min-height},
+      'textarea-padding': #{$textarea-padding},
+      'textarea-max-height': #{$textarea-max-height},
+      'textarea-min-height': #{$textarea-min-height},
     )
   );
   display: block;
   max-width: 100%;
   min-width: 100%;
-  padding: cv.getVar("textarea-padding");
+  padding: cv.getVar('textarea-padding');
   resize: vertical;
 
   &:not([rows]) {
-    max-height: cv.getVar("textarea-max-height");
-    min-height: cv.getVar("textarea-min-height");
+    max-height: cv.getVar('textarea-max-height');
+    min-height: cv.getVar('textarea-min-height');
   }
 
   &[rows] {

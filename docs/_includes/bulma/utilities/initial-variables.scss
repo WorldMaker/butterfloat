@@ -33,10 +33,10 @@ $red: hsl(348, 100%, 70%) !default;
 
 // Typography
 
-$family-sans-serif: "Inter", "SF Pro", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-  "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
-$family-monospace: "Inconsolata", "Hack", "SF Mono", "Roboto Mono",
-  "Source Code Pro", "Ubuntu Mono", monospace !default;
+$family-sans-serif: 'Inter', 'SF Pro', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+  'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$family-monospace: 'Inconsolata', 'Hack', 'SF Mono', 'Roboto Mono',
+  'Source Code Pro', 'Ubuntu Mono', monospace !default;
 $render-mode: optimizeLegibility !default;
 
 $size-1: 3rem !default;
@@ -94,41 +94,41 @@ $widescreen-enabled: true !default;
 $fullhd: 1344px + 2 * $gap !default;
 $fullhd-enabled: true !default;
 $breakpoints: (
-  "mobile": (
-    "until": $tablet,
+  'mobile': (
+    'until': $tablet,
   ),
-  "tablet": (
-    "from": $tablet,
+  'tablet': (
+    'from': $tablet,
   ),
-  "tablet-only": (
-    "from": $tablet,
-    "until": $desktop,
+  'tablet-only': (
+    'from': $tablet,
+    'until': $desktop,
   ),
-  "touch": (
-    "from": $desktop,
+  'touch': (
+    'from': $desktop,
   ),
-  "desktop": (
-    "from": $desktop,
+  'desktop': (
+    'from': $desktop,
   ),
-  "desktop-only": (
-    "from": $desktop,
-    "until": $widescreen,
+  'desktop-only': (
+    'from': $desktop,
+    'until': $widescreen,
   ),
-  "until-widescreen": (
-    "until": $widescreen,
+  'until-widescreen': (
+    'until': $widescreen,
   ),
-  "widescreen": (
-    "from": $widescreen,
+  'widescreen': (
+    'from': $widescreen,
   ),
-  "widescreen-only": (
-    "from": $widescreen,
-    "until": $fullhd,
+  'widescreen-only': (
+    'from': $widescreen,
+    'until': $fullhd,
   ),
-  "until-fullhd": (
-    "until": $fullhd,
+  'until-fullhd': (
+    'until': $fullhd,
   ),
-  "fullhd": (
-    "from": $fullhd,
+  'fullhd': (
+    'from': $fullhd,
   ),
 ) !default;
 
@@ -150,8 +150,8 @@ $rtl: false !default;
 
 // Prefixes
 
-$class-prefix: "" !default;
-$cssvars-prefix: "bulma-" !default;
-$helpers-prefix: "is-" !default;
-$helpers-has-prefix: "has-" !default;
-$variables-host: ":root" !default;
+$class-prefix: '' !default;
+$cssvars-prefix: 'bulma-' !default;
+$helpers-prefix: 'is-' !default;
+$helpers-has-prefix: 'has-' !default;
+$variables-host: ':root' !default;

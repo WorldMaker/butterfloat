@@ -1,11 +1,11 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins' as mx;
 
-$notification-code-background-color: cv.getVar("scheme-main") !default;
-$notification-radius: cv.getVar("radius") !default;
+$notification-code-background-color: cv.getVar('scheme-main') !default;
+$notification-radius: cv.getVar('radius') !default;
 $notification-padding: 1.375em 1.5em !default;
 
 $notification-colors: dv.$colors !default;
@@ -13,13 +13,13 @@ $notification-colors: dv.$colors !default;
 .#{iv.$class-prefix}notification {
   @include cv.register-vars(
     (
-      "notification-h": #{cv.getVar("scheme-h")},
-      "notification-s": #{cv.getVar("scheme-s")},
-      "notification-background-l": #{cv.getVar("background-l")},
-      "notification-color-l": #{cv.getVar("text-strong-l")},
-      "notification-code-background-color": #{$notification-code-background-color},
-      "notification-radius": #{$notification-radius},
-      "notification-padding": #{$notification-padding},
+      'notification-h': #{cv.getVar('scheme-h')},
+      'notification-s': #{cv.getVar('scheme-s')},
+      'notification-background-l': #{cv.getVar('background-l')},
+      'notification-color-l': #{cv.getVar('text-strong-l')},
+      'notification-code-background-color': #{$notification-code-background-color},
+      'notification-radius': #{$notification-radius},
+      'notification-padding': #{$notification-padding},
     )
   );
 }
@@ -28,17 +28,17 @@ $notification-colors: dv.$colors !default;
   @extend %block;
 
   background-color: hsl(
-    cv.getVar("notification-h"),
-    cv.getVar("notification-s"),
-    cv.getVar("notification-background-l")
+    cv.getVar('notification-h'),
+    cv.getVar('notification-s'),
+    cv.getVar('notification-background-l')
   );
-  border-radius: cv.getVar("notification-radius");
+  border-radius: cv.getVar('notification-radius');
   color: hsl(
-    cv.getVar("notification-h"),
-    cv.getVar("notification-s"),
-    cv.getVar("notification-color-l")
+    cv.getVar('notification-h'),
+    cv.getVar('notification-s'),
+    cv.getVar('notification-color-l')
   );
-  padding: cv.getVar("notification-padding");
+  padding: cv.getVar('notification-padding');
   position: relative;
 
   a:not(.#{iv.$class-prefix}button):not(.#{iv.$class-prefix}dropdown-item) {
@@ -52,7 +52,7 @@ $notification-colors: dv.$colors !default;
 
   code,
   pre {
-    background: cv.getVar("notification-code-background-color");
+    background: cv.getVar('notification-code-background-color');
   }
 
   pre code {
@@ -76,18 +76,18 @@ $notification-colors: dv.$colors !default;
     &.#{iv.$class-prefix}is-#{$name} {
       @include cv.register-vars(
         (
-          "notification-h": #{cv.getVar($name, "", "-h")},
-          "notification-s": #{cv.getVar($name, "", "-s")},
-          "notification-background-l": #{cv.getVar($name, "", "-l")},
-          "notification-color-l": #{cv.getVar($name, "", "-invert-l")},
+          'notification-h': #{cv.getVar($name, '', '-h')},
+          'notification-s': #{cv.getVar($name, '', '-s')},
+          'notification-background-l': #{cv.getVar($name, '', '-l')},
+          'notification-color-l': #{cv.getVar($name, '', '-invert-l')},
         )
       );
 
       &.#{iv.$class-prefix}is-light {
         @include cv.register-vars(
           (
-            "notification-background-l": 90%,
-            "notification-color-l": #{cv.getVar($name, "", "-light-invert-l")},
+            'notification-background-l': 90%,
+            'notification-color-l': #{cv.getVar($name, '', '-light-invert-l')},
           )
         );
       }
@@ -95,8 +95,8 @@ $notification-colors: dv.$colors !default;
       &.#{iv.$class-prefix}is-dark {
         @include cv.register-vars(
           (
-            "notification-background-l": 20%,
-            "notification-color-l": #{cv.getVar($name, "", "-dark-invert-l")},
+            'notification-background-l': 20%,
+            'notification-color-l': #{cv.getVar($name, '', '-dark-invert-l')},
           )
         );
       }

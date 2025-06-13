@@ -1,4 +1,4 @@
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/initial-variables' as iv;
 
 .#{iv.$class-prefix}#{iv.$helpers-prefix}clipped {
   overflow: hidden !important;

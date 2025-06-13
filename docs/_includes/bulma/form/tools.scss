@@ -1,15 +1,15 @@
-@use "shared";
-@use "../utilities/controls";
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use 'shared';
+@use '../utilities/controls';
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins' as mx;
 
-$label-color: cv.getVar("text-strong") !default;
+$label-color: cv.getVar('text-strong') !default;
 $label-spacing: 0.5em !default;
-$label-weight: cv.getVar("weight-semibold") !default;
+$label-weight: cv.getVar('weight-semibold') !default;
 
-$help-size: cv.getVar("size-small") !default;
+$help-size: cv.getVar('size-small') !default;
 
 $label-colors: shared.$form-colors !default;
 
@@ -18,50 +18,50 @@ $field-block-spacing: 0.75rem !default;
 #{iv.$variables-host} {
   @include cv.register-vars(
     (
-      "label-color": #{$label-color},
-      "label-spacing": #{$label-spacing},
-      "label-weight": #{$label-weight},
-      "help-size": #{$help-size},
-      "field-block-spacing": #{$field-block-spacing},
+      'label-color': #{$label-color},
+      'label-spacing': #{$label-spacing},
+      'label-weight': #{$label-weight},
+      'help-size': #{$help-size},
+      'field-block-spacing': #{$field-block-spacing},
     )
   );
 }
 
 .#{iv.$class-prefix}label {
-  color: cv.getVar("label-color");
+  color: cv.getVar('label-color');
   display: block;
-  font-size: cv.getVar("size-normal");
+  font-size: cv.getVar('size-normal');
   font-weight: $label-weight;
 
   &:not(:last-child) {
-    margin-bottom: cv.getVar("label-spacing");
+    margin-bottom: cv.getVar('label-spacing');
   }
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    font-size: cv.getVar("size-small");
+    font-size: cv.getVar('size-small');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    font-size: cv.getVar("size-medium");
+    font-size: cv.getVar('size-medium');
   }
 
   &.#{iv.$class-prefix}is-large {
-    font-size: cv.getVar("size-large");
+    font-size: cv.getVar('size-large');
   }
 }
 
 .#{iv.$class-prefix}help {
   display: block;
-  font-size: cv.getVar("help-size");
+  font-size: cv.getVar('help-size');
   margin-top: 0.25rem;
 
   @each $name, $pair in $label-colors {
     &.#{iv.$class-prefix}is-#{$name} {
       color: hsl(
-        #{cv.getVar($name, "", "-h")},
-        #{cv.getVar($name, "", "-s")},
-        #{cv.getVar($name, "", "-on-scheme-l")}
+        #{cv.getVar($name, '', '-h')},
+        #{cv.getVar($name, '', '-s')},
+        #{cv.getVar($name, '', '-on-scheme-l')}
       );
     }
   }
@@ -72,7 +72,7 @@ $field-block-spacing: 0.75rem !default;
 .#{iv.$class-prefix}field {
   @include cv.register-vars(
     (
-      "block-spacing": #{cv.getVar("field-block-spacing")},
+      'block-spacing': #{cv.getVar('field-block-spacing')},
     )
   );
 
@@ -209,7 +209,7 @@ $field-block-spacing: 0.75rem !default;
     text-align: right;
 
     &.#{iv.$class-prefix}is-small {
-      font-size: cv.getVar("size-small");
+      font-size: cv.getVar('size-small');
       padding-top: 0.375em;
     }
 
@@ -218,12 +218,12 @@ $field-block-spacing: 0.75rem !default;
     }
 
     &.#{iv.$class-prefix}is-medium {
-      font-size: cv.getVar("size-medium");
+      font-size: cv.getVar('size-medium');
       padding-top: 0.375em;
     }
 
     &.#{iv.$class-prefix}is-large {
-      font-size: cv.getVar("size-large");
+      font-size: cv.getVar('size-large');
       padding-top: 0.375em;
     }
   }
@@ -261,7 +261,7 @@ $field-block-spacing: 0.75rem !default;
 .#{iv.$class-prefix}control {
   box-sizing: border-box;
   clear: both;
-  font-size: cv.getVar("size-normal");
+  font-size: cv.getVar('size-normal');
   position: relative;
   text-align: inherit;
 
@@ -272,36 +272,36 @@ $field-block-spacing: 0.75rem !default;
     .#{iv.$class-prefix}select {
       &:hover {
         & ~ .#{iv.$class-prefix}icon {
-          color: cv.getVar("input-icon-hover-color");
+          color: cv.getVar('input-icon-hover-color');
         }
       }
 
       &:focus {
         & ~ .#{iv.$class-prefix}icon {
-          color: cv.getVar("input-icon-focus-color");
+          color: cv.getVar('input-icon-focus-color');
         }
       }
 
       &.#{iv.$class-prefix}is-small ~ .#{iv.$class-prefix}icon {
-        font-size: cv.getVar("size-small");
+        font-size: cv.getVar('size-small');
       }
 
       &.#{iv.$class-prefix}is-medium ~ .#{iv.$class-prefix}icon {
-        font-size: cv.getVar("size-medium");
+        font-size: cv.getVar('size-medium');
       }
 
       &.#{iv.$class-prefix}is-large ~ .#{iv.$class-prefix}icon {
-        font-size: cv.getVar("size-large");
+        font-size: cv.getVar('size-large');
       }
     }
 
     .#{iv.$class-prefix}icon {
-      color: cv.getVar("input-icon-color");
-      height: cv.getVar("input-height");
+      color: cv.getVar('input-icon-color');
+      height: cv.getVar('input-height');
       pointer-events: none;
       position: absolute;
       top: 0;
-      width: cv.getVar("input-height");
+      width: cv.getVar('input-height');
       z-index: 4;
     }
   }
@@ -309,7 +309,7 @@ $field-block-spacing: 0.75rem !default;
   &.#{iv.$class-prefix}has-icons-left {
     .#{iv.$class-prefix}input,
     .#{iv.$class-prefix}select select {
-      padding-left: cv.getVar("input-height");
+      padding-left: cv.getVar('input-height');
     }
 
     .#{iv.$class-prefix}icon.#{iv.$class-prefix}is-left {
@@ -320,7 +320,7 @@ $field-block-spacing: 0.75rem !default;
   &.#{iv.$class-prefix}has-icons-right {
     .#{iv.$class-prefix}input,
     .#{iv.$class-prefix}select select {
-      padding-right: cv.getVar("input-height");
+      padding-right: cv.getVar('input-height');
     }
 
     .#{iv.$class-prefix}icon.#{iv.$class-prefix}is-right {
@@ -338,15 +338,15 @@ $field-block-spacing: 0.75rem !default;
     }
 
     &.#{iv.$class-prefix}is-small:after {
-      font-size: cv.getVar("size-small");
+      font-size: cv.getVar('size-small');
     }
 
     &.#{iv.$class-prefix}is-medium:after {
-      font-size: cv.getVar("size-medium");
+      font-size: cv.getVar('size-medium');
     }
 
     &.#{iv.$class-prefix}is-large:after {
-      font-size: cv.getVar("size-large");
+      font-size: cv.getVar('size-large');
     }
   }
 }

@@ -1,5 +1,5 @@
-@use "initial-variables" as iv;
-@use "functions" as fn;
+@use 'initial-variables' as iv;
+@use 'functions' as fn;
 
 // Scheme colors
 
@@ -66,44 +66,44 @@ $custom-shades: null !default;
 
 $colors: fn.mergeColorMaps(
   (
-    "white": (
+    'white': (
       iv.$white,
       iv.$black,
     ),
-    "black": (
+    'black': (
       iv.$black,
       iv.$white,
     ),
-    "light": (
+    'light': (
       $light,
       $dark,
     ),
-    "dark": (
+    'dark': (
       $dark,
       $light,
     ),
-    "text": $text,
-    "primary": $primary,
-    "link": $link,
-    "info": $info,
-    "success": $success,
-    "warning": $warning,
-    "danger": $danger,
+    'text': $text,
+    'primary': $primary,
+    'link': $link,
+    'info': $info,
+    'success': $success,
+    'warning': $warning,
+    'danger': $danger,
   ),
   $custom-colors
 ) !default;
 
 $shades: fn.mergeColorMaps(
   (
-    "black-bis": iv.$black-bis,
-    "black-ter": iv.$black-ter,
-    "grey-darker": iv.$grey-darker,
-    "grey-dark": iv.$grey-dark,
-    "grey": iv.$grey,
-    "grey-light": iv.$grey-light,
-    "grey-lighter": iv.$grey-lighter,
-    "white-ter": iv.$white-ter,
-    "white-bis": iv.$white-bis,
+    'black-bis': iv.$black-bis,
+    'black-ter': iv.$black-ter,
+    'grey-darker': iv.$grey-darker,
+    'grey-dark': iv.$grey-dark,
+    'grey': iv.$grey,
+    'grey-light': iv.$grey-light,
+    'grey-lighter': iv.$grey-lighter,
+    'white-ter': iv.$white-ter,
+    'white-bis': iv.$white-bis,
   ),
   $custom-shades
 ) !default;

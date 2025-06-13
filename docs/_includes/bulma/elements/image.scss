@@ -1,8 +1,8 @@
-@use "sass:list";
+@use 'sass:list';
 
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/css-variables" as cv;
-@use "../utilities/mixins" as mx;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/mixins' as mx;
 
 $dimensions: 16 24 32 48 64 96 128 !default;
 
@@ -16,7 +16,7 @@ $dimensions: 16 24 32 48 64 96 128 !default;
     width: 100%;
 
     &.#{iv.$class-prefix}is-rounded {
-      border-radius: cv.getVar("radius-rounded");
+      border-radius: cv.getVar('radius-rounded');
     }
   }
 

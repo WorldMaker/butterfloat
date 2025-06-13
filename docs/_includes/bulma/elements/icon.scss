@@ -1,5 +1,5 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
 
 $icon-dimensions: 1.5rem !default;
 $icon-dimensions-small: 1rem !default;
@@ -11,11 +11,11 @@ $icon-text-spacing: 0.25em !default;
 .#{iv.$class-prefix}icon-text {
   @include cv.register-vars(
     (
-      "icon-dimensions": #{$icon-dimensions},
-      "icon-dimensions-small": #{$icon-dimensions-small},
-      "icon-dimensions-medium": #{$icon-dimensions-medium},
-      "icon-dimensions-large": #{$icon-dimensions-large},
-      "icon-text-spacing": #{$icon-text-spacing},
+      'icon-dimensions': #{$icon-dimensions},
+      'icon-dimensions-small': #{$icon-dimensions-small},
+      'icon-dimensions-medium': #{$icon-dimensions-medium},
+      'icon-dimensions-large': #{$icon-dimensions-large},
+      'icon-text-spacing': #{$icon-text-spacing},
     )
   );
 }
@@ -25,25 +25,25 @@ $icon-text-spacing: 0.25em !default;
   display: inline-flex;
   flex-shrink: 0;
   justify-content: center;
-  height: cv.getVar("icon-dimensions");
-  transition-duration: cv.getVar("duration");
+  height: cv.getVar('icon-dimensions');
+  transition-duration: cv.getVar('duration');
   transition-property: color;
-  width: cv.getVar("icon-dimensions");
+  width: cv.getVar('icon-dimensions');
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    height: cv.getVar("icon-dimensions-small");
-    width: cv.getVar("icon-dimensions-small");
+    height: cv.getVar('icon-dimensions-small');
+    width: cv.getVar('icon-dimensions-small');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    height: cv.getVar("icon-dimensions-medium");
-    width: cv.getVar("icon-dimensions-medium");
+    height: cv.getVar('icon-dimensions-medium');
+    width: cv.getVar('icon-dimensions-medium');
   }
 
   &.#{iv.$class-prefix}is-large {
-    height: cv.getVar("icon-dimensions-large");
-    width: cv.getVar("icon-dimensions-large");
+    height: cv.getVar('icon-dimensions-large');
+    width: cv.getVar('icon-dimensions-large');
   }
 }
 
@@ -52,8 +52,8 @@ $icon-text-spacing: 0.25em !default;
   color: inherit;
   display: inline-flex;
   flex-wrap: wrap;
-  gap: cv.getVar("icon-text-spacing");
-  line-height: cv.getVar("icon-dimensions");
+  gap: cv.getVar('icon-text-spacing');
+  line-height: cv.getVar('icon-dimensions');
   vertical-align: top;
 
   .#{iv.$class-prefix}icon {

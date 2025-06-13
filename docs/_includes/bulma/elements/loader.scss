@@ -1,13 +1,13 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/initial-variables" as iv;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/initial-variables' as iv;
 
 .#{iv.$class-prefix}loader {
   animation: spinAround 500ms infinite linear;
-  border: 2px solid cv.getVar("border");
-  border-radius: cv.getVar("radius-rounded");
+  border: 2px solid cv.getVar('border');
+  border-radius: cv.getVar('radius-rounded');
   border-right-color: transparent;
   border-top-color: transparent;
-  content: "";
+  content: '';
   display: block;
   height: 1em;
   position: relative;

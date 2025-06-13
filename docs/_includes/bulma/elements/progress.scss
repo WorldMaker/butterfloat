@@ -1,12 +1,12 @@
-@use "../utilities/css-variables" as cv;
-@use "../utilities/derived-variables" as dv;
-@use "../utilities/initial-variables" as iv;
-@use "../utilities/extends";
-@use "../utilities/mixins" as mx;
+@use '../utilities/css-variables' as cv;
+@use '../utilities/derived-variables' as dv;
+@use '../utilities/initial-variables' as iv;
+@use '../utilities/extends';
+@use '../utilities/mixins' as mx;
 
-$progress-bar-background-color: cv.getVar("border-weak") !default;
-$progress-value-background-color: cv.getVar("text") !default;
-$progress-border-radius: cv.getVar("radius-rounded") !default;
+$progress-bar-background-color: cv.getVar('border-weak') !default;
+$progress-value-background-color: cv.getVar('text') !default;
+$progress-border-radius: cv.getVar('radius-rounded') !default;
 
 $progress-indeterminate-duration: 1.5s !default;
 
@@ -15,10 +15,10 @@ $progress-colors: dv.$colors !default;
 .#{iv.$class-prefix}progress {
   @include cv.register-vars(
     (
-      "progress-border-radius": #{$progress-border-radius},
-      "progress-bar-background-color": #{$progress-bar-background-color},
-      "progress-value-background-color": #{$progress-value-background-color},
-      "progress-indeterminate-duration": #{$progress-indeterminate-duration},
+      'progress-border-radius': #{$progress-border-radius},
+      'progress-bar-background-color': #{$progress-bar-background-color},
+      'progress-value-background-color': #{$progress-value-background-color},
+      'progress-indeterminate-duration': #{$progress-indeterminate-duration},
     )
   );
 }
@@ -28,27 +28,27 @@ $progress-colors: dv.$colors !default;
 
   appearance: none;
   border: none;
-  border-radius: cv.getVar("progress-border-radius");
+  border-radius: cv.getVar('progress-border-radius');
   display: block;
-  height: cv.getVar("size-normal");
+  height: cv.getVar('size-normal');
   overflow: hidden;
   padding: 0;
   width: 100%;
 
   &::-webkit-progress-bar {
-    background-color: cv.getVar("progress-bar-background-color");
+    background-color: cv.getVar('progress-bar-background-color');
   }
 
   &::-webkit-progress-value {
-    background-color: cv.getVar("progress-value-background-color");
+    background-color: cv.getVar('progress-value-background-color');
   }
 
   &::-moz-progress-bar {
-    background-color: cv.getVar("progress-value-background-color");
+    background-color: cv.getVar('progress-value-background-color');
   }
 
   &::-ms-fill {
-    background-color: cv.getVar("progress-value-background-color");
+    background-color: cv.getVar('progress-value-background-color');
     border: none;
   }
 
@@ -56,22 +56,22 @@ $progress-colors: dv.$colors !default;
   @each $name, $pair in $progress-colors {
     &.#{iv.$class-prefix}is-#{$name} {
       @include cv.register-var(
-        "progress-value-background-color",
+        'progress-value-background-color',
         #{cv.getVar($name)}
       );
     }
   }
 
   &:indeterminate {
-    animation-duration: cv.getVar("progress-indeterminate-duration");
+    animation-duration: cv.getVar('progress-indeterminate-duration');
     animation-iteration-count: infinite;
     animation-name: moveIndeterminate;
     animation-timing-function: linear;
-    background-color: cv.getVar("progress-bar-background-color");
+    background-color: cv.getVar('progress-bar-background-color');
     background-image: linear-gradient(
       to right,
-      cv.getVar("progress-value-background-color") 30%,
-      cv.getVar("progress-bar-background-color") 30%
+      cv.getVar('progress-value-background-color') 30%,
+      cv.getVar('progress-bar-background-color') 30%
     );
     background-position: top left;
     background-repeat: no-repeat;
@@ -92,15 +92,15 @@ $progress-colors: dv.$colors !default;
 
   // Sizes
   &.#{iv.$class-prefix}is-small {
-    height: cv.getVar("size-small");
+    height: cv.getVar('size-small');
   }
 
   &.#{iv.$class-prefix}is-medium {
-    height: cv.getVar("size-medium");
+    height: cv.getVar('size-medium');
   }
 
   &.#{iv.$class-prefix}is-large {
-    height: cv.getVar("size-large");
+    height: cv.getVar('size-large');
   }
 }
 
