@@ -42,14 +42,12 @@ describe('state management documentation', () => {
   })
 
   it('shows a first activity', () => {
-    interface GardenProps {}
-
     interface GardenEvents {
       rake: ObservableEvent<MouseEvent>
     }
 
     function Garden(
-      _props: GardenProps,
+      _props: unknown,
       { bindEffect, events }: ComponentContext<GardenEvents>,
     ) {
       const [money, setMoney] = butterfly(1)
@@ -142,14 +140,12 @@ describe('state management documentation', () => {
     }
     ok(GardenState)
 
-    interface GardenProps {}
-
     interface GardenEvents {
       rake: ObservableEvent<MouseEvent>
     }
 
     function Garden(
-      _props: GardenProps,
+      _props: unknown,
       { bindEffect, events }: ComponentContext<GardenEvents>,
     ) {
       const vm = new GardenState()

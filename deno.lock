@@ -7,18 +7,20 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@eslint/js@^9.28.0",
         "npm:@types/jsdom@^21.1.4",
         "npm:@types/node@^20.8.3",
         "npm:@typescript-eslint/eslint-plugin@^6.9.0",
         "npm:@typescript-eslint/parser@^6.9.0",
         "npm:eslint-config-prettier@9",
-        "npm:eslint@^8.52.0",
+        "npm:eslint@^8.57.1",
         "npm:jsdom@^22.1.0",
         "npm:prettier@^3.0.3",
         "npm:rxjs@^7.8.1",
         "npm:typedoc-plugin-markdown@^3.17.1",
         "npm:typedoc@~0.25.4",
-        "npm:typescript@^5.2.2"
+        "npm:typescript-eslint@^8.34.0",
+        "npm:typescript@^5.8.3"
       ]
     }
   }
