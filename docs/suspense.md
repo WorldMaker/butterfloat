@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Suspense and Advanced Binding
+order: 5
+tags: ['stable']
+---
+
 # Suspense and Advanced Binding
 
 Previously in the [Getting Started][started] tour, we discussed

@@ -10,14 +10,12 @@ import { interval, map, shareReplay } from 'rxjs'
 
 describe('class and style bind documentation', () => {
   it('shows a class binding example', () => {
-    interface HighlightProps {}
-
     interface HighlightEvents {
       toggleHighlight: ObservableEvent<MouseEvent>
     }
 
     function Highlight(
-      _props: HighlightProps,
+      _props: unknown,
       { bindEffect, events }: ComponentContext<HighlightEvents>,
     ) {
       const { toggleHighlight } = events

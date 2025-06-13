@@ -1,0 +1,58 @@
+---
+layout: main.vto
+---
+
+<nav class="breadcrumb">
+    <ul>
+        {{ for item of nav.breadcrumb(url) }}
+        <li>
+            {{ if item.data }}
+            <a href="{{ item.data.url }}">{{ item.data.title }}</a>
+            {{ else }}
+            <span>{{ item.slug }}</span>
+            {{ /if }}
+        </li>
+        {{ /for }}
+    </ul>
+</nav>
+
+<section class="section page-content">
+    {{ if toc?.length }}
+    <nav class="menu toc-menu">
+        <p class="menu-label">Table of Contents</p>
+        <ul class="menu-list">
+            {{ for item of toc }}
+            <li>
+                <a href="#{{ item.slug }}">{{ item.text }}</a>
+            </li>
+            {{ if item.children?.length }}
+            <ul>
+                {{ for child of item.children }}
+                <li>
+                    <a href="#{{ child.slug }}">{{ child.text }}</a>
+                </li>
+                {{ /for }}
+            </ul>
+            {{ /if }}
+            {{ /for }}
+        </ul>
+    </nav>
+    {{ /if }}
+
+    <article class="container content">
+        {{ content }}
+    </article>
+
+    {{ include "paginator.vto" { searchTag: 'motivation' } }}
+</section>
+
+<nav class="menu page-menu">
+    <p class="menu-label">Butterfloat Motivation</p>
+    <ul class="menu-list">
+        {{ for item of nav.menu("/", "motivation").children }}
+        <li>
+            {{ include "menu-item.vto" { item } }}
+        </li>
+        {{ /for }}
+    </ul>
+</nav>

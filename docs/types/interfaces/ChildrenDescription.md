@@ -1,32 +1,27 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / ChildrenDescription
+[**butterfloat**](../index.md)
+
+***
+
+[butterfloat](../index.md) / ChildrenDescription
 
 # Interface: ChildrenDescription
 
+Defined in: [component.ts:214](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L214)
+
 Description of the `<Children>` pseudo-component
-
-## Table of contents
-
-### Properties
-
-- [context](ChildrenDescription.md#context)
-- [type](ChildrenDescription.md#type)
 
 ## Properties
 
-### context
+### context?
 
-• `Optional` **context**: [`ComponentContext`](ComponentContext.md)\<`unknown`\>
+> `optional` **context**: [`ComponentContext`](ComponentContext.md)\<`unknown`\>
 
-#### Defined in
+Defined in: [component.ts:216](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L216)
 
-[component.ts:216](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L216)
-
-___
+***
 
 ### type
 
-• **type**: ``"children"``
+> **type**: `"children"`
 
-#### Defined in
-
-[component.ts:215](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L215)
+Defined in: [component.ts:215](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L215)

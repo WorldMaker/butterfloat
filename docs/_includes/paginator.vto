@@ -1,0 +1,22 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+    {{> const prevPage = nav.previousPage(url, searchTag) }}
+    {{ if prevPage }}
+    <a href="{{ prevPage.url }}" class="pagination-previous">
+        Previous: {{ prevPage.title }}
+    </a>
+    {{ else }}
+    <a href="/" class="pagination-previous is-disabled">
+        No previous page
+    </a>
+    {{ /if }}
+    {{> const nextPage = nav.nextPage(url, searchTag) }}
+    {{ if nextPage }}
+    <a href="{{ nextPage.url }}" class="pagination-next">
+        Next: {{ nextPage.title }}
+    </a>
+    {{ else }}
+    <a href="/" class="pagination-next is-disabled">
+        No next page
+    </a>
+    {{ /if }}
+</nav>

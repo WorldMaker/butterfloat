@@ -2,7 +2,8 @@
   "$schema": "https://typedoc.org/schema.json",
   "plugin": ["typedoc-plugin-markdown"],
   "out": "./docs/types/",
-  "readme": "./README.md",
+  "readme": "none",
   "entryPoints": ["./index.ts"],
+  "entryFileName": "index",
   "excludePrivate": true
 }

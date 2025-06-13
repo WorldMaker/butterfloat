@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Web Components with Butterfloat
+order: 1
+tags: ['stable']
+---
+
 # Web Components with Butterfloat
 
 Butterfloat works great powering Web Components. The basic pattern starts

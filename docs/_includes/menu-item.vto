@@ -1,0 +1,17 @@
+{{ if item.data.url }}
+  <a href="{{ item.data.url }}">
+    {{ item.data.title }}
+  </a>
+{{ else }}
+  <span>{{ item.data.basename }}</span>
+{{ /if }}
+
+{{ if item.children?.length }}
+<ul>
+  {{ for child of item.children }}
+  <li>
+    {{ include "menu-item.vto" { item: child } }}
+  </li>
+  {{ /for }}
+</ul>
+{{ /if }}

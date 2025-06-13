@@ -1,177 +1,137 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / ElementDescription
+[**butterfloat**](../index.md)
+
+***
+
+[butterfloat](../index.md) / ElementDescription
 
 # Interface: ElementDescription\<Bind\>
 
+Defined in: [component.ts:180](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L180)
+
 Description of a DOM element and its bindings
 
-## Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Bind` | [`DefaultBind`](../modules.md#defaultbind) |
-
-## Hierarchy
+## Extends
 
 - [`ChildrenBindDescription`](ChildrenBindDescription.md)
 
-  ↳ **`ElementDescription`**
+## Type Parameters
 
-## Table of contents
+### Bind
 
-### Properties
-
-- [attributes](ElementDescription.md#attributes)
-- [bind](ElementDescription.md#bind)
-- [children](ElementDescription.md#children)
-- [childrenBind](ElementDescription.md#childrenbind)
-- [childrenBindMode](ElementDescription.md#childrenbindmode)
-- [classBind](ElementDescription.md#classbind)
-- [element](ElementDescription.md#element)
-- [events](ElementDescription.md#events)
-- [immediateBind](ElementDescription.md#immediatebind)
-- [immediateClassBind](ElementDescription.md#immediateclassbind)
-- [immediateStyleBind](ElementDescription.md#immediatestylebind)
-- [styleBind](ElementDescription.md#stylebind)
-- [type](ElementDescription.md#type)
+`Bind` = [`DefaultBind`](../type-aliases/DefaultBind.md)
 
 ## Properties
 
 ### attributes
 
-• **attributes**: [`Attributes`](../modules.md#attributes)
+> **attributes**: [`Attributes`](../type-aliases/Attributes.md)
 
-#### Defined in
+Defined in: [component.ts:184](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L184)
 
-[component.ts:184](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L184)
-
-___
+***
 
 ### bind
 
-• **bind**: `Bind`
+> **bind**: `Bind`
 
-#### Defined in
+Defined in: [component.ts:185](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L185)
 
-[component.ts:185](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L185)
-
-___
+***
 
 ### children
 
-• **children**: [`JsxChildren`](../modules.md#jsxchildren)
+> **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
+
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L172)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[children](ChildrenBindDescription.md#children)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-#### Defined in
+***
 
-[component.ts:172](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L172)
+### childrenBind?
 
-___
+> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-### childrenBind
-
-• `Optional` **childrenBind**: [`ChildrenBind`](../modules.md#childrenbind)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L173)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBind](ChildrenBindDescription.md#childrenbind)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-#### Defined in
+***
 
-[component.ts:173](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L173)
+### childrenBindMode?
 
-___
+> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-### childrenBindMode
-
-• `Optional` **childrenBindMode**: [`ChildrenBindMode`](../modules.md#childrenbindmode)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L174)
 
 #### Inherited from
 
-[ChildrenBindDescription](ChildrenBindDescription.md).[childrenBindMode](ChildrenBindDescription.md#childrenbindmode)
+[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-#### Defined in
-
-[component.ts:174](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L174)
-
-___
+***
 
 ### classBind
 
-• **classBind**: [`ClassBind`](../modules.md#classbind)
+> **classBind**: [`ClassBind`](../type-aliases/ClassBind.md)
 
-#### Defined in
+Defined in: [component.ts:190](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L190)
 
-[component.ts:190](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L190)
-
-___
+***
 
 ### element
 
-• **element**: `string`
+> **element**: `string`
 
-#### Defined in
+Defined in: [component.ts:183](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L183)
 
-[component.ts:183](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L183)
-
-___
+***
 
 ### events
 
-• **events**: [`DefaultEvents`](../modules.md#defaultevents)
+> **events**: [`DefaultEvents`](../type-aliases/DefaultEvents.md)
 
-#### Defined in
+Defined in: [component.ts:187](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L187)
 
-[component.ts:187](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L187)
-
-___
+***
 
 ### immediateBind
 
-• **immediateBind**: `Bind`
+> **immediateBind**: `Bind`
 
-#### Defined in
+Defined in: [component.ts:186](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L186)
 
-[component.ts:186](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L186)
-
-___
+***
 
 ### immediateClassBind
 
-• **immediateClassBind**: [`ClassBind`](../modules.md#classbind)
+> **immediateClassBind**: [`ClassBind`](../type-aliases/ClassBind.md)
 
-#### Defined in
+Defined in: [component.ts:191](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L191)
 
-[component.ts:191](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L191)
-
-___
+***
 
 ### immediateStyleBind
 
-• **immediateStyleBind**: [`DefaultStyleBind`](../modules.md#defaultstylebind)
+> **immediateStyleBind**: [`DefaultStyleBind`](../type-aliases/DefaultStyleBind.md)
 
-#### Defined in
+Defined in: [component.ts:189](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L189)
 
-[component.ts:189](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L189)
-
-___
+***
 
 ### styleBind
 
-• **styleBind**: [`DefaultStyleBind`](../modules.md#defaultstylebind)
+> **styleBind**: [`DefaultStyleBind`](../type-aliases/DefaultStyleBind.md)
 
-#### Defined in
+Defined in: [component.ts:188](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L188)
 
-[component.ts:188](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L188)
-
-___
+***
 
 ### type
 
-• **type**: ``"element"``
+> **type**: `"element"`
 
-#### Defined in
-
-[component.ts:182](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L182)
+Defined in: [component.ts:182](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L182)

@@ -1,0 +1,166 @@
+// Set your brand colors
+$purple: #8a4d76;
+$pink: #fa7c91;
+
+// Override global Sass variables from the /utilities folder
+@use 'bulma/utilities' with (
+  $primary: $pink,
+  $link: $purple
+);
+
+// Import the components you need
+@forward 'bulma/base';
+@forward 'bulma/components/breadcrumb';
+@forward 'bulma/components/card';
+@forward 'bulma/components/menu';
+@forward 'bulma/components/navbar';
+@forward 'bulma/components/pagination';
+@forward 'bulma/elements/button';
+@forward 'bulma/elements/icon';
+@forward 'bulma/elements/content';
+@forward 'bulma/elements/title';
+@forward 'bulma/grid';
+@forward 'bulma/helpers';
+@forward 'bulma/layout';
+
+// Import the themes so that all CSS variables have a value
+@forward 'bulma/themes';
+
+.menu-label {
+  text-transform: none;
+  font-variant: small-caps;
+}
+
+footer.footer {
+  padding: 1.5rem;
+}
+
+/* bulma tablet breakpoint */
+@media (min-width: 768px) {
+  body:has(.page-content) {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      'header header'
+      'crumbs crumbs'
+      'menu   content'
+      'footer footer';
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  .page-menu {
+    overflow: auto;
+  }
+  .page-content {
+    overflow: auto;
+  }
+}
+
+/* bulma desktop breakpoint */
+@media (min-width: 1024px) {
+  body:has(.page-content) {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      'header header  header'
+      'crumbs crumbs  crumbs'
+      'menu   article toc'
+      'menu   pages   toc'
+      'footer footer  footer';
+  }
+
+  .page-content {
+    display: contents;
+  }
+
+  .page-content article {
+    grid-area: article;
+    overflow: auto;
+  }
+
+  .toc-menu {
+    overflow: auto;
+  }
+}
+
+header {
+  grid-area: header;
+}
+footer {
+  grid-area: footer;
+}
+.breadcrumb {
+  grid-area: crumbs;
+  padding: 0 0.5em;
+}
+.toc-menu {
+  grid-area: toc;
+  padding: 0.5em;
+}
+.page-content {
+  grid-area: content;
+}
+.page-menu {
+  grid-area: menu;
+  padding: 0.5em;
+}
+.pagination {
+  grid-area: pages;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+/* *** Markdown Alerts *** */
+
+.markdown-alert {
+  padding: 1em;
+  border-left: 0.25rem solid;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  border-color: var(--border-color);
+}
+
+.markdown-alert > span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--border-color);
+}
+
+.markdown-alert .markdown-alert-icon {
+  margin-right: 0.5em;
+  fill: var(--border-color);
+}
+
+.markdown-alert.note {
+  --border-color: var(--bulma-info);
+}
+
+.markdown-alert.warning {
+  --border-color: var(--bulma-warning);
+}
+
+.markdown-alert.important {
+  --border-color: var(--bulma-link);
+}
+
+.markdown-alert.caution {
+  --border-color: var(--bulma-danger);
+}
+
+.markdown-alert.tip {
+  --border-color: var(--bulma-primary);
+}
+
+/* *** Prisma themes *** */
+
+@media (prefers-color-scheme: dark) {
+  /* insert-prism-dark-theme-here */
+}
+
+@media (prefers-color-scheme: light) {
+  /* insert-prism-light-theme-here */
+}
