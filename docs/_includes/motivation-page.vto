@@ -19,7 +19,10 @@ layout: main.vto
 <section class="section page-content">
     {{ if toc?.length }}
     <nav class="menu toc-menu">
-        <p class="menu-label">Table of Contents</p>
+        <p class="menu-label">
+            Table of Contents
+            {{ if tags.includes('preview') }}<span class="icon has-text-primary" title="Preview"><i class="fa-duotone fa-regular fa-flux-capacitor"></i></span>{{ /if }}
+        </p>
         <ul class="menu-list">
             {{ for item of toc }}
             <li>
@@ -40,6 +43,12 @@ layout: main.vto
     {{ /if }}
 
     <article class="container content">
+        {{ if tags.includes('preview') }}
+        <div class="notification is-warning icon-text">
+            <span class="icon is-large" title="Preview"><i class="fa-duotone fa-regular fa-flux-capacitor fa-2x"></i></span>
+            <span class="is-align-self-center"><strong>Preview:</strong> This page is a work in progress and may not reflect the final content.</span>
+        </div>
+        {{ /if }}
         {{ content }}
     </article>
 

@@ -1,5 +1,10 @@
 {{ if item.data.url }}
   <a href="{{ item.data.url }}">
+    {{ if item.data.tags?.includes('preview') }}
+    <span class="icon has-text-primary" title="Preview">
+      <i class="fa-duotone fa-regular fa-flux-capacitor"></i>
+    </span>
+    {{ /if }}
     {{ item.data.title }}
   </a>
 {{ else }}
