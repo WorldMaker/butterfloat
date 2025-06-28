@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        {{ if title }}
+        {{ if title && title != "Butterfloat" }}
         <title>{{ title }} &middot; Butterfloat</title>
         {{ else }}
         <title>Butterfloat</title>
@@ -15,26 +15,26 @@
         <header>
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item has-text-primary" title="Butterfloat" href="/">
+                    <a class="navbar-item {{ if title == "Butterfloat" }} is-active{{ else }} has-text-primary{{ /if }}" title="Butterfloat" href="/">
                         <img src="{{ "/assets/butterfloat.svg" |> url }}" alt="Butterfloat Logo in butterfly-like colors" width="28" height="28">
                         <strong>Butterfloat</strong>
                     </a>
-                    <a class="navbar-item has-text-primary" href="/getting-started/" title="Getting Started">
+                    <a class="navbar-item {{ if tags?.includes('stable') && !tags?.includes('guides') && !tags?.includes('motivation') }} is-active{{ else }} has-text-primary{{ /if }}" href="/getting-started/" title="Getting Started">
                         <span class="icon">
                             <i class="fa-duotone fa-regular fa-play"></i>
                         </span>
                     </a>
-                    <a class="navbar-item has-text-primary" href="/guides/" title="Guides">
+                    <a class="navbar-item {{ if tags?.includes('guides') }} is-active{{ else }} has-text-primary{{ /if }}" href="/guides/" title="Guides">
                         <span class="icon">
                             <i class="fa-duotone fa-regular fa-book"></i>
                         </span>
                     </a>
-                    <a class="navbar-item has-text-primary" href="/types/" title="API Reference">
+                    <a class="navbar-item {{ if tags?.includes('api') }} is-active{{ else }} has-text-primary{{ /if }}" href="/types/" title="API Reference">
                         <span class="icon">
                             <i class="fa-duotone fa-regular fa-code"></i>
                         </span>
                     </a>
-                    <a class="navbar-item has-text-primary" href="/motivation/" title="Motivation">
+                    <a class="navbar-item {{ if tags?.includes('motivation') }} is-active{{ else }} has-text-primary{{ /if }}" href="/motivation/" title="Motivation">
                         <span class="icon">
                             <i class="fa-duotone fa-regular fa-thought-bubble"></i>
                         </span>

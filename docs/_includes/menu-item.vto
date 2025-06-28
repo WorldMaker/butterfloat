@@ -1,5 +1,5 @@
 {{ if item.data.url }}
-  <a href="{{ item.data.url }}">
+  <a href="{{ item.data.url }}" class="{{ if item.data.url == url }} is-active{{ /if }}">
     {{ if item.data.tags?.includes('preview') }}
     <span class="icon has-text-primary" title="Preview">
       <i class="fa-duotone fa-regular fa-flux-capacitor"></i>
