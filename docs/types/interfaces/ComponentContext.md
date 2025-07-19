@@ -1,50 +1,42 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / ComponentContext
+[**butterfloat**](../index.md)
+
+***
+
+[butterfloat](../index.md) / ComponentContext
 
 # Interface: ComponentContext\<Events\>
+
+Defined in: [component.ts:16](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L16)
 
 Context for a component. Dependency injection mechanism for
 effect binders and events proxies.
 
-## Type parameters
+## Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `Events` | [`DefaultEvents`](../modules.md#defaultevents) |
+### Events
 
-## Table of contents
-
-### Properties
-
-- [bindEffect](ComponentContext.md#bindeffect)
-- [bindImmediateEffect](ComponentContext.md#bindimmediateeffect)
-- [events](ComponentContext.md#events)
+`Events` = [`DefaultEvents`](../type-aliases/DefaultEvents.md)
 
 ## Properties
 
 ### bindEffect
 
-• **bindEffect**: [`EffectHandler`](../modules.md#effecthandler)
+> **bindEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-#### Defined in
+Defined in: [component.ts:18](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L18)
 
-[component.ts:18](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L18)
-
-___
+***
 
 ### bindImmediateEffect
 
-• **bindImmediateEffect**: [`EffectHandler`](../modules.md#effecthandler)
+> **bindImmediateEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-#### Defined in
+Defined in: [component.ts:19](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L19)
 
-[component.ts:19](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L19)
-
-___
+***
 
 ### events
 
-• **events**: `Events`
+> **events**: `Events`
 
-#### Defined in
-
-[component.ts:17](https://github.com/WorldMaker/butterfloat/blob/098685f/component.ts#L17)
+Defined in: [component.ts:17](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L17)

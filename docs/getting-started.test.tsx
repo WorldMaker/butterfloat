@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-non-null-assertion: "off" */
 import { JSDOM } from 'jsdom'
 import { deepEqual, equal, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'

@@ -8,5 +8,7 @@
     "jsxFragmentFactory": "Fragment",
     "strict": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["docs/**"],
+  "include": ["**/*.ts", "**/*.tsx", "docs/**/*.test.ts", "docs/**/*.test.tsx"]
 }

@@ -300,7 +300,7 @@ export function runInternal(
       } else if (previousNode) {
         try {
           previousNode.replaceWith(node)
-        } catch (error) {
+        } catch (_error) {
           console.warn(
             `Cannot exactly replace previous node in ${componentName}, replacing all children in container`,
             node,

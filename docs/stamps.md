@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Stamps
+order: 6
+tags: ['stable']
+---
+
 # Stamps
 
 If you've been following along from the [Getting Started][started] path,

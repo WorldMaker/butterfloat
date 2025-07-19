@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: Component Children and Dynamic Children
+order: 4
+tags: ['stable']
+---
+
 # Component Children and Dynamic Children
 
 Previously in the [Getting Started][started] tour was an introduction

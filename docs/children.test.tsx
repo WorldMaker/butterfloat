@@ -11,9 +11,7 @@ import {
 
 describe('children documentation', () => {
   it('shows a simple list wrapper with children', () => {
-    interface CoolListProps {}
-
-    function CoolList(_props: CoolListProps, context: ComponentContext) {
+    function CoolList(_props: unknown, context: ComponentContext) {
       return (
         <div className="cool-list-wrapper">
           <ul className="cool-list">

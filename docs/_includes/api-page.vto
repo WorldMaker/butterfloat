@@ -1,0 +1,44 @@
+---
+layout: main.vto
+---
+
+<section class="section page-content">
+    {{ if toc?.length }}
+    <nav class="menu toc-menu">
+        <p class="menu-label">Table of Contents</p>
+        <ul class="menu-list">
+            {{ for item of toc }}
+            <li>
+                <a href="#{{ item.slug }}">{{ item.text }}</a>
+            </li>
+            {{ if item.children?.length }}
+            <ul>
+                {{ for child of item.children }}
+                <li>
+                    <a href="#{{ child.slug }}">{{ child.text }}</a>
+                </li>
+                {{ /for }}
+            </ul>
+            {{ /if }}
+            {{ /for }}
+        </ul>
+    </nav>
+    {{ /if }}
+
+    <article class="container content">
+        {{ content }}
+    </article>
+
+    {{ include "paginator.vto" { searchTag: 'api' } }}
+</section>
+
+<nav class="menu page-menu">
+    <p class="menu-label">Butterfloat API</p>
+    <ul class="menu-list">
+        {{ for item of nav.menu("/", "api").children }}
+        <li>
+            {{ include "menu-item.vto" { item } }}
+        </li>
+        {{ /for }}
+    </ul>
+</nav>

@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-non-null-assertion: "off" */
 import { JSDOM } from 'jsdom'
 import { writeFile } from 'node:fs/promises'
 import { describe, it } from 'node:test'
@@ -161,14 +162,12 @@ describe('stamps documentation', () => {
   })
 
   it.skip('shows using a test context to build a stamp', () => {
-    interface WinButtonProps {}
-
     interface WinButtonEvents {
       click: ObservableEvent<MouseEvent>
     }
 
     function WinButton(
-      _props: WinButtonProps,
+      _props: unknown,
       { events }: ComponentContext<WinButtonEvents>,
     ) {
       return (

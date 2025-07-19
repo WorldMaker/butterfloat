@@ -1,47 +1,48 @@
-[butterfloat](../README.md) / [Exports](../modules.md) / StampCollection
+[**butterfloat**](../index.md)
+
+***
+
+[butterfloat](../index.md) / StampCollection
 
 # Class: StampCollection
 
+Defined in: [stamp-collection.ts:17](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L17)
+
 A collection of Stamps that include the static DOM elements of Butterfloat components
-
-## Table of contents
-
-### Constructors
-
-- [constructor](StampCollection.md#constructor)
-
-### Methods
-
-- [getStamp](StampCollection.md#getstamp)
-- [isPrestamp](StampCollection.md#isprestamp)
-- [registerOnlyStamp](StampCollection.md#registeronlystamp)
-- [registerPrestamp](StampCollection.md#registerprestamp)
-- [registerStampAlternative](StampCollection.md#registerstampalternative)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new StampCollection**(): [`StampCollection`](StampCollection.md)
+> **new StampCollection**(): `StampCollection`
 
 #### Returns
 
-[`StampCollection`](StampCollection.md)
+`StampCollection`
 
 ## Methods
 
-### getStamp
+### getStamp()
 
-▸ **getStamp**(`c`, `properties`): `undefined` \| `HTMLTemplateElement`
+> **getStamp**(`c`, `properties`): `undefined` \| `HTMLTemplateElement`
+
+Defined in: [stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L30)
 
 Get a Stamp for a component, given applicable properties
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Component`](../modules.md#component) | Component |
-| `properties` | `unknown` | Properties that apply to the component |
+##### c
+
+[`Component`](../type-aliases/Component.md)
+
+Component
+
+##### properties
+
+`unknown`
+
+Properties that apply to the component
 
 #### Returns
 
@@ -49,25 +50,35 @@ Get a Stamp for a component, given applicable properties
 
 A stamp
 
-#### Defined in
+***
 
-[stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/098685f/stamp-collection.ts#L30)
+### isPrestamp()
 
-___
+> **isPrestamp**(`c`, `properties`, `container`): `boolean`
 
-### isPrestamp
-
-▸ **isPrestamp**(`c`, `properties`, `container`): `boolean`
+Defined in: [stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L48)
 
 Check if a container was registered as a prestamp for this component with given properties
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Component`](../modules.md#component) | Component |
-| `properties` | `unknown` | Properties that apply to the component |
-| `container` | `Element` \| `DocumentFragment` | Container to test for prestamp |
+##### c
+
+[`Component`](../type-aliases/Component.md)
+
+Component
+
+##### properties
+
+`unknown`
+
+Properties that apply to the component
+
+##### container
+
+Container to test for prestamp
+
+`DocumentFragment` | `Element`
 
 #### Returns
 
@@ -75,95 +86,116 @@ Check if a container was registered as a prestamp for this component with given 
 
 Is registered as a valid prestamp
 
-#### Defined in
+***
 
-[stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/098685f/stamp-collection.ts#L48)
+### registerOnlyStamp()
 
-___
+> **registerOnlyStamp**(`c`, `stamp`): `StampCollection`
 
-### registerOnlyStamp
-
-▸ **registerOnlyStamp**(`c`, `stamp`): [`StampCollection`](StampCollection.md)
+Defined in: [stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L66)
 
 Register one Stamp for all possible properties for the given Component
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Component`](../modules.md#component) | Component |
-| `stamp` | `HTMLTemplateElement` | Stamp to register |
+##### c
+
+[`Component`](../type-aliases/Component.md)
+
+Component
+
+##### stamp
+
+`HTMLTemplateElement`
+
+Stamp to register
 
 #### Returns
 
-[`StampCollection`](StampCollection.md)
+`StampCollection`
 
 this (for chaining)
 
-#### Defined in
+***
 
-[stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/098685f/stamp-collection.ts#L66)
+### registerPrestamp()
 
-___
+> **registerPrestamp**\<`Props`\>(`c`, `container`, `when?`): `StampCollection`
 
-### registerPrestamp
-
-▸ **registerPrestamp**\<`Props`\>(`c`, `container`, `when?`): [`StampCollection`](StampCollection.md)
+Defined in: [stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L96)
 
 Register a container that was pre-stamped
 
-#### Type parameters
+#### Type Parameters
 
-| Name |
-| :------ |
-| `Props` |
+##### Props
+
+`Props`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Component`](../modules.md#component) | Component |
-| `container` | `Element` \| `DocumentFragment` | Prestamped container |
-| `when?` | [`StampPropertiesApply`](../modules.md#stamppropertiesapply)\<`Props`\> | Property filter for when the prestamp applies |
+##### c
+
+[`Component`](../type-aliases/Component.md)
+
+Component
+
+##### container
+
+Prestamped container
+
+`DocumentFragment` | `Element`
+
+##### when?
+
+[`StampPropertiesApply`](../type-aliases/StampPropertiesApply.md)\<`Props`\>
+
+Property filter for when the prestamp applies
 
 #### Returns
 
-[`StampCollection`](StampCollection.md)
+`StampCollection`
 
 this (for chaining)
 
-#### Defined in
+***
 
-[stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/098685f/stamp-collection.ts#L96)
+### registerStampAlternative()
 
-___
+> **registerStampAlternative**\<`Props`\>(`c`, `when`, `stamp`): `StampCollection`
 
-### registerStampAlternative
-
-▸ **registerStampAlternative**\<`Props`\>(`c`, `when`, `stamp`): [`StampCollection`](StampCollection.md)
+Defined in: [stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L78)
 
 Register a possible Stamp for subset of possible properties for the given Component
 
-#### Type parameters
+#### Type Parameters
 
-| Name |
-| :------ |
-| `Props` |
+##### Props
+
+`Props`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`ContextComponent`](../modules.md#contextcomponent)\<`Props`\> | Component |
-| `when` | [`StampPropertiesApply`](../modules.md#stamppropertiesapply)\<`Props`\> | Property filter for when the Stamp applies |
-| `stamp` | `HTMLTemplateElement` | Stamp to register |
+##### c
+
+[`ContextComponent`](../type-aliases/ContextComponent.md)\<`Props`\>
+
+Component
+
+##### when
+
+[`StampPropertiesApply`](../type-aliases/StampPropertiesApply.md)\<`Props`\>
+
+Property filter for when the Stamp applies
+
+##### stamp
+
+`HTMLTemplateElement`
+
+Stamp to register
 
 #### Returns
 
-[`StampCollection`](StampCollection.md)
+`StampCollection`
 
 this (for chaining)
-
-#### Defined in
-
-[stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/098685f/stamp-collection.ts#L78)

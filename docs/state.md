@@ -1,3 +1,10 @@
+---
+layout: page.vto
+title: 'State Management: Butterflies and View Models'
+order: 2
+tags: ['stable']
+---
+
 # State Management: Butterflies and View Models
 
 Previously in the [Getting Started][started] tour we covered
