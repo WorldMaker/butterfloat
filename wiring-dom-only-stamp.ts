@@ -10,7 +10,7 @@ const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
     properties: unknown,
     context: ComponentContext,
     container: Element | DocumentFragment | undefined,
-    _document: Document,
+    document: Document,
   ) => {
     if (container && stamps.isPrestamp(component, properties, container)) {
       return {
@@ -20,7 +20,18 @@ const stampOnlyStrategy: (stamps: StampCollection) => DomStrategy =
     }
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
-      const container = stamp.content.cloneNode(true) as DocumentFragment
+      let container = document.importNode(stamp.content, true) as
+        | Element
+        | DocumentFragment
+      if (
+        container.nodeType === container.DOCUMENT_FRAGMENT_NODE &&
+        container.children.length === 1
+      ) {
+        const child = container.firstElementChild
+        if (child) {
+          container = child
+        }
+      }
       return {
         ...selectBindings(container, component(properties, context)),
         isSameContainer: false,
