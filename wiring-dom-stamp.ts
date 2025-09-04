@@ -21,7 +21,7 @@ const stampOrBuildStrategy: (stamps: StampCollection) => DomStrategy =
     }
     const stamp = stamps.getStamp(component, properties)
     if (stamp) {
-      let container = stamp.content.cloneNode(true) as
+      let container = document.importNode(stamp.content, true) as
         | Element
         | DocumentFragment
       if (
