@@ -1,10 +1,11 @@
+import { Observable } from 'rxjs'
 import type {
   ChildrenBindDescription,
   ClassBind,
   DefaultBind,
   DefaultStyleBind,
   NodeDescription,
-} from '../component.js'
+} from './component.js'
 import type { DefaultEvents } from '../events.js'
 
 export const ringType = Symbol('ringType')
@@ -13,6 +14,7 @@ export const toElement = Symbol('toElement')
 export const addChild = Symbol('addChild')
 export const describe = Symbol('describe')
 export const canProvideRing = Symbol('canProvideRing')
+export const canAttachChildren = Symbol('canAttachChildren')
 
 export interface ElementBindDescription<Bind = DefaultBind>
   extends ChildrenBindDescription {
@@ -23,6 +25,10 @@ export interface ElementBindDescription<Bind = DefaultBind>
   immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
   immediateClassBind: ClassBind
+
+  onError: ((error: unknown) => void) | null
+  onComplete: (() => void) | null
+  suspend: Observable<boolean> | null
 }
 
 /**
@@ -40,12 +46,12 @@ export const inertRing: InertRing = Object.freeze({
 
 export interface RunnableRing {
   [ringType]: 'runnable'
-  [toBinds](): ElementBindDescription | null
+  [toBinds](): Record<string, ElementBindDescription> | null
 }
 
 export interface BuildableRing {
   [ringType]: 'buildable'
-  [toBinds](): ElementBindDescription | null
+  [toBinds](): Record<string, ElementBindDescription> | null
   [toElement](document: Document): Element
   [addChild](container: Element | DocumentFragment, document: Document): void
 }
@@ -59,6 +65,7 @@ export type RingType = Ring[typeof ringType]
 
 export interface RingProvider {
   [canProvideRing]: boolean
+  [canAttachChildren]?: boolean
 }
 
 export function isRingProvider(value: unknown): value is RingProvider {

@@ -1,7 +1,9 @@
 import type { Observable } from 'rxjs'
 import type { DefaultEvents } from '../events.js'
+import { JsxChildren } from './component.js'
 
 export const matType = Symbol('matType')
+export const componentChildren = Symbol('componentChildren')
 
 /**
  * Handles an effect
@@ -17,6 +19,7 @@ type JsxFunction = unknown
 
 export interface Mat<Events = DefaultEvents> {
   [matType]: MatType
+  [componentChildren]?: JsxChildren
   events: Events
   bindEffect: EffectHandler
   bindImmediateEffect: EffectHandler
