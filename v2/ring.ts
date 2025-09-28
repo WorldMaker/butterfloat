@@ -1,12 +1,10 @@
 import { Observable } from 'rxjs'
-import type {
-  ChildrenBindDescription,
-  ClassBind,
-  DefaultBind,
-  DefaultStyleBind,
-  NodeDescription,
-} from './component.js'
+import type { ClassBind, DefaultBind, DefaultStyleBind } from './component.js'
 import type { DefaultEvents } from '../events.js'
+import {
+  ChildrenBindDescription,
+  NodeDescription,
+} from './testing/description.js'
 
 export const ringType = Symbol('ringType')
 export const toBinds = Symbol('toBinds')

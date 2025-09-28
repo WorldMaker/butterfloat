@@ -27,7 +27,13 @@ export function Fragment(_: object, mat: Mat, ...children: JsxChildren): Ring {
         [ringType]: 'describable',
         [describe]: () => ({
           type: 'fragment',
-          children,
+          children: children.map((child) =>
+            typeof child === 'string'
+              ? child
+              : child[ringType] === 'describable'
+              ? child[describe]()
+              : '<non-describable child>',
+          ),
         }),
       }
     case 'builder':
