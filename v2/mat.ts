@@ -1,6 +1,7 @@
 import type { Observable } from 'rxjs'
 import type { DefaultEvents } from '../events.js'
 import { JsxChildren } from './component.js'
+import { jsx } from './jsx/inert.js'
 
 export const matType = Symbol('matType')
 export const componentChildren = Symbol('componentChildren')
@@ -15,7 +16,7 @@ export type EffectHandler = <T>(
 
 export type MatType = 'runner' | 'builder' | 'tester'
 
-type JsxFunction = unknown
+export type JsxFunction = typeof jsx
 
 export interface Mat<Events = DefaultEvents> {
   [matType]: MatType

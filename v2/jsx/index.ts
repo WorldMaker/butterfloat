@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
 import type { Observable } from 'rxjs'
 import type {
-  ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
-  JsxChildren,
   ChildrenBindable,
-  Component,
-  NodeDescription,
   DefaultBind,
   DefaultStyleBind,
 } from '../component.js'
@@ -21,7 +17,7 @@ import { WritableKeys } from '../meta-types.js'
 /**
  * Overloads to Typescript's JSX typing
  */
-declare namespace JSXInternal {
+export declare namespace JsxInternal {
   /**
    * JSX Element type
    */
@@ -130,93 +126,4 @@ declare namespace JSXInternal {
    * JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")
    */
   export type IntrinsicAttributes = ChildrenBindable
-}
-
-/**
- * Describe a node. Builder for JSX and TSX transformation.
- * @param element An element to build
- * @param attributes Attributes
- * @param children Children
- * @returns Node description
- */
-export function jsx(
-  element: string | Component,
-  attributes: ButterfloatAttributes | null,
-  ...children: JsxChildren
-): NodeDescription {
-  children = children.flat().map((child: string | NodeDescription | number) => {
-    if (typeof child === 'number') {
-      return child.toLocaleString()
-    }
-    return child
-  })
-
-  if (typeof element === 'string') {
-    const {
-      bind,
-      immediateBind,
-      childrenBind,
-      childrenBindMode,
-      events,
-      styleBind,
-      immediateStyleBind,
-      classBind,
-      immediateClassBind,
-      ...otherAttributes
-    } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
-    return {
-      type: 'element',
-      element,
-      attributes: otherAttributes,
-      bind: bind ?? {},
-      immediateBind: immediateBind ?? {},
-      children,
-      childrenBind,
-      childrenBindMode,
-      events: events ?? {},
-      styleBind: styleBind ?? {},
-      immediateStyleBind: immediateStyleBind ?? {},
-      classBind: classBind ?? {},
-      immediateClassBind: immediateClassBind ?? {},
-    }
-  }
-  if (typeof element === 'function') {
-    // immediately flatten fragments or children or statics
-    if (
-      element === Fragment ||
-      element === Children ||
-      element === Static ||
-      element === Empty ||
-      element === Comment
-    ) {
-      const func = element as (
-        attributes: unknown,
-        ...children: JsxChildren
-      ) => NodeDescription
-      return func(attributes ?? {}, ...children)
-    }
-
-    const { childrenBind, childrenBindMode, ...otherAttributes } =
-      attributes ?? {}
-
-    return {
-      type: 'component',
-      component: element,
-      properties: otherAttributes,
-      children,
-      childrenBind,
-      childrenBindMode,
-    }
-  }
-  throw new Error(`Unsupported jsx in ${element}`)
-}
-
-/**
- * Describe a node. Builder for JSX and TSX transformation.
- */
-export declare namespace jsx {
-  /**
-   * JSX typing internals
-   */
-  export import JSX = JSXInternal
 }
