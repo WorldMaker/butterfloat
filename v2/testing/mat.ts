@@ -2,6 +2,9 @@ import { Observable } from 'rxjs'
 import { DefaultEvents } from '../../events.js'
 import { jsx } from '../jsx/tester.js'
 import { JsxFunction, Mat, matType } from '../mat.js'
+import { Component } from '../component.js'
+import { describe, ringType } from '../ring.js'
+import { NodeDescription } from './description.js'
 
 class TesterMat<Events> implements Mat<Events> {
   [matType] = 'tester' as const
@@ -39,7 +42,10 @@ class TesterMat<Events> implements Mat<Events> {
  * A Component Context for Testing purposes
  */
 export interface TestComponentContext<Events = DefaultEvents> {
-  context: Mat<Events>
+  describe: <T>(
+    component: Component<T, Events>,
+    props: T,
+  ) => string | NodeDescription
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   effects: Array<[Observable<unknown>, (item: any) => void]>
@@ -57,7 +63,12 @@ export function makeTestComponentContext<Events = DefaultEvents>(
 ): TestComponentContext<Events> {
   const mat = new TesterMat<Events>(events)
   return {
-    context: mat,
+    describe: <T>(component: Component<T, Events>, props: T) => {
+      const ring = component(props, mat)
+      return ring[ringType] === 'describable'
+        ? ring[describe]()
+        : '<non-describable component>'
+    },
     effects: mat.effects,
     immediateEffects: mat.immediateEffects,
   }
