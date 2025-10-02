@@ -10,18 +10,28 @@ class TesterMat<Events> implements Mat<Events> {
 
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  effects: Array<[Observable<unknown>, (item: any) => void]> = []
+  #effects: Array<[Observable<unknown>, (item: any) => void]> = []
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
+  #immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
+
+  get effects() {
+    return this.#effects
+  }
+  get immediateEffects() {
+    return this.#immediateEffects
+  }
 
   jsx: JsxFunction = jsx.bind(this)
 
-  bindEffect<T>(observable: Observable<T>, effect: (item: T) => void) {
-    this.effects.push([observable, effect])
+  bindEffect = <T>(observable: Observable<T>, effect: (item: T) => void) => {
+    this.#effects.push([observable, effect])
   }
 
-  bindImmediateEffect<T>(observable: Observable<T>, effect: (item: T) => void) {
-    this.immediateEffects.push([observable, effect])
+  bindImmediateEffect = <T>(
+    observable: Observable<T>,
+    effect: (item: T) => void,
+  ) => {
+    this.#immediateEffects.push([observable, effect])
   }
 }
 
