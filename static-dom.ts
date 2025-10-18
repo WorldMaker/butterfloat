@@ -25,7 +25,7 @@ export function buildElement(
   let element: Element
   if (description.element.includes(':')) {
     const [nsAbbrev, elementName] = description.element.split(':')
-    let ns = context?.namespaceMap[nsAbbrev]
+    let ns = context?.namespaceMap[nsAbbrev!]
     if (!ns) {
       for (const [key, value] of Object.entries(description.attributes)) {
         if (key.startsWith('xmlns:')) {
@@ -40,12 +40,12 @@ export function buildElement(
           }
         }
       }
-      ns = context?.namespaceMap[nsAbbrev]
+      ns = context?.namespaceMap[nsAbbrev!]
       if (!ns) {
         throw new Error(`Unknown namespace for '${description.element}'`)
       }
     }
-    element = document.createElementNS(ns, elementName)
+    element = document.createElementNS(ns, elementName!)
   } else if (context?.defaultNamespace) {
     element = document.createElementNS(
       context.defaultNamespace,
@@ -67,11 +67,11 @@ export function buildElement(
       }
     } else if (key.includes(':')) {
       const [nsAbbrev, attributeName] = key.split(':')
-      const ns = context?.namespaceMap?.[nsAbbrev]
+      const ns = context?.namespaceMap?.[nsAbbrev!]
       if (!ns) {
         throw new Error(`Unknown namespace for '${key}' attribute`)
       }
-      element.setAttributeNS(ns, attributeName, (value ?? '').toString())
+      element.setAttributeNS(ns, attributeName!, (value ?? '').toString())
     } else if (key.includes('-')) {
       // for example: aria- and data-
       element.setAttribute(key, (value ?? '').toString())

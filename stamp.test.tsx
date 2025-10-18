@@ -90,7 +90,7 @@ describe('stamp', () => {
       nodeBinds,
     )
 
-    match(elementSelectors[0][0], /^h1#example/)
+    match(elementSelectors[0]![0], /^h1#example/)
   })
 
   it('selects bindings for a top-level element', () => {
@@ -124,15 +124,15 @@ describe('stamp', () => {
     equal(elementBinds.length, expectedElementBinds.length)
 
     for (let i = 0; i < expectedNodeBinds.length; i++) {
-      const [nodeBind, bindDesc] = nodeBinds[i]
-      const [expectedNodeBind, expectedBindDesc] = expectedNodeBinds[i]
+      const [nodeBind, bindDesc] = nodeBinds[i]!
+      const [expectedNodeBind, expectedBindDesc] = expectedNodeBinds[i]!
       deepEqual(nodeBind, expectedNodeBind)
       equal(bindDesc, expectedBindDesc)
     }
 
     for (let i = 0; i < expectedElementBinds.length; i++) {
-      const [elementBind, bindDesc] = elementBinds[i]
-      const [expectedElementBind, expectedBindDesc] = expectedElementBinds[i]
+      const [elementBind, bindDesc] = elementBinds[i]!
+      const [expectedElementBind, expectedBindDesc] = expectedElementBinds[i]!
       deepEqual(elementBind, expectedElementBind)
       equal(bindDesc, expectedBindDesc)
     }
@@ -152,16 +152,16 @@ function bindsEqual(
   equal(nodeSelectors.length, nodeBinds.length)
 
   for (let i = 0; i < elementSelectors.length; i++) {
-    const [selector, selDesc] = elementSelectors[i]
-    const [element, bindDesc] = elementBinds[i]
+    const [selector, selDesc] = elementSelectors[i]!
+    const [element, bindDesc] = elementBinds[i]!
     const selElement = stamp.content.querySelector(selector)
     deepEqual(selElement, element)
     equal(selDesc, bindDesc)
   }
 
   for (let i = 0; i < nodeSelectors.length; i++) {
-    const [selector, selDesc] = nodeSelectors[i]
-    const [comment, bindDesc] = nodeBinds[i]
+    const [selector, selDesc] = nodeSelectors[i]!
+    const [comment, bindDesc] = nodeBinds[i]!
     const selElement = stamp.content.querySelector(selector)
     const selElementComment = selElement?.childNodes[0] as CharacterData
     equal(selElementComment.data, (comment as CharacterData).data)

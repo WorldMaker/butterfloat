@@ -11,7 +11,7 @@ describe('event proxy', () => {
   it('expands to simple events', async () => {
     const { events, handler } = makeEventProxy('TestComponent')
     const element = document.createElement('button')
-    const click = events.click
+    const click = events.click!
     const sub = handler.applyEvent(click, element, 'click')
     const clickPromise = firstValueFrom(
       events.click as ObservableEvent<MouseEvent>,
