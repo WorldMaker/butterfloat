@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { JSDOM } from 'jsdom'
 import { deepEqual, equal, match, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
@@ -90,7 +91,7 @@ describe('stamp', () => {
       nodeBinds,
     )
 
-    match(elementSelectors[0]![0], /^h1#example/)
+    match(elementSelectors[0]?.[0] ?? '', /^h1#example/)
   })
 
   it('selects bindings for a top-level element', () => {
