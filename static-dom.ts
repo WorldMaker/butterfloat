@@ -24,7 +24,10 @@ export function buildElement(
   }
   let element: Element
   if (description.element.includes(':')) {
-    const [nsAbbrev, elementName] = description.element.split(':')
+    const [nsAbbrev, elementName] = description.element.split(':') as [
+      string,
+      string,
+    ]
     let ns = context?.namespaceMap[nsAbbrev]
     if (!ns) {
       for (const [key, value] of Object.entries(description.attributes)) {
@@ -66,7 +69,7 @@ export function buildElement(
         },
       }
     } else if (key.includes(':')) {
-      const [nsAbbrev, attributeName] = key.split(':')
+      const [nsAbbrev, attributeName] = key.split(':') as [string, string]
       const ns = context?.namespaceMap?.[nsAbbrev]
       if (!ns) {
         throw new Error(`Unknown namespace for '${key}' attribute`)

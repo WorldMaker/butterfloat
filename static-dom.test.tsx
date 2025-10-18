@@ -207,7 +207,7 @@ describe('static-dom', () => {
     const div = container as HTMLDivElement
     notStrictEqual(div, null)
     equal(div.tagName, 'DIV')
-    equal(elementBinds[0][0], div)
+    equal(elementBinds[0]?.[0], div)
     equal(div.hasChildNodes(), true)
 
     div.remove()
