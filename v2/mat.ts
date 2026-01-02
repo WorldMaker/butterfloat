@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
 import type { Observable } from 'rxjs'
 import type { DefaultEvents } from '../events.js'
-import { JsxChildren } from './component.js'
-import { jsx } from './jsx/inert.js'
-import { JsxInternal } from './jsx/internal.js'
+import { ButterfloatAttributes, Component, JsxChildren } from './component.js'
+import { Ring } from './ring.js'
 
 export const matType = Symbol('matType')
 export const componentChildren = Symbol('componentChildren')
@@ -18,7 +17,11 @@ export type EffectHandler = <T>(
 
 export type MatType = 'runner' | 'builder' | 'tester'
 
-export type JsxFunction = typeof jsx
+export type JsxFunction = (
+  element: string | Component,
+  attributes: ButterfloatAttributes | null,
+  ...children: JsxChildren
+) => Ring
 
 export interface Mat<Events = DefaultEvents> {
   [matType]: MatType
@@ -27,10 +30,4 @@ export interface Mat<Events = DefaultEvents> {
   bindEffect: EffectHandler
   bindImmediateEffect: EffectHandler
   jsx: JsxFunction
-}
-
-export declare namespace Mat {
-  export namespace jsx {
-    export import JSX = JsxInternal
-  }
 }

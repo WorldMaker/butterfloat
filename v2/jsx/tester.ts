@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import { JsxInternal } from './internal.js'
+import * as JsxInternal from './internal.js'
 import {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
@@ -7,6 +7,7 @@ import {
   JsxChildren,
 } from '../component.js'
 import {
+  DescribableRing,
   describe,
   isRingProvider,
   isRingProviderWithChildren,
@@ -17,7 +18,7 @@ import {
   ComponentDescription,
   ElementDescription,
 } from '../testing/description.js'
-import { Mat } from '../mat.js'
+import { TesterMat } from '../testing/mat.js'
 
 /**
  * Builder for JSX and TSX transformation.
@@ -27,11 +28,11 @@ import { Mat } from '../mat.js'
  * @returns Ring
  */
 export function jsx(
-  this: Mat<unknown>,
+  this: TesterMat<unknown>,
   element: string | Component,
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
-): Ring {
+): DescribableRing {
   const childrenDescriptions = children
     .flat()
     .map((child: string | Ring | number) => {
@@ -81,11 +82,15 @@ export function jsx(
   if (typeof element === 'function') {
     // immediately flatten fragments or children or statics
     if (isRingProviderWithChildren(element)) {
-      const ring = element(attributes ?? {}, this, ...children)
-      return ring
+      const ring = element(
+        attributes ?? {},
+        this ?? new TesterMat({}),
+        ...children,
+      )
+      return ring as DescribableRing
     } else if (isRingProvider(element)) {
-      const ring = element(attributes ?? {}, this)
-      return ring
+      const ring = element(attributes ?? {}, this ?? new TesterMat({}))
+      return ring as DescribableRing
     }
 
     const { childrenBind, childrenBindMode, ...otherAttributes } =

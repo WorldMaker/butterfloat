@@ -3,10 +3,10 @@ import { DefaultEvents } from '../../events.js'
 import { jsx } from '../jsx/tester.js'
 import { JsxFunction, Mat, matType } from '../mat.js'
 import { Component } from '../component.js'
-import { describe, ringType } from '../ring.js'
+import { describe as ringDescribe, Ring, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 
-class TesterMat<Events> implements Mat<Events> {
+export class TesterMat<Events> implements Mat<Events> {
   [matType] = 'tester' as const
 
   constructor(public readonly events: Events) {}
@@ -66,10 +66,17 @@ export function makeTestComponentContext<Events = DefaultEvents>(
     describe: <T>(component: Component<T, Events>, props: T) => {
       const ring = component(props, mat)
       return ring[ringType] === 'describable'
-        ? ring[describe]()
+        ? ring[ringDescribe]()
         : '<non-describable component>'
     },
     effects: mat.effects,
     immediateEffects: mat.immediateEffects,
   }
+}
+
+export function describe(ring: Ring): string | NodeDescription | null {
+  if (ring[ringType] === 'describable') {
+    return ring[ringDescribe]()
+  }
+  return null
 }
