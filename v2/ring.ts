@@ -10,7 +10,7 @@ import {
   ChildrenBindDescription,
   NodeDescription,
 } from './testing/description.js'
-import { Mat } from './mat.js'
+import { type jsx } from './mat.js'
 
 export const ringType = Symbol('ringType')
 export const toBinds = Symbol('toBinds')
@@ -73,7 +73,7 @@ export interface RingProvider {
 }
 
 export type RingProviderWithChildren = RingProvider &
-  ((props: object, mat: Mat<unknown>, ...children: JsxChildren) => Ring)
+  ((props: object, mat: jsx.Mat<unknown>, ...children: JsxChildren) => Ring)
 
 export function isRingProvider(value: unknown): value is RingProvider {
   return (

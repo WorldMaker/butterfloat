@@ -1,7 +1,7 @@
 import type { Observable } from 'rxjs'
 import type { ButterfloatEvents, DefaultEvents } from '../events.js'
 import { Ring } from './ring.js'
-import { Mat } from './mat.js'
+import { type jsx } from './mat.js'
 
 /**
  * A Butterfloat Component provided properties and additional context-sensitive tools
@@ -10,7 +10,7 @@ import { Mat } from './mat.js'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Component<Props = any, Events = any> = (
   props: Props,
-  context: Mat<Events>,
+  mat: jsx.Mat<Events>,
 ) => Ring
 
 /**

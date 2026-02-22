@@ -2,6 +2,7 @@
 import type { Observable } from 'rxjs'
 import type { DefaultEvents } from '../events.js'
 import { ButterfloatAttributes, Component, JsxChildren } from './component.js'
+import * as JsxInternal from './jsx/internal.js'
 import { Ring } from './ring.js'
 
 export const matType = Symbol('matType')
@@ -23,11 +24,23 @@ export type JsxFunction = (
   ...children: JsxChildren
 ) => Ring
 
-export interface Mat<Events = DefaultEvents> {
+interface Mat<Events = DefaultEvents> {
   [matType]: MatType
   [componentChildren]?: JsxChildren
   events: Events
   bindEffect: EffectHandler
   bindImmediateEffect: EffectHandler
   jsx: JsxFunction
+}
+
+/**
+ * Builder for JSX and TSX transformation.
+ */
+export declare namespace jsx {
+  export { Mat }
+
+  /**
+   * JSX typing internals
+   */
+  export import JSX = JsxInternal
 }

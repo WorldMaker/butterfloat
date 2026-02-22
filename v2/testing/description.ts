@@ -8,7 +8,7 @@ import {
   DefaultBind,
   DefaultStyleBind,
 } from '../component'
-import { Mat } from '../mat'
+import { type jsx } from '../mat'
 
 export type JsxChildrenDescription = Array<NodeDescription | string>
 
@@ -60,7 +60,7 @@ export interface FragmentDescription {
  */
 export interface ChildrenDescription {
   type: 'children'
-  context?: Mat<unknown>
+  context?: jsx.Mat<unknown>
 }
 
 /**

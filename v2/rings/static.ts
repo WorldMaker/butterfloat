@@ -1,4 +1,4 @@
-import { matType, type Mat } from '../mat.js'
+import { matType, type jsx } from '../mat.js'
 import {
   addChild,
   canProvideRing,
@@ -27,7 +27,7 @@ export interface StaticProperties {
  * @param props Static properties
  * @returns Static node
  */
-export function Static({ element }: StaticProperties, mat: Mat): Ring {
+export function Static({ element }: StaticProperties, mat: jsx.Mat): Ring {
   switch (mat[matType]) {
     case 'tester':
       return {

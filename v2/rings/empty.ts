@@ -1,4 +1,4 @@
-import { matType, type Mat } from '../mat.js'
+import { matType, type jsx } from '../mat.js'
 import {
   addChild,
   canProvideRing,
@@ -16,7 +16,7 @@ import {
  *
  * @returns Empty node
  */
-export function Empty(_: object, mat: Mat): Ring {
+export function Empty(_: object, mat: jsx.Mat): Ring {
   switch (mat[matType]) {
     case 'tester':
       return {

@@ -1,4 +1,4 @@
-import { matType, type Mat } from '../mat.js'
+import { matType, type jsx } from '../mat.js'
 import {
   addChild,
   canProvideRing,
@@ -27,7 +27,7 @@ export interface CommentProperties {
  * @param props Comment properties
  * @returns Comment node
  */
-export function Comment({ comment }: CommentProperties, mat: Mat): Ring {
+export function Comment({ comment }: CommentProperties, mat: jsx.Mat): Ring {
   switch (mat[matType]) {
     case 'tester':
       return {

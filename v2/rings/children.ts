@@ -1,5 +1,5 @@
 import { DefaultBind } from '../component.js'
-import { componentChildren, matType, type Mat } from '../mat.js'
+import { componentChildren, matType, type jsx } from '../mat.js'
 import {
   addChild,
   canProvideRing,
@@ -24,7 +24,7 @@ export interface ChildrenProperties {
    * your component's children into a "render function" of a deeper component
    * in the tree.
    */
-  context: Mat<unknown>
+  context: jsx.Mat<unknown>
 }
 
 /**
@@ -33,7 +33,7 @@ export interface ChildrenProperties {
  * @param props Children properties
  * @returns Children node
  */
-export function Children({ context }: ChildrenProperties, mat: Mat): Ring {
+export function Children({ context }: ChildrenProperties, mat: jsx.Mat): Ring {
   switch (mat[matType]) {
     case 'tester':
       return {

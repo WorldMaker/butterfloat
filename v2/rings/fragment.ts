@@ -1,5 +1,5 @@
 import { DefaultBind, type JsxChildren } from '../component.js'
-import { matType, type Mat } from '../mat.js'
+import { matType, type jsx } from '../mat.js'
 import {
   addChild,
   canProvideRing,
@@ -20,7 +20,11 @@ import {
  * @param props Fragment properties
  * @returns Fragment node
  */
-export function Fragment(_: object, mat: Mat, ...children: JsxChildren): Ring {
+export function Fragment(
+  _: object,
+  mat: jsx.Mat,
+  ...children: JsxChildren
+): Ring {
   switch (mat[matType]) {
     case 'tester':
       return {

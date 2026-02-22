@@ -1,12 +1,12 @@
 import { Observable } from 'rxjs'
 import { DefaultEvents } from '../../events.js'
-import { jsx } from '../jsx/tester.js'
-import { JsxFunction, Mat, matType } from '../mat.js'
+import { jsx as testerJsx } from '../jsx/tester.js'
+import { JsxFunction, type jsx, matType } from '../mat.js'
 import { Component } from '../component.js'
-import { describe as ringDescribe, Ring, ringType } from '../ring.js'
+import { describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 
-export class TesterMat<Events> implements Mat<Events> {
+export class TesterMat<Events> implements jsx.Mat<Events> {
   [matType] = 'tester' as const
 
   constructor(public readonly events: Events) {}
@@ -24,7 +24,7 @@ export class TesterMat<Events> implements Mat<Events> {
     return this.#immediateEffects
   }
 
-  jsx: JsxFunction = jsx.bind(this)
+  jsx: JsxFunction = testerJsx.bind(this)
 
   bindEffect = <T>(observable: Observable<T>, effect: (item: T) => void) => {
     this.#effects.push([observable, effect])
@@ -43,8 +43,8 @@ export class TesterMat<Events> implements Mat<Events> {
  */
 export interface TestComponentContext<Events = DefaultEvents> {
   describe: <T>(
-    component: Component<T, Events>,
     props: T,
+    component: Component<T, Events>,
   ) => string | NodeDescription
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,7 +63,7 @@ export function makeTestComponentContext<Events = DefaultEvents>(
 ): TestComponentContext<Events> {
   const mat = new TesterMat<Events>(events)
   return {
-    describe: <T>(component: Component<T, Events>, props: T) => {
+    describe: <T>(props: T, component: Component<T, Events>) => {
       const ring = component(props, mat)
       return ring[ringType] === 'describable'
         ? ring[ringDescribe]()
@@ -72,11 +72,4 @@ export function makeTestComponentContext<Events = DefaultEvents>(
     effects: mat.effects,
     immediateEffects: mat.immediateEffects,
   }
-}
-
-export function describe(ring: Ring): string | NodeDescription | null {
-  if (ring[ringType] === 'describable') {
-    return ring[ringDescribe]()
-  }
-  return null
 }
