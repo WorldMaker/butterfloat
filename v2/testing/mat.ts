@@ -3,7 +3,7 @@ import { DefaultEvents } from '../../events.js'
 import { jsx as testerJsx } from './jsx.js'
 import { JsxFunction, type jsx, matType } from '../mat.js'
 import { Component } from '../component.js'
-import { describe as ringDescribe, ringType } from '../ring.js'
+import { Ring, describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 
 export class TesterMat<Events> implements jsx.Mat<Events> {
@@ -39,12 +39,18 @@ export class TesterMat<Events> implements jsx.Mat<Events> {
 }
 
 /**
+ * Describe a Component's Ring output or a simple function that returns a Ring
+ */
+export type DescribeRingArgs<Props = unknown, Events = DefaultEvents> =
+  | [component: (jsx: JsxFunction) => Ring]
+  | [props: Props, component: Component<Props, Events>]
+
+/**
  * A Component Context for Testing purposes
  */
 export interface TestComponentContext<Events = DefaultEvents> {
-  describe: <T>(
-    props: T,
-    component: Component<T, Events>,
+  describeRing: <Props = unknown>(
+    ...args: DescribeRingArgs<Props, Events>
   ) => string | NodeDescription
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,11 +69,25 @@ export function makeTestComponentContext<Events = DefaultEvents>(
 ): TestComponentContext<Events> {
   const mat = new TesterMat<Events>(events)
   return {
-    describe: <T>(props: T, component: Component<T, Events>) => {
-      const ring = component(props, mat)
-      return ring[ringType] === 'describable'
-        ? ring[ringDescribe]()
-        : '<non-describable component>'
+    describeRing: <Props = unknown>(
+      ...args: DescribeRingArgs<Props, Events>
+    ) => {
+      switch (args.length) {
+        case 1: {
+          const [component] = args
+          const ring = component(mat.jsx)
+          return ring[ringType] === 'describable'
+            ? ring[ringDescribe]()
+            : '<non-describable component>'
+        }
+        case 2: {
+          const [props, component] = args
+          const ring = component(props, mat)
+          return ring[ringType] === 'describable'
+            ? ring[ringDescribe]()
+            : '<non-describable component>'
+        }
+      }
     },
     effects: mat.effects,
     immediateEffects: mat.immediateEffects,

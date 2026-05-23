@@ -13,8 +13,8 @@ import { makeTestComponentContext } from './mat.js'
 
 describe('description', () => {
   it('describes a simple static element', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => <h1>Hello</h1>)
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1>Hello</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -34,10 +34,8 @@ describe('description', () => {
   })
 
   it('describes a simple static element with a static attribute', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <h1 className="header">Hello</h1>
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1 className="header">Hello</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -58,10 +56,8 @@ describe('description', () => {
 
   it('describes a simple static element with a bind', () => {
     const className = of('header')
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <h1 bind={{ className }}>Hello</h1>
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1 bind={{ className }}>Hello</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -82,8 +78,8 @@ describe('description', () => {
 
   it('describes a simple static element with a delayed value bind', () => {
     const percent = of(0.35)
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <progress bind={{ bfDelayValue: percent }} />
     ))
     const expected: NodeDescription = {
@@ -106,10 +102,8 @@ describe('description', () => {
 
   it('describes a simple static element with a class bind', () => {
     const header = of(true)
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <h1 classBind={{ header }}>Hello</h1>
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1 classBind={{ header }}>Hello</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -130,8 +124,8 @@ describe('description', () => {
 
   it('describes a simple static element with a style bind', () => {
     const red = of('red')
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <h1 styleBind={{ backgroundColor: red }}>Hello</h1>
     ))
     const expected: NodeDescription = {
@@ -155,8 +149,8 @@ describe('description', () => {
   it('describes a simple static element with a children bind', () => {
     const TestComponent = (_props: unknown, { jsx }: jsx.Mat) => <h1>Hello</h1>
     const childrenBind = of(TestComponent)
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <h1 childrenBind={childrenBind} childrenBindMode="replace">
         Hello
       </h1>
@@ -181,10 +175,8 @@ describe('description', () => {
 
   it('describes a simple static element with an event bind', () => {
     const click = makeTestEvent(NEVER as Observable<PointerEvent>)
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <h1 events={{ click }}>Hello</h1>
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1 events={{ click }}>Hello</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -205,8 +197,8 @@ describe('description', () => {
 
   it('describes a single dynamic component', () => {
     const TestComponent = (_props: unknown, { jsx }: jsx.Mat) => <h1>Hello</h1>
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => <TestComponent />)
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <TestComponent />)
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
@@ -224,8 +216,8 @@ describe('description', () => {
       return <h1 events={{ click }}>Hello</h1>
     }
     const childrenBind = of(TestComponent)
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <TestComponent childrenBind={childrenBind} childrenBindMode="prepend" />
     ))
     const expected: NodeDescription = {
@@ -245,10 +237,8 @@ describe('description', () => {
       { jsx }: jsx.Mat,
     ) => <h1 bind={{ innerText: props.hello }} />
     const hello = of('Hello')
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <TestComponent hello={hello} />
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <TestComponent hello={hello} />)
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
@@ -271,10 +261,8 @@ describe('description', () => {
       />
     )
     const hello = of('Hello')
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <TestComponent hello={hello} />
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <TestComponent hello={hello} />)
     const expected: NodeDescription = {
       type: 'component',
       component: TestComponent,
@@ -287,8 +275,8 @@ describe('description', () => {
   })
 
   it('describes a fragment', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <>
         <h1>Hello</h1>
       </>
@@ -320,10 +308,8 @@ describe('description', () => {
     const { window } = new JSDOM()
     const { document } = window
     const staticElement = document.createElement('div')
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
-      <Static element={staticElement} />
-    ))
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <Static element={staticElement} />)
     const expected: NodeDescription = {
       type: 'static',
       element: staticElement,
@@ -332,8 +318,8 @@ describe('description', () => {
   })
 
   it('describes an empty component', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => <Empty />)
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <Empty />)
     const expected: NodeDescription = {
       type: 'empty',
     }
@@ -341,8 +327,8 @@ describe('description', () => {
   })
 
   it('describes a comment', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => <Comment comment="Hello" />)
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <Comment comment="Hello" />)
     const expected: NodeDescription = {
       type: 'comment',
       comment: 'Hello',
@@ -351,8 +337,8 @@ describe('description', () => {
   })
 
   it('describes gracefully a numeric child', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => <h1>{42}</h1>)
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => <h1>{42}</h1>)
     const expected: NodeDescription = {
       type: 'element',
       element: 'h1',
@@ -372,8 +358,8 @@ describe('description', () => {
   })
 
   it('describes gracefully an array child', () => {
-    const { describe: describeJsx } = makeTestComponentContext({})
-    const test = describeJsx({}, (_, { jsx }) => (
+    const { describeRing } = makeTestComponentContext({})
+    const test = describeRing((jsx) => (
       <h1>
         {['Hello', ' ', 'world']}
         {['!']}
