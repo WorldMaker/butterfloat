@@ -2,16 +2,16 @@ import { JSDOM } from 'jsdom'
 import { deepEqual } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, type Observable, of } from 'rxjs'
-import type { NodeDescription } from './testing/description.js'
-import { type ObservableEvent, makeTestEvent } from '../events.js'
-import { Fragment } from './rings/fragment.js'
-import { type jsx } from './mat.js'
-import { Static } from './rings/static.js'
-import { Empty } from './rings/empty.js'
-import { Comment } from './rings/comment.js'
-import { makeTestComponentContext } from './testing/mat.js'
+import type { NodeDescription } from './description.js'
+import { type ObservableEvent, makeTestEvent } from '../../events.js'
+import { Fragment } from '../rings/fragment.js'
+import { type jsx } from '../mat.js'
+import { Static } from '../rings/static.js'
+import { Empty } from '../rings/empty.js'
+import { Comment } from '../rings/comment.js'
+import { makeTestComponentContext } from './mat.js'
 
-describe('jsx', () => {
+describe('description', () => {
   it('describes a simple static element', () => {
     const { describe: describeJsx } = makeTestComponentContext({})
     const test = describeJsx({}, (_, { jsx }) => <h1>Hello</h1>)
