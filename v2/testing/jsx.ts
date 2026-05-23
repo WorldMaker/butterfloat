@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import * as JsxInternal from './internal.js'
+import * as JsxInternal from '../jsx/internal.js'
 import {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
@@ -14,11 +14,8 @@ import {
   Ring,
   ringType,
 } from '../ring.js'
-import {
-  ComponentDescription,
-  ElementDescription,
-} from '../testing/description.js'
-import { TesterMat } from '../testing/mat.js'
+import { ComponentDescription, ElementDescription } from './description.js'
+import { TesterMat } from './mat.js'
 
 /**
  * Builder for JSX and TSX transformation.

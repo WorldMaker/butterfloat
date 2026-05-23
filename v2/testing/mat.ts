@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs'
 import { DefaultEvents } from '../../events.js'
-import { jsx as testerJsx } from '../jsx/tester.js'
+import { jsx as testerJsx } from './jsx.js'
 import { JsxFunction, type jsx, matType } from '../mat.js'
 import { Component } from '../component.js'
 import { describe as ringDescribe, ringType } from '../ring.js'
