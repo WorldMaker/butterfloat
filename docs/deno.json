@@ -6,7 +6,11 @@
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
-    "serve": "deno task lume -s"
+    "serve": "deno task lume -s",
+    "portless": {
+      "description": "Run the site with portless",
+      "command": "portless butterfloat pwsh -NoProfile -Command 'deno task lume -s -p $env:PORT'"
+    }
   },
   "compilerOptions": {
     "types": ["lume/types.ts"]
