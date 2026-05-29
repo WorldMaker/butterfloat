@@ -44,6 +44,7 @@ describe('class and style bind documentation', () => {
 
     function TrafficLight() {
       const color = interval(5_000 /* ms */).pipe(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         map(() => colors[Math.round(colors.length * Math.random())]!),
         shareReplay(1),
       )

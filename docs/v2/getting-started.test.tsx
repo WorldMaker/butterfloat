@@ -35,11 +35,11 @@ describe('v2 getting started documentation', () => {
       return <p className="hello">Hello {to}</p>
     }
 
-    function Main(_: unknown, { jsx }: jsx.Mat) {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       return <Hello to="World" />
     }
 
-    const container = document.getElementById('container')!
+    const _container = document.getElementById('container')!
     // run(container, Main)
   })
 
@@ -53,7 +53,7 @@ describe('v2 getting started documentation', () => {
       return <p className="hello" bind={{ innerText }} />
     }
 
-    function Main(_: unknown, { jsx }: jsx.Mat) {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -67,7 +67,7 @@ describe('v2 getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const container = document.getElementById('container')!
+    const _container = document.getElementById('container')!
     // run(container, Main)
   })
 
@@ -107,7 +107,7 @@ describe('v2 getting started documentation', () => {
       )
     }
 
-    function Main(_: unknown, { jsx }: jsx.Mat) {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -121,7 +121,7 @@ describe('v2 getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const container = document.getElementById('container')!
+    const _container = document.getElementById('container')!
     // run(container, Main)
   })
 

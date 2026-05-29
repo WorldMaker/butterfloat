@@ -12,8 +12,8 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^(_|jsx$)',
+          argsIgnorePattern: '^(_|jsx$)',
+          varsIgnorePattern: '^(_|jsx$|Fragment$)',
           caughtErrorsIgnorePattern: '^_',
         },
       ],
