@@ -25,7 +25,9 @@ import { TesterMat } from './mat.js'
  * @returns Ring
  */
 export function jsx(
-  this: TesterMat<unknown>,
+  // it doesn't matter what sort of events or props we have on the context
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  this: TesterMat<any, any>,
   element: string | Component,
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren

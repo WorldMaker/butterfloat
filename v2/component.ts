@@ -10,7 +10,7 @@ import { type jsx } from './mat.js'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Component<Props = any, Events = any> = (
   props: Props,
-  mat: jsx.Mat<Events>,
+  mat: jsx.Mat<Events, Props>,
 ) => Ring
 
 /**

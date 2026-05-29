@@ -1,6 +1,6 @@
 ---
 title: Component Children and Dynamic Children
-order: 4
+order: 5
 ---
 
 # Component Children and Dynamic Children

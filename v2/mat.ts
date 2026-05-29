@@ -24,13 +24,36 @@ export type JsxFunction = (
   ...children: JsxChildren
 ) => Ring
 
-interface Mat<Events = DefaultEvents> {
+interface Mat<Events = DefaultEvents, Props = unknown> {
   [matType]: MatType
   [componentChildren]?: JsxChildren
+  /**
+   * Events that the component expects to bind.
+   */
   events: Events
+  /**
+   * Bind an effect.
+   */
   bindEffect: EffectHandler
+  /**
+   * Bind an effect that should run without scheduled delays.
+   */
   bindImmediateEffect: EffectHandler
+  /**
+   * JSX function to build appropriate Rings for this Mat
+   */
   jsx: JsxFunction
+  /**
+   * Mark the component as stable output regardless of props.
+   * @returns nothing
+   */
+  stamp: () => void
+  /**
+   * Mark the component as stable output when a condition is met.
+   * @param condition A function that receives the component props and returns whether the stamp matches.
+   * @returns nothing
+   */
+  stampWhen: (condition: (props: Props) => boolean) => void
 }
 
 /**

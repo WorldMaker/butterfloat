@@ -1,66 +1,37 @@
 /* eslint @typescript-eslint/no-non-null-assertion: "off" */
-import { JSDOM } from 'jsdom'
-import { writeFile } from 'node:fs/promises'
 import { describe, it } from 'node:test'
-import { NEVER, type Observable, map } from 'rxjs'
 import { ok } from 'node:assert/strict'
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  StampCollection,
-  buildStamp,
-  jsx,
-  makeTestComponentContext,
-  makeTestEvent,
-  runStamps,
-} from '../../index.js'
+import { type Observable, map } from 'rxjs'
+import { type jsx, stamp, stampWhen } from '../../v2/index.js'
 
-describe('stamps documentation', () => {
+describe('v2 stamps documentation', () => {
   // Test that the examples compile, but don't bother running them
-  it.skip('shows a simple component stamp building example', async () => {
-    const dom = new JSDOM(`
-        <!doctype html>
-        <html>
-            <head>
-                <title>Example Template</title>
-            </head>
-            <body id="app">
-            </body>
-        </html>
-    `)
-    const { window } = dom
-    const { document } = window
-    const appContainer = document.getElementById('app')!
-
-    function Hello() {
+  it('shows marking a simple component as a stamp', () => {
+    function Hello(_: unknown, { jsx, stamp }: jsx.Mat) {
+      stamp() // mark this component as a Stamp
       return <p>Hello World</p>
     }
-
-    const hello = Hello()
-    const helloStamp = buildStamp(hello)
-    helloStamp.id = 'hello-component'
-    appContainer.append(helloStamp)
-
-    await writeFile('stamp-example-index.html', dom.serialize())
+    ok(Hello)
   })
 
-  it.skip('shows a simple component stamp usage example', () => {
-    function Hello() {
-      return <p></p>
+  it('shows a shortcut for marking a simple component as a stamp', () => {
+    const Hello = stamp((jsx) => <p>Hello World</p>)
+    ok(Hello)
+  })
+
+  it('shows marking a component with bindings as a stamp', () => {
+    interface HelloProps {
+      message: Observable<string>
     }
 
-    const appContainer = document.getElementById('app')!
-    const helloStamp =
-      appContainer.querySelector<HTMLTemplateElement>('hello-component')!
-
-    const stamps = new StampCollection()
-    // This component only has one Stamp
-    stamps.registerOnlyStamp(Hello, helloStamp)
-
-    runStamps(appContainer, Hello, stamps)
+    function Hello({ message }: HelloProps, { jsx, stamp }: jsx.Mat) {
+      stamp() // mark this component as a Stamp
+      return <p bind={{ innerText: message }} />
+    }
+    ok(Hello)
   })
 
-  it.skip('shows building an example of a component with multiple stamp alternatives', async () => {
+  it('shows marking a component with multiple alternatives as a stamp', () => {
     interface RollResultProps {
       faces: number
       roll: Observable<number>
@@ -77,7 +48,13 @@ describe('stamps documentation', () => {
       }
     }
 
-    function RollResult({ faces, roll }: RollResultProps) {
+    function RollResult(
+      { faces, roll }: RollResultProps,
+      { jsx, stampWhen }: jsx.Mat<unknown, RollResultProps>,
+    ) {
+      // this HTML is stable when given the same faces value
+      // (the static `class` attribute is different for each faces value)
+      stampWhen((props) => props.faces === faces)
       const dtype = dieType(faces)
       const rollValue = roll.pipe(map((value: number) => value.toString()))
       return (
@@ -87,139 +64,62 @@ describe('stamps documentation', () => {
         ></span>
       )
     }
+    ok(RollResult)
 
-    const dom = new JSDOM(`
-        <!doctype html>
-        <html>
-            <head>
-                <title>Example Template</title>
-            </head>
-            <body id="app">
-            </body>
-        </html>
-    `)
-    const { window } = dom
-    const { document } = window
-    const appContainer = document.getElementById('app')!
+    // *** Example of using the component with different faces values ***
 
-    const d6stamp = buildStamp(RollResult({ faces: 6, roll: NEVER }), document)
-    d6stamp.id = 'roll-result-d6'
-    appContainer.append(d6stamp)
+    interface ThreeRolesProps {
+      roll1: Observable<number>
+      roll2: Observable<number>
+      roll3: Observable<number>
+    }
 
-    const d20stamp = buildStamp(
-      RollResult({ faces: 20, roll: NEVER }),
-      document,
+    /* Assuming this is the only uses of RollResult in the current run, the
+      comments below are the stamping behavior. */
+
+    const ThreeRoles = stamp(
+      (jsx, { roll1, roll2, roll3 }: ThreeRolesProps) => (
+        <div>
+          <RollResult faces={20} roll={roll1} />
+          {/* creates faces === 20 stamp */}
+          <RollResult faces={6} roll={roll2} />
+          {/* creates faces === 6 stamp */}
+          <RollResult faces={20} roll={roll3} />
+          {/* reuses stamp where faces === 20 */}
+        </div>
+      ),
     )
-    d20stamp.id = 'roll-result-d20'
-    appContainer.append(d20stamp)
-
-    const genericRollStamp = buildStamp(
-      RollResult({ faces: 99, roll: NEVER }),
-      document,
-    )
-    genericRollStamp.id = 'roll-result-generic'
-    appContainer.append(genericRollStamp)
-
-    await writeFile('index.html', dom.serialize())
+    ok(ThreeRoles)
   })
 
-  it.skip('shows building a stamp collection of alternatives', () => {
-    function Main() {
-      return <p></p>
-    }
+  it('shows a shortcut for marking a component with multiple alternatives as a stamp', () => {
     interface RollResultProps {
       faces: number
-    }
-    function RollResult(props: RollResultProps) {
-      return <p>{props.faces}</p>
+      roll: Observable<number>
     }
 
-    const appContainer = document.getElementById('app')!
-
-    const d6stamp =
-      appContainer.querySelector<HTMLTemplateElement>('roll-result-d6')!
-    const d20stamp =
-      appContainer.querySelector<HTMLTemplateElement>('roll-result-d20')!
-    const genericRollStamp = appContainer.querySelector<HTMLTemplateElement>(
-      'roll-result-generic',
-    )!
-
-    const stamps = new StampCollection()
-    stamps
-      .registerStampAlternative(RollResult, ({ faces }) => faces === 6, d6stamp)
-      .registerStampAlternative(
-        RollResult,
-        ({ faces }) => faces === 20,
-        d20stamp,
-      )
-      .registerStampAlternative(
-        RollResult,
-        ({ faces }) => faces !== 6 && faces !== 20,
-        genericRollStamp,
-      )
-
-    runStamps(appContainer, Main, stamps)
-  })
-
-  it.skip('shows using a test context to build a stamp', () => {
-    interface WinButtonEvents {
-      click: ObservableEvent<MouseEvent>
+    function dieType(faces: number) {
+      switch (faces) {
+        case 6:
+          return 'd6'
+        case 20:
+          return 'd20'
+        default:
+          return 'generic-roll'
+      }
     }
 
-    function WinButton(
-      _props: unknown,
-      { events }: ComponentContext<WinButtonEvents>,
-    ) {
-      return (
-        <button class="btn win-button" bindEvent={{ click: events.click }}>
-          Click to Win!
-        </button>
-      )
-    }
-
-    const { context: winContext } = makeTestComponentContext({
-      click: makeTestEvent<MouseEvent>(NEVER),
-    })
-    const winButtonStamp = buildStamp(WinButton({}, winContext))
-    ok(winButtonStamp)
-  })
-
-  it.skip('shows building a prestamp', async () => {
-    function Main() {
-      return <p></p>
-    }
-
-    const dom = new JSDOM(`
-        <!doctype html>
-        <html>
-            <head>
-                <title>Example Template</title>
-            </head>
-            <body id="app">
-            </body>
-        </html>
-    `)
-    const { window } = dom
-    const { document } = window
-    const appContainer = document.getElementById('app')!
-
-    const mainStamp = buildStamp(Main(), document)
-    // Fill the container with the content of the template
-    appContainer.append(mainStamp.content)
-
-    await writeFile('index.html', dom.serialize())
-  })
-
-  it.skip('shows registering a prestamp', () => {
-    function Main() {
-      return <p></p>
-    }
-
-    const appContainer = document.getElementById('app')!
-
-    const stamps = new StampCollection()
-    stamps.registerPrestamp(Main, appContainer)
-
-    runStamps(appContainer, Main, stamps)
+    const RollResult = stampWhen((jsx, { faces, roll }: RollResultProps) => ({
+      condition: (props) => props.faces === faces,
+      ring: (
+        <span
+          class={`roll-result ${dieType(faces)}`}
+          bind={{
+            innerText: roll.pipe(map((value: number) => value.toString())),
+          }}
+        ></span>
+      ),
+    }))
+    ok(RollResult)
   })
 })
