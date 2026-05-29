@@ -1,8 +1,6 @@
 ---
-layout: page.vto
 title: Migration From v1 to v2
 order: 100
-tags: [preview]
 ---
 
 Butterfloat v1.7 is the transition/preview release for Butterfloat v2.0.
