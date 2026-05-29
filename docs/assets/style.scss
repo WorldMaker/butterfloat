@@ -122,6 +122,7 @@ footer {
   padding-bottom: 0px;
   padding-top: 0px;
   border-color: var(--border-color);
+  margin-bottom: 1em;
 }
 
 .markdown-alert > span {
@@ -153,7 +154,7 @@ footer {
 }
 
 .markdown-alert.tip {
-  --border-color: var(--bulma-primary);
+  --border-color: var(--bulma-success);
 }
 
 /* *** Shiki *** */
