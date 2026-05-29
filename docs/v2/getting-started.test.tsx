@@ -13,15 +13,16 @@ import {
 } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
 import {
-  type ComponentContext,
   type ObservableEvent,
-  jsx,
+  type jsx,
+  // run,
+} from '../../v2/index.js'
+import {
   makeTestComponentContext,
   makeTestEvent,
-  run,
-} from '../index.js'
+} from '../../v2/testing/index.js'
 
-describe('getting started documentation', () => {
+describe('v2 getting started documentation', () => {
   // These are mostly skips because we want to test compilation
   // more than behavior
 
@@ -30,16 +31,16 @@ describe('getting started documentation', () => {
       to: string
     }
 
-    function Hello({ to }: HelloProps) {
+    function Hello({ to }: HelloProps, { jsx }: jsx.Mat) {
       return <p className="hello">Hello {to}</p>
     }
 
-    function Main() {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       return <Hello to="World" />
     }
 
-    const container = document.getElementById('container')!
-    run(container, Main)
+    const _container = document.getElementById('container')!
+    // run(container, Main)
   })
 
   it.skip('supports the dynamic example', () => {
@@ -47,12 +48,12 @@ describe('getting started documentation', () => {
       to: Observable<string>
     }
 
-    function Hello({ to }: HelloProps) {
+    function Hello({ to }: HelloProps, { jsx }: jsx.Mat) {
       const innerText = to.pipe(map((to) => `Hello ${to}`))
       return <p className="hello" bind={{ innerText }} />
     }
 
-    function Main() {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -66,8 +67,8 @@ describe('getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const container = document.getElementById('container')!
-    run(container, Main)
+    const _container = document.getElementById('container')!
+    // run(container, Main)
   })
 
   it.skip('supports the interactable example', () => {
@@ -79,10 +80,7 @@ describe('getting started documentation', () => {
       toggleGreeting: ObservableEvent<MouseEvent>
     }
 
-    function Hello(
-      { to }: HelloProps,
-      { events }: ComponentContext<HelloEvents>,
-    ) {
+    function Hello({ to }: HelloProps, { events, jsx }: jsx.Mat<HelloEvents>) {
       const { toggleGreeting } = events
 
       // starting with "Hello", alternate "Hello" and "Good Night"
@@ -109,7 +107,7 @@ describe('getting started documentation', () => {
       )
     }
 
-    function Main() {
+    function _Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -123,8 +121,8 @@ describe('getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const container = document.getElementById('container')!
-    run(container, Main)
+    const _container = document.getElementById('container')!
+    // run(container, Main)
   })
 
   it('runs the togglesGreeting test', () => {
@@ -139,10 +137,7 @@ describe('getting started documentation', () => {
       toggleGreeting: ObservableEvent<MouseEvent>
     }
 
-    function Hello(
-      { to }: HelloProps,
-      { events }: ComponentContext<HelloEvents>,
-    ) {
+    function Hello({ to }: HelloProps, { events, jsx }: jsx.Mat<HelloEvents>) {
       const { toggleGreeting } = events
 
       // starting with "Hello", alternate "Hello" and "Good Night"
@@ -184,9 +179,10 @@ describe('getting started documentation', () => {
         y: 'Good Night World',
       }
       const toggleGreeting = makeTestEvent(events)
-      const { context } = makeTestComponentContext({ toggleGreeting })
+      const { describeRing } = makeTestComponentContext({ toggleGreeting })
 
-      const div = Hello({ to: of('World') }, context)
+      const div = describeRing({ to: of('World') }, Hello)
+      ok(typeof div === 'object')
       equal(div.type, 'element')
       const p = div.children[0]
       ok(typeof p === 'object')

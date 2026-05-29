@@ -1,8 +1,6 @@
 ---
-layout: page.vto
 title: Class and Style Binding
 order: 3
-tags: ['stable']
 ---
 
 # Class and Style Binding

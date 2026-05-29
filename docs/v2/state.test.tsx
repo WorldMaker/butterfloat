@@ -5,7 +5,7 @@ import {
   type StateSetter,
   butterfly,
   jsx,
-} from '../index.js'
+} from '../../index.js'
 import { type Observable, map } from 'rxjs'
 import { ok } from 'assert/strict'
 
