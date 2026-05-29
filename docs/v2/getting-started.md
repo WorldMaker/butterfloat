@@ -1,8 +1,6 @@
 ---
-layout: page.vto
 title: Getting Started with Butterfloat (and a Brief Tour of Butterfloat)
 order: 1
-tags: ['stable']
 ---
 
 # Getting Started with Butterfloat (and a Brief Tour of Butterfloat)
@@ -187,17 +185,17 @@ We can create a simple Hello World `Hello` and `Main` component in
 `main.tsx`:
 
 ```tsx
-import { jsx, run } from 'butterfloat'
+import { type jsx, run } from 'butterfloat'
 
 interface HelloProps {
   to: string
 }
 
-function Hello({ to }: HelloProps) {
+function Hello({ to }: HelloProps, { jsx }: jsx.Mat) {
   return <p className="hello">Hello {to}</p>
 }
 
-function Main() {
+function Main(_: unknown, { jsx }: jsx.Mat) {
   return <Hello to="World" />
 }
 
@@ -205,8 +203,8 @@ const container = document.getElementById('container')!
 run(container, Main)
 ```
 
-Other than the imports, this may look a lot like a React functional
-component going way back.
+Other than the imports and the special second parameter, this may look a
+lot like a React functional component going way back.
 
 While Butterfloat and React share TSX and have a lot of surface
 similarities including accepting props, the behaviors of components
@@ -229,26 +227,26 @@ Observables). To add some dynamic changes to our example we'll need to
 _bind_ an Observable.
 
 ```tsx
-import { jsx, run } from 'butterfloat'
+import { type jsx, run } from 'butterfloat'
 import { type Observable, concat, interval, of, map } from 'rxjs'
 
 interface HelloProps {
   to: Observable<string>
 }
 
-function Hello({ to }: HelloProps) {
+function Hello({ to }: HelloProps, { jsx }: jsx.Mat) {
   const innerText = to.pipe(map((to) => `Hello ${to}`))
   return <p className="hello" bind={{ innerText }} />
 }
 
-function Main() {
+function Main(_: unknown, { jsx }: jsx.Mat) {
   const greetable = ['World', 'Butterfloat', 'User']
 
   // starting with "World" show a random greeting every 15 seconds
   const helloTo = concat(
     of('World'),
     interval(15_000 /* ms */).pipe(
-      map(() => greetable[Math.floor(Math.random() * greetable.length)]!),
+      map(() => greetable[Math.floor(Math.random() * greetable.length)]),
     ),
   )
 
@@ -265,11 +263,12 @@ inside of this element is to bind to the DOM property `innerText` and
 we'd lose any JSX text already there, so we move the "Hello" text up
 into our innerText Observable.
 
-Quick TSX reminder: `bind={{ innertext }}` is not a new syntax, but
-a object constructor inside of a TSX attribute using some additional
-shorthand. It's equivalent to `bind={{ innnerText: innerText }}` if
-that helps you better visualize what is happening in the example
-above.
+> [!TIP]
+> Quick TSX reminder: `bind={{ innertext }}` is not a new syntax, but
+> an object constructor inside of a TSX attribute using some additional
+> shorthand. It's equivalent to `bind={{ innnerText: innerText }}` if
+> that helps you better visualize what is happening in the example
+> above.
 
 ## Let's Make it Interactable
 
@@ -277,12 +276,7 @@ An application isn't all that exciting if you can't interact with it,
 so let's add a simple button to press to change it's mood:
 
 ```tsx
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  jsx,
-  run,
-} from 'butterfloat'
+import { type ObservableEvent, type jsx, run } from 'butterfloat'
 import {
   type Observable,
   combineLatest,
@@ -303,7 +297,7 @@ interface HelloEvents {
 
 export function Hello(
   { to }: HelloProps,
-  { events }: ComponentContext<HelloEvents>,
+  { events, jsx }: jsx.Mat<HelloEvents>,
 ) {
   const { toggleGreeting } = events
 
@@ -328,14 +322,14 @@ export function Hello(
   )
 }
 
-function Main() {
+function Main(_: unknown, { jsx }: jsx.Mat) {
   const greetable = ['World', 'Butterfloat', 'User']
 
   // starting with "World" show a random greeting every 15 seconds
   const helloTo = concat(
     of('World'),
     interval(15_000 /* ms */).pipe(
-      map(() => greetable[Math.floor(Math.random() * greetable.length)]),
+      map(() => greetable[Math.floor(Math.random() * greetable.length)]!),
     ),
   )
 
@@ -346,11 +340,18 @@ const container = document.getElementById('container')!
 run(container, Main)
 ```
 
-This is where we start to see things diverge from React function
-components as we know them. The second parameter to Butterfloat
-component is a fancy type called the `ComponentContext`. One of the
-things this Component Context is useful for is dependency injecting
-our events observables.
+This is where we really start to see things diverge from React function
+components as we know them. The second parameter to a Butterfloat
+component is a fancy type called the `jsx.Mat`. This provides a context
+for the component. It passes our runtime `jsx` function, which is why
+it shows up in every example so far. One of the other things this Mat is
+useful for is dependency injecting our events observables.
+
+> [!NOTE]
+> Why is called a "Mat"? You may be typing it a lot, so a short name is
+> handy. Mat could stand for "material" as the in construction material
+> you are building the component out of. The "boxing metaphor" is that
+> it is a boxing mat that you are building your boxing ring out of.
 
 In this case, we want to know when our "Change Mood" button is
 clicked and we're calling that our `toggleGreeting` event, which
@@ -388,9 +389,10 @@ describe('hello component', () => {
         y: 'Good Night World',
       }
       const toggleGreeting = makeTestEvent(events)
-      const { context } = makeTestComponentContext({ toggleGreeting })
+      const { describeRing } = makeTestComponentContext({ toggleGreeting })
 
-      const div = Hello({ to: of('World') }, context)
+      const div = describeRing({ to: of('World') }, Hello)
+      ok(typeof div === 'object')
       equal(div.type, 'element')
       const p = div.children[0]
       ok(typeof p === 'object')

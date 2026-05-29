@@ -5,7 +5,7 @@ import {
   type ObservableEvent,
   butterfly,
   jsx,
-} from '../index.js'
+} from '../../index.js'
 import { interval, map, shareReplay } from 'rxjs'
 
 describe('class and style bind documentation', () => {
