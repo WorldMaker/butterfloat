@@ -1,17 +1,16 @@
 import { describe, it } from 'node:test'
 import {
-  type ComponentContext,
   type ObservableEvent,
   type StateSetter,
   butterfly,
-  jsx,
-} from '../../index.js'
+  type jsx,
+} from '../../v2/index.js'
 import { type Observable, map } from 'rxjs'
 import { ok } from 'assert/strict'
 
-describe('state management documentation', () => {
+describe('v2 state management documentation', () => {
   it('shows a simple garden stats block', () => {
-    function Garden() {
+    function Garden(_: unknown, { jsx }: jsx.Mat) {
       const [money, _setMoney] = butterfly(1)
       const [labor, _setLabor] = butterfly(0)
 
@@ -48,7 +47,7 @@ describe('state management documentation', () => {
 
     function Garden(
       _props: unknown,
-      { bindEffect, events }: ComponentContext<GardenEvents>,
+      { bindEffect, events, jsx }: jsx.Mat<GardenEvents>,
     ) {
       const [money, setMoney] = butterfly(1)
       const [labor, setLabor] = butterfly(0)
@@ -144,7 +143,7 @@ describe('state management documentation', () => {
 
     function Garden(
       _props: unknown,
-      { bindEffect, events }: ComponentContext<GardenEvents>,
+      { bindEffect, events, jsx }: jsx.Mat<GardenEvents>,
     ) {
       const vm = new GardenState()
 

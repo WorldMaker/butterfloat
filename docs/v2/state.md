@@ -29,10 +29,10 @@ Let's add a few butterflies to represent our resources, with very
 simple HTML status bars.
 
 ```tsx
-import { butterfly, jsx } from 'butterfloat'
+import { butterfly, type jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
-export function Garden() {
+export function Garden(_: unknown, { jsx }: jsx.Mat) {
   const [money, setMoney] = butterfly(1)
   const [labor, setLabor] = butterfly(0)
 
@@ -80,12 +80,7 @@ Let's add our first garden activity. We'll call it "Rake" and have
 it take 15% of our money budget and use 30% of our labor resources.
 
 ```tsx
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  butterfly,
-  jsx,
-} from 'butterfloat'
+import { type ObservableEvent, butterfly, type jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}
@@ -96,7 +91,7 @@ interface GardenEvents {
 
 function Garden(
   props: GardenProps,
-  { bindEffect, events }: ComponentContext<GardenEvents>,
+  { bindEffect, events, jsx }: jsx.Mat<GardenEvents>,
 ) {
   const [money, setMoney] = butterfly(1)
   const [labor, setLabor] = butterfly(0)
@@ -236,12 +231,7 @@ It's just as simple to update our Garden component to use this VM
 instead of directly embedding its state:
 
 ```tsx
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  butterfly,
-  jsx,
-} from 'butterfloat'
+import { type ObservableEvent, butterfly, type jsx } from 'butterfloat'
 import { map } from 'rxjs'
 
 interface GardenProps {}
@@ -252,7 +242,7 @@ interface GardenEvents {
 
 function Garden(
   props: GardenProps,
-  { bindEffect, events }: ComponentContext<GardenEvents>,
+  { bindEffect, events, jsx }: jsx.Mat<GardenEvents>,
 ) {
   const vm = new GardenState()
 
