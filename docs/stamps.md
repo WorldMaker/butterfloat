@@ -133,29 +133,32 @@ A Component may vary its static DOM parts based upon static properties.
 
 For a simple example:
 
-```ts
+```tsx
 import { jsx } from 'butterfloat'
 import { type Observable, map } from 'rxjs'
 
 export interface RollResultProps {
-    faces: number
-    roll: Observable<number>
+  faces: number
+  roll: Observable<number>
 }
 
 function dieType(faces: number) {
-    switch (faces) {
-        case 6: return 'd6'
-        case 20: return 'd20'
-        default: return 'generic-roll'
-    }
+  switch (faces) {
+    case 6:
+      return 'd6'
+    case 20:
+      return 'd20'
+    default:
+      return 'generic-roll'
+  }
 }
 
 export function RollResult({ faces, roll }: RollResultProps) {
-    const dtype = dieType(faces)
-    const rollValue = roll.pipe(map((value: number) => value.toString()))
-    return (
+  const dtype = dieType(faces)
+  const rollValue = roll.pipe(map((value: number) => value.toString()))
+  return (
     <span class={`roll-result ${dtype}`} bind={{ innerText: rollValue }}></span>
-    )
+  )
 }
 ```
 

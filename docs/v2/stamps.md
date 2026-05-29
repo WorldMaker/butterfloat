@@ -1,62 +1,216 @@
 ---
 title: Stamps
-order: 6
+order: 4
 ---
 
 # Stamps
 
 If you've been following along from the [Getting Started][started] path,
-we would have most recently explored
-[advanced binding tools such as Suspense][suspense]. Stamps are a similarly
-advanced tool, but may be easier to pick up and explore.
+you have seen several styles of bindings such as
+[Class and Style Binding][style].
 
-## Optimizing for Server-Side Rendering and/or Progressive Enhancement
+It is useful for server-side rendering and progressive enhancement
+scenarios to consider not just what dynamic parts get bound, but which
+parts are truly stable and under what conditions.
 
-Butterfloat is reasonably well-optimized for a good default DOM rendering
-experience. In the lifetime of a component, the static parts of the DOM
-are built once and only once.
+Butterfloat supports reusable templates known Stamps. We can opt
+components into direct reuse of their templates (stamping them instead
+or rebuilding them) by marking them as a stamp.
 
-However, sometimes doing things even just once may need to be optimized.
-If your website or app is producing lots of the same component, it can
-help to memoize the DOM tree creation. If you are worried about time to
-meaningful content paint and hoping to serve the under-privileged with
-any combination of slow network access, slow browsers, and limited memory,
-you might want to bake as much of the static DOM parts as you can into HTML
-for the browser's highly optimized HTML parser. There are plenty more
-reasons besides those to seek further "server-side rendering" or
-"progressive enhancement" tools.
-
-Butterfloat's building blocks for optimizing these scenarios are called
-Stamps. Any Butterfloat Component that is designed to be easily unit
-tested should be capable of being built into a stamp. If the static DOM
-is predictable given the static properties passed into it, you can build
-a stamp of every static property variation that makes sense to optimize.
-With any DOM library such as JSDOM you should be able to build these
-stamps easily in Node or Deno (or even in a browser), either locally
-ahead of time or automated in a server-side render.
-
-Stamps have markers for the interactive bindings of a Component and once
-a stamp has been associated with that Component with the applicable
-properties, the stamp can be used to instantiate a fully interactive
-component. Other than making sure that the Component is unit testable
-and the static DOM output is deterministic (given applied properties)
-and stable there are no other changes to the way that a Component is
-written. There's no concept of "server component" or "client component"
-to be concerned with. There's no need to mark "islands". Butterfloat
-already understands your bindings and will progressively enhance the
-stamps you give it into a working, interactive components at runtime.
-
-## Build a Stamp from a Simple Component
+## Marking a Simple Component as a Stamp
 
 Given the most basic sort of component:
 
 ```tsx
-import { jsx } from 'butterfloat'
+import { type jsx } from 'butterfloat'
 
-export function Hello() {
+export function Hello(_: unknown, { jsx }: jsx.Mat) {
   return <p>Hello World</p>
 }
 ```
+
+We know from [Getting Started][started] that components that look like
+they return static HTML actually return static HTML. We can take more
+advantage of this and tell Butterfloat that every time it encounters
+this `<Hello />` component that it can reuse the same template HTML.
+
+We do this by marking this as a stamp with component's Mat:
+
+```tsx
+import { type jsx } from 'butterfloat'
+
+export function Hello(_: unknown, { jsx, stamp }: jsx.Mat) {
+  stamp() // mark this component as a Stamp
+  return <p>Hello World</p>
+}
+```
+
+This states that the HTML is stable no matter what props are passed to
+the component. There's no if condition or switch or ternary
+(such as `something ? <p>A</p> : <p>B</p>`) that produces different
+HTML. That's why it is an opt-in mark, it's up to you to make sure that
+the component's HTML is actually stable, otherwise you will get caching
+problems when the wrong HTML is cached and attempted to be reused.
+
+When marked as a stamp, the first time `<Hello />` is encountered a
+template is built, and then that template is reused for any additional
+usages without needing to build it again.
+
+### Shortcut for Truly Simple Components
+
+This most basic form of component that only needs a `jsx.Mat` to mark
+a component as a stamp and get access to the `jsx` function is
+relatively common for small, stable components. To help make these
+faster to write, Butterfloat offers a `stamp` helper function:
+
+```tsx
+import { type jsx, stamp } from 'butterfloat'
+
+// stamp() creates a component with no props that is marked as a stamp
+export const Hello = stamp((jsx) => <p>Hello World</p>)
+```
+
+## Marking a Component With Bindings as a Stamp
+
+Bindings such as we've seen in previous pages count as stable so far as
+the HTML output of a component is concerned. You can mark components
+with any number of bindings as stable. This makes sense as a stamp:
+
+```tsx
+import { type jsx } from 'butterfloat'
+import { type Observable } from 'rxjs'
+
+export interface HelloProps {
+  message: Observable<string>
+}
+
+export function Hello({ message }: HelloProps, { jsx, stamp }: jsx.Mat) {
+  stamp() // mark this component as a Stamp
+  return <p bind={{ innerText: message }} />
+}
+```
+
+The HTML is still stable even with `bind`. The output HTML is always
+something like `<p data-bf-bind="a1g3"></p>` where Butterfloat manages
+an opaque "bind ID" system to connect the bindings to the appropriate
+DOM elements when it is time to do so.
+
+## Marking a Stamp with Multiple Alternatives
+
+A Component may vary its static DOM parts based upon static properties.
+This sort of Component may still qualify as a Stamp, where the templates
+get reused only if the static properties match.
+
+There is a variable stamp marker called `stampWhen(condition)`.
+
+For a simple example:
+
+```tsx
+import { type jsx } from 'butterfloat'
+import { type Observable, map } from 'rxjs'
+
+export interface RollResultProps {
+  faces: number
+  roll: Observable<number>
+}
+
+function dieType(faces: number) {
+  switch (faces) {
+    case 6:
+      return 'd6'
+    case 20:
+      return 'd20'
+    default:
+      return 'generic-roll'
+  }
+}
+
+export function RollResult(
+  { faces, roll }: RollResultProps,
+  { jsx, stampWhen }: jsx.Mat<unknown, RollResultProps>,
+) {
+  // this HTML is stable when given the same faces value
+  // (the static `class` attribute is different for each faces value)
+  stampWhen((props) => props.faces === faces)
+  const dtype = dieType(faces)
+  const rollValue = roll.pipe(map((value: number) => value.toString()))
+  return (
+    <span class={`roll-result ${dtype}`} bind={{ innerText: rollValue }}></span>
+  )
+}
+```
+
+Each time Butterfloat encounters a new `faces` value, it will generate
+a new stamp. But if it encounters a `faces` value it has already stamped
+it will reuse the appropriate stamp.
+
+```tsx
+import { type jsx, stamp } from 'butterfloat'
+
+export interface ThreeRolesProps {
+  roll1: Observable<number>
+  roll2: Observable<number>
+  roll3: Observable<number>
+}
+
+/* Assuming this is the only uses of RollResult in the current run, the
+   comments below are the stamping behavior. */
+
+export const ThreeRoles = stamp(
+  (jsx, { roll1, roll2, roll3 }: ThreeRolesProps) => (
+    <div>
+      <RollResult faces={20} roll={roll1} />
+      {/* creates faces === 20 stamp */}
+      <RollResult faces={6} roll={roll2} />
+      {/* creates faces === 6 stamp */}
+      <RollResult faces={20} roll={roll3} />
+      {/* reuses stamp where faces === 20 */}
+    </div>
+  ),
+)
+```
+
+### Shortcut for Simple Stamps with Alternates
+
+Butterfloat also provides a top-level `stampWhen()` helper for common,
+simple cases. For example:
+
+```tsx
+import { type jsx } from 'butterfloat'
+import { type Observable, map } from 'rxjs'
+
+export interface RollResultProps {
+  faces: number
+  roll: Observable<number>
+}
+
+function dieType(faces: number) {
+  switch (faces) {
+    case 6:
+      return 'd6'
+    case 20:
+      return 'd20'
+    default:
+      return 'generic-roll'
+  }
+}
+
+export const RollResult = stampWhen(
+  (jsx, { faces, roll }: RollResultProps) => ({
+    condition: (props) => props.faces === faces,
+    ring: (
+      <span
+        class={`roll-result ${dieType(faces)}`}
+        bind={{
+          innerText: roll.pipe(map((value: number) => value.toString())),
+        }}
+      ></span>
+    ),
+  }),
+)
+```
+
+## TODO: Building stamps (OUTDATED)
 
 we just need to run the component
 once to get its Node Descriptions and pass that to `buildStamp` to
@@ -125,7 +279,7 @@ stamps.registerOnlyStamp(Hello, helloStamp)
 runStamps(appContainer, Hello, stamps)
 ```
 
-## Build a Stamp with Multiple Alternatives
+## TODO: Build a Stamp with Multiple Alternatives (OUTDATED)
 
 A Component may vary its static DOM parts based upon static properties.
 
@@ -230,7 +384,7 @@ stamps
 runStamps(appContainer, Main, stamps)
 ```
 
-## Build a Stamp with a Test Context
+## TODO: Build a Stamp with a Test Context (OUTDATED)
 
 To build a Stamp from a component that needs a Context, use the same
 `makeTestContext` and `makeTestEvent` you would for unit testing that
@@ -256,7 +410,7 @@ const { context: winContext } = makeTestComponentContext({
 export const winButtonStamp = buildStamp(WinButton({}, winContext))
 ```
 
-## Build a Prestamp
+## TODO: Build a Prestamp (OUTDATED)
 
 The general experience of Stamps is `<template>` tags that do not render
 anything until cloned while activating a Component. For "progressive
@@ -308,4 +462,4 @@ runStamps(appContainer, Main, stamps)
 ```
 
 [started]: ./getting-started.md
-[suspense]: ./suspense.md
+[style]: ./style.md

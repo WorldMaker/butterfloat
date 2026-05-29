@@ -17,10 +17,7 @@ import {
   type jsx,
   // run,
 } from '../../v2/index.js'
-import {
-  makeTestComponentContext,
-  makeTestEvent,
-} from '../../v2/testing/index.js'
+import { describeRing, makeTestEvent } from '../../v2/testing/index.js'
 
 describe('v2 getting started documentation', () => {
   // These are mostly skips because we want to test compilation
@@ -179,9 +176,12 @@ describe('v2 getting started documentation', () => {
         y: 'Good Night World',
       }
       const toggleGreeting = makeTestEvent(events)
-      const { describeRing } = makeTestComponentContext({ toggleGreeting })
 
-      const div = describeRing({ to: of('World') }, Hello)
+      const { description: div } = describeRing(
+        { to: of('World') },
+        { toggleGreeting },
+        Hello,
+      )
       ok(typeof div === 'object')
       equal(div.type, 'element')
       const p = div.children[0]

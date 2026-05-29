@@ -1,6 +1,6 @@
 ---
 title: Suspense and Advanced Binding
-order: 5
+order: 6
 ---
 
 # Suspense and Advanced Binding

@@ -363,7 +363,7 @@ them with the full power of RxJS "marble testing". For instance:
 ```ts
 import { deepEqual, equal, ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { makeTestEvent, makeTestComponentContext } from 'butterfloat'
+import { describeRing, makeTestEvent } from 'butterfloat/testing'
 import { JSDOM } from 'jsdom'
 import { of } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
@@ -389,9 +389,12 @@ describe('hello component', () => {
         y: 'Good Night World',
       }
       const toggleGreeting = makeTestEvent(events)
-      const { describeRing } = makeTestComponentContext({ toggleGreeting })
 
-      const div = describeRing({ to: of('World') }, Hello)
+      const { description: div } = describeRing(
+        { to: of('World') },
+        { toggleGreeting },
+        Hello,
+      )
       ok(typeof div === 'object')
       equal(div.type, 'element')
       const p = div.children[0]

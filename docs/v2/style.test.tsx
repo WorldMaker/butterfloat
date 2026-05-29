@@ -1,14 +1,9 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  butterfly,
-  jsx,
-} from '../../index.js'
+import { type ObservableEvent, butterfly, type jsx } from '../../v2/index.js'
 import { interval, map, shareReplay } from 'rxjs'
 
-describe('class and style bind documentation', () => {
+describe('v2 class and style bind documentation', () => {
   it('shows a class binding example', () => {
     interface HighlightEvents {
       toggleHighlight: ObservableEvent<MouseEvent>
@@ -16,7 +11,7 @@ describe('class and style bind documentation', () => {
 
     function Highlight(
       _props: unknown,
-      { bindEffect, events }: ComponentContext<HighlightEvents>,
+      { bindEffect, events, jsx }: jsx.Mat<HighlightEvents>,
     ) {
       const { toggleHighlight } = events
 
@@ -42,7 +37,7 @@ describe('class and style bind documentation', () => {
   it('shows a style binding example', () => {
     const colors = ['red', 'yellow', 'green']
 
-    function TrafficLight() {
+    function TrafficLight(_: unknown, { jsx }: jsx.Mat) {
       const color = interval(5_000 /* ms */).pipe(
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         map(() => colors[Math.round(colors.length * Math.random())]!),

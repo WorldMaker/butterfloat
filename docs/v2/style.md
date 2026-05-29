@@ -20,12 +20,7 @@ based on the value observed. (It binds `classList.add` and
 toggles a "highlight" effect by toggling a `.highlight` CSS class:
 
 ```tsx
-import {
-  type ComponentContext,
-  type ObservableEvent,
-  butterfly,
-  jsx,
-} from 'butterfloat'
+import { type ObservableEvent, butterfly, type jsx } from 'butterfloat'
 
 interface HighlightProps {}
 
@@ -35,7 +30,7 @@ interface HighlightEvents {
 
 function Highlight(
   props: HighlightProps,
-  { bindEffect, events }: ComponentContext<HighlightEvents>,
+  { bindEffect, events, jsx }: jsx.Mat<HighlightEvents>,
 ) {
   const { toggleHighlight } = events
 
@@ -68,12 +63,12 @@ An example using a terrible random traffic light (maybe it is
 representing a child playing "Red Light, Green Light"):
 
 ```tsx
-import { jsx } from 'butterfloat'
+import { type jsx } from 'butterfloat'
 import { interval, map, shareReplay } from 'rxjs'
 
 const colors = ['red', 'yellow', 'green']
 
-function TrafficLight() {
+function TrafficLight(_: unknown, { jsx }: jsx.Mat) {
   const color = interval(5_000 /* ms */).pipe(
     map(() => colors[Math.round(colors.length * Math.random())]!),
     shareReplay(1),
