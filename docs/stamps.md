@@ -52,7 +52,7 @@ stamps you give it into a working, interactive components at runtime.
 
 Given the most basic sort of component:
 
-```ts
+```tsx
 import { jsx } from 'butterfloat'
 
 export function Hello() {
@@ -72,8 +72,9 @@ const hello = Hello()
 export const helloStamp = buildStamp(hello)
 ```
 
-?> If you are using a DOM library with its own `document` object, you
-can pass it as the second argument to `buildStamp`.
+> [!TIP]
+> If you are using a DOM library with its own `document` object, you
+> can pass it as the second argument to `buildStamp`.
 
 The Stamp output will be a `<template>` tag (`HTMLTemplateElement`) that
 you can serialize (such as with `outerHTML`) or `append` to some other
