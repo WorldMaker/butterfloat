@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs'
-import { jsx as testerJsx } from './jsx.js'
 import { JsxFunction, type jsx, matType } from '../mat.js'
-import { Component } from '../component.js'
+import { ButterfloatAttributes, Component, JsxChildren } from '../component.js'
 import { Ring, describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
+import { ringDescriber } from './rings/describe.js'
 
 export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
   [matType] = 'tester' as const
@@ -31,7 +31,11 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
     return this.#stampCondition
   }
 
-  jsx: JsxFunction = testerJsx.bind(this)
+  jsx: JsxFunction = (
+    element: string | Component,
+    attributes: ButterfloatAttributes | null,
+    ...children: JsxChildren
+  ) => ringDescriber(this, element, attributes, ...children)
 
   bindEffect = <T>(observable: Observable<T>, effect: (item: T) => void) => {
     this.#effects.push([observable, effect])

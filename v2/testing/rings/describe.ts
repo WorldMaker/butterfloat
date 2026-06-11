@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import * as JsxInternal from '../jsx/internal.js'
 import {
   ButterfloatAttributes,
   ButterfloatIntrinsicAttributes,
   Component,
   JsxChildren,
-} from '../component.js'
+} from '../../component.js'
 import {
   DescribableRing,
   describe,
@@ -13,21 +11,12 @@ import {
   isRingProviderWithChildren,
   Ring,
   ringType,
-} from '../ring.js'
-import { ComponentDescription, ElementDescription } from './description.js'
-import { TesterMat } from './mat.js'
+} from '../../ring.js'
+import { ComponentDescription, ElementDescription } from '../description.js'
+import { TesterMat } from '../mat.js'
 
-/**
- * Builder for JSX and TSX transformation.
- * @param element An element to build
- * @param attributes Attributes
- * @param children Children
- * @returns Ring
- */
-export function jsx(
-  // it doesn't matter what sort of events or props we have on the context
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  this: TesterMat<any, any>,
+export function ringDescriber<Events, Props>(
+  mat: TesterMat<Events, Props>,
   element: string | Component,
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
@@ -81,14 +70,10 @@ export function jsx(
   if (typeof element === 'function') {
     // immediately flatten fragments or children or statics
     if (isRingProviderWithChildren(element)) {
-      const ring = element(
-        attributes ?? {},
-        this ?? new TesterMat({}),
-        ...children,
-      )
+      const ring = element(attributes ?? {}, mat, ...children)
       return ring as DescribableRing
     } else if (isRingProvider(element)) {
-      const ring = element(attributes ?? {}, this ?? new TesterMat({}))
+      const ring = element(attributes ?? {}, mat)
       return ring as DescribableRing
     }
 
@@ -109,14 +94,4 @@ export function jsx(
     }
   }
   throw new Error(`Unsupported jsx in ${element}`)
-}
-
-/**
- * Builder for JSX and TSX transformation.
- */
-export declare namespace jsx {
-  /**
-   * JSX typing internals
-   */
-  export import JSX = JsxInternal
 }
