@@ -73,7 +73,7 @@ export interface RingProvider {
 }
 
 export type RingProviderWithChildren = RingProvider &
-  ((props: object, mat: jsx.Mat<unknown>, ...children: JsxChildren) => Ring)
+  ((props: object, mat: jsx.Mat, ...children: JsxChildren) => Ring)
 
 export function isRingProvider(value: unknown): value is RingProvider {
   return (

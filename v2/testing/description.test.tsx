@@ -210,8 +210,8 @@ describe('description', () => {
   })
 
   it('describes a single dynamic component with children bind', () => {
-    const TestComponent = (_props: unknown, { events, jsx }: jsx.Mat) => {
-      const click = events.click as ObservableEvent<PointerEvent>
+    const TestComponent = (_props: unknown, { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>) => {
+      const { click } = events
       return <h1 events={{ click }}>Hello</h1>
     }
     const childrenBind = of(TestComponent)
@@ -252,11 +252,11 @@ describe('description', () => {
   it('describes a single dynamic context component with custom prop and events', () => {
     const TestComponent = (
       props: { hello: Observable<string> },
-      { events, jsx }: jsx.Mat,
+      { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>,
     ) => (
       <h1
         bind={{ innerText: props.hello }}
-        events={{ click: events.click as ObservableEvent<PointerEvent> }}
+        events={{ click: events.click }}
       />
     )
     const hello = of('Hello')
