@@ -210,7 +210,10 @@ describe('description', () => {
   })
 
   it('describes a single dynamic component with children bind', () => {
-    const TestComponent = (_props: unknown, { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>) => {
+    const TestComponent = (
+      _props: unknown,
+      { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>,
+    ) => {
       const { click } = events
       return <h1 events={{ click }}>Hello</h1>
     }
@@ -254,10 +257,7 @@ describe('description', () => {
       props: { hello: Observable<string> },
       { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>,
     ) => (
-      <h1
-        bind={{ innerText: props.hello }}
-        events={{ click: events.click }}
-      />
+      <h1 bind={{ innerText: props.hello }} events={{ click: events.click }} />
     )
     const hello = of('Hello')
     const { description: test } = describeRing((jsx) => (
