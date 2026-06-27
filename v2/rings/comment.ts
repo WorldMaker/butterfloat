@@ -46,7 +46,7 @@ export function Comment({ comment }: CommentProperties, mat: jsx.Mat): Ring {
         },
         [toElement]: (document) => {
           const commentEle = document.createElement('bf-comment')
-          commentEle.setAttribute('comment', comment)
+          commentEle.appendChild(document.createComment(comment))
           return commentEle
         },
       }

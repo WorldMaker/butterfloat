@@ -14,6 +14,24 @@ import {
   ElementBindDescription,
 } from '../ring.js'
 
+function addChildren(
+  container: Element | DocumentFragment,
+  document: Document,
+  children: JsxChildren,
+) {
+  for (const child of children) {
+    if (typeof child === 'string') {
+      container.appendChild(document.createTextNode(child))
+      continue
+    }
+    if (child[ringType] !== 'buildable') {
+      console.warn('Fragment child is not buildable, skipping', child)
+      continue
+    }
+    child[addChild](container, document)
+  }
+}
+
 /**
  * Attach a fragment to the DOM tree
  *
@@ -44,32 +62,11 @@ export function Fragment(
       return {
         [ringType]: 'buildable',
         [toBinds]: () => null,
-        [addChild]: (container, document) => {
-          for (const child of children) {
-            if (typeof child === 'string') {
-              container.appendChild(document.createTextNode(child))
-              continue
-            }
-            if (child[ringType] !== 'buildable') {
-              console.warn('Fragment child is not buildable, skipping', child)
-              continue
-            }
-            child[addChild](container, document)
-          }
-        },
+        [addChild]: (container, document) =>
+          addChildren(container, document, children),
         [toElement]: (document) => {
           const fragmentEle = document.createElement('bf-fragment')
-          for (const child of children) {
-            if (typeof child === 'string') {
-              fragmentEle.appendChild(document.createTextNode(child))
-              continue
-            }
-            if (child[ringType] !== 'buildable') {
-              console.warn('Fragment child is not buildable, skipping', child)
-              continue
-            }
-            fragmentEle.appendChild(child[toElement](document))
-          }
+          addChildren(fragmentEle, document, children)
           return fragmentEle
         },
       }
