@@ -5,7 +5,7 @@ import { Ring, describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 import { ringDescriber } from './rings/describe.js'
 
-export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
+export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   [matType] = 'tester' as const
 
   constructor(public readonly events: Events) {}
@@ -61,14 +61,14 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
     this.#stampJsonProps = null
   }
 
-  stampWhen: (condition: (props: Props) => boolean, jsonProps?: Props) => void =
+  stampWhen: <StampProps = Props>(condition: (props: StampProps) => boolean, jsonProps?: StampProps) => void =
     (condition, jsonProps) => {
       if (this.#isStamp) {
         throw new Error('Cannot mark stamp more than once')
       }
       this.#isStamp = true
-      this.#stampCondition = condition
-      this.#stampJsonProps = jsonProps ?? null
+      this.#stampCondition = condition as unknown as ((props: Props) => boolean)
+      this.#stampJsonProps = jsonProps as Props | undefined ?? null
     }
 }
 

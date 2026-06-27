@@ -27,7 +27,7 @@ export function stampWhen<Props>(
     props: Props,
   ) => { condition: (props: Props) => boolean; ring: Ring },
 ): Component<Props, unknown> {
-  return (props, mat: jsx.Mat<unknown, Props>) => {
+  return (props, mat: jsx.Mat) => {
     const { condition, ring } = component(mat.jsx, props)
     mat.stampWhen(condition)
     return ring

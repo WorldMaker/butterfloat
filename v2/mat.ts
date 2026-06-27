@@ -23,7 +23,7 @@ export type JsxFunction = (
   ...children: JsxChildren
 ) => Ring
 
-interface Mat<Events = unknown, Props = unknown> {
+interface Mat<Events = unknown> {
   /**
    * @internal
    */
@@ -59,7 +59,10 @@ interface Mat<Events = unknown, Props = unknown> {
    * @param jsonProps Optional JSON serializable "canonical" representation of relevant props to this stamp.
    * @returns nothing
    */
-  stampWhen: (condition: (props: Props) => boolean, jsonProps?: Props) => void
+  stampWhen: <Props = unknown>(
+    condition: (props: Props) => boolean,
+    jsonProps?: Props,
+  ) => void
 }
 
 /**

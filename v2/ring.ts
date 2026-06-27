@@ -86,7 +86,7 @@ export interface RingProvider {
 
 export type RingProviderWithChildren = RingProvider &
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ((props: object, mat: jsx.Mat<any, any>, ...children: JsxChildren) => Ring)
+  ((props: object, mat: jsx.Mat<any>, ...children: JsxChildren) => Ring)
 
 export function isRingProvider(value: unknown): value is RingProvider {
   return (
