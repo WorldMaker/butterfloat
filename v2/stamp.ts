@@ -17,19 +17,36 @@ export function stamp<Props = unknown>(
 }
 
 /**
+ * Simple, stable component with attached condition for stamp reuse.
+ */
+export interface StampWhenComponent<Props = unknown> {
+  /**
+   * Condition to determine if the stamp matches for this component.
+   * @param props Props of the component to determine if the stamp matches.
+   * @returns True if the stamp matches, false otherwise.
+   */
+  condition: (props: Props) => boolean
+  /**
+   * Ring output of the component.
+   */
+  ring: Ring
+  /**
+   * JSON serialziable "canonical" representation of the applicable props to this stamp.
+   */
+  jsonProps?: Props
+}
+
+/**
  * Creates a simple, stable component when a condition is met.
  * @param component Simple props component with condition for stamp reuse
  * @returns Component
  */
 export function stampWhen<Props>(
-  component: (
-    jsx: JsxFunction,
-    props: Props,
-  ) => { condition: (props: Props) => boolean; ring: Ring },
+  component: (jsx: JsxFunction, props: Props) => StampWhenComponent<Props>,
 ): Component<Props, unknown> {
   return (props, mat: jsx.Mat) => {
-    const { condition, ring } = component(mat.jsx, props)
-    mat.stampWhen(condition)
+    const { condition, ring, jsonProps } = component(mat.jsx, props)
+    mat.stampWhen(condition, jsonProps)
     return ring
   }
 }

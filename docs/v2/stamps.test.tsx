@@ -122,6 +122,7 @@ describe('v2 stamps documentation', () => {
           }}
         ></span>
       ),
+      jsonProps: { faces, roll: NEVER },
     }))
     ok(RollResult)
   })
