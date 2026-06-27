@@ -40,6 +40,9 @@ export interface ElementBindDescription<Bind = DefaultBind>
  */
 export type Ring = InertRing | RunnableRing | BuildableRing | DescribableRing
 
+/**
+ * @internal
+ */
 export interface InertRing {
   [ringType]: 'inert'
 }
@@ -48,11 +51,17 @@ export const inertRing: InertRing = Object.freeze({
   [ringType]: 'inert' as const,
 })
 
+/**
+ * @internal
+ */
 export interface RunnableRing {
   [ringType]: 'runnable'
   [toBinds](): Record<string, ElementBindDescription> | null
 }
 
+/**
+ * @internal
+ */
 export interface BuildableRing {
   [ringType]: 'buildable'
   [toBinds](): Record<string, ElementBindDescription> | null
@@ -60,6 +69,9 @@ export interface BuildableRing {
   [addChild](container: Element | DocumentFragment, document: Document): void
 }
 
+/**
+ * @internal
+ */
 export interface DescribableRing {
   [ringType]: 'describable'
   [describe](): NodeDescription

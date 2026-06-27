@@ -24,7 +24,13 @@ export type JsxFunction = (
 ) => Ring
 
 interface Mat<Events = unknown, Props = unknown> {
+  /**
+   * @internal
+   */
   [matType]: MatType
+  /**
+   * @internal
+   */
   [componentChildren]?: JsxChildren
   /**
    * Events that the component expects to bind.

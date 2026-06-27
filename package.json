@@ -15,7 +15,8 @@
     "pretest": "tsc -p .",
     "test": "node --test",
     "prepack": "npm run build",
-    "typedoc": "typedoc"
+    "typedoc": "typedoc",
+    "typedoc:v2": "typedoc --options typedoc.v2.json"
   },
   "author": "Max Battcher <me@worldmaker.net>",
   "license": "MIT",
