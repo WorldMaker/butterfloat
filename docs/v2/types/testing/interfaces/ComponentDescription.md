@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / ComponentDescription
 
@@ -26,7 +26,7 @@ Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-***
+---
 
 ### childrenBind?
 
@@ -38,7 +38,7 @@ Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-***
+---
 
 ### childrenBindMode?
 
@@ -50,7 +50,7 @@ Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-***
+---
 
 ### component
 
@@ -58,7 +58,7 @@ Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:46](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L46)
 
-***
+---
 
 ### properties
 
@@ -66,7 +66,7 @@ Defined in: [v2/testing/description.ts:46](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:47](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L47)
 
-***
+---
 
 ### type
 

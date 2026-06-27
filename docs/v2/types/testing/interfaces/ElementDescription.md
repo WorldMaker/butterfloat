@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / ElementDescription
 
@@ -28,7 +28,7 @@ Description of a DOM element and its bindings
 
 Defined in: [v2/testing/description.ts:31](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L31)
 
-***
+---
 
 ### bind
 
@@ -36,7 +36,7 @@ Defined in: [v2/testing/description.ts:31](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:32](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L32)
 
-***
+---
 
 ### children
 
@@ -48,7 +48,7 @@ Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-***
+---
 
 ### childrenBind?
 
@@ -60,7 +60,7 @@ Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-***
+---
 
 ### childrenBindMode?
 
@@ -72,7 +72,7 @@ Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterf
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-***
+---
 
 ### classBind
 
@@ -80,7 +80,7 @@ Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:37](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L37)
 
-***
+---
 
 ### element
 
@@ -88,7 +88,7 @@ Defined in: [v2/testing/description.ts:37](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:30](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L30)
 
-***
+---
 
 ### events
 
@@ -96,7 +96,7 @@ Defined in: [v2/testing/description.ts:30](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:34](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L34)
 
-***
+---
 
 ### immediateBind
 
@@ -104,7 +104,7 @@ Defined in: [v2/testing/description.ts:34](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:33](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L33)
 
-***
+---
 
 ### immediateClassBind
 
@@ -112,7 +112,7 @@ Defined in: [v2/testing/description.ts:33](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:38](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L38)
 
-***
+---
 
 ### immediateStyleBind
 
@@ -120,7 +120,7 @@ Defined in: [v2/testing/description.ts:38](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:36](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L36)
 
-***
+---
 
 ### styleBind
 
@@ -128,7 +128,7 @@ Defined in: [v2/testing/description.ts:36](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:35](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L35)
 
-***
+---
 
 ### type
 

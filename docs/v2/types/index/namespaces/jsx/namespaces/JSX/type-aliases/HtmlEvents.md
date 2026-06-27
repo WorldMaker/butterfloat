@@ -1,6 +1,6 @@
 [**butterfloat**](../../../../../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../../../../../butterfloat.md) / [index](../../../../../butterfloat.md) / [jsx](../../../butterfloat.md) / [JSX](../butterfloat.md) / HtmlEvents
 

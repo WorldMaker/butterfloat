@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / HtmlAttributes
 

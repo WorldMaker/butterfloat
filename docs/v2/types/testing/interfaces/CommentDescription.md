@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / CommentDescription
 
@@ -18,7 +18,7 @@ Description of the `<Comment>` pseudo-component
 
 Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L86)
 
-***
+---
 
 ### type
 

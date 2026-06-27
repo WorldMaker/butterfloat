@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / RingDescription
 
@@ -24,7 +24,7 @@ A Component Context for Testing purposes
 
 Defined in: [v2/testing/mat.ts:80](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/mat.ts#L80)
 
-***
+---
 
 ### effects
 
@@ -32,7 +32,7 @@ Defined in: [v2/testing/mat.ts:80](https://github.com/WorldMaker/butterfloat/blo
 
 Defined in: [v2/testing/mat.ts:83](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/mat.ts#L83)
 
-***
+---
 
 ### immediateEffects
 
@@ -40,7 +40,7 @@ Defined in: [v2/testing/mat.ts:83](https://github.com/WorldMaker/butterfloat/blo
 
 Defined in: [v2/testing/mat.ts:85](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/mat.ts#L85)
 
-***
+---
 
 ### isStamp
 
@@ -48,7 +48,7 @@ Defined in: [v2/testing/mat.ts:85](https://github.com/WorldMaker/butterfloat/blo
 
 Defined in: [v2/testing/mat.ts:86](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/mat.ts#L86)
 
-***
+---
 
 ### stampCondition
 

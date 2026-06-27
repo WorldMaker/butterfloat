@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / FragmentDescription
 
@@ -18,7 +18,7 @@ Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>
 
 Defined in: [v2/testing/description.ts:55](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L55)
 
-***
+---
 
 ### type
 

@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / StaticDescription
 
@@ -18,7 +18,7 @@ Description of the `<Static>` pseudo-component
 
 Defined in: [v2/testing/description.ts:71](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L71)
 
-***
+---
 
 ### type
 

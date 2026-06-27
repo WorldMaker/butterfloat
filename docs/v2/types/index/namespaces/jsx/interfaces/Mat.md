@@ -1,6 +1,6 @@
 [**butterfloat**](../../../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../../../butterfloat.md) / [index](../../../butterfloat.md) / [jsx](../butterfloat.md) / Mat
 
@@ -28,7 +28,7 @@ Defined in: [v2/mat.ts:42](https://github.com/WorldMaker/butterfloat/blob/e395bf
 
 Bind an effect.
 
-***
+---
 
 ### bindImmediateEffect
 
@@ -38,7 +38,7 @@ Defined in: [v2/mat.ts:46](https://github.com/WorldMaker/butterfloat/blob/e395bf
 
 Bind an effect that should run without scheduled delays.
 
-***
+---
 
 ### events
 
@@ -48,7 +48,7 @@ Defined in: [v2/mat.ts:38](https://github.com/WorldMaker/butterfloat/blob/e395bf
 
 Events that the component expects to bind.
 
-***
+---
 
 ### jsx
 
@@ -58,7 +58,7 @@ Defined in: [v2/mat.ts:50](https://github.com/WorldMaker/butterfloat/blob/e395bf
 
 JSX function to build appropriate Rings for this Mat
 
-***
+---
 
 ### stamp()
 
@@ -74,7 +74,7 @@ Mark the component as stable output regardless of props.
 
 nothing
 
-***
+---
 
 ### stampWhen()
 

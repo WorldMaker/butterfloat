@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / ChildrenBindDescription
 
@@ -23,7 +23,7 @@ A Description that supports binding Children
 
 Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L19)
 
-***
+---
 
 ### childrenBind?
 
@@ -31,7 +31,7 @@ Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterf
 
 Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/testing/description.ts#L20)
 
-***
+---
 
 ### childrenBindMode?
 

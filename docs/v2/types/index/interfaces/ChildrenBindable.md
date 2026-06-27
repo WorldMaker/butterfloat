@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ChildrenBindable
 
@@ -20,7 +20,7 @@ Defined in: [v2/component.ts:48](https://github.com/WorldMaker/butterfloat/blob/
 
 Bind children as they are observed.
 
-***
+---
 
 ### childrenBindMode?
 
