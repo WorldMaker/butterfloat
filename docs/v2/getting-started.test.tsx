@@ -134,7 +134,10 @@ describe('v2 getting started documentation', () => {
       toggleGreeting: ObservableEvent<MouseEvent>
     }
 
-    function Hello({ to }: HelloProps, { events, jsx }: jsx.Mat<HelloEvents>) {
+    function Hello(
+      { to }: HelloProps,
+      { events, jsx }: jsx.Mat<HelloEvents, HelloProps>,
+    ) {
       const { toggleGreeting } = events
 
       // starting with "Hello", alternate "Hello" and "Good Night"

@@ -297,7 +297,7 @@ interface HelloEvents {
 
 export function Hello(
   { to }: HelloProps,
-  { events, jsx }: jsx.Mat<HelloEvents>,
+  { events, jsx }: jsx.Mat<HelloEvents, HelloProps>,
 ) {
   const { toggleGreeting } = events
 

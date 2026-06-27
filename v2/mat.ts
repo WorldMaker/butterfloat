@@ -56,9 +56,10 @@ interface Mat<Events = unknown, Props = unknown> {
   /**
    * Mark the component as stable output when a condition is met.
    * @param condition A function that receives the component props and returns whether the stamp matches.
+   * @param jsonProps Optional JSON serializable "canonical" representation of relevant props to this stamp.
    * @returns nothing
    */
-  stampWhen: (condition: (props: Props) => boolean) => void
+  stampWhen: (condition: (props: Props) => boolean, jsonProps?: Props) => void
 }
 
 /**
