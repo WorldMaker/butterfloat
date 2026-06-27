@@ -1,0 +1,10 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "plugin": ["typedoc-plugin-markdown"],
+    "out": "./docs/v2/types/",
+    "readme": "none",
+    "entryPoints": ["./v2/index.ts", "./v2/testing/index.ts"],
+    "entryFileName": "butterfloat",
+    "excludePrivate": true,
+    "excludeInternal": true
+}

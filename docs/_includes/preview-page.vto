@@ -6,10 +6,10 @@ layout: main.vto
     <ul>
         {{ for item of nav.breadcrumb(url) }}
         <li>
-            {{ if item.data }}
+            {{ if item.data?.title }}
             <a href="{{ item.data.url }}">{{ item.data.title }}</a>
             {{ else }}
-            <span>{{ item.slug }}</span>
+            <a href="{{ item.data?.url ?? "#" }}"><span>{{ item.slug }}</span></a>
             {{ /if }}
         </li>
         {{ /for }}
