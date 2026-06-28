@@ -16,6 +16,7 @@
 - [ButterfloatIntrinsicAttributes](interfaces/ButterfloatIntrinsicAttributes.md)
 - [ChildrenBindable](interfaces/ChildrenBindable.md)
 - [DelayBind](interfaces/DelayBind.md)
+- [StampWhenComponent](interfaces/StampWhenComponent.md)
 
 ## Type Aliases
 

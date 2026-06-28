@@ -61,15 +61,17 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
     this.#stampJsonProps = null
   }
 
-  stampWhen: <StampProps = Props>(condition: (props: StampProps) => boolean, jsonProps?: StampProps) => void =
-    (condition, jsonProps) => {
-      if (this.#isStamp) {
-        throw new Error('Cannot mark stamp more than once')
-      }
-      this.#isStamp = true
-      this.#stampCondition = condition as unknown as ((props: Props) => boolean)
-      this.#stampJsonProps = jsonProps as Props | undefined ?? null
+  stampWhen: <StampProps = Props>(
+    condition: (props: StampProps) => boolean,
+    jsonProps?: StampProps,
+  ) => void = (condition, jsonProps) => {
+    if (this.#isStamp) {
+      throw new Error('Cannot mark stamp more than once')
     }
+    this.#isStamp = true
+    this.#stampCondition = condition as unknown as (props: Props) => boolean
+    this.#stampJsonProps = (jsonProps as Props | undefined) ?? null
+  }
 }
 
 /**
