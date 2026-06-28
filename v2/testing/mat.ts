@@ -5,7 +5,7 @@ import { Ring, describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 import { ringDescriber } from './rings/describe.js'
 
-export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
+export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   [matType] = 'tester' as const
 
   constructor(public readonly events: Events) {}
@@ -17,6 +17,7 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
   #immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
   #isStamp = false
   #stampCondition: ((props: Props) => boolean) | null = null
+  #stampJsonProps: Props | null = null
 
   get effects() {
     return this.#effects
@@ -29,6 +30,9 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
   }
   get stampCondition() {
     return this.#stampCondition
+  }
+  get stampJsonProps() {
+    return this.#stampJsonProps
   }
 
   jsx: JsxFunction = (
@@ -54,14 +58,19 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events, Props> {
     }
     this.#isStamp = true
     this.#stampCondition = null
+    this.#stampJsonProps = null
   }
 
-  stampWhen: (condition: (props: Props) => boolean) => void = (condition) => {
+  stampWhen: <StampProps = Props>(
+    condition: (props: StampProps) => boolean,
+    jsonProps?: StampProps,
+  ) => void = (condition, jsonProps) => {
     if (this.#isStamp) {
       throw new Error('Cannot mark stamp more than once')
     }
     this.#isStamp = true
-    this.#stampCondition = condition
+    this.#stampCondition = condition as unknown as (props: Props) => boolean
+    this.#stampJsonProps = (jsonProps as Props | undefined) ?? null
   }
 }
 
@@ -85,6 +94,7 @@ export interface RingDescription<Props = unknown> {
   immediateEffects: Array<[Observable<unknown>, (item: any) => void]>
   isStamp: boolean
   stampCondition: ((props: Props) => boolean) | null
+  stampJsonProps: Props | null
 }
 
 /**
@@ -109,6 +119,7 @@ export function describeRing<Props, Events>(
         immediateEffects: mat.immediateEffects,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
+        stampJsonProps: mat.stampJsonProps,
       }
     }
     case 2: {
@@ -124,6 +135,7 @@ export function describeRing<Props, Events>(
         immediateEffects: mat.immediateEffects,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
+        stampJsonProps: mat.stampJsonProps,
       }
     }
     case 3: {
@@ -139,6 +151,7 @@ export function describeRing<Props, Events>(
         immediateEffects: mat.immediateEffects,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
+        stampJsonProps: mat.stampJsonProps,
       }
     }
   }

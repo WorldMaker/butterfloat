@@ -1,7 +1,7 @@
 /* eslint @typescript-eslint/no-non-null-assertion: "off" */
 import { describe, it } from 'node:test'
 import { ok } from 'node:assert/strict'
-import { type Observable, map } from 'rxjs'
+import { type Observable, map, NEVER } from 'rxjs'
 import { type jsx, stamp, stampWhen } from '../../v2/index.js'
 
 describe('v2 stamps documentation', () => {
@@ -50,11 +50,14 @@ describe('v2 stamps documentation', () => {
 
     function RollResult(
       { faces, roll }: RollResultProps,
-      { jsx, stampWhen }: jsx.Mat<unknown, RollResultProps>,
+      { jsx, stampWhen }: jsx.Mat,
     ) {
       // this HTML is stable when given the same faces value
       // (the static `class` attribute is different for each faces value)
-      stampWhen((props) => props.faces === faces)
+      stampWhen((props: RollResultProps) => props.faces === faces, {
+        faces,
+        roll: NEVER,
+      })
       const dtype = dieType(faces)
       const rollValue = roll.pipe(map((value: number) => value.toString()))
       return (
@@ -119,6 +122,7 @@ describe('v2 stamps documentation', () => {
           }}
         ></span>
       ),
+      jsonProps: { faces, roll: NEVER },
     }))
     ok(RollResult)
   })

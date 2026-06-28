@@ -8,7 +8,7 @@
 
 > **makeTestEvent**\<`T`\>(`observable`): [`ObservableEvent`](../../index/type-aliases/ObservableEvent.md)\<`T`\>
 
-Defined in: [events.ts:31](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/events.ts#L31)
+Defined in: [events.ts:31](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/events.ts#L31)
 
 Mock an event for testing purposes only
 

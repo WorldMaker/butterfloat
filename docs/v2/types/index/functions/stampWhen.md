@@ -8,7 +8,7 @@
 
 > **stampWhen**\<`Props`\>(`component`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:24](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/v2/stamp.ts#L24)
+Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/stamp.ts#L44)
 
 Creates a simple, stable component when a condition is met.
 
@@ -22,7 +22,7 @@ Creates a simple, stable component when a condition is met.
 
 ### component
 
-(`jsx`, `props`) => `object`
+(`jsx`, `props`) => [`StampWhenComponent`](../interfaces/StampWhenComponent.md)\<`Props`\>
 
 Simple props component with condition for stamp reuse
 

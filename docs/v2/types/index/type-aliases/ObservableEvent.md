@@ -8,7 +8,7 @@
 
 > **ObservableEvent**\<`T`\> = `Observable`\<`T`\> & `object`
 
-Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/e395bf5abc01402ffb704b905f50e95cd22ec31c/events.ts#L8)
+Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/events.ts#L8)
 
 An Observable intended for binding to a DOM event
 
