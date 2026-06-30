@@ -1,4 +1,4 @@
-import { DefaultBind } from '../component.js'
+import { DefaultBind, JsxChildren } from '../component.js'
 import { componentChildren, matType, type jsx } from '../mat.js'
 import {
   addChild,
@@ -27,6 +27,28 @@ export interface ChildrenProperties {
   context: jsx.Mat<unknown>
 }
 
+export function collectChildBinds(
+  children: JsxChildren | undefined,
+): Record<string, ElementBindDescription<DefaultBind>> {
+  let binds: Record<string, ElementBindDescription<DefaultBind>> = {}
+  if (!children) {
+    console.warn('No children found to bind')
+    return binds
+  }
+  for (const child of children) {
+    if (typeof child === 'string') {
+      continue
+    }
+    if (child[ringType] !== 'runnable') {
+      console.warn('Child is not runnable', child)
+      continue
+    }
+    const childBinds = child[toBinds]()
+    binds = Object.assign(binds, childBinds)
+  }
+  return binds
+}
+
 /**
  * Attach a component's children to the DOM tree
  *
@@ -46,7 +68,7 @@ export function Children({ context }: ChildrenProperties, mat: jsx.Mat): Ring {
     case 'builder':
       return {
         [ringType]: 'buildable',
-        [toBinds]: () => null,
+        [toBinds]: () => collectChildBinds((context ?? mat)[componentChildren]),
         [addChild]: (container, document) => {
           const children = (context ?? mat)[componentChildren]
           if (!children) {
@@ -89,26 +111,7 @@ export function Children({ context }: ChildrenProperties, mat: jsx.Mat): Ring {
     case 'runner':
       return {
         [ringType]: 'runnable',
-        [toBinds]: () => {
-          let binds: Record<string, ElementBindDescription<DefaultBind>> = {}
-          const children = (context ?? mat)[componentChildren]
-          if (!children) {
-            console.warn('No children found to bind')
-            return binds
-          }
-          for (const child of children) {
-            if (typeof child === 'string') {
-              continue
-            }
-            if (child[ringType] !== 'runnable') {
-              console.warn('Child is not runnable', child)
-              continue
-            }
-            const childBinds = child[toBinds]()
-            binds = Object.assign(binds, childBinds)
-          }
-          return binds
-        },
+        [toBinds]: () => collectChildBinds((context ?? mat)[componentChildren]),
       }
     default:
       return inertRing
