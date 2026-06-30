@@ -8,7 +8,7 @@
 
 > **butterfly**\<`T`\>(`startingValue`): \[`Observable`\<`T`\>, (`value`) => `void`, (`error`) => `void`, () => `void`\]
 
-Defined in: [butterfly.ts:20](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/butterfly.ts#L20)
+Defined in: [butterfly.ts:23](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/butterfly.ts#L23)
 
 Create an atomic Observable for representation of a small piece of state while splitting
 the read API and write APIs in a way making it easier to protect write APIs from escaping

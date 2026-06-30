@@ -8,7 +8,7 @@
 
 > **stampWhen**\<`Props`\>(`component`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/stamp.ts#L44)
+Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/stamp.ts#L44)
 
 Creates a simple, stable component when a condition is met.
 

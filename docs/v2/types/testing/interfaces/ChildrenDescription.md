@@ -6,7 +6,7 @@
 
 # Interface: ChildrenDescription
 
-Defined in: [v2/testing/description.ts:61](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/description.ts#L61)
+Defined in: [v2/testing/description.ts:122](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L122)
 
 Description of the `<Children>` pseudo-component
 
@@ -16,7 +16,9 @@ Description of the `<Children>` pseudo-component
 
 > `optional` **context**: [`Mat`](../../index/namespaces/jsx/interfaces/Mat.md)\<`unknown`\>
 
-Defined in: [v2/testing/description.ts:63](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/description.ts#L63)
+Defined in: [v2/testing/description.ts:130](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L130)
+
+The context for the children
 
 ***
 
@@ -24,4 +26,6 @@ Defined in: [v2/testing/description.ts:63](https://github.com/WorldMaker/butterf
 
 > **type**: `"children"`
 
-Defined in: [v2/testing/description.ts:62](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/description.ts#L62)
+Defined in: [v2/testing/description.ts:126](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L126)
+
+The type of the description

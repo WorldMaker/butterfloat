@@ -86,14 +86,32 @@ export type DescribeRingArgs<Props = unknown, Events = unknown> =
  * A Component Context for Testing purposes
  */
 export interface RingDescription<Props = unknown> {
+  /**
+   * The description of the Ring output of the Component
+   */
   description: NodeDescription | string
+  /**
+   * The effects that were bound during the Component's execution
+   */
   // Types here are just for examing test results
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   effects: Array<[Observable<unknown>, (item: any) => void]>
+  /**
+   * The immediate effects that were bound during the Component's execution
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   immediateEffects: Array<[Observable<unknown>, (item: any) => void]>
+  /**
+   * Whether the Component was marked as a stamp
+   */
   isStamp: boolean
+  /**
+   * The condition used to determine if the Component should be stamped
+   */
   stampCondition: ((props: Props) => boolean) | null
+  /**
+   * The JSON serializable "canonical" props provided for the stamp
+   */
   stampJsonProps: Props | null
 }
 

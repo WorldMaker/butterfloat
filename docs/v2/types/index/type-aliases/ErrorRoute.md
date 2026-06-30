@@ -8,7 +8,7 @@
 
 > **ErrorRoute**\<`Props`\> = \[(`error`) => `Props` \| `false`, [`Component`](Component.md)\<`Props`\>, `Props`\]
 
-Defined in: v2/route.ts:72
+Defined in: [v2/route.ts:88](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L88)
 
 Error Route
 

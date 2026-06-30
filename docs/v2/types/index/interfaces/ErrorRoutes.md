@@ -6,7 +6,7 @@
 
 # Interface: ErrorRoutes
 
-Defined in: v2/route.ts:83
+Defined in: [v2/route.ts:99](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L99)
 
 Error Routes
 
@@ -18,7 +18,9 @@ A set of routes that can be used to bind a component's children to an error boun
 
 > **mode**: `"replace"` \| `"append"` \| `"prepend"`
 
-Defined in: v2/route.ts:85
+Defined in: [v2/route.ts:103](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L103)
+
+The mode to bind the error component to the parent component's children.
 
 ***
 
@@ -26,12 +28,6 @@ Defined in: v2/route.ts:85
 
 > **routes**: [`ErrorRoute`](../type-aliases/ErrorRoute.md)\<`any`\>[]
 
-Defined in: v2/route.ts:86
+Defined in: [v2/route.ts:107](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L107)
 
-***
-
-### type
-
-> **type**: `"error"`
-
-Defined in: v2/route.ts:84
+The routes for handling errors.

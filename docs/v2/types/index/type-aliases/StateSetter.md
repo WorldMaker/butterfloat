@@ -8,7 +8,9 @@
 
 > **StateSetter**\<`T`\> = `T` \| (`currentValue`) => `T`
 
-Defined in: [butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/butterfly.ts#L3)
+Defined in: [butterfly.ts:6](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/butterfly.ts#L6)
+
+Set or update a state value
 
 ## Type Parameters
 

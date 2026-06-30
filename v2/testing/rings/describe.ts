@@ -77,16 +77,11 @@ export function ringDescriber<Events, Props>(
       return ring as DescribableRing
     }
 
-    const { childrenBind, childrenBindMode, ...otherAttributes } =
-      attributes ?? {}
-
     const componentDescription: ComponentDescription = {
       type: 'component',
       component: element,
-      properties: otherAttributes,
+      properties: attributes ?? {},
       children: childrenDescriptions,
-      childrenBind,
-      childrenBindMode,
     }
     return {
       [ringType]: 'describable',

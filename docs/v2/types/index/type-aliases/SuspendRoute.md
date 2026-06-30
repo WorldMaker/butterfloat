@@ -8,7 +8,7 @@
 
 > **SuspendRoute**\<`Props`\> = \[(`suspended`) => `Props` \| `false`, [`Component`](Component.md)\<`Props`\>, `Props`\]
 
-Defined in: v2/route.ts:43
+Defined in: [v2/route.ts:51](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L51)
 
 Suspend Route
 

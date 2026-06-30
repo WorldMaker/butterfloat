@@ -8,7 +8,7 @@
 
 > **describeRing**\<`Props`, `Events`\>(...`args`): [`RingDescription`](../interfaces/RingDescription.md)\<`Props`\>
 
-Defined in: [v2/testing/mat.ts:105](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L105)
+Defined in: [v2/testing/mat.ts:123](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L123)
 
 Describe a Component's output given props and events.
 

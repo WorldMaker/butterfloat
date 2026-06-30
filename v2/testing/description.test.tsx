@@ -203,31 +203,6 @@ describe('description', () => {
       component: TestComponent,
       properties: {},
       children: [],
-      childrenBind: undefined,
-      childrenBindMode: undefined,
-    }
-    deepEqual(test, expected)
-  })
-
-  it('describes a single dynamic component with children bind', () => {
-    const TestComponent = (
-      _props: unknown,
-      { events, jsx }: jsx.Mat<{ click: ObservableEvent<PointerEvent> }>,
-    ) => {
-      const { click } = events
-      return <h1 events={{ click }}>Hello</h1>
-    }
-    const childrenBind = of(TestComponent)
-    const { description: test } = describeRing((jsx) => (
-      <TestComponent childrenBind={childrenBind} childrenBindMode="prepend" />
-    ))
-    const expected: NodeDescription = {
-      type: 'component',
-      component: TestComponent,
-      properties: {},
-      children: [],
-      childrenBind,
-      childrenBindMode: 'prepend',
     }
     deepEqual(test, expected)
   })
@@ -246,8 +221,6 @@ describe('description', () => {
       component: TestComponent,
       properties: { hello },
       children: [],
-      childrenBind: undefined,
-      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })
@@ -268,8 +241,6 @@ describe('description', () => {
       component: TestComponent,
       properties: { hello },
       children: [],
-      childrenBind: undefined,
-      childrenBindMode: undefined,
     }
     deepEqual(test, expected)
   })

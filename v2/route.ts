@@ -23,9 +23,17 @@ export type Route<Inputs = any, Props = any> = [
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Routes<Inputs = any> {
-  type: 'route'
+  /**
+   * Observable that produces inputs to route to child components
+   */
   input: Observable<Inputs>
+  /**
+   * The mode to bind the child components to the parent component's children.
+   */
   mode: 'append' | 'prepend' | 'replace'
+  /**
+   * The routes for handling the inputs.
+   */
   routes: Route<Inputs>[]
 }
 
@@ -52,9 +60,17 @@ export type SuspendRoute<Props = any> = [
  * A set of routes that can be used to bind a component's children to a suspension boundary.
  */
 export interface SuspendRoutes {
-  type: 'suspend'
+  /**
+   * Observable that determines if the suspension boundary is active
+   */
   suspend: Observable<boolean>
+  /**
+   * The mode to bind the suspension component to the parent component's children.
+   */
   mode: 'append' | 'prepend' | 'replace'
+  /**
+   * The routes for handling suspension states.
+   */
   routes: SuspendRoute[]
 }
 
@@ -81,8 +97,13 @@ export type ErrorRoute<Props = any> = [
  * A set of routes that can be used to bind a component's children to an error boundary.
  */
 export interface ErrorRoutes {
-  type: 'error'
+  /**
+   * The mode to bind the error component to the parent component's children.
+   */
   mode: 'append' | 'prepend' | 'replace'
+  /**
+   * The routes for handling errors.
+   */
   routes: ErrorRoute[]
 }
 
@@ -92,8 +113,13 @@ export interface ErrorRoutes {
  * A component that can be used to bind a component's children to a completion boundary.
  */
 export interface CompleteRoutes {
-  type: 'complete'
+  /**
+   * The mode to bind the completion component to the parent component's children.
+   */
   mode: 'append' | 'prepend' | 'replace'
+  /**
+   * The component to render when the completion boundary is reached.
+   */
   component: Component
 }
 
@@ -103,9 +129,21 @@ export interface CompleteRoutes {
  * A collection of routes that can be used to bind child components to a parent component.
  */
 export interface ChildRoutes {
+  /**
+   * Routes for an observable input
+   */
   routes?: Routes
+  /**
+   * Routes for a suspension boundary
+   */
   suspend?: SuspendRoutes
+  /**
+   * Routes for an error boundary
+   */
   error?: ErrorRoutes
+  /**
+   * Routes for a completion boundary
+   */
   complete?: CompleteRoutes
 }
 
@@ -260,7 +298,6 @@ export class ChildRouteBuilder<Inputs = unknown> {
       routes:
         this.#routes.length > 0 && this.#input
           ? {
-              type: 'route',
               input: this.#input,
               mode: this.#mode ?? 'append',
               routes: this.#routes,
@@ -269,7 +306,6 @@ export class ChildRouteBuilder<Inputs = unknown> {
       suspend:
         this.#suspendRoutes.length > 0 && this.#suspend
           ? {
-              type: 'suspend',
               suspend: this.#suspend,
               mode: this.#suspendMode ?? 'append',
               routes: this.#suspendRoutes,
@@ -278,14 +314,12 @@ export class ChildRouteBuilder<Inputs = unknown> {
       error:
         this.#errorRoutes.length > 0
           ? {
-              type: 'error',
               mode: this.#errorMode ?? 'append',
               routes: this.#errorRoutes,
             }
           : undefined,
       complete: this.#completeComponent
         ? {
-            type: 'complete',
             mode: this.#completeMode ?? 'append',
             component: this.#completeComponent,
           }

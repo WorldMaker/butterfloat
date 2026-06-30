@@ -1,5 +1,8 @@
 import { BehaviorSubject, type Observable } from 'rxjs'
 
+/**
+ * Set or update a state value
+ */
 export type StateSetter<T> = T | ((currentValue: T) => T)
 
 /**

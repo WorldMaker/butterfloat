@@ -15,14 +15,24 @@ export type EffectHandler = <T>(
   effect: (item: T) => void | Promise<void>,
 ) => void
 
+/**
+ * Mat type
+ * @internal
+ */
 export type MatType = 'runner' | 'builder' | 'tester'
 
+/**
+ * JSX function for a Butterfloat Component
+ */
 export type JsxFunction = (
   element: string | Component,
   attributes: ButterfloatAttributes | null,
   ...children: JsxChildren
 ) => Ring
 
+/**
+ * Context provider for a Butterfloat Component
+ */
 interface Mat<Events = unknown> {
   /**
    * @internal
