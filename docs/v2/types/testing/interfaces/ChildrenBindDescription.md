@@ -6,14 +6,13 @@
 
 # Interface: ChildrenBindDescription
 
-Defined in: [v2/testing/description.ts:18](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L18)
+Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L21)
 
 A Description that supports binding Children
 
 ## Extended by
 
 - [`ElementDescription`](ElementDescription.md)
-- [`ComponentDescription`](ComponentDescription.md)
 
 ## Properties
 
@@ -21,7 +20,9 @@ A Description that supports binding Children
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L19)
+Defined in: [v2/testing/description.ts:25](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L25)
+
+The static children
 
 ---
 
@@ -29,7 +30,9 @@ Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterf
 
 > `optional` **childrenBind**: [`ChildrenBind`](../../index/type-aliases/ChildrenBind.md)
 
-Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L20)
+Defined in: [v2/testing/description.ts:29](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L29)
+
+Children bindings
 
 ---
 
@@ -37,4 +40,6 @@ Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterf
 
 > `optional` **childrenBindMode**: [`ChildrenBindMode`](../../index/type-aliases/ChildrenBindMode.md)
 
-Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L21)
+Defined in: [v2/testing/description.ts:33](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L33)
+
+The mode to bind children

@@ -6,13 +6,9 @@
 
 # Interface: ComponentDescription
 
-Defined in: [v2/testing/description.ts:44](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L44)
+Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L86)
 
 Description of a Component binding
-
-## Extends
-
-- [`ChildrenBindDescription`](ChildrenBindDescription.md)
 
 ## Properties
 
@@ -20,35 +16,9 @@ Description of a Component binding
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:19](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L19)
+Defined in: [v2/testing/description.ts:102](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L102)
 
-#### Inherited from
-
-[`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
-
----
-
-### childrenBind?
-
-> `optional` **childrenBind**: [`ChildrenBind`](../../index/type-aliases/ChildrenBind.md)
-
-Defined in: [v2/testing/description.ts:20](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L20)
-
-#### Inherited from
-
-[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
-
----
-
-### childrenBindMode?
-
-> `optional` **childrenBindMode**: [`ChildrenBindMode`](../../index/type-aliases/ChildrenBindMode.md)
-
-Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L21)
-
-#### Inherited from
-
-[`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
+The children of the component
 
 ---
 
@@ -56,7 +26,9 @@ Defined in: [v2/testing/description.ts:21](https://github.com/WorldMaker/butterf
 
 > **component**: [`Component`](../../index/type-aliases/Component.md)
 
-Defined in: [v2/testing/description.ts:46](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L46)
+Defined in: [v2/testing/description.ts:94](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L94)
+
+The Component
 
 ---
 
@@ -64,7 +36,9 @@ Defined in: [v2/testing/description.ts:46](https://github.com/WorldMaker/butterf
 
 > **properties**: [`Attributes`](../../index/type-aliases/Attributes.md)
 
-Defined in: [v2/testing/description.ts:47](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L47)
+Defined in: [v2/testing/description.ts:98](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L98)
+
+The properties of the component
 
 ---
 
@@ -72,4 +46,6 @@ Defined in: [v2/testing/description.ts:47](https://github.com/WorldMaker/butterf
 
 > **type**: `"component"`
 
-Defined in: [v2/testing/description.ts:45](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/description.ts#L45)
+Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/description.ts#L90)
+
+The type of the description

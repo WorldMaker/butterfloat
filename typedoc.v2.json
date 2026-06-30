@@ -6,5 +6,10 @@
   "entryPoints": ["./v2/index.ts", "./v2/testing/index.ts"],
   "entryFileName": "butterfloat",
   "excludePrivate": true,
-  "excludeInternal": true
+  "excludeInternal": true,
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": true
+  }
 }

@@ -5,7 +5,9 @@ const ButterfloatEvent = Symbol('Butterfloat Event')
 /**
  * An Observable intended for binding to a DOM event
  */
-export type ObservableEvent<T> = Observable<T> & { [ButterfloatEvent]: unknown }
+export type ObservableEvent<T> = Observable<T> & {
+  /** @internal */ [ButterfloatEvent]: unknown
+}
 
 /**
  * DOM events unique to Butterfloat

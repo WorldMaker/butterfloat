@@ -8,7 +8,9 @@
 
 > **JsxFunction** = (`element`, `attributes`, ...`children`) => [`Ring`](Ring.md)
 
-Defined in: [v2/mat.ts:20](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L20)
+Defined in: [v2/mat.ts:27](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/mat.ts#L27)
+
+JSX function for a Butterfloat Component
 
 ## Parameters
 

@@ -8,6 +8,6 @@
 
 > **HtmlElementStyleBind** = `{ [Property in keyof CSSStyleDeclaration]?: Observable<CSSStyleDeclaration[Property]> }`
 
-Defined in: [v2/jsx/internal.ts:82](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/jsx/internal.ts#L82)
+Defined in: [v2/jsx/internal.ts:82](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/jsx/internal.ts#L82)
 
 All bindable CSS styles of an HTML element

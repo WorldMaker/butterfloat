@@ -8,6 +8,6 @@
 
 > **DefaultStyleBind** = `Record`\<`string`, `Observable`\<`unknown`\>\>
 
-Defined in: [v2/component.ts:83](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/component.ts#L83)
+Defined in: [v2/component.ts:84](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/component.ts#L84)
 
 Default styleBind attribute accepted binds
