@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / ChildrenDescription
 
@@ -20,7 +20,7 @@ Defined in: [v2/testing/description.ts:130](https://github.com/WorldMaker/butter
 
 The context for the children
 
-***
+---
 
 ### type
 

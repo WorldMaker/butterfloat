@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / CompleteRoutes
 
@@ -22,7 +22,7 @@ Defined in: [v2/route.ts:123](https://github.com/WorldMaker/butterfloat/blob/152
 
 The component to render when the completion boundary is reached.
 
-***
+---
 
 ### mode
 
