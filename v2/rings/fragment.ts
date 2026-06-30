@@ -1,4 +1,4 @@
-import { DefaultBind, type JsxChildren } from '../component.js'
+import { type JsxChildren } from '../component.js'
 import { matType, type jsx } from '../mat.js'
 import {
   addChild,
@@ -11,8 +11,8 @@ import {
   toBinds,
   inertRing,
   canAttachChildren,
-  ElementBindDescription,
 } from '../ring.js'
+import { collectChildBinds } from './children.js'
 
 function addChildren(
   container: Element | DocumentFragment,
@@ -61,7 +61,7 @@ export function Fragment(
     case 'builder':
       return {
         [ringType]: 'buildable',
-        [toBinds]: () => null,
+        [toBinds]: () => collectChildBinds(children),
         [addChild]: (container, document) =>
           addChildren(container, document, children),
         [toElement]: (document) => {
@@ -73,21 +73,7 @@ export function Fragment(
     case 'runner':
       return {
         [ringType]: 'runnable',
-        [toBinds]: () => {
-          let binds: Record<string, ElementBindDescription<DefaultBind>> = {}
-          for (const child of children) {
-            if (typeof child === 'string') {
-              continue
-            }
-            if (child[ringType] !== 'runnable') {
-              console.warn('Fragment child is not runnable, skipping', child)
-              continue
-            }
-            const childBinds = child[toBinds]()
-            binds = Object.assign(binds, childBinds)
-          }
-          return binds
-        },
+        [toBinds]: () => collectChildBinds(children),
       }
     default:
       return inertRing
