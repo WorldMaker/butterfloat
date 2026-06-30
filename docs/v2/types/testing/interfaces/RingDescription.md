@@ -1,12 +1,12 @@
 [**butterfloat**](../../butterfloat.md)
 
----
+***
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / RingDescription
 
 # Interface: RingDescription\<Props\>
 
-Defined in: [v2/testing/mat.ts:86](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L86)
+Defined in: [v2/testing/mat.ts:88](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L88)
 
 A Component Context for Testing purposes
 
@@ -22,44 +22,44 @@ A Component Context for Testing purposes
 
 > **description**: `string` \| [`NodeDescription`](../type-aliases/NodeDescription.md)
 
-Defined in: [v2/testing/mat.ts:87](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L87)
+Defined in: [v2/testing/mat.ts:89](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L89)
 
----
+***
 
 ### effects
 
 > **effects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [v2/testing/mat.ts:90](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L90)
+Defined in: [v2/testing/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L92)
 
----
+***
 
 ### immediateEffects
 
 > **immediateEffects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [v2/testing/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L92)
+Defined in: [v2/testing/mat.ts:94](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L94)
 
----
+***
 
 ### isStamp
 
 > **isStamp**: `boolean`
 
-Defined in: [v2/testing/mat.ts:93](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L93)
+Defined in: [v2/testing/mat.ts:95](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L95)
 
----
+***
 
 ### stampCondition
 
 > **stampCondition**: `null` \| (`props`) => `boolean`
 
-Defined in: [v2/testing/mat.ts:94](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L94)
+Defined in: [v2/testing/mat.ts:96](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L96)
 
----
+***
 
 ### stampJsonProps
 
 > **stampJsonProps**: `null` \| `Props`
 
-Defined in: [v2/testing/mat.ts:95](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/testing/mat.ts#L95)
+Defined in: [v2/testing/mat.ts:97](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/testing/mat.ts#L97)

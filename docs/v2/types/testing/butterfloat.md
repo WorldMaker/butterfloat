@@ -1,6 +1,6 @@
 [**butterfloat**](../butterfloat.md)
 
----
+***
 
 [butterfloat](../butterfloat.md) / testing
 
@@ -36,37 +36,37 @@
 
 Re-exports [Attributes](../index/type-aliases/Attributes.md)
 
----
+***
 
 ### ChildrenBind
 
 Re-exports [ChildrenBind](../index/type-aliases/ChildrenBind.md)
 
----
+***
 
 ### ChildrenBindMode
 
 Re-exports [ChildrenBindMode](../index/type-aliases/ChildrenBindMode.md)
 
----
+***
 
 ### ClassBind
 
 Re-exports [ClassBind](../index/type-aliases/ClassBind.md)
 
----
+***
 
 ### Component
 
 Re-exports [Component](../index/type-aliases/Component.md)
 
----
+***
 
 ### DefaultBind
 
 Re-exports [DefaultBind](../index/type-aliases/DefaultBind.md)
 
----
+***
 
 ### DefaultStyleBind
 

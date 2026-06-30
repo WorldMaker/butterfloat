@@ -1,12 +1,12 @@
 [**butterfloat**](../../butterfloat.md)
 
----
+***
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / StampWhenComponent
 
 # Interface: StampWhenComponent\<Props\>
 
-Defined in: [v2/stamp.ts:22](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/stamp.ts#L22)
+Defined in: [v2/stamp.ts:22](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/stamp.ts#L22)
 
 Simple, stable component with attached condition for stamp reuse.
 
@@ -22,7 +22,7 @@ Simple, stable component with attached condition for stamp reuse.
 
 > **condition**: (`props`) => `boolean`
 
-Defined in: [v2/stamp.ts:28](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/stamp.ts#L28)
+Defined in: [v2/stamp.ts:28](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/stamp.ts#L28)
 
 Condition to determine if the stamp matches for this component.
 
@@ -40,22 +40,22 @@ Props of the component to determine if the stamp matches.
 
 True if the stamp matches, false otherwise.
 
----
+***
 
 ### jsonProps?
 
 > `optional` **jsonProps**: `Props`
 
-Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/stamp.ts#L36)
+Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/stamp.ts#L36)
 
 JSON serialziable "canonical" representation of the applicable props to this stamp.
 
----
+***
 
 ### ring
 
 > **ring**: [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/stamp.ts:32](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/stamp.ts#L32)
+Defined in: [v2/stamp.ts:32](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/stamp.ts#L32)
 
 Ring output of the component.

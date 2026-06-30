@@ -22,6 +22,18 @@ export {
 } from './ring.js'
 export { type jsx, type EffectHandler, type JsxFunction } from './mat.js'
 export { type IfEquals, type WritableKeys } from './meta-types.js'
+export {
+  route,
+  ChildRouteBuilder,
+  type ChildRoutes,
+  type CompleteRoutes,
+  type SuspendRoute,
+  type SuspendRoutes,
+  type ErrorRoute,
+  type ErrorRoutes,
+  type Route,
+  type Routes,
+} from './route.js'
 export { stamp, stampWhen, type StampWhenComponent } from './stamp.js'
 export { butterfly, type StateSetter } from '../butterfly.js'
 export { type ButterfloatEvents, type ObservableEvent } from '../events.js'

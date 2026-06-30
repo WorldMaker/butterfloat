@@ -1,12 +1,12 @@
 [**butterfloat**](../../../../butterfloat.md)
 
----
+***
 
 [butterfloat](../../../../butterfloat.md) / [index](../../../butterfloat.md) / [jsx](../butterfloat.md) / Mat
 
 # Interface: Mat\<Events\>
 
-Defined in: [v2/mat.ts:26](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L26)
+Defined in: [v2/mat.ts:26](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L26)
 
 ## Type Parameters
 
@@ -20,47 +20,47 @@ Defined in: [v2/mat.ts:26](https://github.com/WorldMaker/butterfloat/blob/8bb7c2
 
 > **bindEffect**: [`EffectHandler`](../../../type-aliases/EffectHandler.md)
 
-Defined in: [v2/mat.ts:42](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L42)
+Defined in: [v2/mat.ts:42](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L42)
 
 Bind an effect.
 
----
+***
 
 ### bindImmediateEffect
 
 > **bindImmediateEffect**: [`EffectHandler`](../../../type-aliases/EffectHandler.md)
 
-Defined in: [v2/mat.ts:46](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L46)
+Defined in: [v2/mat.ts:46](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L46)
 
 Bind an effect that should run without scheduled delays.
 
----
+***
 
 ### events
 
 > **events**: `Events`
 
-Defined in: [v2/mat.ts:38](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L38)
+Defined in: [v2/mat.ts:38](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L38)
 
 Events that the component expects to bind.
 
----
+***
 
 ### jsx
 
 > **jsx**: [`JsxFunction`](../../../type-aliases/JsxFunction.md)
 
-Defined in: [v2/mat.ts:50](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L50)
+Defined in: [v2/mat.ts:50](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L50)
 
 JSX function to build appropriate Rings for this Mat
 
----
+***
 
 ### stamp()
 
 > **stamp**: () => `void`
 
-Defined in: [v2/mat.ts:55](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L55)
+Defined in: [v2/mat.ts:55](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L55)
 
 Mark the component as stable output regardless of props.
 
@@ -70,13 +70,13 @@ Mark the component as stable output regardless of props.
 
 nothing
 
----
+***
 
 ### stampWhen()
 
 > **stampWhen**: \<`Props`\>(`condition`, `jsonProps?`) => `void`
 
-Defined in: [v2/mat.ts:62](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/mat.ts#L62)
+Defined in: [v2/mat.ts:62](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/mat.ts#L62)
 
 Mark the component as stable output when a condition is met.
 

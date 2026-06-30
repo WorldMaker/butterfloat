@@ -2,6 +2,7 @@ import type { Observable } from 'rxjs'
 import type { ButterfloatEvents, DefaultEvents } from '../events.js'
 import { Ring } from './ring.js'
 import { type jsx } from './mat.js'
+import { ChildRoutes } from './route.js'
 
 /**
  * A Butterfloat Component provided properties and additional context-sensitive tools
@@ -31,7 +32,7 @@ export type HtmlAttributes = Record<string, unknown>
 /**
  * An Observable that produces child Components
  */
-export type ChildrenBind = Observable<Component>
+export type ChildrenBind = Observable<Component> | ChildRoutes
 
 /**
  * The mode to bind new children to a container

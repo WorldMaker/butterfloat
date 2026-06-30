@@ -1,13 +1,13 @@
 [**butterfloat**](../../butterfloat.md)
 
----
+***
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ChildrenBind
 
 # Type Alias: ChildrenBind
 
-> **ChildrenBind** = `Observable`\<[`Component`](Component.md)\>
+> **ChildrenBind** = `Observable`\<[`Component`](Component.md)\> \| [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/component.ts:34](https://github.com/WorldMaker/butterfloat/blob/8bb7c26d4a2b22df7ce934175f236b2a73e1fe7f/v2/component.ts#L34)
+Defined in: [v2/component.ts:35](https://github.com/WorldMaker/butterfloat/blob/af672d4d0ebec939f275a98eb8f06207bb8e6487/v2/component.ts#L35)
 
 An Observable that produces child Components
