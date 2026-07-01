@@ -19,6 +19,8 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   #isStamp = false
   #stampCondition: ((props: Props) => boolean) | null = null
   #stampJsonProps: Props | null = null
+  #defaultXmlns: string | null = null
+  #xmlns: Record<string, string> = {}
 
   get effects() {
     return this.#effects
@@ -37,6 +39,12 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   }
   get stampJsonProps() {
     return this.#stampJsonProps
+  }
+  get defaultXmlns() {
+    return this.#defaultXmlns
+  }
+  get xmlns() {
+    return this.#xmlns
   }
 
   jsx: JsxFunction = (
@@ -61,6 +69,11 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
       throw new Error('Cannot bind removal more than once')
     }
     this.#removal = observable
+  }
+
+  mapXmlns = (xmlns: Record<string, string>, defaultXmlns?: string) => {
+    this.#xmlns = Object.assign({}, this.#xmlns, xmlns)
+    this.#defaultXmlns = defaultXmlns ?? null
   }
 
   stamp: () => void = () => {
@@ -128,6 +141,14 @@ export interface RingDescription<Props = unknown> {
    * The JSON serializable "canonical" props provided for the stamp
    */
   stampJsonProps: Props | null
+  /**
+   * The default XML namespace registered for the Component
+   */
+  defaultXmlns: string | null
+  /**
+   * The XML namespaces registered for the Component
+   */
+  xmlns: Record<string, string>
 }
 
 /**
@@ -138,57 +159,46 @@ export interface RingDescription<Props = unknown> {
 export function describeRing<Props, Events>(
   ...args: DescribeRingArgs<Props, Events>
 ): RingDescription<Props> {
+  let ring: Ring | undefined
+  let mat: TesterMat<Events, Props> | undefined
   switch (args.length) {
-    case 1: {
-      const [component] = args
-      const mat = new TesterMat<Events, Props>({} as Events)
-      const ring = component(mat.jsx)
-      return {
-        description:
-          ring[ringType] === 'describable'
-            ? ring[ringDescribe]()
-            : '<non-describable component>',
-        effects: mat.effects,
-        immediateEffects: mat.immediateEffects,
-        removal: mat.removal,
-        isStamp: mat.isStamp,
-        stampCondition: mat.stampCondition,
-        stampJsonProps: mat.stampJsonProps,
+    case 1:
+      {
+        const [component] = args
+        mat = new TesterMat<Events, Props>({} as Events)
+        ring = component(mat.jsx)
       }
-    }
-    case 2: {
-      const [props, component] = args
-      const mat = new TesterMat<Events, Props>({} as Events)
-      const ring = component(props, mat)
-      return {
-        description:
-          ring[ringType] === 'describable'
-            ? ring[ringDescribe]()
-            : '<non-describable component>',
-        effects: mat.effects,
-        immediateEffects: mat.immediateEffects,
-        removal: mat.removal,
-        isStamp: mat.isStamp,
-        stampCondition: mat.stampCondition,
-        stampJsonProps: mat.stampJsonProps,
+      break
+    case 2:
+      {
+        const [props, component] = args
+        mat = new TesterMat<Events, Props>({} as Events)
+        ring = component(props, mat)
       }
-    }
-    case 3: {
-      const [props, events, component] = args
-      const mat = new TesterMat<Events, Props>(events)
-      const ring = component(props, mat)
-      return {
-        description:
-          ring[ringType] === 'describable'
-            ? ring[ringDescribe]()
-            : '<non-describable component>',
-        effects: mat.effects,
-        immediateEffects: mat.immediateEffects,
-        removal: mat.removal,
-        isStamp: mat.isStamp,
-        stampCondition: mat.stampCondition,
-        stampJsonProps: mat.stampJsonProps,
+      break
+    case 3:
+      {
+        const [props, events, component] = args
+        mat = new TesterMat<Events, Props>(events)
+        ring = component(props, mat)
       }
-    }
+      break
+  }
+  if (!ring) {
+    throw new Error('Invalid arguments to describeRing')
+  }
+  return {
+    description:
+      ring[ringType] === 'describable'
+        ? ring[ringDescribe]()
+        : '<non-describable component>',
+    effects: mat.effects,
+    immediateEffects: mat.immediateEffects,
+    removal: mat.removal,
+    isStamp: mat.isStamp,
+    stampCondition: mat.stampCondition,
+    stampJsonProps: mat.stampJsonProps,
+    defaultXmlns: mat.defaultXmlns,
+    xmlns: mat.xmlns,
   }
 }

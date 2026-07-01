@@ -33,7 +33,7 @@ export type JsxFunction = (
 /**
  * Context provider for a Butterfloat Component
  */
-interface Mat<Events = unknown> {
+export interface Mat<Events = unknown> {
   /**
    * @internal
    */
@@ -64,6 +64,13 @@ interface Mat<Events = unknown> {
    * JSX function to build appropriate Rings for this Mat
    */
   jsx: JsxFunction
+  /**
+   * Register a map of XML namespaces for the component.
+   * @param xmlns Map of namespaces for the component
+   * @param defaultXmlns Default namespace for the component
+   * @returns nothing
+   */
+  mapXmlns: (xmlns: Record<string, string>, defaultXmlns?: string) => void
   /**
    * Mark the component as stable output regardless of props.
    * @returns nothing
