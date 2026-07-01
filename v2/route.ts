@@ -374,14 +374,20 @@ export function mapSuspendRoutes(routes: SuspendRoutes) {
   )
 }
 
-export function mapErrorRoutes(routes: ErrorRoutes) {
-  return routes.routes.map(([map, component]) => {
-    return (error: unknown) => {
-      const props = map(error)
-      if (props !== false) {
-        return component
+export function mapErrorRoutes(
+  error: Observable<unknown>,
+  routes: ErrorRoutes,
+) {
+  return error.pipe(
+    map((error) => {
+      for (const [map, component] of routes.routes) {
+        const props = map(error)
+        if (props !== false) {
+          return component
+        }
       }
       return null
-    }
-  })
+    }),
+    filter((component) => component !== null),
+  )
 }

@@ -6,6 +6,8 @@ import { Ring } from './ring.js'
 
 export const matType = Symbol('matType')
 export const componentChildren = Symbol('componentChildren')
+export const getNextElementBindId = Symbol('getNextElementBindId')
+export const registerPossibleStamp = Symbol('registerPossibleStamp')
 
 /**
  * Handles an effect
@@ -43,6 +45,20 @@ export interface Mat<Events = unknown> {
    */
   [componentChildren]?: JsxChildren
   /**
+   * @internal
+   * Get the next element bind ID.
+   * @returns Element bind ID
+   */
+  [getNextElementBindId]: () => string
+  /**
+   * @internal
+   * Register a possible stamp for a child component.
+   * @param component Component to register
+   * @param jsonProps Optional JSON serializable "canonical" representation of relevant props to this stamp.
+   * @returns nothing
+   */
+  [registerPossibleStamp]: (component: Component, jsonProps?: unknown) => void
+  /**
    * Events that the component expects to bind.
    */
   events: Events
@@ -71,6 +87,14 @@ export interface Mat<Events = unknown> {
    * @returns nothing
    */
   mapXmlns: (xmlns: Record<string, string>, defaultXmlns?: string) => void
+  /**
+   * Registered default namespace for the component.
+   */
+  readonly defaultXmlns: string | null
+  /**
+   * Registered XML namespaces for the component.
+   */
+  readonly xmlns: Record<string, string>
   /**
    * Mark the component as stable output regardless of props.
    * @returns nothing
