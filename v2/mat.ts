@@ -55,6 +55,12 @@ interface Mat<Events = unknown> {
    */
   bindImmediateEffect: EffectHandler
   /**
+   * Bind a removal effect.
+   *
+   * The component is removed when the observable completes.
+   */
+  bindRemoval: (observable: Observable<unknown>) => void
+  /**
    * JSX function to build appropriate Rings for this Mat
    */
   jsx: JsxFunction
