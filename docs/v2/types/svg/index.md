@@ -1,14 +1,14 @@
-[**butterfloat**](../butterfloat.md)
+[**butterfloat**](../index.md)
 
 ---
 
-[butterfloat](../butterfloat.md) / svg
+[butterfloat](../index.md) / svg
 
 # svg
 
 ## Namespaces
 
-- [jsx](namespaces/jsx/butterfloat.md)
+- [jsx](namespaces/jsx/index.md)
 
 ## Interfaces
 

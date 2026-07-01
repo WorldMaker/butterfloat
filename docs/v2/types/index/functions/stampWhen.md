@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / stampWhen
+[butterfloat](../../index.md) / [index](../index.md) / stampWhen
 
 # Function: stampWhen()
 
 > **stampWhen**\<`Props`\>(`component`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/stamp.ts#L44)
+Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/stamp.ts#L44)
 
 Creates a simple, stable component when a condition is met.
 

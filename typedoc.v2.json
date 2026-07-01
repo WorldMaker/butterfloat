@@ -8,7 +8,7 @@
     "./v2/svg/index.ts",
     "./v2/testing/index.ts"
   ],
-  "entryFileName": "butterfloat",
+  "entryFileName": "index",
   "excludePrivate": true,
   "excludeInternal": true,
   "validation": {

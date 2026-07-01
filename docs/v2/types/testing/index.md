@@ -1,8 +1,8 @@
-[**butterfloat**](../butterfloat.md)
+[**butterfloat**](../index.md)
 
 ---
 
-[butterfloat](../butterfloat.md) / testing
+[butterfloat](../index.md) / testing
 
 # testing
 

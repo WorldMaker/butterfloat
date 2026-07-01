@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / EffectHandler
+[butterfloat](../../index.md) / [index](../index.md) / EffectHandler
 
 # Type Alias: EffectHandler()
 
 > **EffectHandler** = \<`T`\>(`observable`, `effect`) => `void`
 
-Defined in: [v2/mat.ts:13](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/mat.ts#L13)
+Defined in: [v2/mat.ts:13](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/mat.ts#L13)
 
 Handles an effect
 

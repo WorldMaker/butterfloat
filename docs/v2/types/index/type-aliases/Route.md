@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / Route
+[butterfloat](../../index.md) / [index](../index.md) / Route
 
 # Type Alias: Route\<Inputs, Props\>
 
 > **Route**\<`Inputs`, `Props`\> = \[(`inputs`) => `Props` \| `false`, [`Component`](Component.md)\<`Props`\>, `Props`\]
 
-Defined in: [v2/route.ts:13](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/route.ts#L13)
+Defined in: [v2/route.ts:13](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L13)
 
 A route that can be used to bind a component's children to an observable input.
 If the when function returns false, the next route will be tried.

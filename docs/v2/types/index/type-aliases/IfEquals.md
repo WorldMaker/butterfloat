@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / IfEquals
+[butterfloat](../../index.md) / [index](../index.md) / IfEquals
 
 # Type Alias: IfEquals\<X, Y, A, B\>
 
 > **IfEquals**\<`X`, `Y`, `A`, `B`\> = \<`T`\>() => `T` _extends_ `X` ? `1` : `2` _extends_ \<`T`\>() => `T` _extends_ `Y` ? `1` : `2` ? `A` : `B`
 
-Defined in: [v2/meta-types.ts:8](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/meta-types.ts#L8)
+Defined in: [v2/meta-types.ts:8](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/meta-types.ts#L8)
 
 If types are equal. Meta-type for complex conditional types.
 

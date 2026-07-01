@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / describeRing
+[butterfloat](../../index.md) / [testing](../index.md) / describeRing
 
 # Function: describeRing()
 
 > **describeRing**\<`Props`, `Events`\>(...`args`): [`RingDescription`](../interfaces/RingDescription.md)\<`Props`\>
 
-Defined in: [v2/testing/mat.ts:159](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/testing/mat.ts#L159)
+Defined in: [v2/testing/mat.ts:159](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/mat.ts#L159)
 
 Describe a Component's output given props and events.
 

@@ -1,13 +1,13 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ButterfloatAttributes
+[butterfloat](../../index.md) / [index](../index.md) / ButterfloatAttributes
 
 # Type Alias: ButterfloatAttributes
 
 > **ButterfloatAttributes** = [`HtmlAttributes`](HtmlAttributes.md) & [`ChildrenBindable`](../interfaces/ChildrenBindable.md)
 
-Defined in: [v2/component.ts:59](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/component.ts#L59)
+Defined in: [v2/component.ts:59](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/component.ts#L59)
 
 Butterfloat Attributes

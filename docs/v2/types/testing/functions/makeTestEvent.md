@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / makeTestEvent
+[butterfloat](../../index.md) / [testing](../index.md) / makeTestEvent
 
 # Function: makeTestEvent()
 
 > **makeTestEvent**\<`T`\>(`observable`): [`ObservableEvent`](../../index/type-aliases/ObservableEvent.md)\<`T`\>
 
-Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/events.ts#L33)
+Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/events.ts#L33)
 
 Mock an event for testing purposes only
 
