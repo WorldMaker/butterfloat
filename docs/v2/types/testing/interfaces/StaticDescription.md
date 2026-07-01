@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / StaticDescription
 
@@ -20,7 +20,7 @@ Defined in: [v2/testing/description.ts:144](https://github.com/WorldMaker/butter
 
 The static element
 
-***
+---
 
 ### type
 

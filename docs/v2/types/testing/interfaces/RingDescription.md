@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / RingDescription
 
@@ -26,7 +26,7 @@ Defined in: [v2/testing/mat.ts:103](https://github.com/WorldMaker/butterfloat/bl
 
 The description of the Ring output of the Component
 
-***
+---
 
 ### effects
 
@@ -36,7 +36,7 @@ Defined in: [v2/testing/mat.ts:109](https://github.com/WorldMaker/butterfloat/bl
 
 The effects that were bound during the Component's execution
 
-***
+---
 
 ### immediateEffects
 
@@ -46,7 +46,7 @@ Defined in: [v2/testing/mat.ts:114](https://github.com/WorldMaker/butterfloat/bl
 
 The immediate effects that were bound during the Component's execution
 
-***
+---
 
 ### isStamp
 
@@ -56,7 +56,7 @@ Defined in: [v2/testing/mat.ts:122](https://github.com/WorldMaker/butterfloat/bl
 
 Whether the Component was marked as a stamp
 
-***
+---
 
 ### removal
 
@@ -66,7 +66,7 @@ Defined in: [v2/testing/mat.ts:118](https://github.com/WorldMaker/butterfloat/bl
 
 The removal effect that was bound during the Component's execution
 
-***
+---
 
 ### stampCondition
 
@@ -76,7 +76,7 @@ Defined in: [v2/testing/mat.ts:126](https://github.com/WorldMaker/butterfloat/bl
 
 The condition used to determine if the Component should be stamped
 
-***
+---
 
 ### stampJsonProps
 

@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ChildRouteBuilder
 
@@ -54,7 +54,7 @@ Build the child routes
 
 Child routes for childrenBind
 
-***
+---
 
 ### onComplete()
 
@@ -86,7 +86,7 @@ Child binding mode for the completion boundary component
 
 this
 
-***
+---
 
 ### onError()
 
@@ -128,7 +128,7 @@ Optional JSON serializable props for the error component's stamp variant
 
 this
 
-***
+---
 
 ### suspend()
 
@@ -158,7 +158,7 @@ Child binding mode for the suspension boundary
 
 this
 
-***
+---
 
 ### when()
 
@@ -200,7 +200,7 @@ Optional JSON serializable props for the child component's stamp variant
 
 this
 
-***
+---
 
 ### whenSuspended()
 
@@ -242,7 +242,7 @@ Optional JSON serializable props for the suspension component's stamp variant
 
 this
 
-***
+---
 
 ### withErrorMode()
 
@@ -268,7 +268,7 @@ Child binding mode for the error boundary
 
 this
 
-***
+---
 
 ### withInput()
 
@@ -301,7 +301,7 @@ Observable to route to child components
 
 this but type adjusted to the new input type
 
-***
+---
 
 ### withMode()
 

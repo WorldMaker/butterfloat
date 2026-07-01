@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / Routes
 
@@ -28,7 +28,7 @@ Defined in: [v2/route.ts:29](https://github.com/WorldMaker/butterfloat/blob/4298
 
 Observable that produces inputs to route to child components
 
-***
+---
 
 ### mode
 
@@ -38,7 +38,7 @@ Defined in: [v2/route.ts:33](https://github.com/WorldMaker/butterfloat/blob/4298
 
 The mode to bind the child components to the parent component's children.
 
-***
+---
 
 ### routes
 

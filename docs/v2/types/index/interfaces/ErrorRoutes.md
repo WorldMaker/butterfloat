@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ErrorRoutes
 
@@ -22,7 +22,7 @@ Defined in: [v2/route.ts:103](https://github.com/WorldMaker/butterfloat/blob/429
 
 The mode to bind the error component to the parent component's children.
 
-***
+---
 
 ### routes
 

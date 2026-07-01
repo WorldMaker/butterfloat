@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / ComponentDescription
 
@@ -20,7 +20,7 @@ Defined in: [v2/testing/description.ts:102](https://github.com/WorldMaker/butter
 
 The children of the component
 
-***
+---
 
 ### component
 
@@ -30,7 +30,7 @@ Defined in: [v2/testing/description.ts:94](https://github.com/WorldMaker/butterf
 
 The Component
 
-***
+---
 
 ### properties
 
@@ -40,7 +40,7 @@ Defined in: [v2/testing/description.ts:98](https://github.com/WorldMaker/butterf
 
 The properties of the component
 
-***
+---
 
 ### type
 

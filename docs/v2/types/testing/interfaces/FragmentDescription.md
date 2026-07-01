@@ -1,6 +1,6 @@
 [**butterfloat**](../../butterfloat.md)
 
-***
+---
 
 [butterfloat](../../butterfloat.md) / [testing](../butterfloat.md) / FragmentDescription
 
@@ -20,7 +20,7 @@ Defined in: [v2/testing/description.ts:116](https://github.com/WorldMaker/butter
 
 The children of the fragment
 
-***
+---
 
 ### type
 
