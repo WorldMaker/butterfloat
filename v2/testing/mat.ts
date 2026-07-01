@@ -15,6 +15,7 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   #effects: Array<[Observable<unknown>, (item: any) => void]> = []
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   #immediateEffects: Array<[Observable<unknown>, (item: any) => void]> = []
+  #removal: Observable<unknown> | null = null
   #isStamp = false
   #stampCondition: ((props: Props) => boolean) | null = null
   #stampJsonProps: Props | null = null
@@ -24,6 +25,9 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   }
   get immediateEffects() {
     return this.#immediateEffects
+  }
+  get removal() {
+    return this.#removal
   }
   get isStamp() {
     return this.#isStamp
@@ -50,6 +54,13 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
     effect: (item: T) => void,
   ) => {
     this.#immediateEffects.push([observable, effect])
+  }
+
+  bindRemoval = (observable: Observable<unknown>) => {
+    if (this.#removal) {
+      throw new Error('Cannot bind removal more than once')
+    }
+    this.#removal = observable
   }
 
   stamp: () => void = () => {
@@ -102,6 +113,10 @@ export interface RingDescription<Props = unknown> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   immediateEffects: Array<[Observable<unknown>, (item: any) => void]>
   /**
+   * The removal effect that was bound during the Component's execution
+   */
+  removal: Observable<unknown> | null
+  /**
    * Whether the Component was marked as a stamp
    */
   isStamp: boolean
@@ -135,6 +150,7 @@ export function describeRing<Props, Events>(
             : '<non-describable component>',
         effects: mat.effects,
         immediateEffects: mat.immediateEffects,
+        removal: mat.removal,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
         stampJsonProps: mat.stampJsonProps,
@@ -151,6 +167,7 @@ export function describeRing<Props, Events>(
             : '<non-describable component>',
         effects: mat.effects,
         immediateEffects: mat.immediateEffects,
+        removal: mat.removal,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
         stampJsonProps: mat.stampJsonProps,
@@ -167,6 +184,7 @@ export function describeRing<Props, Events>(
             : '<non-describable component>',
         effects: mat.effects,
         immediateEffects: mat.immediateEffects,
+        removal: mat.removal,
         isStamp: mat.isStamp,
         stampCondition: mat.stampCondition,
         stampJsonProps: mat.stampJsonProps,

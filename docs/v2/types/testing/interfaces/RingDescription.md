@@ -6,7 +6,7 @@
 
 # Interface: RingDescription\<Props\>
 
-Defined in: [v2/testing/mat.ts:88](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L88)
+Defined in: [v2/testing/mat.ts:99](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L99)
 
 A Component Context for Testing purposes
 
@@ -22,7 +22,7 @@ A Component Context for Testing purposes
 
 > **description**: `string` \| [`NodeDescription`](../type-aliases/NodeDescription.md)
 
-Defined in: [v2/testing/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L92)
+Defined in: [v2/testing/mat.ts:103](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L103)
 
 The description of the Ring output of the Component
 
@@ -32,7 +32,7 @@ The description of the Ring output of the Component
 
 > **effects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [v2/testing/mat.ts:98](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L98)
+Defined in: [v2/testing/mat.ts:109](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L109)
 
 The effects that were bound during the Component's execution
 
@@ -42,7 +42,7 @@ The effects that were bound during the Component's execution
 
 > **immediateEffects**: \[`Observable`\<`unknown`\>, (`item`) => `void`\][]
 
-Defined in: [v2/testing/mat.ts:103](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L103)
+Defined in: [v2/testing/mat.ts:114](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L114)
 
 The immediate effects that were bound during the Component's execution
 
@@ -52,9 +52,19 @@ The immediate effects that were bound during the Component's execution
 
 > **isStamp**: `boolean`
 
-Defined in: [v2/testing/mat.ts:107](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L107)
+Defined in: [v2/testing/mat.ts:122](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L122)
 
 Whether the Component was marked as a stamp
+
+---
+
+### removal
+
+> **removal**: `null` \| `Observable`\<`unknown`\>
+
+Defined in: [v2/testing/mat.ts:118](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L118)
+
+The removal effect that was bound during the Component's execution
 
 ---
 
@@ -62,7 +72,7 @@ Whether the Component was marked as a stamp
 
 > **stampCondition**: `null` \| (`props`) => `boolean`
 
-Defined in: [v2/testing/mat.ts:111](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L111)
+Defined in: [v2/testing/mat.ts:126](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L126)
 
 The condition used to determine if the Component should be stamped
 
@@ -72,6 +82,6 @@ The condition used to determine if the Component should be stamped
 
 > **stampJsonProps**: `null` \| `Props`
 
-Defined in: [v2/testing/mat.ts:115](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L115)
+Defined in: [v2/testing/mat.ts:130](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L130)
 
 The JSON serializable "canonical" props provided for the stamp

@@ -8,7 +8,7 @@
 
 > **DescribeRingArgs**\<`Props`, `Events`\> = \[(`jsx`) => [`Ring`](../../index/type-aliases/Ring.md)\] \| \[`Props`, [`Component`](../../index/type-aliases/Component.md)\<`Props`, `Events`\>\] \| \[`Props`, `Events`, [`Component`](../../index/type-aliases/Component.md)\<`Props`, `Events`\>\]
 
-Defined in: [v2/testing/mat.ts:80](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/testing/mat.ts#L80)
+Defined in: [v2/testing/mat.ts:91](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/testing/mat.ts#L91)
 
 Describe a Component's Ring output or a simple function that returns a Ring
 
