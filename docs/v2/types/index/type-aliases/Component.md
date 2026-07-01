@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / Component
+[butterfloat](../../index.md) / [index](../index.md) / Component
 
 # Type Alias: Component()\<Props, Events\>
 
 > **Component**\<`Props`, `Events`\> = (`props`, `mat`) => [`Ring`](Ring.md)
 
-Defined in: [v2/component.ts:12](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/v2/component.ts#L12)
+Defined in: [v2/component.ts:12](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/component.ts#L12)
 
 A Butterfloat Component provided properties and additional context-sensitive tools
 

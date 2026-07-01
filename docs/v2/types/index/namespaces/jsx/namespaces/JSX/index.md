@@ -1,8 +1,8 @@
-[**butterfloat**](../../../../../butterfloat.md)
+[**butterfloat**](../../../../../index.md)
 
 ---
 
-[butterfloat](../../../../../butterfloat.md) / [svg](../../../../butterfloat.md) / [jsx](../../butterfloat.md) / JSX
+[butterfloat](../../../../../index.md) / [index](../../../../index.md) / [jsx](../../index.md) / JSX
 
 # JSX
 
@@ -17,9 +17,9 @@
 - [ButterfloatElementEvents](type-aliases/ButterfloatElementEvents.md)
 - [ButterfloatElementStyleBind](type-aliases/ButterfloatElementStyleBind.md)
 - [Element](type-aliases/Element.md)
+- [HtmlElementAttributes](type-aliases/HtmlElementAttributes.md)
+- [HtmlElementAttributesBind](type-aliases/HtmlElementAttributesBind.md)
+- [HtmlElements](type-aliases/HtmlElements.md)
+- [HtmlElementStyleBind](type-aliases/HtmlElementStyleBind.md)
+- [HtmlEvents](type-aliases/HtmlEvents.md)
 - [IntrinsicAttributes](type-aliases/IntrinsicAttributes.md)
-- [SvgElementAttributes](type-aliases/SvgElementAttributes.md)
-- [SvgElementAttributesBind](type-aliases/SvgElementAttributesBind.md)
-- [SvgElements](type-aliases/SvgElements.md)
-- [SvgElementStyleBind](type-aliases/SvgElementStyleBind.md)
-- [SvgEvents](type-aliases/SvgEvents.md)

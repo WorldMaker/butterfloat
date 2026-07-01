@@ -1,14 +1,14 @@
-[**butterfloat**](../../butterfloat.md)
+[**butterfloat**](../../index.md)
 
 ---
 
-[butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / butterfly
+[butterfloat](../../index.md) / [index](../index.md) / butterfly
 
 # Function: butterfly()
 
 > **butterfly**\<`T`\>(`startingValue`): \[`Observable`\<`T`\>, (`value`) => `void`, (`error`) => `void`, () => `void`\]
 
-Defined in: [butterfly.ts:23](https://github.com/WorldMaker/butterfloat/blob/abf91429ecafb6e62dab9ef64728d534d7159105/butterfly.ts#L23)
+Defined in: [butterfly.ts:23](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/butterfly.ts#L23)
 
 Create an atomic Observable for representation of a small piece of state while splitting
 the read API and write APIs in a way making it easier to protect write APIs from escaping

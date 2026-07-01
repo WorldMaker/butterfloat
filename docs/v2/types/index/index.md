@@ -1,14 +1,14 @@
-[**butterfloat**](../butterfloat.md)
+[**butterfloat**](../index.md)
 
 ---
 
-[butterfloat](../butterfloat.md) / index
+[butterfloat](../index.md) / index
 
 # index
 
 ## Namespaces
 
-- [jsx](namespaces/jsx/butterfloat.md)
+- [jsx](namespaces/jsx/index.md)
 
 ## Classes
 

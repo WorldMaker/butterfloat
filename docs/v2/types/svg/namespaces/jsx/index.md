@@ -1,8 +1,8 @@
-[**butterfloat**](../../../butterfloat.md)
+[**butterfloat**](../../../index.md)
 
 ---
 
-[butterfloat](../../../butterfloat.md) / [svg](../../butterfloat.md) / jsx
+[butterfloat](../../../index.md) / [svg](../../index.md) / jsx
 
 # jsx
 
@@ -10,7 +10,7 @@ Builder for JSX and TSX transformation.
 
 ## Namespaces
 
-- [JSX](namespaces/JSX/butterfloat.md)
+- [JSX](namespaces/JSX/index.md)
 
 ## References
 
