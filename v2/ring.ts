@@ -1,27 +1,26 @@
 import { Observable } from 'rxjs'
 import type {
+  ChildrenBindMode,
   ClassBind,
+  Component,
   DefaultBind,
   DefaultStyleBind,
   JsxChildren,
 } from './component.js'
 import type { DefaultEvents } from '../events.js'
-import {
-  ChildrenBindDescription,
-  NodeDescription,
-} from './testing/description.js'
+import { NodeDescription } from './testing/description.js'
 import { type jsx } from './mat.js'
 
 export const ringType = Symbol('ringType')
 export const toBinds = Symbol('toBinds')
+export const elementBindId = Symbol('elementBindId')
 export const toElement = Symbol('toElement')
 export const addChild = Symbol('addChild')
 export const describe = Symbol('describe')
 export const canProvideRing = Symbol('canProvideRing')
 export const canAttachChildren = Symbol('canAttachChildren')
 
-export interface ElementBindDescription<Bind = DefaultBind>
-  extends ChildrenBindDescription {
+export interface ElementBindDescription<Bind = DefaultBind> {
   bind: Bind
   immediateBind: Bind
   events: DefaultEvents
@@ -29,10 +28,24 @@ export interface ElementBindDescription<Bind = DefaultBind>
   immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
   immediateClassBind: ClassBind
+  /**
+   * Children bindings
+   */
+  childrenBind?: Observable<Component>
+  /**
+   * The mode to bind children
+   */
+  childrenBindMode?: ChildrenBindMode
+  suspendBind?: Observable<Component>
+  suspendBindMode?: ChildrenBindMode
+  errorBind?: Observable<Component>
+  errorBindMode?: ChildrenBindMode
+  completeBind?: Observable<Component>
+  completeBindMode?: ChildrenBindMode
 
-  onError: ((error: unknown) => void) | null
-  onComplete: (() => void) | null
-  suspend: Observable<boolean> | null
+  onError?: (error: unknown) => void
+  onComplete?: () => void
+  suspend?: Observable<boolean>
 }
 
 /**
@@ -56,6 +69,7 @@ export const inertRing: InertRing = Object.freeze({
  */
 export interface RunnableRing {
   [ringType]: 'runnable'
+  [elementBindId]?: string
   [toBinds](): Record<string, ElementBindDescription> | null
 }
 

@@ -1,12 +1,27 @@
 import { Observable } from 'rxjs'
-import { JsxFunction, type jsx, matType } from '../mat.js'
+import {
+  JsxFunction,
+  getNextElementBindId,
+  type jsx,
+  matType,
+  registerPossibleStamp,
+} from '../mat.js'
 import { ButterfloatAttributes, Component, JsxChildren } from '../component.js'
 import { Ring, describe as ringDescribe, ringType } from '../ring.js'
 import { NodeDescription } from './description.js'
 import { ringDescriber } from './rings/describe.js'
 
 export class TesterMat<Events, Props> implements jsx.Mat<Events> {
-  [matType] = 'tester' as const
+  [matType] = 'tester' as const;
+  // Ring description shouldn't actually use this
+  [getNextElementBindId] = () => 'test-bind-id';
+  // Ring description shouldn't actually use this
+  [registerPossibleStamp] = (component: Component, jsonProps?: unknown) => {
+    console.log('Registering possible stampable child component', {
+      component,
+      jsonProps,
+    })
+  }
 
   constructor(public readonly events: Events) {}
 
