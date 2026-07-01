@@ -6,7 +6,6 @@ import { Ring } from '../ring'
 import { ButterfloatEvents, DefaultEvents, ObservableEvent } from '../../events'
 import {
   ButterfloatIntrinsicAttributes,
-  ChildrenBindable,
   DefaultBind,
   DefaultStyleBind,
 } from '../component'
@@ -121,4 +120,4 @@ export interface IntrinsicElements extends SvgElements {
 /**
  * JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")
  */
-export type IntrinsicAttributes = ChildrenBindable
+export type IntrinsicAttributes = object // ChildrenBindable
