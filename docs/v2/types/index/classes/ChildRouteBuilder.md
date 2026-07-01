@@ -1,12 +1,12 @@
 [**butterfloat**](../../butterfloat.md)
 
----
+***
 
 [butterfloat](../../butterfloat.md) / [index](../butterfloat.md) / ChildRouteBuilder
 
 # Class: ChildRouteBuilder\<Inputs\>
 
-Defined in: [v2/route.ts:153](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L153)
+Defined in: [v2/route.ts:153](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L153)
 
 Fluid builder for child routes
 
@@ -22,7 +22,7 @@ Fluid builder for child routes
 
 > **new ChildRouteBuilder**\<`Inputs`\>(`input?`, `mode?`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:165](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L165)
+Defined in: [v2/route.ts:165](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L165)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [v2/route.ts:165](https://github.com/WorldMaker/butterfloat/blob/152
 
 > **build**(): [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/route.ts:296](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L296)
+Defined in: [v2/route.ts:296](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L296)
 
 Build the child routes
 
@@ -54,13 +54,13 @@ Build the child routes
 
 Child routes for childrenBind
 
----
+***
 
 ### onComplete()
 
 > **onComplete**(`component`, `mode`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:283](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L283)
+Defined in: [v2/route.ts:283](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L283)
 
 Add a completion boundary component
 
@@ -86,13 +86,13 @@ Child binding mode for the completion boundary component
 
 this
 
----
+***
 
 ### onError()
 
 > **onError**\<`Props`\>(`map`, `component`, `jsonProps?`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:266](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L266)
+Defined in: [v2/route.ts:266](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L266)
 
 Add an error boundary route
 
@@ -128,13 +128,13 @@ Optional JSON serializable props for the error component's stamp variant
 
 this
 
----
+***
 
 ### suspend()
 
 > **suspend**(`suspend`, `mode`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:220](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L220)
+Defined in: [v2/route.ts:220](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L220)
 
 Create a suspension boundary
 
@@ -158,13 +158,13 @@ Child binding mode for the suspension boundary
 
 this
 
----
+***
 
 ### when()
 
 > **when**\<`Props`\>(`when`, `component`, `jsonProps?`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:205](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L205)
+Defined in: [v2/route.ts:205](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L205)
 
 Add a child route
 
@@ -200,13 +200,13 @@ Optional JSON serializable props for the child component's stamp variant
 
 this
 
----
+***
 
 ### whenSuspended()
 
 > **whenSuspended**\<`Props`\>(`map`, `component`, `jsonProps?`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:236](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L236)
+Defined in: [v2/route.ts:236](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L236)
 
 Add a suspension boundary route
 
@@ -242,13 +242,13 @@ Optional JSON serializable props for the suspension component's stamp variant
 
 this
 
----
+***
 
 ### withErrorMode()
 
 > **withErrorMode**(`mode`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:252](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L252)
+Defined in: [v2/route.ts:252](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L252)
 
 Set the child binding mode for the error boundary
 
@@ -268,13 +268,13 @@ Child binding mode for the error boundary
 
 this
 
----
+***
 
 ### withInput()
 
 > **withInput**\<`T`\>(`input`): `ChildRouteBuilder`\<`T`\>
 
-Defined in: [v2/route.ts:181](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L181)
+Defined in: [v2/route.ts:181](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L181)
 
 Set the input observable for the routes
 
@@ -301,13 +301,13 @@ Observable to route to child components
 
 this but type adjusted to the new input type
 
----
+***
 
 ### withMode()
 
 > **withMode**(`mode`): `ChildRouteBuilder`\<`Inputs`\>
 
-Defined in: [v2/route.ts:193](https://github.com/WorldMaker/butterfloat/blob/15273263d9620fccfeace6b38b7438b86253ac04/v2/route.ts#L193)
+Defined in: [v2/route.ts:193](https://github.com/WorldMaker/butterfloat/blob/4298a71ecb56d7968e79381ec7094547a652efc1/v2/route.ts#L193)
 
 Set the child binding mode for the routes
 
