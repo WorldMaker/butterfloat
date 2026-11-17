@@ -17,11 +17,6 @@ layout: main.vto
 </nav>
 
 <section class="section page-content">
-    <nav class="menu toc-menu" toc="content">
-        <p class="menu-label">Table of Contents</p>
-        
-    </nav>
-
     {{ if toc?.length }}
     <nav class="menu toc-menu">
         <p class="menu-label">Table of Contents</p>
@@ -29,22 +24,22 @@ layout: main.vto
             {{ for item of toc }}
             <li>
                 <a href="#{{ item.slug }}">{{ item.text }}</a>
+                {{ if item.children?.length }}
+                <ul>
+                    {{ for child of item.children }}
+                    <li>
+                        <a href="#{{ child.slug }}">{{ child.text }}</a>
+                    </li>
+                    {{ /for }}
+                </ul>
+                {{ /if }}
             </li>
-            {{ if item.children?.length }}
-            <ul>
-                {{ for child of item.children }}
-                <li>
-                    <a href="#{{ child.slug }}">{{ child.text }}</a>
-                </li>
-                {{ /for }}
-            </ul>
-            {{ /if }}
             {{ /for }}
         </ul>
     </nav>
     {{ /if }}
 
-    <article class="container content" id="content">
+    <article class="container content">
         {{ content }}
     </article>
 

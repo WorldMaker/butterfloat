@@ -78,7 +78,6 @@ The `<Empty />` pseudo-component is an explicitly empty return state.
 It's a bit more optimized than alternatives like using an empty fragment
 (`<></>`, the "empty fish").
 
-
 ## Classic Children Binding
 
 You may need to dynamically change children over time in your
