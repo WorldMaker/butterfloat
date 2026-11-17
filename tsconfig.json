@@ -11,6 +11,6 @@
     // additional strictness
     "noUncheckedIndexedAccess": true
   },
-  "exclude": ["docs/_config.ts"],
+  "exclude": ["docs/_config.ts", "docs/**/*.ts"],
   "include": ["**/*.ts", "**/*.tsx"]
 }
