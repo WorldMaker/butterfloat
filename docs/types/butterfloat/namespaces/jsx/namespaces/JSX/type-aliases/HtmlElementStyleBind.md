@@ -1,3 +1,11 @@
+---
+title: HtmlElementStyleBind
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../../../../../../index.md)
 
 ***
@@ -8,6 +16,6 @@
 
 > **HtmlElementStyleBind** = `{ [Property in keyof CSSStyleDeclaration]?: Observable<CSSStyleDeclaration[Property]> }`
 
-Defined in: [jsx.ts:112](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L112)
+Defined in: [jsx.ts:112](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L112)
 
 All bindable CSS styles of an HTML element

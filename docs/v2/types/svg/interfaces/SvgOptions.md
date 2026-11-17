@@ -1,12 +1,20 @@
+---
+title: SvgOptions
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [svg](../index.md) / SvgOptions
 
 # Interface: SvgOptions
 
-Defined in: [v2/svg/svg.ts:10](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/svg/svg.ts#L10)
+Defined in: [v2/svg/svg.ts:10](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/svg/svg.ts#L10)
 
 Options for simple SVG components.
 
@@ -14,8 +22,8 @@ Options for simple SVG components.
 
 ### notStamp?
 
-> `optional` **notStamp**: `boolean`
+> `optional` **notStamp?**: `boolean`
 
-Defined in: [v2/svg/svg.ts:14](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/svg/svg.ts#L14)
+Defined in: [v2/svg/svg.ts:14](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/svg/svg.ts#L14)
 
 The SVG does not qualify for stamp reuse

@@ -1,3 +1,11 @@
+---
+title: ElementDescription
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: ElementDescription\<Bind\>
 
-Defined in: [component.ts:180](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L180)
+Defined in: [component.ts:180](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L180)
 
 Description of a DOM element and its bindings
 
@@ -26,7 +34,7 @@ Description of a DOM element and its bindings
 
 > **attributes**: [`Attributes`](../type-aliases/Attributes.md)
 
-Defined in: [component.ts:184](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L184)
+Defined in: [component.ts:184](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L184)
 
 ***
 
@@ -34,7 +42,7 @@ Defined in: [component.ts:184](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **bind**: `Bind`
 
-Defined in: [component.ts:185](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L185)
+Defined in: [component.ts:185](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L185)
 
 ***
 
@@ -42,7 +50,7 @@ Defined in: [component.ts:185](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
 
-Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L172)
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L172)
 
 #### Inherited from
 
@@ -52,9 +60,9 @@ Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/df
 
 ### childrenBind?
 
-> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
+> `optional` **childrenBind?**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L173)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L173)
 
 #### Inherited from
 
@@ -64,9 +72,9 @@ Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/df
 
 ### childrenBindMode?
 
-> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
+> `optional` **childrenBindMode?**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L174)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L174)
 
 #### Inherited from
 
@@ -78,7 +86,7 @@ Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **classBind**: [`ClassBind`](../type-aliases/ClassBind.md)
 
-Defined in: [component.ts:190](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L190)
+Defined in: [component.ts:190](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L190)
 
 ***
 
@@ -86,7 +94,7 @@ Defined in: [component.ts:190](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **element**: `string`
 
-Defined in: [component.ts:183](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L183)
+Defined in: [component.ts:183](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L183)
 
 ***
 
@@ -94,7 +102,7 @@ Defined in: [component.ts:183](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **events**: [`DefaultEvents`](../type-aliases/DefaultEvents.md)
 
-Defined in: [component.ts:187](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L187)
+Defined in: [component.ts:187](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L187)
 
 ***
 
@@ -102,7 +110,7 @@ Defined in: [component.ts:187](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **immediateBind**: `Bind`
 
-Defined in: [component.ts:186](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L186)
+Defined in: [component.ts:186](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L186)
 
 ***
 
@@ -110,7 +118,7 @@ Defined in: [component.ts:186](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **immediateClassBind**: [`ClassBind`](../type-aliases/ClassBind.md)
 
-Defined in: [component.ts:191](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L191)
+Defined in: [component.ts:191](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L191)
 
 ***
 
@@ -118,7 +126,7 @@ Defined in: [component.ts:191](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **immediateStyleBind**: [`DefaultStyleBind`](../type-aliases/DefaultStyleBind.md)
 
-Defined in: [component.ts:189](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L189)
+Defined in: [component.ts:189](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L189)
 
 ***
 
@@ -126,7 +134,7 @@ Defined in: [component.ts:189](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **styleBind**: [`DefaultStyleBind`](../type-aliases/DefaultStyleBind.md)
 
-Defined in: [component.ts:188](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L188)
+Defined in: [component.ts:188](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L188)
 
 ***
 
@@ -134,4 +142,4 @@ Defined in: [component.ts:188](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **type**: `"element"`
 
-Defined in: [component.ts:182](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L182)
+Defined in: [component.ts:182](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L182)

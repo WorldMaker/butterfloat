@@ -1,6 +1,14 @@
+---
+title: route
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / route
 
@@ -8,7 +16,7 @@
 
 > **route**\<`Inputs`\>(`input?`, `mode?`): [`ChildRouteBuilder`](../classes/ChildRouteBuilder.md)\<`Inputs`\>
 
-Defined in: [v2/route.ts:340](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L340)
+Defined in: [v2/route.ts:340](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/route.ts#L340)
 
 Route an Observable to child components
 
@@ -31,9 +39,9 @@ Observable to route to child components
 
 ### mode?
 
-Children binding mode
+`"replace"` \| `"append"` \| `"prepend"`
 
-`"replace"` | `"append"` | `"prepend"`
+Children binding mode
 
 ## Returns
 

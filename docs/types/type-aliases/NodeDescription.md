@@ -1,3 +1,11 @@
+---
+title: NodeDescription
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -8,6 +16,6 @@
 
 > **NodeDescription** = [`ElementDescription`](../interfaces/ElementDescription.md) \| [`ComponentDescription`](../interfaces/ComponentDescription.md) \| [`FragmentDescription`](../interfaces/FragmentDescription.md) \| [`ChildrenDescription`](../interfaces/ChildrenDescription.md) \| [`StaticDescription`](../interfaces/StaticDescription.md) \| [`EmptyDescription`](../interfaces/EmptyDescription.md) \| [`CommentDescription`](../interfaces/CommentDescription.md)
 
-Defined in: [component.ts:245](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L245)
+Defined in: [component.ts:245](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L245)
 
 A description of a node in a Butterfloat DOM tree

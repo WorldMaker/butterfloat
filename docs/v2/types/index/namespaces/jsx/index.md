@@ -1,6 +1,14 @@
+---
+title: jsx
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../../index.md)
 
----
+***
 
 [butterfloat](../../../index.md) / [index](../../index.md) / jsx
 
@@ -12,6 +20,8 @@ Builder for JSX and TSX transformation.
 
 - [JSX](namespaces/JSX/index.md)
 
-## Interfaces
+## References
 
-- [Mat](interfaces/Mat.md)
+### Mat
+
+Re-exports [Mat](../../interfaces/Mat.md)

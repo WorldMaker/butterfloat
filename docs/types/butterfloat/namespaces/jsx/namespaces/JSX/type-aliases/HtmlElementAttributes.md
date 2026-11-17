@@ -1,3 +1,11 @@
+---
+title: HtmlElementAttributes
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../../../../../../index.md)
 
 ***
@@ -8,7 +16,7 @@
 
 > **HtmlElementAttributes**\<`T`\> = \{ \[Property in WritableKeys\<T\> as T\[Property\] extends string \| number \| null \| undefined ? Property : never\]?: T\[Property\] \}
 
-Defined in: [jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L66)
+Defined in: [jsx.ts:66](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L66)
 
 Attributes of an HTML Element
 

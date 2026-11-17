@@ -1,3 +1,11 @@
+---
+title: StateSetter
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,9 +14,11 @@
 
 # Type Alias: StateSetter\<T\>
 
-> **StateSetter**\<`T`\> = `T` \| (`currentValue`) => `T`
+> **StateSetter**\<`T`\> = `T` \| ((`currentValue`) => `T`)
 
-Defined in: [butterfly.ts:3](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/butterfly.ts#L3)
+Defined in: [butterfly.ts:6](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/butterfly.ts#L6)
+
+Set or update a state value
 
 ## Type Parameters
 

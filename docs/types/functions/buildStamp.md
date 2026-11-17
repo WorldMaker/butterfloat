@@ -1,3 +1,11 @@
+---
+title: buildStamp
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,9 +14,9 @@
 
 # Function: buildStamp()
 
-> **buildStamp**(`description`, `document`): `HTMLTemplateElement`
+> **buildStamp**(`description`, `document?`): `HTMLTemplateElement`
 
-Defined in: [stamp-builder.ts:11](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-builder.ts#L11)
+Defined in: [stamp-builder.ts:11](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-builder.ts#L11)
 
 Build a Stamp of the static DOM parts from the tree produced by a Component
 
@@ -20,7 +28,7 @@ Build a Stamp of the static DOM parts from the tree produced by a Component
 
 Node description tree
 
-### document
+### document?
 
 `Document` = `globalThis.document`
 

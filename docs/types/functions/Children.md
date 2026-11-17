@@ -1,3 +1,11 @@
+---
+title: Children
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -8,7 +16,7 @@
 
 > **Children**(`props`): [`NodeDescription`](../type-aliases/NodeDescription.md)
 
-Defined in: [jsx.ts:176](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L176)
+Defined in: [jsx.ts:176](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L176)
 
 Bind the children of a component.
 

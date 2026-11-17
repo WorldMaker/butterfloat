@@ -1,12 +1,20 @@
+---
+title: ComponentDescription
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [testing](../index.md) / ComponentDescription
 
 # Interface: ComponentDescription
 
-Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L86)
+Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/testing/description.ts#L86)
 
 Description of a Component binding
 
@@ -16,36 +24,36 @@ Description of a Component binding
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:102](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L102)
+Defined in: [v2/testing/description.ts:102](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/testing/description.ts#L102)
 
 The children of the component
 
----
+***
 
 ### component
 
 > **component**: [`Component`](../../index/type-aliases/Component.md)
 
-Defined in: [v2/testing/description.ts:94](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L94)
+Defined in: [v2/testing/description.ts:94](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/testing/description.ts#L94)
 
 The Component
 
----
+***
 
 ### properties
 
 > **properties**: [`Attributes`](../../index/type-aliases/Attributes.md)
 
-Defined in: [v2/testing/description.ts:98](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L98)
+Defined in: [v2/testing/description.ts:98](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/testing/description.ts#L98)
 
 The properties of the component
 
----
+***
 
 ### type
 
 > **type**: `"component"`
 
-Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L90)
+Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/testing/description.ts#L90)
 
 The type of the description

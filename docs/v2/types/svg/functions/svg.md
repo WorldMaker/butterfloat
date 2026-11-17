@@ -1,6 +1,14 @@
+---
+title: svg
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [svg](../index.md) / svg
 
@@ -8,7 +16,7 @@
 
 > **svg**\<`Props`\>(`component`, `options?`): [`Component`](../../index/type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/svg/svg.ts:26](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/svg/svg.ts#L26)
+Defined in: [v2/svg/svg.ts:26](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/svg/svg.ts#L26)
 
 Creates a simple SVG component.
 

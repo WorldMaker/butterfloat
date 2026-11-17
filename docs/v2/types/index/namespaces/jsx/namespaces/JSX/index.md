@@ -1,6 +1,14 @@
+---
+title: JSX
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../../../../index.md)
 
----
+***
 
 [butterfloat](../../../../../index.md) / [index](../../../../index.md) / [jsx](../../index.md) / JSX
 

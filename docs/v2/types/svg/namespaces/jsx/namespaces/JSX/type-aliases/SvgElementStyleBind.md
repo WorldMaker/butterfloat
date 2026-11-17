@@ -1,6 +1,14 @@
+---
+title: SvgElementStyleBind
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../../../../../index.md)
 
----
+***
 
 [butterfloat](../../../../../../index.md) / [svg](../../../../../index.md) / [jsx](../../../index.md) / [JSX](../index.md) / SvgElementStyleBind
 
@@ -8,6 +16,6 @@
 
 > **SvgElementStyleBind** = `{ [Property in keyof CSSStyleDeclaration]?: Observable<CSSStyleDeclaration[Property]> }`
 
-Defined in: [v2/jsx/svg.ts:83](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/jsx/svg.ts#L83)
+Defined in: [v2/jsx/svg.ts:83](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/jsx/svg.ts#L83)
 
 All bindable CSS styles of an SVG element

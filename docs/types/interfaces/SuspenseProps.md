@@ -1,3 +1,11 @@
+---
+title: SuspenseProps
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: SuspenseProps
 
-Defined in: [suspense.ts:14](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/suspense.ts#L14)
+Defined in: [suspense.ts:14](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/suspense.ts#L14)
 
 Properties supported by the `<Suspense>` pseudo-component
 
@@ -14,9 +22,9 @@ Properties supported by the `<Suspense>` pseudo-component
 
 ### suspenseView?
 
-> `optional` **suspenseView**: [`Component`](../type-aliases/Component.md)
+> `optional` **suspenseView?**: [`Component`](../type-aliases/Component.md)
 
-Defined in: [suspense.ts:22](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/suspense.ts#L22)
+Defined in: [suspense.ts:22](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/suspense.ts#L22)
 
 Show an optional component instead when suspended.
 
@@ -26,6 +34,6 @@ Show an optional component instead when suspended.
 
 > **when**: `Observable`\<`boolean`\>
 
-Defined in: [suspense.ts:18](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/suspense.ts#L18)
+Defined in: [suspense.ts:18](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/suspense.ts#L18)
 
 Suspend children bindings when true.

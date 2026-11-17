@@ -1,6 +1,14 @@
+---
+title: makeTestEvent
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [testing](../index.md) / makeTestEvent
 
@@ -8,7 +16,7 @@
 
 > **makeTestEvent**\<`T`\>(`observable`): [`ObservableEvent`](../../index/type-aliases/ObservableEvent.md)\<`T`\>
 
-Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/events.ts#L33)
+Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/events.ts#L33)
 
 Mock an event for testing purposes only
 

@@ -1,12 +1,20 @@
+---
+title: StampWhenComponent
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / StampWhenComponent
 
 # Interface: StampWhenComponent\<Props\>
 
-Defined in: [v2/stamp.ts:22](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/stamp.ts#L22)
+Defined in: [v2/stamp.ts:22](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/stamp.ts#L22)
 
 Simple, stable component with attached condition for stamp reuse.
 
@@ -18,11 +26,11 @@ Simple, stable component with attached condition for stamp reuse.
 
 ## Properties
 
-### condition()
+### condition
 
 > **condition**: (`props`) => `boolean`
 
-Defined in: [v2/stamp.ts:28](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/stamp.ts#L28)
+Defined in: [v2/stamp.ts:28](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/stamp.ts#L28)
 
 Condition to determine if the stamp matches for this component.
 
@@ -40,22 +48,22 @@ Props of the component to determine if the stamp matches.
 
 True if the stamp matches, false otherwise.
 
----
+***
 
 ### jsonProps?
 
-> `optional` **jsonProps**: `Props`
+> `optional` **jsonProps?**: `Props`
 
-Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/stamp.ts#L36)
+Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/stamp.ts#L36)
 
 JSON serialziable "canonical" representation of the applicable props to this stamp.
 
----
+***
 
 ### ring
 
 > **ring**: [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/stamp.ts:32](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/stamp.ts#L32)
+Defined in: [v2/stamp.ts:32](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/stamp.ts#L32)
 
 Ring output of the component.

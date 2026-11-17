@@ -1,3 +1,11 @@
+---
+title: IntrinsicElements
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../../../../../../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: IntrinsicElements
 
-Defined in: [jsx.ts:146](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L146)
+Defined in: [jsx.ts:146](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L146)
 
 JSX "intrinsic" elements (HTML elements for DOM binding)
 
@@ -16,7 +24,7 @@ JSX "intrinsic" elements (HTML elements for DOM binding)
 
 ## Indexable
 
-\[`ele`: `string`\]: [`ButterfloatIntrinsicAttributes`](../../../../../../interfaces/ButterfloatIntrinsicAttributes.md)\<[`DefaultBind`](../../../../../../type-aliases/DefaultBind.md), [`DefaultEvents`](../../../../../../type-aliases/DefaultEvents.md) & [`ButterfloatEvents`](../../../../../../interfaces/ButterfloatEvents.md), [`DefaultStyleBind`](../../../../../../type-aliases/DefaultStyleBind.md)\>
+> \[`ele`: `string`\]: [`ButterfloatIntrinsicAttributes`](../../../../../../interfaces/ButterfloatIntrinsicAttributes.md)\<[`DefaultBind`](../../../../../../type-aliases/DefaultBind.md), [`DefaultEvents`](../../../../../../type-aliases/DefaultEvents.md) & [`ButterfloatEvents`](../../../../../../interfaces/ButterfloatEvents.md), [`DefaultStyleBind`](../../../../../../type-aliases/DefaultStyleBind.md)\>
 
 ## Properties
 
