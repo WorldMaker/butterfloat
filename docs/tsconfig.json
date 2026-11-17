@@ -6,6 +6,7 @@
     "jsxImportSource": "@lumeland/ssx",
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
-    "erasableSyntaxOnly": true
+    "erasableSyntaxOnly": true,
+    "types": ["node"]
   }
 }

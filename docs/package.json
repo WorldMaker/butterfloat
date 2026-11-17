@@ -9,6 +9,21 @@
   },
   "scripts": {
     "serve": "lume build -s",
-    "build": "lume build"
+    "build": "lume build",
+    "portless": "portless butterfloat pwsh -NoProfile -Command \"npx lume build -s -p $env:PORT\""
+  },
+  "dependencies": {
+    "@lumeland/lume": "^4.0.2",
+    "@lumeland/plugin-base-path": "^1.0.0",
+    "@lumeland/plugin-nav": "^1.0.0",
+    "@lumeland/plugin-resolve-urls": "^1.0.0",
+    "@lumeland/plugin-sass": "^1.0.0",
+    "@lumeland/plugin-toc": "^1.0.0",
+    "@shikijs/markdown-it": "^4.6.0",
+    "bulma": "^1.0.4",
+    "markdown-it-github-alert": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6"
   }
 }
