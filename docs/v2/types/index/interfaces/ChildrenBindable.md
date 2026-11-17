@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / ChildrenBindable
 
@@ -28,7 +28,7 @@ Defined in: [v2/component.ts:49](https://github.com/WorldMaker/butterfloat/blob/
 
 Bind children as they are observed.
 
-***
+---
 
 ### childrenBindMode?
 

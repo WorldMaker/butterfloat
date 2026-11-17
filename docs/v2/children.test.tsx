@@ -1,14 +1,8 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
-import {
-  Children,
-  type Mat,
-  Comment,
-  Empty,
-  type jsx,
-} from '../../v2/index.js'
-import { describeRing } from "../../v2/testing/index.js";
+import { Children, type Mat, Comment, Empty, type jsx } from '../../v2/index.js'
+import { describeRing } from '../../v2/testing/index.js'
 
 describe('v2 children documentation', () => {
   it('shows a simple list wrapper with children', () => {
@@ -58,12 +52,12 @@ describe('v2 children documentation', () => {
   })
 
   it('mentions comment', () => {
-    const desc = describeRing(jsx => <Comment comment="This is a comment" />)
+    const desc = describeRing((jsx) => <Comment comment="This is a comment" />)
     ok(desc)
   })
 
   it('mentions empty', () => {
-    const desc = describeRing(jsx => <Empty />)
+    const desc = describeRing((jsx) => <Empty />)
     ok(desc)
   })
 })

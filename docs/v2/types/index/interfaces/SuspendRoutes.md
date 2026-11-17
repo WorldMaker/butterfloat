@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / SuspendRoutes
 
@@ -30,7 +30,7 @@ Defined in: [v2/route.ts:70](https://github.com/WorldMaker/butterfloat/blob/51f7
 
 The mode to bind the suspension component to the parent component's children.
 
-***
+---
 
 ### routes
 
@@ -40,7 +40,7 @@ Defined in: [v2/route.ts:74](https://github.com/WorldMaker/butterfloat/blob/51f7
 
 The routes for handling suspension states.
 
-***
+---
 
 ### suspend
 

@@ -1,11 +1,11 @@
-import lume from "@lumeland/lume"
-import basePath from "@lumeland/plugin-base-path"
-import nav from "@lumeland/plugin-nav"
-import resolveUrls from "@lumeland/plugin-resolve-urls"
-import sass from "@lumeland/plugin-sass"
+import lume from '@lumeland/lume'
+import basePath from '@lumeland/plugin-base-path'
+import nav from '@lumeland/plugin-nav'
+import resolveUrls from '@lumeland/plugin-resolve-urls'
+import sass from '@lumeland/plugin-sass'
 import toc from './_toc/index.ts'
-import { alertPlugin } from "markdown-it-github-alert"
-import Shiki from "@shikijs/markdown-it"
+import { alertPlugin } from 'markdown-it-github-alert'
+import Shiki from '@shikijs/markdown-it'
 import path from 'node:path'
 
 const shiki = await Shiki({
@@ -32,7 +32,9 @@ site.use(resolveUrls())
 site.use(toc())
 
 site.add('assets/butterfloat.svg')
-site.use(sass({ options: { loadPaths: [path.resolve('node_modules/bulma/sass')] } }))
+site.use(
+  sass({ options: { loadPaths: [path.resolve('node_modules/bulma/sass')] } }),
+)
 site.add('assets/style.scss')
 
 export default site

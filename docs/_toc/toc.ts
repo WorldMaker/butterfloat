@@ -3,138 +3,138 @@
  * Copyright (c) 2018 Fabio Zendhi Nagao
  */
 
-import { headerLink } from "./anchors.js";
-import { getRawText, slugify } from "./utils.js";
+import { headerLink } from './anchors.js'
+import { getRawText, slugify } from './utils.js'
 
-import type { MarkdownIt, StateCore } from "markdown-it";
+import type { MarkdownIt, StateCore } from 'markdown-it'
 
 export interface Options {
   /** Minimum level to apply anchors. */
-  level: number;
+  level: number
 
   /** Key to save the toc in the page data */
-  key: string;
+  key: string
 
   /** Anchor type */
-  anchor: false | ((slug: string, state: StateCore, idx: number) => void);
+  anchor: false | ((slug: string, state: StateCore, idx: number) => void)
 
   /** Slugify function */
-  slugify: (x: string) => string;
+  slugify: (x: string) => string
 
   /** Value of the tabindex attribute on headings, set to false to disable. */
-  tabIndex: number | false;
+  tabIndex: number | false
 }
 
 export const defaults: Options = {
   level: 2,
-  key: "toc",
+  key: 'toc',
   anchor: headerLink(),
   slugify,
   tabIndex: -1,
-};
-
-export interface Node {
-  level: number;
-  text: string;
-  slug: string;
-  url: string;
-  children: Node[];
 }
 
-const STARTS_WITH_LETTER = /^[a-z]/i;
+export interface Node {
+  level: number
+  text: string
+  slug: string
+  url: string
+  children: Node[]
+}
+
+const STARTS_WITH_LETTER = /^[a-z]/i
 
 export default function toc(
   md: MarkdownIt,
   userOptions: Partial<Options> = {},
 ) {
-  const options = Object.assign({}, defaults, userOptions) as Options;
+  const options = Object.assign({}, defaults, userOptions) as Options
 
   function headings2ast(state: StateCore, pageUrl?: string): Node[] {
-    const tokens = state.tokens;
-    const ast: Node = { level: 0, text: "", slug: "", url: "", children: [] };
-    const stack = [ast];
-    const slugs = new Set<string>();
+    const tokens = state.tokens
+    const ast: Node = { level: 0, text: '', slug: '', url: '', children: [] }
+    const stack = [ast]
+    const slugs = new Set<string>()
 
     for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
+      const token = tokens[i]
 
-      if (token.type !== "heading_open") {
-        continue;
+      if (token.type !== 'heading_open') {
+        continue
       }
 
       // Calculate the level
-      const level = parseInt(token.tag.substring(1), 10);
+      const level = parseInt(token.tag.substring(1), 10)
 
       if (level < options.level) {
-        continue;
+        continue
       }
 
       // Get the text
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const text = getRawText(tokens[i + 1].children!);
+      const text = getRawText(tokens[i + 1].children!)
 
       // Get the slug
-      let slug = token.attrGet("id") as string || options.slugify(text);
+      let slug = (token.attrGet('id') as string) || options.slugify(text)
 
       // Make sure the slug starts with a letter
       if (!STARTS_WITH_LETTER.test(slug)) {
-        slug = `h_${slug}`;
+        slug = `h_${slug}`
       }
 
       // Make sure the slug is unique
       while (slugs.has(slug)) {
-        slug += "-1";
+        slug += '-1'
       }
-      slugs.add(slug);
+      slugs.add(slug)
 
-      token.attrSet("id", slug);
+      token.attrSet('id', slug)
 
       if (options.tabIndex !== false) {
-        token.attrSet("tabindex", `${options.tabIndex}`);
+        token.attrSet('tabindex', `${options.tabIndex}`)
       }
 
       if (options.anchor) {
-        options.anchor(slug, state, i);
+        options.anchor(slug, state, i)
       }
 
       // A permalink renderer could modify the `tokens` array so
       // make sure to get the up-to-date index on each iteration.
-      i = tokens.indexOf(token);
+      i = tokens.indexOf(token)
 
       // Create the node
-      const url = pageUrl ? `${pageUrl}#${slug}` : `#${slug}`;
+      const url = pageUrl ? `${pageUrl}#${slug}` : `#${slug}`
 
       // Save the node in the tree
-      const node: Node = { level, text, slug, url, children: [] };
+      const node: Node = { level, text, slug, url, children: [] }
 
       if (node.level > stack[0].level) {
-        stack[0].children.push(node);
-        stack.unshift(node);
-        continue;
+        stack[0].children.push(node)
+        stack.unshift(node)
+        continue
       }
 
       if (node.level === stack[0].level) {
-        stack[1].children.push(node);
-        stack[0] = node;
-        continue;
+        stack[1].children.push(node)
+        stack[0] = node
+        continue
       }
 
       while (node.level <= stack[0].level) {
-        stack.shift();
+        stack.shift()
       }
-      stack[0].children.push(node);
-      stack.unshift(node);
+      stack[0].children.push(node)
+      stack.unshift(node)
     }
 
-    return ast.children;
+    return ast.children
   }
 
-  md.core.ruler.push("generateTocAst", function (state) {
-    const data = (state.env.data as
-      | { page?: { data?: Record<string, unknown> } }
-      | undefined)
-      ?.page
-      ?.data;
+  md.core.ruler.push('generateTocAst', function (state) {
+    const data = (
+      state.env.data as
+        | { page?: { data?: Record<string, unknown> } }
+        | undefined
+    )?.page?.data
 
     if (!data) {
       return
