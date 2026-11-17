@@ -1,3 +1,7 @@
+---
+title: Pure, RxJS Observables
+---
+
 # Pure, RxJS Observables
 
 From an pure [RxJS] perspective, Knockout's Observables were more accurately

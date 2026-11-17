@@ -1,3 +1,7 @@
+---
+title: The Origin Story of Butterfloat
+---
+
 # The Origin Story of Butterfloat
 
 The origins of Butterfloat start, among other places, with major
