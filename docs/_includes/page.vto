@@ -17,6 +17,11 @@ layout: main.vto
 </nav>
 
 <section class="section page-content">
+    <nav class="menu toc-menu" toc="content">
+        <p class="menu-label">Table of Contents</p>
+        
+    </nav>
+
     {{ if toc?.length }}
     <nav class="menu toc-menu">
         <p class="menu-label">Table of Contents</p>
@@ -39,7 +44,7 @@ layout: main.vto
     </nav>
     {{ /if }}
 
-    <article class="container content">
+    <article class="container content" id="content">
         {{ content }}
     </article>
 
