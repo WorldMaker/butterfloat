@@ -1,3 +1,7 @@
+---
+title: TSX, but not a Virtual DOM
+---
+
 # TSX, but not a Virtual DOM
 
 While [Knockout-inspired], I do not miss trying to runtime debug

@@ -1,3 +1,7 @@
+---
+title: Knockout-inspired
+---
+
 # Knockout-inspired
 
 [Knockout](https://knockoutjs.com/) left a lasting legacy in web
