@@ -3,25 +3,27 @@ import { describe, it } from 'node:test'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 import {
   Children,
-  type ComponentContext,
+  type Mat,
   Comment,
   Empty,
-  jsx,
-} from '../../index.js'
+  type jsx,
+} from '../../v2/index.js'
+import { describeRing } from "../../v2/testing/index.js";
 
-describe('children documentation', () => {
+describe('v2 children documentation', () => {
   it('shows a simple list wrapper with children', () => {
-    function CoolList(_props: unknown, context: ComponentContext) {
+    function CoolList(_props: unknown, mat: Mat) {
+      const { jsx } = mat
       return (
         <div className="cool-list-wrapper">
           <ul className="cool-list">
-            <Children context={context} />
+            <Children context={mat} />
           </ul>
         </div>
       )
     }
 
-    function ListPage() {
+    function ListPage(_props: unknown, { jsx }: Mat) {
       return (
         <div className="list-page">
           <CoolList>
@@ -40,8 +42,8 @@ describe('children documentation', () => {
     ok(ListPage)
   })
 
-  it('shows a dynamic list example', () => {
-    function DynamicList() {
+  it('shows a classic dynamic list example', () => {
+    function DynamicList(_props: unknown, { jsx }: Mat) {
       const children = concat(
         from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
           delayWhen((_v, i) => interval(i * 500)),
@@ -56,12 +58,12 @@ describe('children documentation', () => {
   })
 
   it('mentions comment', () => {
-    const desc = <Comment comment="This is a comment" />
+    const desc = describeRing(jsx => <Comment comment="This is a comment" />)
     ok(desc)
   })
 
   it('mentions empty', () => {
-    const desc = <Empty />
+    const desc = describeRing(jsx => <Empty />)
     ok(desc)
   })
 })
