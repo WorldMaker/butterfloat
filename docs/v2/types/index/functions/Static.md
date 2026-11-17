@@ -14,17 +14,19 @@ tags:
 
 # Function: Static()
 
-> **Static**(`__namedParameters`, `mat`): [`Ring`](../type-aliases/Ring.md)
+> **Static**(`props`, `mat`): [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/rings/static.ts:30](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/rings/static.ts#L30)
+Defined in: [v2/rings/static.ts:30](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/rings/static.ts#L30)
 
 Attach a static DOM element
 
 ## Parameters
 
-### \_\_namedParameters
+### props
 
-`StaticProperties`
+[`StaticProperties`](../interfaces/StaticProperties.md)
+
+Static properties
 
 ### mat
 

@@ -55,7 +55,8 @@ export function collectChildBinds(
  * @param props Children properties
  * @returns Children node
  */
-export function Children({ context }: ChildrenProperties, mat: jsx.Mat): Ring {
+export function Children(props: ChildrenProperties, mat: jsx.Mat): Ring {
+  const { context } = props
   switch (mat[matType]) {
     case 'tester':
       return {

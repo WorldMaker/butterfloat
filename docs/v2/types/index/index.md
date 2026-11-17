@@ -27,13 +27,16 @@ tags:
 - [ButterfloatEvents](interfaces/ButterfloatEvents.md)
 - [ButterfloatIntrinsicAttributes](interfaces/ButterfloatIntrinsicAttributes.md)
 - [ChildrenBindable](interfaces/ChildrenBindable.md)
+- [ChildrenProperties](interfaces/ChildrenProperties.md)
 - [ChildRoutes](interfaces/ChildRoutes.md)
+- [CommentProperties](interfaces/CommentProperties.md)
 - [CompleteRoutes](interfaces/CompleteRoutes.md)
 - [DelayBind](interfaces/DelayBind.md)
 - [ErrorRoutes](interfaces/ErrorRoutes.md)
 - [Mat](interfaces/Mat.md)
 - [Routes](interfaces/Routes.md)
 - [StampWhenComponent](interfaces/StampWhenComponent.md)
+- [StaticProperties](interfaces/StaticProperties.md)
 - [SuspendRoutes](interfaces/SuspendRoutes.md)
 
 ## Type Aliases

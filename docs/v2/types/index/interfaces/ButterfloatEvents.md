@@ -14,7 +14,7 @@ tags:
 
 # Interface: ButterfloatEvents
 
-Defined in: [events.ts:15](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/events.ts#L15)
+Defined in: [events.ts:15](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/events.ts#L15)
 
 DOM events unique to Butterfloat
 
@@ -24,7 +24,7 @@ DOM events unique to Butterfloat
 
 > `optional` **bfDomAttach?**: [`ObservableEvent`](../type-aliases/ObservableEvent.md)\<`HTMLElement`\>
 
-Defined in: [events.ts:20](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/events.ts#L20)
+Defined in: [events.ts:20](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/events.ts#L20)
 
 Observe the raw HTMLElement. Useful as a last resort or for working on
 boundaries to vanilla JS components.

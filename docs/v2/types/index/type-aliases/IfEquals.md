@@ -16,7 +16,7 @@ tags:
 
 > **IfEquals**\<`X`, `Y`, `A`, `B`\> = \<`T`\>() => `T` *extends* `X` ? `1` : `2` *extends* \<`T`\>() => `T` *extends* `Y` ? `1` : `2` ? `A` : `B`
 
-Defined in: [v2/meta-types.ts:8](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/meta-types.ts#L8)
+Defined in: [v2/meta-types.ts:8](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/meta-types.ts#L8)
 
 If types are equal. Meta-type for complex conditional types.
 

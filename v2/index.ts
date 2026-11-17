@@ -20,11 +20,11 @@ export {
   type BuildableRing,
   type DescribableRing,
 } from './ring.js'
-export { Children } from './rings/children.js'
-export { Comment } from './rings/comment.js'
+export { Children, type ChildrenProperties } from './rings/children.js'
+export { Comment, type CommentProperties } from './rings/comment.js'
 export { Empty } from './rings/empty.js'
 export { Fragment } from './rings/fragment.js'
-export { Static } from './rings/static.js'
+export { Static, type StaticProperties } from './rings/static.js'
 export { type jsx, type EffectHandler, type JsxFunction, type Mat } from './mat.js'
 export { type IfEquals, type WritableKeys } from './meta-types.js'
 export {

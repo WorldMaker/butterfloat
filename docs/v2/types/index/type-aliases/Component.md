@@ -16,7 +16,7 @@ tags:
 
 > **Component**\<`Props`, `Events`\> = (`props`, `mat`) => [`Ring`](Ring.md)
 
-Defined in: [v2/component.ts:12](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/v2/component.ts#L12)
+Defined in: [v2/component.ts:12](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L12)
 
 A Butterfloat Component provided properties and additional context-sensitive tools
 

@@ -35,7 +35,6 @@ function addChildren(
 /**
  * Attach a fragment to the DOM tree
  *
- * @param props Fragment properties
  * @returns Fragment node
  */
 export function Fragment(

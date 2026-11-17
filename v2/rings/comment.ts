@@ -27,7 +27,8 @@ export interface CommentProperties {
  * @param props Comment properties
  * @returns Comment node
  */
-export function Comment({ comment }: CommentProperties, mat: jsx.Mat): Ring {
+export function Comment(props: CommentProperties, mat: jsx.Mat): Ring {
+  const { comment } = props
   switch (mat[matType]) {
     case 'tester':
       return {
