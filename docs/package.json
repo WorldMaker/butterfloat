@@ -1,0 +1,14 @@
+{
+  "name": "docs",
+  "private": true,
+  "type": "module",
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false,
+    "@parcel/watcher": false
+  },
+  "scripts": {
+    "serve": "lume build -s",
+    "build": "lume build"
+  }
+}

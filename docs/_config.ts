@@ -1,12 +1,12 @@
-import lume from 'lume/mod.ts'
-import basePath from 'lume/plugins/base_path.ts'
-import nav from 'lume/plugins/nav.ts'
-import resolveUrls from 'lume/plugins/resolve_urls.ts'
-import sass from 'lume/plugins/sass.ts'
+import lume from "@lumeland/lume"
+import basePath from "@lumeland/plugin-base-path"
+import nav from "@lumeland/plugin-nav"
+import resolveUrls from "@lumeland/plugin-resolve-urls"
+import sass from "@lumeland/plugin-sass"
 import title from 'lume_markdown_plugins/title.ts'
 import toc from 'lume_markdown_plugins/toc.ts'
-import { alertPlugin } from 'npm:markdown-it-github-alert'
-import Shiki from 'npm:@shikijs/markdown-it'
+import { alertPlugin } from "markdown-it-github-alert"
+import Shiki from "@shikijs/markdown-it"
 
 const shiki = await Shiki({
   themes: {
