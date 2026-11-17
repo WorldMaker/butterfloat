@@ -1,3 +1,11 @@
+---
+title: ChildrenProperties
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: ChildrenProperties
 
-Defined in: [jsx.ts:159](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L159)
+Defined in: [jsx.ts:159](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L159)
 
 Properties supported by the `<Children>` pseudo-component
 
@@ -14,9 +22,9 @@ Properties supported by the `<Children>` pseudo-component
 
 ### context?
 
-> `optional` **context**: [`ComponentContext`](ComponentContext.md)\<`unknown`\>
+> `optional` **context?**: [`ComponentContext`](ComponentContext.md)\<`unknown`\>
 
-Defined in: [jsx.ts:167](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L167)
+Defined in: [jsx.ts:167](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L167)
 
 Context for the component to bind the children from, for deep binding.
 

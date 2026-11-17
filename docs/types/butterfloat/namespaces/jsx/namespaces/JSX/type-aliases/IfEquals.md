@@ -1,3 +1,11 @@
+---
+title: IfEquals
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../../../../../../index.md)
 
 ***
@@ -8,7 +16,7 @@
 
 > **IfEquals**\<`X`, `Y`, `A`, `B`\> = \<`T`\>() => `T` *extends* `X` ? `1` : `2` *extends* \<`T`\>() => `T` *extends* `Y` ? `1` : `2` ? `A` : `B`
 
-Defined in: [jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/jsx.ts#L46)
+Defined in: [jsx.ts:46](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/jsx.ts#L46)
 
 If types are equal. Meta-type for complex conditional types.
 

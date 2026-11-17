@@ -1,3 +1,11 @@
+---
+title: SvgElementAttributes
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../../../../../index.md)
 
 ---
@@ -8,7 +16,7 @@
 
 > **SvgElementAttributes**\<`T`\> = \{ \[Property in WritableKeys\<T\> as T\[Property\] extends string \| number \| null \| undefined ? Property : never\]?: T\[Property\] \}
 
-Defined in: [v2/jsx/svg.ts:37](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/jsx/svg.ts#L37)
+Defined in: [v2/jsx/svg.ts:37](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/jsx/svg.ts#L37)
 
 Attributes of an SVG Element
 

@@ -1,9 +1,18 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": [
+    "typedoc-plugin-markdown",
+    "typedoc-plugin-frontmatter",
+    "./_typedoc-frontmatter.js"
+  ],
   "out": "./docs/types/",
   "readme": "none",
   "entryPoints": ["./index.ts"],
   "entryFileName": "index",
-  "excludePrivate": true
+  "excludePrivate": true,
+  "frontmatterGlobals": {
+    "layout": "api-page.vto",
+    "order": 200,
+    "tags": ["api"]
+  }
 }

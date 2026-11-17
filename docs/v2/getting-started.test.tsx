@@ -20,10 +20,7 @@ import {
 import { describeRing, makeTestEvent } from '../../v2/testing/index.js'
 
 describe('v2 getting started documentation', () => {
-  // These are mostly skips because we want to test compilation
-  // more than behavior
-
-  it.skip('supports the static example', () => {
+  it('supports the static example', () => {
     interface HelloProps {
       to: string
     }
@@ -32,15 +29,15 @@ describe('v2 getting started documentation', () => {
       return <p className="hello">Hello {to}</p>
     }
 
-    function _Main(_: unknown, { jsx }: jsx.Mat) {
+    function Main(_: unknown, { jsx }: jsx.Mat) {
       return <Hello to="World" />
     }
 
-    const _container = document.getElementById('container')!
-    // run(container, Main)
+    // const _container = document.getElementById('container')!
+    ok(Main)
   })
 
-  it.skip('supports the dynamic example', () => {
+  it('supports the dynamic example', () => {
     interface HelloProps {
       to: Observable<string>
     }
@@ -50,7 +47,7 @@ describe('v2 getting started documentation', () => {
       return <p className="hello" bind={{ innerText }} />
     }
 
-    function _Main(_: unknown, { jsx }: jsx.Mat) {
+    function Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -64,11 +61,12 @@ describe('v2 getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const _container = document.getElementById('container')!
+    ok(Main)
+    // const _container = document.getElementById('container')!
     // run(container, Main)
   })
 
-  it.skip('supports the interactable example', () => {
+  it('supports the interactable example', () => {
     interface HelloProps {
       to: Observable<string>
     }
@@ -104,7 +102,7 @@ describe('v2 getting started documentation', () => {
       )
     }
 
-    function _Main(_: unknown, { jsx }: jsx.Mat) {
+    function Main(_: unknown, { jsx }: jsx.Mat) {
       const greetable = ['World', 'Butterfloat', 'User']
 
       // starting with "World" show a random greeting every 15 seconds
@@ -118,7 +116,8 @@ describe('v2 getting started documentation', () => {
       return <Hello to={helloTo} />
     }
 
-    const _container = document.getElementById('container')!
+    ok(Main)
+    // const _container = document.getElementById('container')!
     // run(container, Main)
   })
 

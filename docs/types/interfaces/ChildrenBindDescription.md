@@ -1,3 +1,11 @@
+---
+title: ChildrenBindDescription
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: ChildrenBindDescription
 
-Defined in: [component.ts:171](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L171)
+Defined in: [component.ts:171](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L171)
 
 A Description that supports binding Children
 
@@ -22,20 +30,20 @@ A Description that supports binding Children
 
 > **children**: [`JsxChildren`](../type-aliases/JsxChildren.md)
 
-Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L172)
+Defined in: [component.ts:172](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L172)
 
 ***
 
 ### childrenBind?
 
-> `optional` **childrenBind**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
+> `optional` **childrenBind?**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L173)
+Defined in: [component.ts:173](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L173)
 
 ***
 
 ### childrenBindMode?
 
-> `optional` **childrenBindMode**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
+> `optional` **childrenBindMode?**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L174)
+Defined in: [component.ts:174](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L174)

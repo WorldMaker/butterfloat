@@ -1,6 +1,10 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": [
+    "typedoc-plugin-markdown",
+    "typedoc-plugin-frontmatter",
+    "./_typedoc-frontmatter.js"
+  ],
   "out": "./docs/v2/types/",
   "readme": "none",
   "entryPoints": [
@@ -15,5 +19,10 @@
     "notExported": true,
     "invalidLink": true,
     "notDocumented": true
+  },
+  "frontmatterGlobals": {
+    "layout": "preview-page.vto",
+    "order": 200,
+    "tags": ["preview"]
   }
 }

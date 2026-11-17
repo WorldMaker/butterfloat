@@ -1,3 +1,11 @@
+---
+title: index
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../index.md)
 
 ---
@@ -19,12 +27,16 @@
 - [ButterfloatEvents](interfaces/ButterfloatEvents.md)
 - [ButterfloatIntrinsicAttributes](interfaces/ButterfloatIntrinsicAttributes.md)
 - [ChildrenBindable](interfaces/ChildrenBindable.md)
+- [ChildrenProperties](interfaces/ChildrenProperties.md)
 - [ChildRoutes](interfaces/ChildRoutes.md)
+- [CommentProperties](interfaces/CommentProperties.md)
 - [CompleteRoutes](interfaces/CompleteRoutes.md)
 - [DelayBind](interfaces/DelayBind.md)
 - [ErrorRoutes](interfaces/ErrorRoutes.md)
+- [Mat](interfaces/Mat.md)
 - [Routes](interfaces/Routes.md)
 - [StampWhenComponent](interfaces/StampWhenComponent.md)
+- [StaticProperties](interfaces/StaticProperties.md)
 - [SuspendRoutes](interfaces/SuspendRoutes.md)
 
 ## Type Aliases
@@ -53,6 +65,11 @@
 ## Functions
 
 - [butterfly](functions/butterfly.md)
+- [Children](functions/Children.md)
+- [Comment](functions/Comment.md)
+- [Empty](functions/Empty.md)
+- [Fragment](functions/Fragment.md)
 - [route](functions/route.md)
 - [stamp](functions/stamp.md)
 - [stampWhen](functions/stampWhen.md)
+- [Static](functions/Static.md)

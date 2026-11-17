@@ -1,3 +1,11 @@
+---
+title: ChildrenDescription
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
 ---
@@ -6,7 +14,7 @@
 
 # Interface: ChildrenDescription
 
-Defined in: [v2/testing/description.ts:122](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L122)
+Defined in: [v2/testing/description.ts:122](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L122)
 
 Description of the `<Children>` pseudo-component
 
@@ -14,9 +22,9 @@ Description of the `<Children>` pseudo-component
 
 ### context?
 
-> `optional` **context**: [`Mat`](../../index/namespaces/jsx/interfaces/Mat.md)\<`unknown`\>
+> `optional` **context?**: [`Mat`](../../index/interfaces/Mat.md)\<`unknown`\>
 
-Defined in: [v2/testing/description.ts:130](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L130)
+Defined in: [v2/testing/description.ts:130](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L130)
 
 The context for the children
 
@@ -26,6 +34,6 @@ The context for the children
 
 > **type**: `"children"`
 
-Defined in: [v2/testing/description.ts:126](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/testing/description.ts#L126)
+Defined in: [v2/testing/description.ts:126](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L126)
 
 The type of the description

@@ -1,3 +1,11 @@
+---
+title: StampCollection
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Class: StampCollection
 
-Defined in: [stamp-collection.ts:17](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L17)
+Defined in: [stamp-collection.ts:17](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L17)
 
 A collection of Stamps that include the static DOM elements of Butterfloat components
 
@@ -26,7 +34,7 @@ A collection of Stamps that include the static DOM elements of Butterfloat compo
 
 > **getStamp**(`c`, `properties`): `undefined` \| `HTMLTemplateElement`
 
-Defined in: [stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L30)
+Defined in: [stamp-collection.ts:30](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L30)
 
 Get a Stamp for a component, given applicable properties
 
@@ -56,7 +64,7 @@ A stamp
 
 > **isPrestamp**(`c`, `properties`, `container`): `boolean`
 
-Defined in: [stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L48)
+Defined in: [stamp-collection.ts:48](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L48)
 
 Check if a container was registered as a prestamp for this component with given properties
 
@@ -76,9 +84,9 @@ Properties that apply to the component
 
 ##### container
 
-Container to test for prestamp
+`DocumentFragment` \| `Element`
 
-`DocumentFragment` | `Element`
+Container to test for prestamp
 
 #### Returns
 
@@ -92,7 +100,7 @@ Is registered as a valid prestamp
 
 > **registerOnlyStamp**(`c`, `stamp`): `StampCollection`
 
-Defined in: [stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L66)
+Defined in: [stamp-collection.ts:66](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L66)
 
 Register one Stamp for all possible properties for the given Component
 
@@ -122,7 +130,7 @@ this (for chaining)
 
 > **registerPrestamp**\<`Props`\>(`c`, `container`, `when?`): `StampCollection`
 
-Defined in: [stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L96)
+Defined in: [stamp-collection.ts:96](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L96)
 
 Register a container that was pre-stamped
 
@@ -142,9 +150,9 @@ Component
 
 ##### container
 
-Prestamped container
+`DocumentFragment` \| `Element`
 
-`DocumentFragment` | `Element`
+Prestamped container
 
 ##### when?
 
@@ -164,7 +172,7 @@ this (for chaining)
 
 > **registerStampAlternative**\<`Props`\>(`c`, `when`, `stamp`): `StampCollection`
 
-Defined in: [stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/stamp-collection.ts#L78)
+Defined in: [stamp-collection.ts:78](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/stamp-collection.ts#L78)
 
 Register a possible Stamp for subset of possible properties for the given Component
 

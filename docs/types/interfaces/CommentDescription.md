@@ -1,3 +1,11 @@
+---
+title: CommentDescription
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: CommentDescription
 
-Defined in: [component.ts:237](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L237)
+Defined in: [component.ts:237](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L237)
 
 Description of the `<Comment>` pseudo-component
 
@@ -16,7 +24,7 @@ Description of the `<Comment>` pseudo-component
 
 > **comment**: `string`
 
-Defined in: [component.ts:239](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L239)
+Defined in: [component.ts:239](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L239)
 
 ***
 
@@ -24,4 +32,4 @@ Defined in: [component.ts:239](https://github.com/WorldMaker/butterfloat/blob/df
 
 > **type**: `"comment"`
 
-Defined in: [component.ts:238](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L238)
+Defined in: [component.ts:238](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L238)

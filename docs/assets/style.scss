@@ -3,29 +3,29 @@ $purple: #8a4d76;
 $pink: #fa7c91;
 
 // Override global Sass variables from the /utilities folder
-@use 'bulma/utilities' with (
+@use 'utilities' with (
   $primary: $pink,
   $link: $purple
 );
 
 // Import the components you need
-@forward 'bulma/base';
-@forward 'bulma/components/breadcrumb';
-@forward 'bulma/components/card';
-@forward 'bulma/components/menu';
-@forward 'bulma/components/navbar';
-@forward 'bulma/components/pagination';
-@forward 'bulma/elements/button';
-@forward 'bulma/elements/icon';
-@forward 'bulma/elements/content';
-@forward 'bulma/elements/notification';
-@forward 'bulma/elements/title';
-@forward 'bulma/grid';
-@forward 'bulma/helpers';
-@forward 'bulma/layout';
+@forward 'base';
+@forward 'components/breadcrumb';
+@forward 'components/card';
+@forward 'components/menu';
+@forward 'components/navbar';
+@forward 'components/pagination';
+@forward 'elements/button';
+@forward 'elements/icon';
+@forward 'elements/content';
+@forward 'elements/notification';
+@forward 'elements/title';
+@forward 'grid';
+@forward 'helpers';
+@forward 'layout';
 
 // Import the themes so that all CSS variables have a value
-@forward 'bulma/themes';
+@forward 'themes';
 
 .menu-label {
   text-transform: none;

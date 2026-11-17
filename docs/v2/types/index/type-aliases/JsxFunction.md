@@ -1,14 +1,22 @@
+---
+title: JsxFunction
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
 ---
 
 [butterfloat](../../index.md) / [index](../index.md) / JsxFunction
 
-# Type Alias: JsxFunction()
+# Type Alias: JsxFunction
 
 > **JsxFunction** = (`element`, `attributes`, ...`children`) => [`Ring`](Ring.md)
 
-Defined in: [v2/mat.ts:27](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/mat.ts#L27)
+Defined in: [v2/mat.ts:29](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/mat.ts#L29)
 
 JSX function for a Butterfloat Component
 
@@ -16,11 +24,11 @@ JSX function for a Butterfloat Component
 
 ### element
 
-`string` | [`Component`](Component.md)
+`string` \| [`Component`](Component.md)
 
 ### attributes
 
-[`ButterfloatAttributes`](ButterfloatAttributes.md) | `null`
+[`ButterfloatAttributes`](ButterfloatAttributes.md) \| `null`
 
 ### children
 

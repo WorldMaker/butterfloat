@@ -27,7 +27,8 @@ export interface StaticProperties {
  * @param props Static properties
  * @returns Static node
  */
-export function Static({ element }: StaticProperties, mat: jsx.Mat): Ring {
+export function Static(props: StaticProperties, mat: jsx.Mat): Ring {
+  const { element } = props
   switch (mat[matType]) {
     case 'tester':
       return {

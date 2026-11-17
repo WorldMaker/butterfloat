@@ -1,3 +1,11 @@
+---
+title: runOnlyStamps
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -8,7 +16,7 @@
 
 > **runOnlyStamps**(`container`, `component`, `stamps`, `options?`, `placeholder?`, `document?`): `Subscription`
 
-Defined in: [runtime-only-stamps.ts:19](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime-only-stamps.ts#L19)
+Defined in: [runtime-only-stamps.ts:19](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/runtime-only-stamps.ts#L19)
 
 **`Experimental`**
 
@@ -26,9 +34,9 @@ Container the component will be a child in
 
 ### component
 
-Component or description of component to run
+[`ComponentDescription`](../interfaces/ComponentDescription.md) \| [`Component`](../type-aliases/Component.md)
 
-[`ComponentDescription`](../interfaces/ComponentDescription.md) | [`Component`](../type-aliases/Component.md)
+Component or description of component to run
 
 ### stamps
 
@@ -40,9 +48,9 @@ Component or description of component to run
 
 ### placeholder?
 
-Optional placeholder child of the container to replace
+`Element` \| `CharacterData`
 
-`Element` | `CharacterData`
+Optional placeholder child of the container to replace
 
 ### document?
 

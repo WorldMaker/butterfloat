@@ -1,3 +1,11 @@
+---
+title: run
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -8,7 +16,7 @@
 
 > **run**(`container`, `component`, `options?`, `placeholder?`, `document?`): `Subscription`
 
-Defined in: [runtime.ts:16](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/runtime.ts#L16)
+Defined in: [runtime.ts:16](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/runtime.ts#L16)
 
 Run a Butterfloat component
 
@@ -22,9 +30,9 @@ Container the component will be a child in
 
 ### component
 
-Component or description of component to run
+[`ComponentDescription`](../interfaces/ComponentDescription.md) \| [`Component`](../type-aliases/Component.md)
 
-[`ComponentDescription`](../interfaces/ComponentDescription.md) | [`Component`](../type-aliases/Component.md)
+Component or description of component to run
 
 ### options?
 
@@ -32,9 +40,9 @@ Component or description of component to run
 
 ### placeholder?
 
-Optional placeholder child of the container to replace
+`Element` \| `CharacterData`
 
-`Element` | `CharacterData`
+Optional placeholder child of the container to replace
 
 ### document?
 

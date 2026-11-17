@@ -1,12 +1,12 @@
-import lume from 'lume/mod.ts'
-import basePath from 'lume/plugins/base_path.ts'
-import nav from 'lume/plugins/nav.ts'
-import resolveUrls from 'lume/plugins/resolve_urls.ts'
-import sass from 'lume/plugins/sass.ts'
-import title from 'lume_markdown_plugins/title.ts'
-import toc from 'lume_markdown_plugins/toc.ts'
-import { alertPlugin } from 'npm:markdown-it-github-alert'
-import Shiki from 'npm:@shikijs/markdown-it'
+import lume from '@lumeland/lume'
+import basePath from '@lumeland/plugin-base-path'
+import nav from '@lumeland/plugin-nav'
+import resolveUrls from '@lumeland/plugin-resolve-urls'
+import sass from '@lumeland/plugin-sass'
+import toc from './_toc/index.ts'
+import { alertPlugin } from 'markdown-it-github-alert'
+import Shiki from '@shikijs/markdown-it'
+import path from 'node:path'
 
 const shiki = await Shiki({
   themes: {
@@ -29,11 +29,12 @@ const site = lume(
 site.use(basePath())
 site.use(nav({ order: 'order=asc title basename' }))
 site.use(resolveUrls())
-site.use(title())
 site.use(toc())
 
 site.add('assets/butterfloat.svg')
-site.use(sass())
+site.use(
+  sass({ options: { loadPaths: [path.resolve('node_modules/bulma/sass')] } }),
+)
 site.add('assets/style.scss')
 
 export default site

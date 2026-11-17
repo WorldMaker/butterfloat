@@ -1,3 +1,11 @@
+---
+title: DelayBind
+layout: api-page.vto
+order: 200
+tags:
+  - api
+---
+
 [**butterfloat**](../index.md)
 
 ***
@@ -6,7 +14,7 @@
 
 # Interface: DelayBind
 
-Defined in: [component.ts:94](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L94)
+Defined in: [component.ts:94](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L94)
 
 Support for delay binding special properties
 
@@ -14,9 +22,9 @@ Support for delay binding special properties
 
 ### bfDelayValue?
 
-> `optional` **bfDelayValue**: `Observable`\<`unknown`\>
+> `optional` **bfDelayValue?**: `Observable`\<`unknown`\>
 
-Defined in: [component.ts:103](https://github.com/WorldMaker/butterfloat/blob/df545ef96728808e6ed86d129bea41fdc458751b/component.ts#L103)
+Defined in: [component.ts:103](https://github.com/WorldMaker/butterfloat/blob/986495a8bfd4fa00193a091b9237b34ebdd2433e/component.ts#L103)
 
 Delay scheduled binding for the "value" property.
 

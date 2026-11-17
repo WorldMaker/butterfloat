@@ -177,6 +177,7 @@ export function elementRunner(
 
 export function elementBuilder(
   mat: Mat,
+  document: Document,
   elementName: string,
   attributes: ButterfloatIntrinsicAttributes | null,
   ...children: JsxChildren

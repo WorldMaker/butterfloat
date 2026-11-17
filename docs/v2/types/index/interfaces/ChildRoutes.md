@@ -1,3 +1,11 @@
+---
+title: ChildRoutes
+layout: preview-page.vto
+order: 200
+tags:
+  - preview
+---
+
 [**butterfloat**](../../index.md)
 
 ---
@@ -6,7 +14,7 @@
 
 # Interface: ChildRoutes
 
-Defined in: [v2/route.ts:131](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L131)
+Defined in: [v2/route.ts:131](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L131)
 
 Child Routes
 
@@ -16,9 +24,9 @@ A collection of routes that can be used to bind child components to a parent com
 
 ### complete?
 
-> `optional` **complete**: [`CompleteRoutes`](CompleteRoutes.md)
+> `optional` **complete?**: [`CompleteRoutes`](CompleteRoutes.md)
 
-Defined in: [v2/route.ts:147](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L147)
+Defined in: [v2/route.ts:147](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L147)
 
 Routes for a completion boundary
 
@@ -26,9 +34,9 @@ Routes for a completion boundary
 
 ### error?
 
-> `optional` **error**: [`ErrorRoutes`](ErrorRoutes.md)
+> `optional` **error?**: [`ErrorRoutes`](ErrorRoutes.md)
 
-Defined in: [v2/route.ts:143](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L143)
+Defined in: [v2/route.ts:143](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L143)
 
 Routes for an error boundary
 
@@ -36,9 +44,9 @@ Routes for an error boundary
 
 ### routes?
 
-> `optional` **routes**: [`Routes`](Routes.md)\<`any`\>
+> `optional` **routes?**: [`Routes`](Routes.md)\<`any`\>
 
-Defined in: [v2/route.ts:135](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L135)
+Defined in: [v2/route.ts:135](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L135)
 
 Routes for an observable input
 
@@ -46,8 +54,8 @@ Routes for an observable input
 
 ### suspend?
 
-> `optional` **suspend**: [`SuspendRoutes`](SuspendRoutes.md)
+> `optional` **suspend?**: [`SuspendRoutes`](SuspendRoutes.md)
 
-Defined in: [v2/route.ts:139](https://github.com/WorldMaker/butterfloat/blob/5ef5606b21e7b4d0eaccd4053808a16364ffbcee/v2/route.ts#L139)
+Defined in: [v2/route.ts:139](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L139)
 
 Routes for a suspension boundary
