@@ -28,14 +28,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Deno
-        # uses: denoland/setup-deno@v1
-        uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31 # v1.1.2
+      - name: Use Node.js LTS
+        uses: actions/setup-node@v4
         with:
-          deno-version: v2.x
-
-      - name: Run site build
-        run: deno task build
+          node-version: lts/*
+          cache: 'npm'
+      - run: npm ci
+        working-directory: ./docs/
+      - run: npm run build
         working-directory: ./docs/
 
       - name: Upload artifact

@@ -10,7 +10,8 @@
   "scripts": {
     "serve": "lume build -s",
     "build": "lume build",
-    "portless": "portless butterfloat pwsh -NoProfile -Command \"npx lume build -s -p $env:PORT\""
+    "portless": "portless butterfloat pwsh -NoProfile -Command \"npx lume build -s -p $env:PORT\"",
+    "test": "lume build --dry-run"
   },
   "dependencies": {
     "@lumeland/lume": "^4.0.2",
