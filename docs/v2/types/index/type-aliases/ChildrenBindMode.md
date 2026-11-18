@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / ChildrenBindMode
 

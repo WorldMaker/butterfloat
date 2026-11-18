@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / ButterfloatIntrinsicAttributes
 
@@ -52,7 +52,7 @@ Bind an observable to an DOM property.
 
 May use an non-immediate scheduler. Obvious exception: all "value" bindings are immediate, given their role in user inputs.
 
-***
+---
 
 ### childrenBind?
 
@@ -66,7 +66,7 @@ Bind children as they are observed.
 
 `ButterfloatAttributes.childrenBind`
 
-***
+---
 
 ### childrenBindMode?
 
@@ -80,7 +80,7 @@ Mode in which to bind children. Defaults to 'append'.
 
 `ButterfloatAttributes.childrenBindMode`
 
-***
+---
 
 ### classBind?
 
@@ -90,7 +90,7 @@ Defined in: [v2/component.ts:124](https://github.com/WorldMaker/butterfloat/blob
 
 Bind a boolean observable to the appearance of a class in classList.
 
-***
+---
 
 ### events?
 
@@ -100,7 +100,7 @@ Defined in: [v2/component.ts:112](https://github.com/WorldMaker/butterfloat/blob
 
 Bind an event observable to a DOM event.
 
-***
+---
 
 ### immediateBind?
 
@@ -110,7 +110,7 @@ Defined in: [v2/component.ts:108](https://github.com/WorldMaker/butterfloat/blob
 
 Immediately bind an observable to a DOM property
 
-***
+---
 
 ### immediateClassBind?
 
@@ -120,7 +120,7 @@ Defined in: [v2/component.ts:128](https://github.com/WorldMaker/butterfloat/blob
 
 Immediately bind a boolean observable to the appearance of a class in classList.
 
-***
+---
 
 ### immediateStyleBind?
 
@@ -130,7 +130,7 @@ Defined in: [v2/component.ts:120](https://github.com/WorldMaker/butterfloat/blob
 
 Immediately bind an observable to a style property.
 
-***
+---
 
 ### styleBind?
 

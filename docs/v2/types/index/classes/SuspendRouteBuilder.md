@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / SuspendRouteBuilder
 
@@ -21,6 +21,7 @@ Fluent, mutable builder for suspension boundaries
 Shortcut: `suspend(whenObservable, mode)`
 
 Example usage:
+
 ```ts
 const builder = suspend(whenObservable, 'append')
   .whenSuspended(map, component, jsonProps)
@@ -81,7 +82,7 @@ Child routes for childrenBind
 
 [`BoundaryRouteBuilder`](BoundaryRouteBuilder.md).[`build`](BoundaryRouteBuilder.md#build)
 
-***
+---
 
 ### onComplete()
 
@@ -117,7 +118,7 @@ this
 
 [`BoundaryRouteBuilder`](BoundaryRouteBuilder.md).[`onComplete`](BoundaryRouteBuilder.md#oncomplete)
 
-***
+---
 
 ### onError()
 
@@ -163,7 +164,7 @@ this
 
 [`BoundaryRouteBuilder`](BoundaryRouteBuilder.md).[`onError`](BoundaryRouteBuilder.md#onerror)
 
-***
+---
 
 ### suspend()
 
@@ -193,7 +194,7 @@ Child binding mode for the suspension boundary
 
 this
 
-***
+---
 
 ### whenSuspended()
 
@@ -235,7 +236,7 @@ Optional JSON serializable props for the suspension component's stamp variant
 
 this
 
-***
+---
 
 ### withErrorMode()
 

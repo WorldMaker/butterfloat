@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [testing](../index.md) / ElementDescription
 
@@ -38,7 +38,7 @@ Defined in: [v2/testing/description.ts:52](https://github.com/WorldMaker/butterf
 
 The attributes of the element
 
-***
+---
 
 ### bind
 
@@ -48,7 +48,7 @@ Defined in: [v2/testing/description.ts:56](https://github.com/WorldMaker/butterf
 
 Bindings
 
-***
+---
 
 ### children
 
@@ -62,7 +62,7 @@ The static children
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
-***
+---
 
 ### childrenBind?
 
@@ -76,7 +76,7 @@ Children bindings
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
-***
+---
 
 ### childrenBindMode?
 
@@ -90,7 +90,7 @@ The mode to bind children
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
-***
+---
 
 ### classBind
 
@@ -100,7 +100,7 @@ Defined in: [v2/testing/description.ts:76](https://github.com/WorldMaker/butterf
 
 Class bindings
 
-***
+---
 
 ### element
 
@@ -110,7 +110,7 @@ Defined in: [v2/testing/description.ts:48](https://github.com/WorldMaker/butterf
 
 The element name/type
 
-***
+---
 
 ### events
 
@@ -120,7 +120,7 @@ Defined in: [v2/testing/description.ts:64](https://github.com/WorldMaker/butterf
 
 Events
 
-***
+---
 
 ### immediateBind
 
@@ -130,7 +130,7 @@ Defined in: [v2/testing/description.ts:60](https://github.com/WorldMaker/butterf
 
 Immediate bindings
 
-***
+---
 
 ### immediateClassBind
 
@@ -140,7 +140,7 @@ Defined in: [v2/testing/description.ts:80](https://github.com/WorldMaker/butterf
 
 Immediate class bindings
 
-***
+---
 
 ### immediateStyleBind
 
@@ -150,7 +150,7 @@ Defined in: [v2/testing/description.ts:72](https://github.com/WorldMaker/butterf
 
 Immediate style bindings
 
-***
+---
 
 ### styleBind
 
@@ -160,7 +160,7 @@ Defined in: [v2/testing/description.ts:68](https://github.com/WorldMaker/butterf
 
 Style bindings
 
-***
+---
 
 ### type
 

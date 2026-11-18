@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / BoundaryRouteBuilder
 
@@ -21,6 +21,7 @@ Fluent, mutable builder for boundary routes
 Shortcut: `boundary()`
 
 Example usage:
+
 ```ts
 const routes = boundary()
   .withErrorMode('prepend')
@@ -59,7 +60,7 @@ Build the child routes
 
 Child routes for childrenBind
 
-***
+---
 
 ### onComplete()
 
@@ -91,7 +92,7 @@ Child binding mode for the completion boundary component
 
 this
 
-***
+---
 
 ### onError()
 
@@ -133,7 +134,7 @@ Optional JSON serializable props for the error component's stamp variant
 
 this
 
-***
+---
 
 ### withErrorMode()
 

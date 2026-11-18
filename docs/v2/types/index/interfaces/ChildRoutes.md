@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / ChildRoutes
 
@@ -30,7 +30,7 @@ Defined in: [v2/route.ts:147](https://github.com/WorldMaker/butterfloat/blob/fd1
 
 Routes for a completion boundary
 
-***
+---
 
 ### error?
 
@@ -40,7 +40,7 @@ Defined in: [v2/route.ts:143](https://github.com/WorldMaker/butterfloat/blob/fd1
 
 Routes for an error boundary
 
-***
+---
 
 ### routes?
 
@@ -50,7 +50,7 @@ Defined in: [v2/route.ts:135](https://github.com/WorldMaker/butterfloat/blob/fd1
 
 Routes for an observable input
 
-***
+---
 
 ### suspend?
 

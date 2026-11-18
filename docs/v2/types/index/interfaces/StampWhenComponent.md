@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / StampWhenComponent
 
@@ -48,7 +48,7 @@ Props of the component to determine if the stamp matches.
 
 True if the stamp matches, false otherwise.
 
-***
+---
 
 ### jsonProps?
 
@@ -58,7 +58,7 @@ Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/fd11
 
 JSON serialziable "canonical" representation of the applicable props to this stamp.
 
-***
+---
 
 ### ring
 

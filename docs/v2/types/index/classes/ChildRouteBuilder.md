@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / ChildRouteBuilder
 
@@ -76,7 +76,7 @@ Child routes for childrenBind
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`build`](SuspendRouteBuilder.md#build)
 
-***
+---
 
 ### onComplete()
 
@@ -112,7 +112,7 @@ this
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`onComplete`](SuspendRouteBuilder.md#oncomplete)
 
-***
+---
 
 ### onError()
 
@@ -158,7 +158,7 @@ this
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`onError`](SuspendRouteBuilder.md#onerror)
 
-***
+---
 
 ### suspend()
 
@@ -192,7 +192,7 @@ this
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`suspend`](SuspendRouteBuilder.md#suspend)
 
-***
+---
 
 ### when()
 
@@ -234,7 +234,7 @@ Optional JSON serializable props for the child component's stamp variant
 
 this
 
-***
+---
 
 ### whenSuspended()
 
@@ -280,7 +280,7 @@ this
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`whenSuspended`](SuspendRouteBuilder.md#whensuspended)
 
-***
+---
 
 ### withErrorMode()
 
@@ -310,7 +310,7 @@ this
 
 [`SuspendRouteBuilder`](SuspendRouteBuilder.md).[`withErrorMode`](SuspendRouteBuilder.md#witherrormode)
 
-***
+---
 
 ### withInput()
 
@@ -343,7 +343,7 @@ Observable to route to child components
 
 this but type adjusted to the new input type
 
-***
+---
 
 ### withMode()
 
