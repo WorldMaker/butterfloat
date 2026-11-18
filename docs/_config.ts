@@ -3,7 +3,6 @@ import basePath from '@lumeland/plugin-base-path'
 import nav from '@lumeland/plugin-nav'
 import resolveUrls from '@lumeland/plugin-resolve-urls'
 import sass from '@lumeland/plugin-sass'
-import toc from './_toc/index.ts'
 import { alertPlugin } from 'markdown-it-github-alert'
 import Shiki from '@shikijs/markdown-it'
 import path from 'node:path'
@@ -29,7 +28,6 @@ const site = lume(
 site.use(basePath())
 site.use(nav({ order: 'order=asc title basename' }))
 site.use(resolveUrls())
-site.use(toc())
 
 site.add('assets/butterfloat.svg')
 site.use(
