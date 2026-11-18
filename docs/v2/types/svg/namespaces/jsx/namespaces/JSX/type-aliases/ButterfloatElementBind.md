@@ -16,7 +16,7 @@ tags:
 
 > **ButterfloatElementBind**\<`T`\> = [`SvgElementAttributesBind`](SvgElementAttributesBind.md)\<`T`\> & [`DefaultBind`](../../../../../../index/type-aliases/DefaultBind.md)
 
-Defined in: [v2/jsx/svg.ts:70](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/jsx/svg.ts#L70)
+Defined in: [v2/jsx/svg.ts:70](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/jsx/svg.ts#L70)
 
 All Butterfloat bindable attributes of an element
 

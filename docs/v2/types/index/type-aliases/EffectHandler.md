@@ -16,7 +16,7 @@ tags:
 
 > **EffectHandler** = \<`T`\>(`observable`, `effect`) => `void`
 
-Defined in: [v2/mat.ts:15](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/mat.ts#L15)
+Defined in: [v2/mat.ts:15](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/mat.ts#L15)
 
 Handles an effect
 

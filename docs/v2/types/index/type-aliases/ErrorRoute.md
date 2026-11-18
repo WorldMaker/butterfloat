@@ -14,9 +14,9 @@ tags:
 
 # Type Alias: ErrorRoute\<Props\>
 
-> **ErrorRoute**\<`Props`\> = \[`map`: (`error`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props`\]
+> **ErrorRoute**\<`Props`\> = \[`map`: (`error`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props` \| `Props`[]\]
 
-Defined in: [v2/route.ts:88](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L88)
+Defined in: [v2/route.ts:88](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L88)
 
 Error Route
 

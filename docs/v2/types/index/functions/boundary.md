@@ -16,7 +16,7 @@ tags:
 
 > **boundary**(): [`BoundaryRouteBuilder`](../classes/BoundaryRouteBuilder.md)
 
-Defined in: [v2/route.ts:400](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L400)
+Defined in: [v2/route.ts:400](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L400)
 
 Build a new boundary route
 

@@ -16,7 +16,7 @@ tags:
 
 > **ButterfloatElementBind**\<`T`\> = [`HtmlElementAttributesBind`](HtmlElementAttributesBind.md)\<`T`\> & [`DefaultBind`](../../../../../type-aliases/DefaultBind.md)
 
-Defined in: [v2/jsx/internal.ts:69](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/jsx/internal.ts#L69)
+Defined in: [v2/jsx/internal.ts:69](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/jsx/internal.ts#L69)
 
 All Butterfloat bindable attributes of an element
 

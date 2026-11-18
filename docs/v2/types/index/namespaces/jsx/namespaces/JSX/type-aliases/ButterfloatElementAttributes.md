@@ -16,7 +16,7 @@ tags:
 
 > **ButterfloatElementAttributes**\<`T`\> = [`HtmlElementAttributes`](HtmlElementAttributes.md)\<`T`\> & [`ButterfloatIntrinsicAttributes`](../../../../../interfaces/ButterfloatIntrinsicAttributes.md)\<[`ButterfloatElementBind`](ButterfloatElementBind.md)\<`T`\>, [`ButterfloatElementEvents`](ButterfloatElementEvents.md), [`ButterfloatElementStyleBind`](ButterfloatElementStyleBind.md)\>
 
-Defined in: [v2/jsx/internal.ts:97](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/jsx/internal.ts#L97)
+Defined in: [v2/jsx/internal.ts:97](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/jsx/internal.ts#L97)
 
 Attributes available in Butterfloat from an HTML element
 

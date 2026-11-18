@@ -14,7 +14,7 @@ tags:
 
 # Interface: DelayBind
 
-Defined in: [v2/component.ts:69](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L69)
+Defined in: [v2/component.ts:69](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/component.ts#L69)
 
 Support for delay binding special properties
 
@@ -24,7 +24,7 @@ Support for delay binding special properties
 
 > `optional` **bfDelayValue?**: `Observable`\<`unknown`\>
 
-Defined in: [v2/component.ts:78](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L78)
+Defined in: [v2/component.ts:78](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/component.ts#L78)
 
 Delay scheduled binding for the "value" property.
 

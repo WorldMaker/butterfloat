@@ -14,7 +14,7 @@ tags:
 
 # Interface: ChildrenProperties
 
-Defined in: [v2/rings/children.ts:19](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/rings/children.ts#L19)
+Defined in: [v2/rings/children.ts:19](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/children.ts#L19)
 
 Properties supported by the `<Children>` pseudo-component
 
@@ -24,7 +24,7 @@ Properties supported by the `<Children>` pseudo-component
 
 > **context**: [`Mat`](Mat.md)\<`unknown`\>
 
-Defined in: [v2/rings/children.ts:27](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/rings/children.ts#L27)
+Defined in: [v2/rings/children.ts:27](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/children.ts#L27)
 
 Context for the component to bind the children from, for deep binding.
 
