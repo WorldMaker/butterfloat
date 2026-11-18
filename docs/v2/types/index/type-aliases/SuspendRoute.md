@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / SuspendRoute
 
@@ -16,7 +16,7 @@ tags:
 
 > **SuspendRoute**\<`Props`\> = \[`map`: (`suspended`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props`\]
 
-Defined in: [v2/route.ts:51](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L51)
+Defined in: [v2/route.ts:51](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L51)
 
 Suspend Route
 

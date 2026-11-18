@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / ChildrenBindable
 
 # Interface: ChildrenBindable
 
-Defined in: [v2/component.ts:45](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L45)
+Defined in: [v2/component.ts:45](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L45)
 
 A JSX node that may produce child Components
 
@@ -24,16 +24,16 @@ A JSX node that may produce child Components
 
 > `optional` **childrenBind?**: [`ChildrenBind`](../type-aliases/ChildrenBind.md)
 
-Defined in: [v2/component.ts:49](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L49)
+Defined in: [v2/component.ts:49](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L49)
 
 Bind children as they are observed.
 
----
+***
 
 ### childrenBindMode?
 
 > `optional` **childrenBindMode?**: [`ChildrenBindMode`](../type-aliases/ChildrenBindMode.md)
 
-Defined in: [v2/component.ts:53](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L53)
+Defined in: [v2/component.ts:53](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L53)
 
 Mode in which to bind children. Defaults to 'append'.

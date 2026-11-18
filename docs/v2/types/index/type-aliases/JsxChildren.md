@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / JsxChildren
 
@@ -16,6 +16,6 @@ tags:
 
 > **JsxChildren** = ([`Ring`](Ring.md) \| `string`)[]
 
-Defined in: [v2/component.ts:20](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L20)
+Defined in: [v2/component.ts:20](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L20)
 
 Possible children to a JSX node

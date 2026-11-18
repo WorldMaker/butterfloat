@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / stamp
 
@@ -16,7 +16,7 @@ tags:
 
 > **stamp**\<`Props`\>(`component`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:10](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/stamp.ts#L10)
+Defined in: [v2/stamp.ts:10](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/stamp.ts#L10)
 
 Creates a simple, stable component.
 

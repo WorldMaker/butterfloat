@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / Empty
 
@@ -16,7 +16,7 @@ tags:
 
 > **Empty**(`_`, `mat`): [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/rings/empty.ts:19](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/rings/empty.ts#L19)
+Defined in: [v2/rings/empty.ts:19](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/rings/empty.ts#L19)
 
 Empty node
 

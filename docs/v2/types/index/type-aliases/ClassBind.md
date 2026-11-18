@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / ClassBind
 
@@ -16,6 +16,6 @@ tags:
 
 > **ClassBind** = `Record`\<`string`, `Observable`\<`boolean`\>\>
 
-Defined in: [v2/component.ts:89](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/component.ts#L89)
+Defined in: [v2/component.ts:89](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/component.ts#L89)
 
 Bind for classBind

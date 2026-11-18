@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / route
 
 # Function: route()
 
-> **route**\<`Inputs`\>(`input?`, `mode?`): [`ChildRouteBuilder`](../classes/ChildRouteBuilder.md)\<`Inputs`\>
+> **route**\<`Inputs`\>(`input`, `mode?`): [`ChildRouteBuilder`](../classes/ChildRouteBuilder.md)\<`Inputs`\>
 
-Defined in: [v2/route.ts:340](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L340)
+Defined in: [v2/route.ts:429](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L429)
 
 Route an Observable to child components
 
@@ -31,7 +31,7 @@ stamp-aware component trees.
 
 ## Parameters
 
-### input?
+### input
 
 `Observable`\<`Inputs`\>
 
@@ -39,7 +39,7 @@ Observable to route to child components
 
 ### mode?
 
-`"replace"` \| `"append"` \| `"prepend"`
+`"replace"` \| `"append"` \| `"prepend"` = `'append'`
 
 Children binding mode
 

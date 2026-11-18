@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / Routes
 
 # Interface: Routes\<Inputs\>
 
-Defined in: [v2/route.ts:25](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L25)
+Defined in: [v2/route.ts:25](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L25)
 
 Routes
 
@@ -32,26 +32,26 @@ A set of routes that can be used to bind a component's children to an observable
 
 > **input**: `Observable`\<`Inputs`\>
 
-Defined in: [v2/route.ts:29](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L29)
+Defined in: [v2/route.ts:29](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L29)
 
 Observable that produces inputs to route to child components
 
----
+***
 
 ### mode
 
 > **mode**: `"replace"` \| `"append"` \| `"prepend"`
 
-Defined in: [v2/route.ts:33](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L33)
+Defined in: [v2/route.ts:33](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L33)
 
 The mode to bind the child components to the parent component's children.
 
----
+***
 
 ### routes
 
 > **routes**: [`Route`](../type-aliases/Route.md)\<`Inputs`, `any`\>[]
 
-Defined in: [v2/route.ts:37](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/route.ts#L37)
+Defined in: [v2/route.ts:37](https://github.com/WorldMaker/butterfloat/blob/5e8c149e07de151f629442b1866646cbb6758cbc/v2/route.ts#L37)
 
 The routes for handling the inputs.
