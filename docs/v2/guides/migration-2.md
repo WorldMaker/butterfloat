@@ -3,6 +3,8 @@ title: Migration From v1 to v2
 order: 100
 ---
 
+# Migration from v1 to v2
+
 Butterfloat v1.7 is the transition/preview release for Butterfloat v2.0.
 The v2.0 API is presented side-by-side the v1.x API under the `/v2`
 export. Deprecation warnings were added to v1.x APIs that are removed or
@@ -16,7 +18,7 @@ motivation behind this upgrade.
 
 [motivation]: ../../motivation/v2.md
 
-# Compatibility Overview
+## Compatibility Overview
 
 At the highest level there are few main compatibility breaks and most of
 the rest of the changes are either features from the new API or
@@ -38,7 +40,7 @@ The context-sensitive output of `jsx` is called `Ring` and
 `NodeDescription` is no longer an "intermediate tree", and instead a
 testing-only output of specific testing `Ring`s.
 
-# Upgrade to Children Routing
+## Upgrade to Children Routing
 
 [Children Routing](../../children/#children-routing) amplifies `childrenBind`
 to be stamp-aware and deep stamp collecting friendly.
