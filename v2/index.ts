@@ -33,8 +33,12 @@ export {
 } from './mat.js'
 export { type IfEquals, type WritableKeys } from './meta-types.js'
 export {
+  boundary,
   route,
+  suspend,
+  BoundaryRouteBuilder,
   ChildRouteBuilder,
+  SuspendRouteBuilder,
   type ChildRoutes,
   type CompleteRoutes,
   type SuspendRoute,
