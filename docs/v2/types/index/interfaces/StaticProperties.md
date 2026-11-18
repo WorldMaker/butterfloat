@@ -14,7 +14,7 @@ tags:
 
 # Interface: StaticProperties
 
-Defined in: [v2/rings/static.ts:17](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/rings/static.ts#L17)
+Defined in: [v2/rings/static.ts:17](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/static.ts#L17)
 
 Properties supported by the `<Static>` pseudo-component
 
@@ -24,6 +24,6 @@ Properties supported by the `<Static>` pseudo-component
 
 > **element**: `Element`
 
-Defined in: [v2/rings/static.ts:21](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/rings/static.ts#L21)
+Defined in: [v2/rings/static.ts:21](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/static.ts#L21)
 
 A static element to attach to the DOM tree.

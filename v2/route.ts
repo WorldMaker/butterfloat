@@ -13,7 +13,7 @@ import { Component } from './component'
 export type Route<Inputs = any, Props = any> = [
   when: (inputs: Inputs) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -51,7 +51,7 @@ export interface Routes<Inputs = any> {
 export type SuspendRoute<Props = any> = [
   map: (suspended: boolean) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -88,7 +88,7 @@ export interface SuspendRoutes {
 export type ErrorRoute<Props = any> = [
   map: (error: unknown) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -148,24 +148,184 @@ export interface ChildRoutes {
 }
 
 /**
- * Fluid builder for child routes
+ * Fluent, mutable builder for boundary routes
+ *
+ * Shortcut: `boundary()`
+ *
+ * Example usage:
+ * ```ts
+ * const routes = boundary()
+ *   .withErrorMode('prepend')
+ *   .onError((error) => ({ message: String(error) }), ErrorComponent)
+ *   .onComplete(CompleteComponent)
+ *   .build()
+ * ```
  */
-export class ChildRouteBuilder<Inputs = unknown> {
-  #input?: Observable<Inputs>
-  #mode?: 'append' | 'prepend' | 'replace'
-  readonly #routes: Route<Inputs>[] = []
-  #suspend?: Observable<boolean>
-  #suspendMode?: 'append' | 'prepend' | 'replace'
-  readonly #suspendRoutes: SuspendRoute[] = []
+export class BoundaryRouteBuilder {
   #errorMode?: 'append' | 'prepend' | 'replace'
   #errorRoutes: ErrorRoute[] = []
   #completeMode?: 'append' | 'prepend' | 'replace'
   #completeComponent?: Component
 
+  /**
+   * Set the child binding mode for the error boundary
+   *
+   * If not set, the default is 'append'. Last call wins if multiple calls are made.
+   * @param mode Child binding mode for the error boundary
+   * @returns this
+   */
+  withErrorMode(mode: 'append' | 'prepend' | 'replace'): this {
+    this.#errorMode = mode
+    return this
+  }
+
+  /**
+   * Add an error boundary route
+   * @param map Map an error to a set of props for an error component
+   * @param component Component to render when an error occurs
+   * @param jsonProps Optional JSON serializable props for the error component's stamp variant
+   * @returns this
+   */
+  onError<Props>(
+    map: (error: unknown) => Props | false,
+    component: Component<Props>,
+    jsonProps?: Props | Props[],
+  ): this {
+    this.#errorRoutes.push([map, component, jsonProps])
+    return this
+  }
+
+  /**
+   * Add a completion boundary component
+   *
+   * There may be only one completion boundary component. If multiple are added, the last one will be used.
+   * @param component Component to render when a completion occurs
+   * @param mode Child binding mode for the completion boundary component
+   * @returns this
+   */
+  onComplete(
+    component: Component,
+    mode: 'append' | 'prepend' | 'replace' = 'append',
+  ): this {
+    this.#completeComponent = component
+    this.#completeMode = mode
+    return this
+  }
+
+  /**
+   * Build the child routes
+   * @returns Child routes for childrenBind
+   */
+  build(): ChildRoutes {
+    return {
+      error:
+        this.#errorRoutes.length > 0
+          ? {
+              mode: this.#errorMode ?? 'append',
+              routes: this.#errorRoutes,
+            }
+          : undefined,
+      complete: this.#completeComponent
+        ? {
+            mode: this.#completeMode ?? 'append',
+            component: this.#completeComponent,
+          }
+        : undefined,
+    }
+  }
+}
+
+/**
+ * Fluent, mutable builder for suspension boundaries
+ *
+ * Shortcut: `suspend(whenObservable, mode)`
+ *
+ * Example usage:
+ * ```ts
+ * const builder = suspend(whenObservable, 'append')
+ *   .whenSuspended(map, component, jsonProps)
+ *   .build()
+ * ```
+ */
+export class SuspendRouteBuilder extends BoundaryRouteBuilder {
+  #suspend?: Observable<boolean>
+  #mode?: 'append' | 'prepend' | 'replace'
+  readonly #suspendRoutes: SuspendRoute[] = []
+
+  constructor(
+    suspend?: Observable<boolean>,
+    mode?: 'append' | 'prepend' | 'replace',
+  ) {
+    super()
+    this.#suspend = suspend
+    this.#mode = mode
+  }
+
+  /**
+   * Create a suspension boundary
+   * @param suspend Observable that determines if the suspension boundary is active
+   * @param mode Child binding mode for the suspension boundary
+   * @returns this
+   */
+  suspend(
+    suspend: Observable<boolean>,
+    mode: 'append' | 'prepend' | 'replace' = 'append',
+  ): this {
+    this.#suspend = suspend
+    this.#mode = mode
+    return this
+  }
+
+  /**
+   * Add a suspension boundary route
+   * @param map Map a suspension state to a set of props for a suspension component
+   * @param component Component to render when suspended
+   * @param jsonProps Optional JSON serializable props for the suspension component's stamp variant
+   * @returns this
+   */
+  whenSuspended<Props>(
+    map: (suspended: boolean) => Props | false,
+    component: Component<Props>,
+    jsonProps?: Props | Props[],
+  ): this {
+    this.#suspendRoutes.push([map, component, jsonProps])
+    return this
+  }
+
+  /**
+   * Build the child routes
+   * @returns Child routes for childrenBind
+   */
+  build(): ChildRoutes {
+    return {
+      ...super.build(),
+      suspend:
+        this.#suspendRoutes.length > 0 && this.#suspend
+          ? {
+              suspend: this.#suspend,
+              mode: this.#mode ?? 'append',
+              routes: this.#suspendRoutes,
+            }
+          : undefined,
+    }
+  }
+}
+
+/**
+ * Fluent, mutable builder for child routes
+ *
+ * Shortcut: `route(input, mode)`
+ */
+export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
+  #input?: Observable<Inputs>
+  #mode?: 'append' | 'prepend' | 'replace'
+  readonly #routes: Route<Inputs>[] = []
+
   constructor(
     input?: Observable<Inputs>,
     mode?: 'append' | 'prepend' | 'replace',
   ) {
+    super()
     this.#input = input
     this.#mode = mode
   }
@@ -190,7 +350,7 @@ export class ChildRouteBuilder<Inputs = unknown> {
    * @param mode Child binding mode for the routes
    * @returns this
    */
-  withMode(mode: 'append' | 'prepend' | 'replace'): ChildRouteBuilder<Inputs> {
+  withMode(mode: 'append' | 'prepend' | 'replace'): this {
     this.#mode = mode
     return this
   }
@@ -205,87 +365,9 @@ export class ChildRouteBuilder<Inputs = unknown> {
   when<Props>(
     when: (inputs: Inputs) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props,
-  ): ChildRouteBuilder<Inputs> {
+    jsonProps?: Props | Props[],
+  ): this {
     this.#routes.push([when, component, jsonProps])
-    return this
-  }
-
-  /**
-   * Create a suspension boundary
-   * @param suspend Observable that determines if the suspension boundary is active
-   * @param mode Child binding mode for the suspension boundary
-   * @returns this
-   */
-  suspend(
-    suspend: Observable<boolean>,
-    mode: 'append' | 'prepend' | 'replace' = 'append',
-  ): ChildRouteBuilder<Inputs> {
-    this.#suspend = suspend
-    this.#suspendMode = mode
-    return this
-  }
-
-  /**
-   * Add a suspension boundary route
-   * @param map Map a suspension state to a set of props for a suspension component
-   * @param component Component to render when suspended
-   * @param jsonProps Optional JSON serializable props for the suspension component's stamp variant
-   * @returns this
-   */
-  whenSuspended<Props>(
-    map: (suspended: boolean) => Props | false,
-    component: Component<Props>,
-    jsonProps?: Props,
-  ): ChildRouteBuilder<Inputs> {
-    this.#suspendRoutes.push([map, component, jsonProps])
-    return this
-  }
-
-  /**
-   * Set the child binding mode for the error boundary
-   *
-   * If not set, the default is 'append'. Last call wins if multiple calls are made.
-   * @param mode Child binding mode for the error boundary
-   * @returns this
-   */
-  withErrorMode(
-    mode: 'append' | 'prepend' | 'replace',
-  ): ChildRouteBuilder<Inputs> {
-    this.#errorMode = mode
-    return this
-  }
-
-  /**
-   * Add an error boundary route
-   * @param map Map an error to a set of props for an error component
-   * @param component Component to render when an error occurs
-   * @param jsonProps Optional JSON serializable props for the error component's stamp variant
-   * @returns this
-   */
-  onError<Props>(
-    map: (error: unknown) => Props | false,
-    component: Component<Props>,
-    jsonProps?: Props,
-  ): ChildRouteBuilder<Inputs> {
-    this.#errorRoutes.push([map, component, jsonProps])
-    return this
-  }
-
-  /**
-   * Add a completion boundary component
-   *
-   * There may be only one completion boundary component. If multiple are added, the last one will be used.
-   * @param component Component to render when a completion occurs
-   * @param mode Child binding mode for the completion boundary component
-   * @returns this
-   */
-  onComplete(
-    component: Component,
-    mode: 'append' | 'prepend' | 'replace' = 'append',
-  ): ChildRouteBuilder<Inputs> {
-    this.#completeComponent = component
-    this.#completeMode = mode
     return this
   }
 
@@ -295,6 +377,7 @@ export class ChildRouteBuilder<Inputs = unknown> {
    */
   build(): ChildRoutes {
     return {
+      ...super.build(),
       routes:
         this.#routes.length > 0 && this.#input
           ? {
@@ -303,29 +386,35 @@ export class ChildRouteBuilder<Inputs = unknown> {
               routes: this.#routes,
             }
           : undefined,
-      suspend:
-        this.#suspendRoutes.length > 0 && this.#suspend
-          ? {
-              suspend: this.#suspend,
-              mode: this.#suspendMode ?? 'append',
-              routes: this.#suspendRoutes,
-            }
-          : undefined,
-      error:
-        this.#errorRoutes.length > 0
-          ? {
-              mode: this.#errorMode ?? 'append',
-              routes: this.#errorRoutes,
-            }
-          : undefined,
-      complete: this.#completeComponent
-        ? {
-            mode: this.#completeMode ?? 'append',
-            component: this.#completeComponent,
-          }
-        : undefined,
     }
   }
+}
+
+/**
+ * Build a new boundary route
+ *
+ * This creates a route map for boundary conditions such as errors
+ * and completions for stamp-aware component trees.
+ * @returns Route builder
+ */
+export function boundary(): BoundaryRouteBuilder {
+  return new BoundaryRouteBuilder()
+}
+
+/**
+ * Build a new suspension boundary
+ *
+ * This creates a route map for handling suspension states in
+ * stamp-aware component trees.
+ * @param suspend
+ * @param mode
+ * @returns Route builder
+ */
+export function suspend(
+  suspend: Observable<boolean>,
+  mode: 'append' | 'prepend' | 'replace' = 'append',
+): SuspendRouteBuilder {
+  return new SuspendRouteBuilder(suspend, mode)
 }
 
 /**
@@ -334,12 +423,12 @@ export class ChildRouteBuilder<Inputs = unknown> {
  * This creates a child binding route map that can be used for building
  * stamp-aware component trees.
  * @param input Observable to route to child components
- * @param mode Children binding mode
+ * @param mode Children binding mode, defaults to 'append'
  * @returns Route builder
  */
 export function route<Inputs = unknown>(
-  input?: Observable<Inputs>,
-  mode?: 'append' | 'prepend' | 'replace',
+  input: Observable<Inputs>,
+  mode: 'append' | 'prepend' | 'replace' = 'append',
 ): ChildRouteBuilder<Inputs> {
   return new ChildRouteBuilder(input, mode)
 }

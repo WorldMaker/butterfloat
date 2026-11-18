@@ -16,6 +16,6 @@ tags:
 
 > **JsxChildrenDescription** = ([`NodeDescription`](NodeDescription.md) \| `string`)[]
 
-Defined in: [v2/testing/description.ts:16](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L16)
+Defined in: [v2/testing/description.ts:16](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L16)
 
 Possible descriptions of the children of a Component or Element

@@ -14,7 +14,7 @@ tags:
 
 # Interface: SvgOptions
 
-Defined in: [v2/svg/svg.ts:10](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/svg/svg.ts#L10)
+Defined in: [v2/svg/svg.ts:10](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/svg/svg.ts#L10)
 
 Options for simple SVG components.
 
@@ -24,6 +24,6 @@ Options for simple SVG components.
 
 > `optional` **notStamp?**: `boolean`
 
-Defined in: [v2/svg/svg.ts:14](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/svg/svg.ts#L14)
+Defined in: [v2/svg/svg.ts:14](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/svg/svg.ts#L14)
 
 The SVG does not qualify for stamp reuse

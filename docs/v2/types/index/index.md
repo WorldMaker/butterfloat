@@ -20,7 +20,9 @@ tags:
 
 ## Classes
 
+- [BoundaryRouteBuilder](classes/BoundaryRouteBuilder.md)
 - [ChildRouteBuilder](classes/ChildRouteBuilder.md)
+- [SuspendRouteBuilder](classes/SuspendRouteBuilder.md)
 
 ## Interfaces
 
@@ -64,6 +66,7 @@ tags:
 
 ## Functions
 
+- [boundary](functions/boundary.md)
 - [butterfly](functions/butterfly.md)
 - [Children](functions/Children.md)
 - [Comment](functions/Comment.md)
@@ -73,3 +76,4 @@ tags:
 - [stamp](functions/stamp.md)
 - [stampWhen](functions/stampWhen.md)
 - [Static](functions/Static.md)
+- [suspend](functions/suspend.md)

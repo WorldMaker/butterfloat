@@ -16,6 +16,6 @@ tags:
 
 > **DefaultEvents** = `Record`\<`string`, [`ObservableEvent`](../../index/type-aliases/ObservableEvent.md)\<`unknown`\>\>
 
-Defined in: [events.ts:26](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/events.ts#L26)
+Defined in: [events.ts:26](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/events.ts#L26)
 
 Default collection of Butterfloat bindings to DOM events

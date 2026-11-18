@@ -14,7 +14,7 @@ tags:
 
 # Interface: EmptyDescription
 
-Defined in: [v2/testing/description.ts:150](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L150)
+Defined in: [v2/testing/description.ts:150](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L150)
 
 Description of the `<Empty>` pseudo-component
 
@@ -24,6 +24,6 @@ Description of the `<Empty>` pseudo-component
 
 > **type**: `"empty"`
 
-Defined in: [v2/testing/description.ts:154](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/testing/description.ts#L154)
+Defined in: [v2/testing/description.ts:154](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L154)
 
 The type of the description

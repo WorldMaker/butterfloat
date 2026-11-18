@@ -14,7 +14,7 @@ tags:
 
 # Interface: IntrinsicElements
 
-Defined in: [v2/jsx/svg.ts:116](https://github.com/WorldMaker/butterfloat/blob/51f7df6624b5ddc4fd0750e3754beaba5e5105c1/v2/jsx/svg.ts#L116)
+Defined in: [v2/jsx/svg.ts:116](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/jsx/svg.ts#L116)
 
 JSX "intrinsic" elements (HTML elements for DOM binding)
 
