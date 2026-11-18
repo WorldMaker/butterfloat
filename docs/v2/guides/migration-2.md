@@ -26,6 +26,8 @@ downstream compatibility breaks:
 - The top-level `jsx` import is now _type only_
 - The runtime `jsx` function may be destructured from `jsx.Mat`
 - The return type of `jsx` is no longer `NodeDescription`
+- Boundary components (`ErrorBoundary` and `Suspense`) have become
+  [Children Routing](#upgrade-to-children-routing)
 
 In v2 the `ComponentContext` is more important than ever and a shorter,
 faster name to type seemed like a good idea. A lot of new power in v2
@@ -35,3 +37,21 @@ is provided by the new `jsx.Mat` component context parameter.
 The context-sensitive output of `jsx` is called `Ring` and
 `NodeDescription` is no longer an "intermediate tree", and instead a
 testing-only output of specific testing `Ring`s.
+
+# Upgrade to Children Routing
+
+[Children Routing](../../children/#children-routing) amplifies `childrenBind`
+to be stamp-aware and deep stamp collecting friendly.
+
+Any use of `childrenBind` may be a great place to use the `route(input)`
+helper function to build Children Routes.
+
+Additionally, `ErrorBoundary` becomes a `childrenBind` of any error route
+such as `boundary().onError(…)` or `route(input).onError(…)`.
+
+`Suspense` becomes a `childrenBind` of any suspend route such as
+`suspend(suspendInput).whenSuspended(…)` or
+`route(input).suspend(suspendInput).whenSuspended(…)`.
+
+Completion boundaries are new with Children Routing including
+`boundary().onComplete(…)` and `route(input).onComplete(…)`.
