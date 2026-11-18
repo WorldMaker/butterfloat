@@ -13,7 +13,7 @@ import { Component } from './component'
 export type Route<Inputs = any, Props = any> = [
   when: (inputs: Inputs) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -51,7 +51,7 @@ export interface Routes<Inputs = any> {
 export type SuspendRoute<Props = any> = [
   map: (suspended: boolean) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -88,7 +88,7 @@ export interface SuspendRoutes {
 export type ErrorRoute<Props = any> = [
   map: (error: unknown) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props,
+  jsonProps?: Props | Props[],
 ]
 
 /**
@@ -189,7 +189,7 @@ export class BoundaryRouteBuilder {
   onError<Props>(
     map: (error: unknown) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props,
+    jsonProps?: Props | Props[],
   ): this {
     this.#errorRoutes.push([map, component, jsonProps])
     return this
@@ -286,7 +286,7 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
   whenSuspended<Props>(
     map: (suspended: boolean) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props,
+    jsonProps?: Props | Props[],
   ): this {
     this.#suspendRoutes.push([map, component, jsonProps])
     return this
@@ -365,7 +365,7 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
   when<Props>(
     when: (inputs: Inputs) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props,
+    jsonProps?: Props | Props[],
   ): this {
     this.#routes.push([when, component, jsonProps])
     return this
@@ -423,7 +423,7 @@ export function suspend(
  * This creates a child binding route map that can be used for building
  * stamp-aware component trees.
  * @param input Observable to route to child components
- * @param mode Children binding mode
+ * @param mode Children binding mode, defaults to 'append'
  * @returns Route builder
  */
 export function route<Inputs = unknown>(

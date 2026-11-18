@@ -1,7 +1,15 @@
 import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
-import { Children, type Mat, Comment, Empty, type jsx } from '../../v2/index.js'
+import {
+  route,
+  stampWhen,
+  Children,
+  type Mat,
+  Comment,
+  Empty,
+  type jsx,
+} from '../../v2/index.js'
 import { describeRing } from '../../v2/testing/index.js'
 
 describe('v2 children documentation', () => {
@@ -36,7 +44,35 @@ describe('v2 children documentation', () => {
     ok(ListPage)
   })
 
-  it('shows a classic dynamic list example', () => {
+  it('shows a dynamic list example', () => {
+    const ListItem = stampWhen((jsx, { text }: { text: string }) => ({
+      ring: <li>{text}</li>,
+      condition: (props) => props.text === text,
+      jsonProps: { text },
+    }))
+
+    function DynamicList(_props: unknown, { jsx }: Mat) {
+      const listSource = concat(
+        from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
+          delayWhen((_v, i) => interval(i * 500)),
+        ),
+        NEVER,
+      )
+
+      const listRoute = route(listSource)
+        .when((text) => ({ text }), ListItem, [
+          { text: 'This' },
+          { text: 'list' },
+        ])
+        .build()
+
+      return <li childrenBind={listRoute} />
+    }
+
+    ok(DynamicList)
+  })
+
+  it('shows a classic v1 dynamic list example', () => {
     function DynamicList(_props: unknown, { jsx }: Mat) {
       const children = concat(
         from(['This', 'is', 'a', 'dynamic', 'list']).pipe(

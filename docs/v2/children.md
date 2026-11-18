@@ -66,7 +66,45 @@ tree with another component in the way.
 
 ## Children Routing
 
-TODO
+You may need to dynamically change children over time in your
+components. For stamp awareness you want to use child routing. This
+helps build metadata useful for deep building stamps.
+
+An example dynamic list:
+
+```tsx
+import { route, stampWhen, type jsx, type Mat } from 'butterfloat'
+import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
+
+const ListItem = stampWhen((jsx, { text }: { text: string }) => ({
+  ring: <li>{text}</li>,
+  condition: (props) => props.text === text,
+  jsonProps: { text },
+}))
+
+function DynamicList(_props: unknown, { jsx }: Mat) {
+  const listSource = concat(
+    from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
+      delayWhen((_v, i) => interval(i * 500)),
+    ),
+    NEVER,
+  )
+
+  const listRoute = route(listSource)
+    .when((text) => ({ text }), ListItem, [{ text: 'This' }, { text: 'list' }])
+    .build()
+
+  return <li childrenBind={listRoute} />
+}
+```
+
+This will append new children to the list as they are added. You can
+change the behavior (mode) of this routing in the second parameter to
+`route`, for instance `route(listSource, 'replace')` will replace the
+children as they are observed. It defaults to `'append'`.
+
+When stamps for the entire tree are built ahead of time, two examples
+of props are provided to be prebuilt as stamps.
 
 ## Comments and the Empty Component
 
@@ -78,7 +116,7 @@ The `<Empty />` pseudo-component is an explicitly empty return state.
 It's a bit more optimized than alternatives like using an empty fragment
 (`<></>`, the "empty fish").
 
-## Classic Children Binding
+## Classic (v1) Children Binding
 
 You may need to dynamically change children over time in your
 components. The lowest level (and classic way) to do this
