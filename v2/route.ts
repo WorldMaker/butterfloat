@@ -148,7 +148,7 @@ export interface ChildRoutes {
 }
 
 /**
- * Fluid builder for child routes
+ * Fluid, mutable builder for child routes
  */
 export class ChildRouteBuilder<Inputs = unknown> {
   #input?: Observable<Inputs>
