@@ -3,29 +3,16 @@ layout: main.vto
 ---
 
 <section class="section page-content">
-    {{ if toc?.length }}
-    <nav class="menu toc-menu">
-        <p class="menu-label">Table of Contents</p>
-        <ul class="menu-list">
-            {{ for item of toc }}
-            <li>
-                <a href="#{{ item.slug }}">{{ item.text }}</a>
-            </li>
-            {{ if item.children?.length }}
-            <ul>
-                {{ for child of item.children }}
-                <li>
-                    <a href="#{{ child.slug }}">{{ child.text }}</a>
-                </li>
-                {{ /for }}
-            </ul>
+    <nav class="menu toc-menu" toc="page-content">
+        <p class="menu-label">
+            Table of Contents
+            {{ if tags.includes('preview') }}
+            <span class="icon" title="Preview"><i class="fa-duotone fa-regular fa-flux-capacitor fa-2x"></i></span>
             {{ /if }}
-            {{ /for }}
-        </ul>
+        </p>
     </nav>
-    {{ /if }}
 
-    <article class="container content">
+    <article class="container content" id="page-content">
         {{ content }}
     </article>
 
