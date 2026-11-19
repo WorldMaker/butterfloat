@@ -265,9 +265,10 @@ error and don't signal teardown of the component as a whole. These
 bindings in Butterfloat are referred to as _fixed_ and are also useful
 for Stamp building, for "pre-loaded Stamps", and static site generation.
 
-By default Stamps will try to run only fixed bindings and try to wait for
-them all to complete. When running from such a stamp, the runtime will
-not run fixed bindings, just the rest.
+By default "booking" Stamps will try to run only fixed bindings and try
+to wait for them all to complete. When running from such a stamp, the
+runtime will not run fixed bindings on "booked" Stamps, just the rest of
+the component's bindings.
 
 > [!NOTE]
 > "Fixed" comes from the boxing analogy that "the fix was in" and the
