@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs'
 import {
   JsxFunction,
+  StampOptions,
   getNextElementBindId,
   type jsx,
   matType,
@@ -34,6 +35,7 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   #isStamp = false
   #stampCondition: ((props: Props) => boolean) | null = null
   #stampJsonProps: Props | null = null
+  #stampOptions: StampOptions | null = null
   #defaultXmlns: string | null = null
   #xmlns: Record<string, string> = {}
 
@@ -54,6 +56,9 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   }
   get stampJsonProps() {
     return this.#stampJsonProps
+  }
+  get stampOptions() {
+    return this.#stampOptions
   }
   get defaultXmlns() {
     return this.#defaultXmlns
@@ -91,25 +96,28 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
     this.#defaultXmlns = defaultXmlns ?? null
   }
 
-  stamp: () => void = () => {
+  stamp: (options?: StampOptions) => void = (options) => {
     if (this.#isStamp) {
       throw new Error('Cannot mark stamp more than once')
     }
     this.#isStamp = true
     this.#stampCondition = null
     this.#stampJsonProps = null
+    this.#stampOptions = options ?? null
   }
 
   stampWhen: <StampProps = Props>(
     condition: (props: StampProps) => boolean,
     jsonProps?: StampProps,
-  ) => void = (condition, jsonProps) => {
+    options?: StampOptions,
+  ) => void = (condition, jsonProps, options) => {
     if (this.#isStamp) {
       throw new Error('Cannot mark stamp more than once')
     }
     this.#isStamp = true
     this.#stampCondition = condition as unknown as (props: Props) => boolean
     this.#stampJsonProps = (jsonProps as Props | undefined) ?? null
+    this.#stampOptions = options ?? null
   }
 }
 
@@ -156,6 +164,10 @@ export interface RingDescription<Props = unknown> {
    * The JSON serializable "canonical" props provided for the stamp
    */
   stampJsonProps: Props | null
+  /**
+   * The options used for stamping this component
+   */
+  stampOptions: StampOptions | null
   /**
    * The default XML namespace registered for the Component
    */
@@ -213,6 +225,7 @@ export function describeRing<Props, Events>(
     isStamp: mat.isStamp,
     stampCondition: mat.stampCondition,
     stampJsonProps: mat.stampJsonProps,
+    stampOptions: mat.stampOptions,
     defaultXmlns: mat.defaultXmlns,
     xmlns: mat.xmlns,
   }

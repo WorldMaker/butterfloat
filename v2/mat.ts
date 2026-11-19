@@ -33,6 +33,16 @@ export type JsxFunction = (
 ) => Ring
 
 /**
+ * Options for stamping a component.
+ */
+export interface StampOptions {
+  /**
+   * If true, the stamp is not considered for fixed bindings.
+   */
+  unfixed?: boolean
+}
+
+/**
  * Context provider for a Butterfloat Component
  */
 export interface Mat<Events = unknown> {
@@ -99,7 +109,7 @@ export interface Mat<Events = unknown> {
    * Mark the component as stable output regardless of props.
    * @returns nothing
    */
-  stamp: () => void
+  stamp: (options?: StampOptions) => void
   /**
    * Mark the component as stable output when a condition is met.
    * @param condition A function that receives the component props and returns whether the stamp matches.
@@ -109,6 +119,7 @@ export interface Mat<Events = unknown> {
   stampWhen: <Props = unknown>(
     condition: (props: Props) => boolean,
     jsonProps?: Props,
+    options?: StampOptions,
   ) => void
 }
 

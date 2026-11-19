@@ -36,4 +36,12 @@ describe('stamp helpers', () => {
     equal(desc.stampCondition({ name: 'Test' }), true)
     equal(desc.stampCondition({ name: 'Other' }), false)
   })
+
+  it('shortcuts an unfixed stamp', () => {
+    const Stamp = stamp((jsx) => <h1>Stamp</h1>, { unfixed: true })
+    const desc = describeRing({}, Stamp)
+    ok(desc)
+    equal(desc.isStamp, true)
+    equal(desc.stampOptions?.unfixed, true)
+  })
 })
