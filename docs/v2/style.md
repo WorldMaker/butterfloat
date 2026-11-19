@@ -87,8 +87,8 @@ function TrafficLight(_: unknown, { jsx }: jsx.Mat) {
 
 ## Next Steps
 
-As components grow more complicated they may need to handle
-[Component Children and Dynamic Children Binding][children].
+[Stamps][stamps] are a useful building block for reusing templates and
+collecting templates for server-side rendering.
 
 [started]: ./getting-started.md
 [state]: ./state.md

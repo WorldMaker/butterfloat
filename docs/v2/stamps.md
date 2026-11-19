@@ -464,5 +464,11 @@ stamps.registerPrestamp(Main, appContainer)
 runStamps(appContainer, Main, stamps)
 ```
 
+## Next Steps
+
+As components grow more complicated they may need to handle
+[Component Children and Dynamic Children Binding][children].
+
+[children]: ./children.md
 [started]: ./getting-started.md
 [style]: ./style.md

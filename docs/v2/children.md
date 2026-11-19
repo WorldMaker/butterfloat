@@ -6,10 +6,9 @@ order: 5
 # Component Children and Dynamic Children
 
 Previously in the [Getting Started][started] tour was an introduction
-to [Class and Style Binding][style]. Components sit in a nested tree
-and at some point either need to include children that have been
-passed to them or dynamically add children elements somewhere in the
-tree.
+to [Stamps][stamps]. Components sit in a nested tree and at some point
+either need to include children that have been passed to them or
+dynamically add children elements somewhere in the tree.
 
 ## Component Children
 
@@ -157,5 +156,5 @@ If you have gotten this far in the general tour you might be
 interested in [Suspense and Advanced Binding][suspense].
 
 [started]: ./getting-started.md
-[style]: ./style.md
+[stamps]: ./stamps.md
 [suspense]: ./suspense.md

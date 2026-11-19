@@ -65,6 +65,32 @@ build JSX types without a `jsx.Mat` involved.
 > now Typescript only supports ambient namespaces for `jsx` types and
 > ambient namespaces are only supported in top-level imports.
 
+## Destructure Runtime `jsx`
+
+In Butterfloat v2 all components should take the second parameter, the
+`jsx.Mat` (which replaced `ComponentContext`). One big reason for this
+is because the runtime `jsx` function for a Component is now provide by
+the `jsx.Mat`.
+
+```diff
+- function ExampleComponent() {
++ function ExampleComponent(_props: unknown, { jsx }: jsx.Mat) {
+```
+
+For smaller Components, such as many of the places where arrow functions
+might have been used, consider shortcuts like [`stamp()`][],
+[`stampWhen()`][], and `svg()`. See [Stamps](../../stamps/) for details.
+
+[`stamp()`]: ../../stamps/#shortcut-for-truly-simple-components
+[`stampWhen()`]: ../../stamps/#shortcut-for-simple-stamps-with-alternates
+
+## Replace `<ErrorBoundary />` and `<Suspense />` Components
+
+`<ErrorBoundary />` and `<Suspense />` become [Children Routing][].
+More details under the [Suspense](../../suspense/) documentation, as
+well as well as [Upgrade to Children Routing](#upgrade-to-children-routing)
+below.
+
 ## New Features
 
 Much of the benefits of the migration are in the new features that

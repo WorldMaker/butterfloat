@@ -63,11 +63,10 @@ Suspense is an optional, added layer on top of the default
 scheduling that further buffers changes based on a developer-provided
 `Observable<boolean>`.
 
-To configure suspense, you use the Suspense system-provided
-component:
+To configure suspense, you use the `suspend()` option in [Children Routing][]:
 
 ```tsx
-import { Children, type ComponentContext, Suspense, jsx } from 'butterfloat'
+import { suspend, Children, type jsx } from 'butterfloat'
 import type { Observable } from 'rxjs'
 
 export interface LoadableVm {
@@ -79,15 +78,14 @@ interface LoadViewModelProps {
   vm: LoadableVm
 }
 
-export function LoadViewModel(
-  { vm }: LoadViewModelProps,
-  context: ComponentContext,
-) {
+function LoadViewModel({ vm }: LoadViewModelProps, mat: jsx.Mat) {
+  const { jsx } = mat
   vm.load()
+  const suspendRoute = suspend(vm.loading).build()
   return (
-    <Suspense when={vm.loading}>
-      <Children context={context} />
-    </Suspense>
+    <div childrenBind={suspendRoute}>
+      <Children context={mat} />
+    </div>
   )
 }
 ```
@@ -107,35 +105,52 @@ Note that Suspense cannot and will not interfere with immediate
 bindings and you will need to find your own way to throttle or
 suspend your immediate changes to the DOM tree.
 
-There's one other optional feature, the Suspense object can take
-an optional `suspenseView` component to be swapped into place while
-the suspense `when` observable is true:
+There's one other optional feature, you can route a `when` observable is
+true. It works like any other children binding route, but also accepts
+the special `'swap'` binding mode:
 
 ```tsx
-function LoadViewModel({ vm }: LoadViewModelProps, context: ComponentContext) {
+import { stamp, suspend, Children, type jsx } from 'butterfloat'
+import type { Observable } from 'rxjs'
+
+export interface LoadableVm {
+  loading: Observable<boolean>
+  load(): void
+}
+
+interface LoadViewModelProps {
+  vm: LoadableVm
+}
+
+const LoadingView = stamp((jsx) => (
+  <p>
+    Loading… <progress />
+  </p>
+))
+
+function LoadViewModel({ vm }: LoadViewModelProps, mat: jsx.Mat) {
+  const { jsx } = mat
   vm.load()
+  const suspendRoute = suspend(vm.loading, 'swap')
+    .whenSuspended((_suspended) => ({}), LoadingView)
+    .build()
   return (
-    <Suspense
-      when={vm.loading}
-      suspenseView={() => (
-        <p>
-          Loading… <progress />
-        </p>
-      )}
-    >
-      <Children context={context} />
-    </Suspense>
+    <div childrenBind={suspendRoute}>
+      <Children context={mat} />
+    </div>
   )
 }
 ```
 
-Note that _both_ components and their bindings are live at the
-same time, but which one is a child in the tree is swapped/replaced.
-A performance consideration to keep in mind is to generally avoid
-bindings in a `suspenseView`, the more static HTML it is the likely
+With the `'swap'` mode _both_ components and their bindings are live at
+the same time, but which one is a child in the tree is swapped. A
+performance consideration to keep in mind is to in the `whenSuspended`
+component to a minimum, the more static HTML it is the likely
 it will perform better. Also, again, you may want to keep in mind
 that your immediate bindings in _both_ trees are unaffected by any
 suspense changes.
+
+[Children Routing]: ./children.md#children-routing
 
 ## `bfDomAttach` Event
 
@@ -146,7 +161,7 @@ instance. To provide for this need, you can bind to the `bfDomAttach`
 event on a static element.
 
 ```tsx
-import { type ComponentContext, jsx } from 'butterfloat'
+import { type jsx } from 'butterfloat'
 import { type Observable, shareReplay, switchMap } from 'rxjs'
 
 interface SomeVanillaComponent {
@@ -167,7 +182,7 @@ interface VanillaWrapperEvents {
 
 function VanillaWrapper(
   { vanillaFactory }: VanillaWrapperProps,
-  { bindEffect, events }: ComponentContext<VanillaWrapperEvents>,
+  { jsx, bindEffect, events }: jsx.Mat<VanillaWrapperEvents>,
 ) {
   const wrappedVanilla = events.attach.pipe(
     switchMap(
@@ -210,7 +225,7 @@ instance).
 SVG and MathML and vanilla JS template systems that populate their
 own DOM elements.
 
-## Completion versus Removal
+## TODO: Completion versus Removal
 
 In Butterfloat, when a binding completes it signals completion for
 the entire component. By default when a component completes it is
@@ -249,7 +264,7 @@ unfinished components to rerun on client side.
 Expect things to get more complicated in the future if such
 features are added.
 
-## Error Boundary
+## TODO: Error Boundary
 
 The `ErrorBoundary` system-provided component can be used to catch
 errors in any of the components below it in the tree and provide
@@ -266,12 +281,6 @@ may make sense in some production builds, though keep in mind that
 other completions that are not errors will not present your error
 view.
 
-## Next Steps
-
-[Stamps][stamps] can be a useful building block for advanced optimization
-like server-side rendering and other progressive enhancement scenarios.
-
 [children]: ./children.md
 [started]: ./getting-started.md
-[stamps]: ./stamps.md
 [spy]: https://github.com/cartant/rxjs-spy
