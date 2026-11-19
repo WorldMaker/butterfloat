@@ -67,7 +67,7 @@ export interface SuspendRoutes {
   /**
    * The mode to bind the suspension component to the parent component's children.
    */
-  mode: 'append' | 'prepend' | 'replace'
+  mode: 'append' | 'prepend' | 'replace' | 'swap'
   /**
    * The routes for handling suspension states.
    */
@@ -249,12 +249,12 @@ export class BoundaryRouteBuilder {
  */
 export class SuspendRouteBuilder extends BoundaryRouteBuilder {
   #suspend?: Observable<boolean>
-  #mode?: 'append' | 'prepend' | 'replace'
+  #mode?: 'append' | 'prepend' | 'replace' | 'swap'
   readonly #suspendRoutes: SuspendRoute[] = []
 
   constructor(
     suspend?: Observable<boolean>,
-    mode?: 'append' | 'prepend' | 'replace',
+    mode?: 'append' | 'prepend' | 'replace' | 'swap',
   ) {
     super()
     this.#suspend = suspend
@@ -269,7 +269,7 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
    */
   suspend(
     suspend: Observable<boolean>,
-    mode: 'append' | 'prepend' | 'replace' = 'append',
+    mode: 'append' | 'prepend' | 'replace' | 'swap' = 'append',
   ): this {
     this.#suspend = suspend
     this.#mode = mode
@@ -412,7 +412,7 @@ export function boundary(): BoundaryRouteBuilder {
  */
 export function suspend(
   suspend: Observable<boolean>,
-  mode: 'append' | 'prepend' | 'replace' = 'append',
+  mode: 'append' | 'prepend' | 'replace' | 'swap' = 'append',
 ): SuspendRouteBuilder {
   return new SuspendRouteBuilder(suspend, mode)
 }

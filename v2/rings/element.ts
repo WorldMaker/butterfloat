@@ -69,7 +69,7 @@ export function elementRunner(
     let completeBindMode: ChildrenBindMode | undefined = undefined
     let suspend: Observable<boolean> | undefined = undefined
     let suspendBind: Observable<Component> | undefined = undefined
-    let suspendBindMode: ChildrenBindMode | undefined = undefined
+    let suspendBindMode: ChildrenBindMode | 'swap' | undefined = undefined
     if (attributes.childrenBind) {
       if (isObservable(attributes.childrenBind)) {
         childrenBind = attributes.childrenBind
