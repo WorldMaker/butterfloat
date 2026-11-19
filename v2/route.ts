@@ -1,6 +1,10 @@
 import { filter, map, Observable } from 'rxjs'
 import { Component } from './component'
 
+export interface RouteOptions {
+  fixed?: boolean
+}
+
 /**
  * A route that can be used to bind a component's children to an observable input.
  * If the when function returns false, the next route will be tried.
@@ -14,6 +18,7 @@ export type Route<Inputs = any, Props = any> = [
   when: (inputs: Inputs) => Props | false,
   component: Component<Props>,
   jsonProps?: Props | Props[],
+  options?: RouteOptions,
 ]
 
 /**
@@ -23,6 +28,10 @@ export type Route<Inputs = any, Props = any> = [
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Routes<Inputs = any> {
+  /**
+   * Whether any of the routes are fixed.
+   */
+  fixed?: boolean
   /**
    * Observable that produces inputs to route to child components
    */
@@ -317,6 +326,7 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
  * Shortcut: `route(input, mode)`
  */
 export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
+  #fixed?: boolean
   #input?: Observable<Inputs>
   #mode?: 'append' | 'prepend' | 'replace'
   readonly #routes: Route<Inputs>[] = []
@@ -372,6 +382,23 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
   }
 
   /**
+   * Add a child route that may be a fixed output
+   * @param when Function to map inputs to a set of props for the child component
+   * @param component Component to render when the route matches
+   * @param jsonProps Optional JSON serializable props for the child component's stamp variant
+   * @returns this
+   */
+  fixedWhen<Props>(
+    when: (inputs: Inputs) => Props | false,
+    component: Component<Props>,
+    jsonProps?: Props | Props[],
+  ): this {
+    this.#fixed = true
+    this.#routes.push([when, component, jsonProps, { fixed: true }])
+    return this
+  }
+
+  /**
    * Build the child routes
    * @returns Child routes for childrenBind
    */
@@ -381,6 +408,7 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
       routes:
         this.#routes.length > 0 && this.#input
           ? {
+              fixed: this.#fixed,
               input: this.#input,
               mode: this.#mode ?? 'append',
               routes: this.#routes,

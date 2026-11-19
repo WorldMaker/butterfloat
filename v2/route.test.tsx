@@ -73,4 +73,17 @@ describe('route', () => {
     ok(routes.suspend.routes[0])
     equal(routes.suspend.routes[0][1], Empty)
   })
+
+  it('can build a fixed child route', () => {
+    const routes = route(NEVER)
+      .fixedWhen((_input) => ({}), Empty)
+      .build()
+    ok(routes.routes)
+    equal(routes.routes.fixed, true)
+    equal(routes.routes.input, NEVER)
+    equal(routes.routes.routes.length, 1)
+    ok(routes.routes.routes[0])
+    equal(routes.routes.routes[0][1], Empty)
+    equal(routes.routes.routes[0][3]?.fixed, true)
+  })
 })
