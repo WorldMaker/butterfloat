@@ -24,6 +24,18 @@ describe('route', () => {
     equal(routes.suspend.routes[0][1], Empty)
   })
 
+  it('can build a suspend route with swap mode', () => {
+    const routes = suspend(NEVER, 'swap')
+      .whenSuspended((_suspended) => ({}), Empty)
+      .build()
+    equal(routes.suspend?.suspend, NEVER)
+    equal(routes.suspend?.mode, 'swap')
+    ok(routes.suspend.routes)
+    equal(routes.suspend.routes.length, 1)
+    ok(routes.suspend.routes[0])
+    equal(routes.suspend.routes[0][1], Empty)
+  })
+
   it('can build an error route', () => {
     const routes = boundary()
       .withErrorMode('prepend')

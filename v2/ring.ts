@@ -37,7 +37,7 @@ export interface ElementBindDescription<Bind = DefaultBind> {
    */
   childrenBindMode?: ChildrenBindMode
   suspendBind?: Observable<Component>
-  suspendBindMode?: ChildrenBindMode
+  suspendBindMode?: ChildrenBindMode | 'swap'
   errorBind?: Observable<Component>
   errorBindMode?: ChildrenBindMode
   completeBind?: Observable<Component>

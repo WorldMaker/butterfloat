@@ -5,7 +5,6 @@ import {
   route,
   stampWhen,
   Children,
-  type Mat,
   Comment,
   Empty,
   type jsx,
@@ -14,7 +13,7 @@ import { describeRing } from '../../v2/testing/index.js'
 
 describe('v2 children documentation', () => {
   it('shows a simple list wrapper with children', () => {
-    function CoolList(_props: unknown, mat: Mat) {
+    function CoolList(_props: unknown, mat: jsx.Mat) {
       const { jsx } = mat
       return (
         <div className="cool-list-wrapper">
@@ -25,7 +24,7 @@ describe('v2 children documentation', () => {
       )
     }
 
-    function ListPage(_props: unknown, { jsx }: Mat) {
+    function ListPage(_props: unknown, { jsx }: jsx.Mat) {
       return (
         <div className="list-page">
           <CoolList>
@@ -51,7 +50,7 @@ describe('v2 children documentation', () => {
       jsonProps: { text },
     }))
 
-    function DynamicList(_props: unknown, { jsx }: Mat) {
+    function DynamicList(_props: unknown, { jsx }: jsx.Mat) {
       const listSource = concat(
         from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
           delayWhen((_v, i) => interval(i * 500)),
@@ -73,7 +72,7 @@ describe('v2 children documentation', () => {
   })
 
   it('shows a classic v1 dynamic list example', () => {
-    function DynamicList(_props: unknown, { jsx }: Mat) {
+    function DynamicList(_props: unknown, { jsx }: jsx.Mat) {
       const children = concat(
         from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
           delayWhen((_v, i) => interval(i * 500)),

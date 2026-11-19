@@ -2,14 +2,14 @@ import { ok } from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { Observable, shareReplay, switchMap } from 'rxjs'
 import {
+  stamp,
+  suspend,
   Children,
-  type ComponentContext,
   type ObservableEvent,
-  Suspense,
-  jsx,
-} from '../../index.js'
+  type jsx,
+} from '../../v2/index.js'
 
-describe('suspense documentation', () => {
+describe('v2 suspense documentation', () => {
   it('shows a simple suspense example', () => {
     interface LoadableVm {
       loading: Observable<boolean>
@@ -20,15 +20,14 @@ describe('suspense documentation', () => {
       vm: LoadableVm
     }
 
-    function LoadViewModel(
-      { vm }: LoadViewModelProps,
-      context: ComponentContext,
-    ) {
+    function LoadViewModel({ vm }: LoadViewModelProps, mat: jsx.Mat) {
+      const { jsx } = mat
       vm.load()
+      const suspendRoute = suspend(vm.loading).build()
       return (
-        <Suspense when={vm.loading}>
-          <Children context={context} />
-        </Suspense>
+        <div childrenBind={suspendRoute}>
+          <Children context={mat} />
+        </div>
       )
     }
 
@@ -45,22 +44,22 @@ describe('suspense documentation', () => {
       vm: LoadableVm
     }
 
-    function LoadViewModel(
-      { vm }: LoadViewModelProps,
-      context: ComponentContext,
-    ) {
+    const LoadingView = stamp((jsx) => (
+      <p>
+        Loading… <progress />
+      </p>
+    ))
+
+    function LoadViewModel({ vm }: LoadViewModelProps, mat: jsx.Mat) {
+      const { jsx } = mat
       vm.load()
+      const suspendRoute = suspend(vm.loading, 'swap')
+        .whenSuspended((_suspended) => ({}), LoadingView)
+        .build()
       return (
-        <Suspense
-          when={vm.loading}
-          suspenseView={() => (
-            <p>
-              Loading… <progress />
-            </p>
-          )}
-        >
-          <Children context={context} />
-        </Suspense>
+        <div childrenBind={suspendRoute}>
+          <Children context={mat} />
+        </div>
       )
     }
 
@@ -86,7 +85,7 @@ describe('suspense documentation', () => {
 
     function VanillaWrapper(
       { vanillaFactory }: VanillaWrapperProps,
-      { bindEffect, events }: ComponentContext<VanillaWrapperEvents>,
+      { jsx, bindEffect, events }: jsx.Mat<VanillaWrapperEvents>,
     ) {
       const wrappedVanilla = events.attach.pipe(
         switchMap(

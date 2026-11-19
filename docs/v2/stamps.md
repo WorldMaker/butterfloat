@@ -170,6 +170,8 @@ export const ThreeRoles = stamp(
 )
 ```
 
+### TODO: Explain JSON Props
+
 ### Shortcut for Simple Stamps with Alternates
 
 Butterfloat also provides a top-level `stampWhen()` helper for common,
@@ -462,5 +464,11 @@ stamps.registerPrestamp(Main, appContainer)
 runStamps(appContainer, Main, stamps)
 ```
 
+## Next Steps
+
+As components grow more complicated they may need to handle
+[Component Children and Dynamic Children Binding][children].
+
+[children]: ./children.md
 [started]: ./getting-started.md
 [style]: ./style.md

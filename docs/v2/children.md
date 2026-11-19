@@ -6,10 +6,9 @@ order: 5
 # Component Children and Dynamic Children
 
 Previously in the [Getting Started][started] tour was an introduction
-to [Class and Style Binding][style]. Components sit in a nested tree
-and at some point either need to include children that have been
-passed to them or dynamically add children elements somewhere in the
-tree.
+to [Stamps][stamps]. Components sit in a nested tree and at some point
+either need to include children that have been passed to them or
+dynamically add children elements somewhere in the tree.
 
 ## Component Children
 
@@ -21,11 +20,11 @@ component's lifetime.
 A simple example of a fancy list wrapper:
 
 ```tsx
-import { Children, type Mat, type jsx } from 'butterfloat'
+import { Children, type jsx } from 'butterfloat'
 
 interface CoolListProps {}
 
-function CoolList(props: CoolListProps, mat: Mat) {
+function CoolList(props: CoolListProps, mat: jsx.Mat) {
   const { jsx } = mat
   return (
     <div className="cool-list-wrapper">
@@ -36,7 +35,7 @@ function CoolList(props: CoolListProps, mat: Mat) {
   )
 }
 
-function ListPage(_: unknown, { jsx }: Mat) {
+function ListPage(_: unknown, { jsx }: jsx.Mat) {
   return (
     <div className="list-page">
       <CoolList>
@@ -54,8 +53,8 @@ function ListPage(_: unknown, { jsx }: Mat) {
 ```
 
 To facilitate deeper nesting of component children, the `Children`
-component takes the `Mat` of the component it should bind the children
-of. (This is the same `Mat` that provides the current `jsx` and tools
+component takes the `jsx.Mat` of the component it should bind the children
+of. (This is the same `jsx.Mat` that provides the current `jsx` and tools
 such as `events` and `bindEffect`.)
 
 It tries to default to the children of the current component and in
@@ -73,7 +72,7 @@ helps build metadata useful for deep building stamps.
 An example dynamic list:
 
 ```tsx
-import { route, stampWhen, type jsx, type Mat } from 'butterfloat'
+import { route, stampWhen, type jsx } from 'butterfloat'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 
 const ListItem = stampWhen((jsx, { text }: { text: string }) => ({
@@ -82,7 +81,7 @@ const ListItem = stampWhen((jsx, { text }: { text: string }) => ({
   jsonProps: { text },
 }))
 
-function DynamicList(_props: unknown, { jsx }: Mat) {
+function DynamicList(_props: unknown, { jsx }: jsx.Mat) {
   const listSource = concat(
     from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
       delayWhen((_v, i) => interval(i * 500)),
@@ -128,10 +127,10 @@ can be adjusted with the separate `childrenBindMode` attribute.
 An example dynamic list:
 
 ```tsx
-import { type jsx, type Mat } from 'butterfloat'
+import { type jsx } from 'butterfloat'
 import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 
-function DynamicList(_: unknown, { jsx }: Mat) {
+function DynamicList(_: unknown, { jsx }: jsx.Mat) {
   const children = concat(
     from(['This', 'is', 'a', 'dynamic', 'list']).pipe(
       delayWhen((v, i) => interval(i * 500)),
@@ -157,5 +156,5 @@ If you have gotten this far in the general tour you might be
 interested in [Suspense and Advanced Binding][suspense].
 
 [started]: ./getting-started.md
-[style]: ./style.md
+[stamps]: ./stamps.md
 [suspense]: ./suspense.md
