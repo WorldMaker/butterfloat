@@ -28,6 +28,7 @@ downstream compatibility breaks:
 - The top-level `jsx` import is now _type only_
 - The runtime `jsx` function may be destructured from `jsx.Mat`
 - The return type of `jsx` is no longer `NodeDescription`
+- Fragments and Components no longer support `childrenBind`
 - Boundary components (`ErrorBoundary` and `Suspense`) have become
   [Children Routing](#upgrade-to-children-routing)
 
@@ -84,7 +85,7 @@ might have been used, consider shortcuts like [`stamp()`][],
 [`stamp()`]: ../../stamps/#shortcut-for-truly-simple-components
 [`stampWhen()`]: ../../stamps/#shortcut-for-simple-stamps-with-alternates
 
-## Replace `<ErrorBoundary />` and `<Suspense />` Components
+## Replace Boundary Components
 
 `<ErrorBoundary />` and `<Suspense />` become [Children Routing][].
 More details under the [Suspense](../../suspense/) documentation, as
@@ -123,4 +124,20 @@ such as `boundary().onError(…)` or `route(input).onError(…)`.
 Completion boundaries are new with Children Routing including
 `boundary().onComplete(…)` and `route(input).onComplete(…)`.
 
-[Children Routing]: ../../children/
+### Add Fixed Bindings and Routes
+
+[Fixed bindings][] are bindings that may naturally complete when they are
+no longer needed (they come to a fixed outcome).
+
+Similarly, [Children Routing][] supports fixed routes.
+
+Combined, these tools provide more ways to build even deeper stamps when
+"booking" them (running only fixed bindings and routes until they
+complete).
+
+This is most useful for things like static site generation. Especially,
+static site generation where you can use the same components in multiple
+ways, both static and dynamic.
+
+[Children Routing]: ../children.md#children-routing
+[Fixed bindings]: ../suspense.md#completion-removal-and-fixed-binding

@@ -28,6 +28,8 @@ export interface ElementBindDescription<Bind = DefaultBind> {
   immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
   immediateClassBind: ClassBind
+  fixedBind: Bind
+  immediateFixedBind: Bind
   /**
    * Children bindings
    */

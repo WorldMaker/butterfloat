@@ -29,6 +29,7 @@ export {
   type jsx,
   type EffectHandler,
   type JsxFunction,
+  type StampOptions,
   type Mat,
 } from './mat.js'
 export { type IfEquals, type WritableKeys } from './meta-types.js'

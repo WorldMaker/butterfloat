@@ -1,5 +1,5 @@
 import { type Component } from './component'
-import { type jsx, type JsxFunction } from './mat'
+import { type jsx, type JsxFunction, type StampOptions } from './mat'
 import { Ring } from './ring'
 
 /**
@@ -9,9 +9,10 @@ import { Ring } from './ring'
  */
 export function stamp<Props = unknown>(
   component: (jsx: JsxFunction, props: Props) => Ring,
+  options?: StampOptions,
 ): Component<Props, unknown> {
   return (props, mat) => {
-    mat.stamp()
+    mat.stamp(options)
     return component(mat.jsx, props)
   }
 }
@@ -34,6 +35,10 @@ export interface StampWhenComponent<Props = unknown> {
    * JSON serialziable "canonical" representation of the applicable props to this stamp.
    */
   jsonProps?: Props
+  /**
+   * Options used for stamping this component.
+   */
+  options?: StampOptions
 }
 
 /**
@@ -45,8 +50,8 @@ export function stampWhen<Props>(
   component: (jsx: JsxFunction, props: Props) => StampWhenComponent<Props>,
 ): Component<Props, unknown> {
   return (props, mat: jsx.Mat) => {
-    const { condition, ring, jsonProps } = component(mat.jsx, props)
-    mat.stampWhen(condition, jsonProps)
+    const { condition, ring, jsonProps, options } = component(mat.jsx, props)
+    mat.stampWhen(condition, jsonProps, options)
     return ring
   }
 }
