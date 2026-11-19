@@ -40,9 +40,48 @@ The context-sensitive output of `jsx` is called `Ring` and
 `NodeDescription` is no longer an "intermediate tree", and instead a
 testing-only output of specific testing `Ring`s.
 
-## Upgrade to Children Routing
+## Update Imports
 
-[Children Routing](../../children/#children-routing) amplifies `childrenBind`
+A good place to start in your migrations is from the bottom up in your
+component tree. The `<V2 component={Component} props={props} />`
+component can be used to host v2 components inside higher components in
+your v1 tree as you migrate.
+
+One of the first places to start in migrating a component should likely
+be to change the top-level imports:
+
+```diff
+- import { type ComponentContext, jsx } from 'butterfloat'
++ import { type jsx } from 'butterfloat/v2'
+```
+
+`ComponentContext` is replaced by `jsx.Mat` and the important thing is
+that the top-level `jsx` import is now type only. Using the Typescript
+`type` keyword here provides extra type safety that you don't accidentally
+build JSX types without a `jsx.Mat` involved.
+
+> [!NOTE]
+> A `jsx` top-level import is required for JSX types to work because for
+> now Typescript only supports ambient namespaces for `jsx` types and
+> ambient namespaces are only supported in top-level imports.
+
+## New Features
+
+Much of the benefits of the migration are in the new features that
+Butterfloat v2 brings.
+
+### Opt-in to New Stamp Metadata
+
+[Stamps](../stamps/) can be collected automatically in Butterfloat v2
+using the new markers and shortcuts `stamp()` and `stampWhen()`.
+
+Automatically collected stamps can be used for "deep" stamping and for
+collecting potentially all of the stamps in a component tree when combined
+with [Children Routing][].
+
+### Upgrade to Children Routing
+
+[Children Routing][] amplifies `childrenBind`
 to be stamp-aware and deep stamp collecting friendly.
 
 Any use of `childrenBind` may be a great place to use the `route(input)`
@@ -57,3 +96,5 @@ such as `boundary().onError(…)` or `route(input).onError(…)`.
 
 Completion boundaries are new with Children Routing including
 `boundary().onComplete(…)` and `route(input).onComplete(…)`.
+
+[Children Routing]: ../../children/

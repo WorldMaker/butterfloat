@@ -170,6 +170,8 @@ export const ThreeRoles = stamp(
 )
 ```
 
+### TODO: Explain JSON Props
+
 ### Shortcut for Simple Stamps with Alternates
 
 Butterfloat also provides a top-level `stampWhen()` helper for common,
