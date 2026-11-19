@@ -126,4 +126,12 @@ export interface ButterfloatIntrinsicAttributes<
    * Immediately bind a boolean observable to the appearance of a class in classList.
    */
   immediateClassBind?: ClassBind
+  /**
+   * Bind a completeable observable to a DOM property.
+   */
+  fixedBind?: Bind & DelayBind
+  /**
+   * Immediately bind a completeable observable to a DOM property.
+   */
+  immediateFixedBind?: Bind
 }

@@ -43,7 +43,9 @@ export function hasAnyBinds(
     Object.keys(attributes.styleBind ?? {}).length > 0 ||
     Object.keys(attributes.immediateStyleBind ?? {}).length > 0 ||
     Object.keys(attributes.classBind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateClassBind ?? {}).length > 0
+    Object.keys(attributes.immediateClassBind ?? {}).length > 0 ||
+    Object.keys(attributes.fixedBind ?? {}).length > 0 ||
+    Object.keys(attributes.immediateFixedBind ?? {}).length > 0
   )
 }
 
@@ -154,6 +156,8 @@ export function elementRunner(
       immediateStyleBind: attributes.immediateStyleBind ?? {},
       classBind: attributes.classBind ?? {},
       immediateClassBind: attributes.immediateClassBind ?? {},
+      fixedBind: attributes.fixedBind ?? {},
+      immediateFixedBind: attributes.immediateFixedBind ?? {},
       onError,
       onComplete,
       suspend,
