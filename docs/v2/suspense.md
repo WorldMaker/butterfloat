@@ -150,8 +150,6 @@ it will perform better. Also, again, you may want to keep in mind
 that your immediate bindings in _both_ trees are unaffected by any
 suspense changes.
 
-[Children Routing]: ./children.md#children-routing
-
 ## `bfDomAttach` Event
 
 As a last resort you may wish to manage your own bindings directly
@@ -225,16 +223,61 @@ instance).
 SVG and MathML and vanilla JS template systems that populate their
 own DOM elements.
 
-## TODO: Completion versus Removal
+## Error Boundary
 
-In Butterfloat, when a binding completes it signals completion for
-the entire component. By default when a component completes it is
-_removed_ at that time.
+A common need is to centrally catch any errors below a certain point in
+a component and present an alternative "Something went wrong" view.
+
+Error boundaries are built as a part of [Children Routing][] by attaching
+`onError` routes to `route(input)`, `suspend(when)`, or `boundary()`
+builders.
+
+You can also set `withErrorMode(mode)` to have different children binding
+mode applied when an error occurs. The default is `'append'`.
+
+## Completion, Removal, and Fixed Binding
+
+In Butterfloat, when a binding completes it may indicate something went
+wrong, though not quite an error. By default when a binding completes
+Butterfloat sends a warning, and signals the nearest Complete Boundary
+up the component tree. These are registered with [Children Routing][]
+similar to an Error boundary, with an `onComplete` route.
+
+If no Complete boundaries are inside the component (the signal bubbles all
+the way to the component boundary) the component itself completes and it
+is _removed_ at that time.
 
 This behavior may be surprising the first time it is encountered,
 but it is the behavior of least surprise in the long term. Rather
 than a component left in a dead, static, or only partially working
-state, it is removed as it seems to have finished its job.
+state with no visible change, it is removed as it seems to have finished
+its job.
+
+It can be useful to explicitly declare that when an Observable completes
+the component should be removed (and that this is neither an error nor
+a completion boundary condition), so the `jsx.Mat` provides a
+`bindRemoval` to bind an Observable's completion to removing the
+component.
+
+Some bindings make sense to have a point of completion where the bindings
+have completed their job (finished loading, for instance), are not an
+error and don't signal teardown of the component as a whole. These
+bindings in Butterfloat are referred to as _fixed_ and are also useful
+for Stamp building, for "pre-loaded Stamps", and static site generation.
+
+By default Stamps will try to run only fixed bindings and try to wait for
+them all to complete. When running from such a stamp, the runtime will
+not run fixed bindings, just the rest.
+
+> [!NOTE]
+> "Fixed" comes from the boxing analogy that "the fix was in" and the
+> outcome at least somewhat predetermined. It can also be considered in
+> the mathematical analogy of converging towards a "fixed point" (final
+> state).
+
+### Debugging Surprise Completions
+
+Completion Boundaries can be added with [Children Routing][].
 
 Butterfloat includes some `console.debug` output to help debug
 which type of binding may have completed. It is also suggested to
@@ -248,39 +291,7 @@ doesn’t already. Though these completion logs should be rare in
 any case and many browsers ignore them when development consoles
 are not open.)
 
-As a last resort to help in complicated debugging scenarios, and as
-a building block to potential future features, you can force the
-`RuntimeOptions` to preserve completed components in the DOM tree
-by setting the `preserveOnComplete` flag to true.
-
-`preserveOnComplete` probably isn’t the behavior you want in a
-production app, but partly exists because of proposed plans for
-static site generation (SSG), server-side rendering (SSR), and
-progressive enhancement scenarios where the completion versus
-removal relationship flips. In some of those cases you only want to
-serialize components that completed in server time and remove
-unfinished components to rerun on client side.
-
-Expect things to get more complicated in the future if such
-features are added.
-
-## TODO: Error Boundary
-
-The `ErrorBoundary` system-provided component can be used to catch
-errors in any of the components below it in the tree and provide
-an error view when that happens.
-
-The `ErrorBoundary` also lets you set the `preserveOnComplete` flag
-for debugging the static parts of the DOM left behind after error
-states.
-
-In the case of `ErrorBoundary` your error view component may be
-enough to explain leftover "dead" components in your user
-experience, so using an `ErrorBoundary` to set a `preserveOnComplete`
-may make sense in some production builds, though keep in mind that
-other completions that are not errors will not present your error
-view.
-
 [children]: ./children.md
+[Children Routing]: ./children.md#children-routing
 [started]: ./getting-started.md
 [spy]: https://github.com/cartant/rxjs-spy
