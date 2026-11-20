@@ -10,7 +10,7 @@ import type {
 } from '../../events.js'
 import type { Ring } from '../ring.js'
 import { WritableKeys } from '../meta-types.js'
-import type { BindObservable } from '../bind.js'
+import type { BindObservable } from '../../bind.js'
 
 /**
  * JSX Element type

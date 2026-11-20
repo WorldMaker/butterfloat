@@ -61,4 +61,4 @@ export {
   immediate,
   immediateFixed,
   defaultScheduled,
-} from './bind.js'
+} from '../bind.js'

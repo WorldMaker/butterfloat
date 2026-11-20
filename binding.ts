@@ -18,6 +18,7 @@ import type {
   ObservableComponent,
   WiringContext,
 } from './wiring-context.js'
+import { isImmediate } from './bind.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
@@ -190,7 +191,8 @@ function bindElementBinds(
 
   const binds = [
     ...Object.entries(description.bind).map(
-      ([key, observable]) => [key, observable, false] as const,
+      ([key, observable]) =>
+        [key, observable, isImmediate(observable)] as const,
     ),
     ...Object.entries(description.immediateBind).map(
       ([key, observable]) => [key, observable, true] as const,
@@ -291,9 +293,14 @@ function bindElementClasses(
   description: ElementDescription,
   { complete, error, subscription, suspense }: BindingContext,
 ) {
+  const immediateBinds: [string, Observable<boolean>][] = []
   if (Object.keys(description.classBind).length > 0) {
     const entries: Observable<Entry>[] = []
     for (const [key, observable] of Object.entries(description.classBind)) {
+      if (isImmediate(observable)) {
+        immediateBinds.push([key, observable])
+        continue
+      }
       entries.push(makeEntries(key, observable))
     }
     subscription.add(
@@ -308,9 +315,10 @@ function bindElementClasses(
     )
   }
 
-  for (const [key, observable] of Object.entries(
-    description.immediateClassBind,
-  )) {
+  for (const [key, observable] of [
+    ...immediateBinds,
+    ...Object.entries(description.immediateClassBind),
+  ]) {
     subscription.add(
       bindClassListKey(element, key, observable, error, complete),
     )
@@ -322,9 +330,14 @@ function bindElementStyles(
   description: ElementDescription,
   { complete, error, subscription, suspense }: BindingContext,
 ) {
+  const immediateBinds: [string, Observable<unknown>][] = []
   if (Object.keys(description.styleBind).length > 0) {
     const entries: Observable<Entry>[] = []
     for (const [key, observable] of Object.entries(description.styleBind)) {
+      if (isImmediate(observable)) {
+        immediateBinds.push([key, observable])
+        continue
+      }
       entries.push(makeEntries(key, observable))
     }
     subscription.add(
@@ -337,9 +350,10 @@ function bindElementStyles(
     )
   }
 
-  for (const [key, observable] of Object.entries(
-    description.immediateStyleBind,
-  )) {
+  for (const [key, observable] of [
+    ...immediateBinds,
+    ...Object.entries(description.immediateStyleBind),
+  ]) {
     subscription.add(
       bindObjectKey(element.style, key, observable, error, complete),
     )

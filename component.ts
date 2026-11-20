@@ -1,5 +1,6 @@
 import type { Observable } from 'rxjs'
 import type { ButterfloatEvents, DefaultEvents } from './events.js'
+import { BindObservable } from './bind.js'
 
 /**
  * Handles an effect
@@ -86,7 +87,7 @@ export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 /**
  * Default bind attribute accepted binds
  */
-export type DefaultBind = Record<string, Observable<unknown>>
+export type DefaultBind = Record<string, BindObservable<unknown>>
 
 /**
  * Support for delay binding special properties
@@ -106,12 +107,12 @@ export interface DelayBind {
 /**
  * Default styleBind attribute accepted binds
  */
-export type DefaultStyleBind = Record<string, Observable<unknown>>
+export type DefaultStyleBind = Record<string, BindObservable<unknown>>
 
 /**
  * Bind for classBind
  */
-export type ClassBind = Record<string, Observable<boolean>>
+export type ClassBind = Record<string, BindObservable<boolean>>
 
 /**
  * JSX attributes for "intrinics" (elements) supported by Butterfloat
@@ -129,6 +130,8 @@ export interface ButterfloatIntrinsicAttributes<
   bind?: Bind & DelayBind
   /**
    * Immediately bind an observable to a DOM property
+   * @deprecated Use `bind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
    */
   immediateBind?: Bind
   /**
@@ -141,6 +144,8 @@ export interface ButterfloatIntrinsicAttributes<
   styleBind?: Style
   /**
    * Immediately bind an observable to a style property.
+   * @deprecated Use `styleBind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
    */
   immediateStyleBind?: Style
   /**
@@ -149,6 +154,8 @@ export interface ButterfloatIntrinsicAttributes<
   classBind?: ClassBind
   /**
    * Immediately bind a boolean observable to the appearance of a class in classList.
+   * @deprecated Use `classBind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
    */
   immediateClassBind?: ClassBind
 }
@@ -183,11 +190,26 @@ export interface ElementDescription<Bind = DefaultBind>
   element: string
   attributes: Attributes
   bind: Bind
+  /**
+   * Immediately bind an observable to a DOM property.
+   * @deprecated Use `bind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
+   */
   immediateBind: Bind
   events: DefaultEvents
   styleBind: DefaultStyleBind
+  /**
+   * Immediately bind an observable to a style property.
+   * @deprecated Use `styleBind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
+   */
   immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
+  /**
+   * Immediately bind a boolean observable to the appearance of a class in classList.
+   * @deprecated Use `classBind` with the `immediate()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
+   */
   immediateClassBind: ClassBind
 }
 

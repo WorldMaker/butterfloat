@@ -3,7 +3,7 @@ import type { ButterfloatEvents, DefaultEvents } from '../events.js'
 import { Ring } from './ring.js'
 import { type jsx } from './mat.js'
 import { ChildRoutes } from './route.js'
-import { BindObservable } from './bind.js'
+import { BindObservable } from '../bind.js'
 
 /**
  * A Butterfloat Component provided properties and additional context-sensitive tools

@@ -24,7 +24,7 @@ import {
   toElement,
 } from '../ring.js'
 import { collectChildBinds } from './children.js'
-import { isFixed } from '../bind.js'
+import { isFixed } from '../../bind.js'
 import { mapErrorRoutes, mapRoutes, mapSuspendRoutes } from '../route.js'
 
 function hasAnyBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
