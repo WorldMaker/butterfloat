@@ -54,7 +54,11 @@ export { butterfly, type StateSetter } from '../butterfly.js'
 export { type ButterfloatEvents, type ObservableEvent } from '../events.js'
 export {
   type BindObservable,
-  type FixedObservable,
+  type MetaObservable as FixedObservable,
   isFixed,
   fixed,
-} from './fixed.js'
+  isImmediate,
+  immediate,
+  immediateFixed,
+  defaultScheduled,
+} from './bind.js'

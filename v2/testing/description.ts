@@ -55,10 +55,6 @@ export interface ElementDescription<Bind = DefaultBind>
    */
   bind: Bind
   /**
-   * Immediate bindings
-   */
-  immediateBind: Bind
-  /**
    * Events
    */
   events: DefaultEvents
@@ -67,17 +63,9 @@ export interface ElementDescription<Bind = DefaultBind>
    */
   styleBind: DefaultStyleBind
   /**
-   * Immediate style bindings
-   */
-  immediateStyleBind: DefaultStyleBind
-  /**
    * Class bindings
    */
   classBind: ClassBind
-  /**
-   * Immediate class bindings
-   */
-  immediateClassBind: ClassBind
 }
 
 /**

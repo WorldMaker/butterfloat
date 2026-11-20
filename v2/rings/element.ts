@@ -24,7 +24,7 @@ import {
   toElement,
 } from '../ring.js'
 import { collectChildBinds } from './children.js'
-import { isFixed } from '../fixed.js'
+import { isFixed } from '../bind.js'
 import { mapErrorRoutes, mapRoutes, mapSuspendRoutes } from '../route.js'
 
 function hasAnyBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
@@ -164,12 +164,9 @@ export function elementRunner(
 
     bindings[bindId] = {
       bind: attributes.bind ?? {},
-      immediateBind: attributes.immediateBind ?? {},
       events: attributes.events ?? {},
       styleBind: attributes.styleBind ?? {},
-      immediateStyleBind: attributes.immediateStyleBind ?? {},
       classBind: attributes.classBind ?? {},
-      immediateClassBind: attributes.immediateClassBind ?? {},
       onlyFixed: !hasAnyNonFixedBinds(attributes ?? {}),
       onError,
       onComplete,

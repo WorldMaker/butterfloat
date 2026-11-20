@@ -3,7 +3,7 @@ import type { ButterfloatEvents, DefaultEvents } from '../events.js'
 import { Ring } from './ring.js'
 import { type jsx } from './mat.js'
 import { ChildRoutes } from './route.js'
-import { BindObservable } from './fixed.js'
+import { BindObservable } from './bind.js'
 
 /**
  * A Butterfloat Component provided properties and additional context-sensitive tools
@@ -104,10 +104,6 @@ export interface ButterfloatIntrinsicAttributes<
    */
   bind?: Bind & DelayBind
   /**
-   * Immediately bind an observable to a DOM property
-   */
-  immediateBind?: Bind
-  /**
    * Bind an event observable to a DOM event.
    */
   events?: Events
@@ -116,15 +112,7 @@ export interface ButterfloatIntrinsicAttributes<
    */
   styleBind?: Style
   /**
-   * Immediately bind an observable to a style property.
-   */
-  immediateStyleBind?: Style
-  /**
    * Bind a boolean observable to the appearance of a class in classList.
    */
   classBind?: ClassBind
-  /**
-   * Immediately bind a boolean observable to the appearance of a class in classList.
-   */
-  immediateClassBind?: ClassBind
 }

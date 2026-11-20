@@ -22,12 +22,9 @@ export const canAttachChildren = Symbol('canAttachChildren')
 
 export interface ElementBindDescription<Bind = DefaultBind> {
   bind: Bind
-  immediateBind: Bind
   events: DefaultEvents
   styleBind: DefaultStyleBind
-  immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
-  immediateClassBind: ClassBind
   /**
    * Children bindings
    */
