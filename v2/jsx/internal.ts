@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import type { Observable } from 'rxjs'
 import type {
   ButterfloatIntrinsicAttributes,
   DefaultBind,
@@ -12,6 +10,7 @@ import type {
 } from '../../events.js'
 import type { Ring } from '../ring.js'
 import { WritableKeys } from '../meta-types.js'
+import type { BindObservable } from '../../bind.js'
 
 /**
  * JSX Element type
@@ -53,7 +52,7 @@ export type HtmlElementAttributesBind<T> = {
     | null
     | undefined
     ? Property
-    : never]?: Observable<T[Property]>
+    : never]?: BindObservable<T[Property]>
 }
 
 /**
@@ -80,7 +79,7 @@ export type ButterfloatElementEvents = HtmlEvents &
  * All bindable CSS styles of an HTML element
  */
 export type HtmlElementStyleBind = {
-  [Property in keyof CSSStyleDeclaration]?: Observable<
+  [Property in keyof CSSStyleDeclaration]?: BindObservable<
     CSSStyleDeclaration[Property]
   >
 }

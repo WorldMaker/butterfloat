@@ -14,18 +14,13 @@ and some of its advanced features, especially Suspense binding.
 ## Default Scheduling (Delayed Scheduling) versus Immediate Scheduling
 
 There are two common "flavors" of binds in Butterfloat: delayed (which is
-largely the default) and immediate. The primary places you see these
-flavors are in the JSX `bind` versus `immediateBind` attributes, `classBind`
-versus `immediateClassBind`, `styleBind` versus `immediateStyleBind`,
-and in the `ComponentContext` the differences between `bindEffect`
-and `bindImmediateEffect` helpers.
+largely the default) and immediate. This the differences between
+`bindEffect` and `bindImmediateEffect` helpers on the `jsx.Mat`.
 
-The immediate flavor gets the longer names because it shouldn't be
-the default. The delayed scheduling flavor tries to be smarter by
-default.
+To `bind` something immediately, use the `immediate(obs)` marker function.
 
 There's one obvious exception to note that fields named `value` are
-_always_ immediately bound even when in the `bind` default attribute.
+_by default_ immediately bound even when in the `bind`.
 This is because the way value fields usually imply a user input
 space where delays would be most noticeable to users and most
 detrimental to user interaction. (Though the advice here is that
@@ -35,7 +30,7 @@ If you do want to opt-in to a delay scheduled `value` field, such
 as for elements that use `value` outside of direct user interaction
 such as `<progress />` elements, or in cases where you have tested
 and are careful of the user interaction repercussions, you can use
-the `bfDelayValue` special key to the default `bind` attribute.
+the `delayed(obs)` marker function.
 
 Delayed scheduling exists to orchestrate bound changes to hopefully
 maximize responsiveness of the application. The general basics are
@@ -50,7 +45,7 @@ interaction responsiveness.
 It is suggested to start with delayed scheduling as your default and
 then as a developer where you learn that some updates provide a better
 user experience when immediately bound, you can move those bindings
-to the appropriate `immediateBind` or `bindImmediateEffect`.
+`bindImmediateEffect` or mark them `immediate()` in a bind attribute.
 
 (One such case for `bindImmediateEffect` over `bindEffect` is for
 events where you need to prevent the default action, such as binding
@@ -269,6 +264,10 @@ By default "booking" Stamps will try to run only fixed bindings and try
 to wait for them all to complete. When running from such a stamp, the
 runtime will not run fixed bindings on "booked" Stamps, just the rest of
 the component's bindings.
+
+Similar to immediate binding, use the `fixed(obs)` marker function to
+mark a binding as fixed. (There is also `immediateFixed(obs)` for the
+rare cases when you need both markers.)
 
 > [!NOTE]
 > "Fixed" comes from the boxing analogy that "the fix was in" and the

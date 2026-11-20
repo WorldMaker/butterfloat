@@ -3,6 +3,7 @@ import type { ButterfloatEvents, DefaultEvents } from '../events.js'
 import { Ring } from './ring.js'
 import { type jsx } from './mat.js'
 import { ChildRoutes } from './route.js'
+import { BindObservable } from '../bind.js'
 
 /**
  * A Butterfloat Component provided properties and additional context-sensitive tools
@@ -61,22 +62,7 @@ export type ButterfloatAttributes = HtmlAttributes & ChildrenBindable
 /**
  * Default bind attribute accepted binds
  */
-export type DefaultBind = Record<string, Observable<unknown>>
-
-/**
- * Support for delay binding special properties
- */
-export interface DelayBind {
-  /**
-   * Delay scheduled binding for the "value" property.
-   *
-   * Value is bound immediately by default to avoid user interaction
-   * problems. This provides an opt-in for tested interaction patterns
-   * and rare elements that use "value" for things aren't user
-   * interaction such as <progress />.
-   */
-  bfDelayValue?: Observable<unknown>
-}
+export type DefaultBind = Record<string, BindObservable<unknown>>
 
 /**
  * Default styleBind attribute accepted binds
@@ -101,11 +87,7 @@ export interface ButterfloatIntrinsicAttributes<
    *
    * May use an non-immediate scheduler. Obvious exception: all "value" bindings are immediate, given their role in user inputs.
    */
-  bind?: Bind & DelayBind
-  /**
-   * Immediately bind an observable to a DOM property
-   */
-  immediateBind?: Bind
+  bind?: Bind
   /**
    * Bind an event observable to a DOM event.
    */
@@ -115,23 +97,7 @@ export interface ButterfloatIntrinsicAttributes<
    */
   styleBind?: Style
   /**
-   * Immediately bind an observable to a style property.
-   */
-  immediateStyleBind?: Style
-  /**
    * Bind a boolean observable to the appearance of a class in classList.
    */
   classBind?: ClassBind
-  /**
-   * Immediately bind a boolean observable to the appearance of a class in classList.
-   */
-  immediateClassBind?: ClassBind
-  /**
-   * Bind a completeable observable to a DOM property.
-   */
-  fixedBind?: Bind & DelayBind
-  /**
-   * Immediately bind a completeable observable to a DOM property.
-   */
-  immediateFixedBind?: Bind
 }

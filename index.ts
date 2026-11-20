@@ -7,6 +7,14 @@ export {
 } from './events.js'
 
 // Export the full component Model of types and all JSX tooling and utilities like butterfly/meta-components
+export {
+  type BindObservable,
+  type MetaObservable,
+  delayed,
+  isDelayed,
+  immediate,
+  isImmediate,
+} from './bind.js'
 export * from './component.js'
 export * from './butterfly.js'
 export * from './jsx.js'

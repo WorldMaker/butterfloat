@@ -22,14 +22,9 @@ export const canAttachChildren = Symbol('canAttachChildren')
 
 export interface ElementBindDescription<Bind = DefaultBind> {
   bind: Bind
-  immediateBind: Bind
   events: DefaultEvents
   styleBind: DefaultStyleBind
-  immediateStyleBind: DefaultStyleBind
   classBind: ClassBind
-  immediateClassBind: ClassBind
-  fixedBind: Bind
-  immediateFixedBind: Bind
   /**
    * Children bindings
    */
@@ -44,6 +39,8 @@ export interface ElementBindDescription<Bind = DefaultBind> {
   errorBindMode?: ChildrenBindMode
   completeBind?: Observable<Component>
   completeBindMode?: ChildrenBindMode
+
+  onlyFixed?: boolean
 
   onError?: (error: unknown) => void
   onComplete?: () => void

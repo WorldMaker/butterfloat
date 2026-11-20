@@ -10,6 +10,7 @@ import { Static } from '../rings/static.js'
 import { Empty } from '../rings/empty.js'
 import { Comment } from '../rings/comment.js'
 import { describeRing } from './mat.js'
+import { fixed, immediate } from '../index.js'
 
 describe('description', () => {
   it('describes a simple static element', () => {
@@ -19,15 +20,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -41,15 +39,12 @@ describe('description', () => {
       element: 'h1',
       attributes: { className: 'header' },
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -64,15 +59,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: { className },
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -87,15 +79,12 @@ describe('description', () => {
       element: 'progress',
       attributes: {},
       bind: { bfDelayValue: percent },
-      immediateBind: {},
       children: [],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -110,15 +99,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: { header },
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -133,15 +119,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: { backgroundColor: red },
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -159,15 +142,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind,
       childrenBindMode: 'replace',
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -182,15 +162,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: { click },
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -259,15 +236,12 @@ describe('description', () => {
           element: 'h1',
           attributes: {},
           bind: {},
-          immediateBind: {},
           children: ['Hello'],
           childrenBind: undefined,
           childrenBindMode: undefined,
           events: {},
           styleBind: {},
-          immediateStyleBind: {},
           classBind: {},
-          immediateClassBind: {},
         },
       ],
     }
@@ -314,15 +288,12 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['42'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
     }
     deepEqual(test, expected)
   })
@@ -339,15 +310,132 @@ describe('description', () => {
       element: 'h1',
       attributes: {},
       bind: {},
-      immediateBind: {},
       children: ['Hello', ' ', 'world', '!'],
       childrenBind: undefined,
       childrenBindMode: undefined,
       events: {},
       styleBind: {},
-      immediateStyleBind: {},
       classBind: {},
-      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed binding', () => {
+    const fixedValue = fixed(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 bind={{ textContent: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: { textContent: fixedValue },
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      classBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed style binding', () => {
+    const fixedValue = fixed(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 styleBind={{ color: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: { color: fixedValue },
+      classBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed class binding', () => {
+    const fixedValue = fixed(of(true))
+    const { description: test } = describeRing((jsx) => (
+      <h1 classBind={{ myClass: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      classBind: { myClass: fixedValue },
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes an immediate binding', () => {
+    const immediateValue = immediate(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 bind={{ textContent: immediateValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: { textContent: immediateValue },
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      classBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes an immediate style binding', () => {
+    const immediateValue = immediate(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 styleBind={{ color: immediateValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: { color: immediateValue },
+      classBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes an immediate class binding', () => {
+    const immediateValue = immediate(of(true))
+    const { description: test } = describeRing((jsx) => (
+      <h1 classBind={{ myClass: immediateValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      classBind: { myClass: immediateValue },
     }
     deepEqual(test, expected)
   })

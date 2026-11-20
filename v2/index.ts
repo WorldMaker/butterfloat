@@ -4,7 +4,6 @@ export {
   type ButterfloatAttributes,
   type ButterfloatIntrinsicAttributes,
   type ChildrenBindable,
-  type DelayBind,
   type ChildrenBind,
   type ChildrenBindMode,
   type ClassBind,
@@ -52,3 +51,14 @@ export {
 export { stamp, stampWhen, type StampWhenComponent } from './stamp.js'
 export { butterfly, type StateSetter } from '../butterfly.js'
 export { type ButterfloatEvents, type ObservableEvent } from '../events.js'
+export {
+  type BindObservable,
+  type MetaObservable as FixedObservable,
+  isFixed,
+  fixed,
+  isImmediate,
+  immediate,
+  immediateFixed,
+  isDelayed,
+  delayed,
+} from '../bind.js'
