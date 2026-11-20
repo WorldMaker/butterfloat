@@ -28,6 +28,7 @@ downstream compatibility breaks:
 - The top-level `jsx` import is now _type only_
 - The runtime `jsx` function may be destructured from `jsx.Mat`
 - The return type of `jsx` is no longer `NodeDescription`
+- `immediateBind` attributes were removed for the `immediate()` marker
 - Fragments and Components no longer support `childrenBind`
 - Boundary components (`ErrorBoundary` and `Suspense`) have become
   [Children Routing](#upgrade-to-children-routing)
@@ -40,6 +41,31 @@ is provided by the new `jsx.Mat` component context parameter.
 The context-sensitive output of `jsx` is called `Ring` and
 `NodeDescription` is no longer an "intermediate tree", and instead a
 testing-only output of specific testing `Ring`s.
+
+## Use Deprecation Warnings to Upgrade Immediate Bindings
+
+The v2 style of immediate binding was back-ported to v1.7. The new
+approach uses a "marker" function instead of the previous explosion of
+JSX attributes.
+
+While the components are still v1.7 use the provided deprecation
+warnings to switch to the new style of immediate binds.
+
+```diff
++ import { delayed, immediate } from 'butterfloat'
+…
+- <div immediateBind={{ textContent }} />
++ <div bind={{ textContent: immediate(textContent) }} />
+…
+- <div immediateStyleBind={{ color }} />
++ <div styleBind={{ color: immediate(color) }} />
+…
+- <div immediateClassBind={{ myClass }} />
++ <div classBind={{ myClass: immmediate(myClass) }} />
+…
+- <progress bind={{ bfDelayValue: myValue }} />
++ <progress bind={{ value: delayed(myValue) }} />
+```
 
 ## Update Imports
 
