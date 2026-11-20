@@ -1,7 +1,13 @@
 import { filter, map, Observable } from 'rxjs'
 import { Component } from './component'
 
+/**
+ * Options for configuring a route.
+ */
 export interface RouteOptions {
+  /**
+   * Whether the route is fixed (may complete).
+   */
   fixed?: boolean
 }
 
@@ -154,6 +160,10 @@ export interface ChildRoutes {
    * Routes for a completion boundary
    */
   complete?: CompleteRoutes
+  /**
+   * Whether only a fixed (may complete) route is present
+   */
+  onlyFixed?: boolean
 }
 
 /**
@@ -240,6 +250,7 @@ export class BoundaryRouteBuilder {
             component: this.#completeComponent,
           }
         : undefined,
+      onlyFixed: this.#errorRoutes.length === 0 && !this.#completeComponent,
     }
   }
 }
@@ -306,8 +317,9 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
    * @returns Child routes for childrenBind
    */
   build(): ChildRoutes {
+    const boundaryRoutes = super.build()
     return {
-      ...super.build(),
+      ...boundaryRoutes,
       suspend:
         this.#suspendRoutes.length > 0 && this.#suspend
           ? {
@@ -316,6 +328,10 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
               routes: this.#suspendRoutes,
             }
           : undefined,
+      onlyFixed:
+        boundaryRoutes.onlyFixed &&
+        this.#suspendRoutes.length === 0 &&
+        !this.#suspend,
     }
   }
 }
@@ -403,8 +419,9 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
    * @returns Child routes for childrenBind
    */
   build(): ChildRoutes {
+    const suspendRoutes = super.build()
     return {
-      ...super.build(),
+      ...suspendRoutes,
       routes:
         this.#routes.length > 0 && this.#input
           ? {
@@ -414,6 +431,11 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
               routes: this.#routes,
             }
           : undefined,
+      onlyFixed:
+        suspendRoutes.onlyFixed &&
+        this.#fixed &&
+        this.#routes.length === 0 &&
+        !this.#input,
     }
   }
 }

@@ -10,6 +10,7 @@ import { Static } from '../rings/static.js'
 import { Empty } from '../rings/empty.js'
 import { Comment } from '../rings/comment.js'
 import { describeRing } from './mat.js'
+import { fixed } from '../index.js'
 
 describe('description', () => {
   it('describes a simple static element', () => {
@@ -347,6 +348,75 @@ describe('description', () => {
       styleBind: {},
       immediateStyleBind: {},
       classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed binding', () => {
+    const fixedValue = fixed(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 bind={{ textContent: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: { textContent: fixedValue },
+      immediateBind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed style binding', () => {
+    const fixedValue = fixed(of('test'))
+    const { description: test } = describeRing((jsx) => (
+      <h1 styleBind={{ color: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: { color: fixedValue },
+      immediateStyleBind: {},
+      classBind: {},
+      immediateClassBind: {},
+    }
+    deepEqual(test, expected)
+  })
+
+  it('describes a fixed class binding', () => {
+    const fixedValue = fixed(of(true))
+    const { description: test } = describeRing((jsx) => (
+      <h1 classBind={{ myClass: fixedValue }} />
+    ))
+    const expected: NodeDescription = {
+      type: 'element',
+      element: 'h1',
+      attributes: {},
+      bind: {},
+      immediateBind: {},
+      children: [],
+      childrenBind: undefined,
+      childrenBindMode: undefined,
+      events: {},
+      styleBind: {},
+      immediateStyleBind: {},
+      classBind: { myClass: fixedValue },
       immediateClassBind: {},
     }
     deepEqual(test, expected)

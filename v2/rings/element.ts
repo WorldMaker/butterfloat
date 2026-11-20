@@ -24,9 +24,10 @@ import {
   toElement,
 } from '../ring.js'
 import { collectChildBinds } from './children.js'
+import { isFixed } from '../fixed.js'
 import { mapErrorRoutes, mapRoutes, mapSuspendRoutes } from '../route.js'
 
-function hasNonfixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
+function hasAnyBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
   return (
     Boolean(attributes.childrenBind) ||
     Object.keys(attributes.bind ?? {}).length > 0 ||
@@ -39,10 +40,26 @@ function hasNonfixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
   )
 }
 
-function hasFixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
+function hasAnyNonFixedBinds(
+  attributes: ButterfloatIntrinsicAttributes,
+): boolean {
   return (
-    Object.keys(attributes.fixedBind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateFixedBind ?? {}).length > 0
+    (Boolean(attributes.childrenBind) &&
+      !isObservable(attributes.childrenBind) &&
+      !attributes.childrenBind?.onlyFixed) ||
+    Object.values(attributes.bind ?? {}).some((bind) => !isFixed(bind)) ||
+    Object.values(attributes.immediateBind ?? {}).some(
+      (bind) => !isFixed(bind),
+    ) ||
+    Object.values(attributes.events ?? {}).some((event) => !isFixed(event)) ||
+    Object.values(attributes.styleBind ?? {}).some((bind) => !isFixed(bind)) ||
+    Object.values(attributes.immediateStyleBind ?? {}).some(
+      (bind) => !isFixed(bind),
+    ) ||
+    Object.values(attributes.classBind ?? {}).some((bind) => !isFixed(bind)) ||
+    Object.values(attributes.immediateClassBind ?? {}).some(
+      (bind) => !isFixed(bind),
+    )
   )
 }
 
@@ -55,10 +72,7 @@ export function elementRunner(
   const bindings = collectChildBinds(children)
   let bindId: string | undefined = undefined
 
-  const hasNonfixed = hasNonfixedBinds(attributes ?? {})
-  const hasFixed = hasFixedBinds(attributes ?? {})
-
-  if (attributes && (hasNonfixed || hasFixed)) {
+  if (attributes && hasAnyBinds(attributes ?? {})) {
     bindId = `${element}[data-bf-bind=${mat[getNextElementBindId]()}]`
 
     let childrenBind: Observable<Component> | undefined = undefined
@@ -156,9 +170,7 @@ export function elementRunner(
       immediateStyleBind: attributes.immediateStyleBind ?? {},
       classBind: attributes.classBind ?? {},
       immediateClassBind: attributes.immediateClassBind ?? {},
-      fixedBind: attributes.fixedBind ?? {},
-      immediateFixedBind: attributes.immediateFixedBind ?? {},
-      onlyFixed: !hasNonfixed,
+      onlyFixed: !hasAnyNonFixedBinds(attributes ?? {}),
       onError,
       onComplete,
       suspend,

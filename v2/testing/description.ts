@@ -78,14 +78,6 @@ export interface ElementDescription<Bind = DefaultBind>
    * Immediate class bindings
    */
   immediateClassBind: ClassBind
-  /**
-   * Fixed bindings
-   */
-  fixedBind: Bind
-  /**
-   * Immediate fixed bindings
-   */
-  immediateFixedBind: Bind
 }
 
 /**

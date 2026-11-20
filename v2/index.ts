@@ -52,3 +52,9 @@ export {
 export { stamp, stampWhen, type StampWhenComponent } from './stamp.js'
 export { butterfly, type StateSetter } from '../butterfly.js'
 export { type ButterfloatEvents, type ObservableEvent } from '../events.js'
+export {
+  type BindObservable,
+  type FixedObservable,
+  isFixed,
+  fixed,
+} from './fixed.js'

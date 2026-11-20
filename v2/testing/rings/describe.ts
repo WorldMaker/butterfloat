@@ -45,8 +45,6 @@ export function ringDescriber<Events, Props>(
       immediateStyleBind,
       classBind,
       immediateClassBind,
-      fixedBind,
-      immediateFixedBind,
       ...otherAttributes
     } = (attributes as ButterfloatIntrinsicAttributes) ?? {}
     const elementDescription: ElementDescription = {
@@ -63,8 +61,6 @@ export function ringDescriber<Events, Props>(
       immediateStyleBind: immediateStyleBind ?? {},
       classBind: classBind ?? {},
       immediateClassBind: immediateClassBind ?? {},
-      fixedBind: fixedBind ?? {},
-      immediateFixedBind: immediateFixedBind ?? {},
     }
     return {
       [ringType]: 'describable',
