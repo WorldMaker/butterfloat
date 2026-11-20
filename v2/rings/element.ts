@@ -46,18 +46,6 @@ function hasFixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
   )
 }
 
-/**
- * Does an element description have any binds?
- *
- * @param description Element description
- * @returns True if any dynamic binds
- */
-export function hasAnyBinds(
-  attributes: ButterfloatIntrinsicAttributes,
-): boolean {
-  return hasNonfixedBinds(attributes) || hasFixedBinds(attributes)
-}
-
 export function elementRunner(
   mat: Mat,
   element: string,
@@ -67,7 +55,10 @@ export function elementRunner(
   const bindings = collectChildBinds(children)
   let bindId: string | undefined = undefined
 
-  if (attributes && hasAnyBinds(attributes)) {
+  const hasNonfixed = hasNonfixedBinds(attributes ?? {})
+  const hasFixed = hasFixedBinds(attributes ?? {})
+
+  if (attributes && (hasNonfixed || hasFixed)) {
     bindId = `${element}[data-bf-bind=${mat[getNextElementBindId]()}]`
 
     let childrenBind: Observable<Component> | undefined = undefined
@@ -167,7 +158,7 @@ export function elementRunner(
       immediateClassBind: attributes.immediateClassBind ?? {},
       fixedBind: attributes.fixedBind ?? {},
       immediateFixedBind: attributes.immediateFixedBind ?? {},
-      onlyFixed: !hasNonfixedBinds(attributes),
+      onlyFixed: !hasNonfixed,
       onError,
       onComplete,
       suspend,
