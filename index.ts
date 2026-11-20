@@ -10,7 +10,8 @@ export {
 export {
   type BindObservable,
   type MetaObservable,
-  defaultScheduled,
+  delayed,
+  isDelayed,
   immediate,
   isImmediate,
 } from './bind.js'

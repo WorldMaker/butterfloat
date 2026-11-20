@@ -18,7 +18,7 @@ import type {
   ObservableComponent,
   WiringContext,
 } from './wiring-context.js'
-import { isImmediate } from './bind.js'
+import { isDelayed, isImmediate } from './bind.js'
 
 type ObservableEntry = [string | number | symbol, Observable<unknown>]
 type Entry = [string | number | symbol, unknown]
@@ -200,7 +200,7 @@ function bindElementBinds(
   ]
 
   for (const [key, observable, immediate] of binds) {
-    if (schedulable(key, immediate)) {
+    if (schedulable(key, immediate) || isDelayed(observable)) {
       schedulables.push([scheduledKey(key), observable] as ObservableEntry)
     } else {
       subscription.add(bindObjectKey(element, key, observable, error, complete))

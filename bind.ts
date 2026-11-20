@@ -81,13 +81,26 @@ export function immediateFixed<T>(
 }
 
 /**
- * Mark an observable as default scheduled
+ * Is the observable delayed scheduled (default)?
+ * @param observable Binding observable
+ * @returns Observable is delayed
+ */
+export function isDelayed<T>(
+  observable: BindObservable<T>,
+): observable is MetaObservable<T> {
+  return (
+    bfMeta in observable &&
+    (observable as MetaObservable<T>)[bfMeta].fixed === false &&
+    (observable as MetaObservable<T>)[bfMeta].immediate === false
+  )
+}
+
+/**
+ * Mark an observable as delayed scheduled (default)
  * @param observable Binding observable
  * @returns Default scheduled observable
  */
-export function defaultScheduled<T>(
-  observable: Observable<T>,
-): MetaObservable<T> {
+export function delayed<T>(observable: Observable<T>): MetaObservable<T> {
   const defobs = observable as MetaObservable<T>
   defobs[bfMeta] = { fixed: false, immediate: false }
   return defobs

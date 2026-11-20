@@ -91,6 +91,9 @@ export type DefaultBind = Record<string, BindObservable<unknown>>
 
 /**
  * Support for delay binding special properties
+ *
+ * @deprecated Use `bind` with the `delayed()` helper instead
+ * https://worldmaker.net/butterfloat/guides/migration-2/
  */
 export interface DelayBind {
   /**
@@ -100,6 +103,9 @@ export interface DelayBind {
    * problems. This provides an opt-in for tested interaction patterns
    * and rare elements that use "value" for things aren't user
    * interaction such as <progress />.
+   *
+   * @deprecated Use `bind` with the `delayed()` helper instead
+   * https://worldmaker.net/butterfloat/guides/migration-2/
    */
   bfDelayValue?: Observable<unknown>
 }

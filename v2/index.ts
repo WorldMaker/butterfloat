@@ -4,7 +4,6 @@ export {
   type ButterfloatAttributes,
   type ButterfloatIntrinsicAttributes,
   type ChildrenBindable,
-  type DelayBind,
   type ChildrenBind,
   type ChildrenBindMode,
   type ClassBind,
@@ -60,5 +59,6 @@ export {
   isImmediate,
   immediate,
   immediateFixed,
-  defaultScheduled,
+  isDelayed,
+  delayed,
 } from '../bind.js'
