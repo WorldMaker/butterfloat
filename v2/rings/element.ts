@@ -26,6 +26,26 @@ import {
 import { collectChildBinds } from './children.js'
 import { mapErrorRoutes, mapRoutes, mapSuspendRoutes } from '../route.js'
 
+function hasNonfixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
+  return (
+    Boolean(attributes.childrenBind) ||
+    Object.keys(attributes.bind ?? {}).length > 0 ||
+    Object.keys(attributes.immediateBind ?? {}).length > 0 ||
+    Object.keys(attributes.events ?? {}).length > 0 ||
+    Object.keys(attributes.styleBind ?? {}).length > 0 ||
+    Object.keys(attributes.immediateStyleBind ?? {}).length > 0 ||
+    Object.keys(attributes.classBind ?? {}).length > 0 ||
+    Object.keys(attributes.immediateClassBind ?? {}).length > 0
+  )
+}
+
+function hasFixedBinds(attributes: ButterfloatIntrinsicAttributes): boolean {
+  return (
+    Object.keys(attributes.fixedBind ?? {}).length > 0 ||
+    Object.keys(attributes.immediateFixedBind ?? {}).length > 0
+  )
+}
+
 /**
  * Does an element description have any binds?
  *
@@ -35,18 +55,7 @@ import { mapErrorRoutes, mapRoutes, mapSuspendRoutes } from '../route.js'
 export function hasAnyBinds(
   attributes: ButterfloatIntrinsicAttributes,
 ): boolean {
-  return (
-    Boolean(attributes.childrenBind) ||
-    Object.keys(attributes.bind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateBind ?? {}).length > 0 ||
-    Object.keys(attributes.events ?? {}).length > 0 ||
-    Object.keys(attributes.styleBind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateStyleBind ?? {}).length > 0 ||
-    Object.keys(attributes.classBind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateClassBind ?? {}).length > 0 ||
-    Object.keys(attributes.fixedBind ?? {}).length > 0 ||
-    Object.keys(attributes.immediateFixedBind ?? {}).length > 0
-  )
+  return hasNonfixedBinds(attributes) || hasFixedBinds(attributes)
 }
 
 export function elementRunner(
@@ -158,6 +167,7 @@ export function elementRunner(
       immediateClassBind: attributes.immediateClassBind ?? {},
       fixedBind: attributes.fixedBind ?? {},
       immediateFixedBind: attributes.immediateFixedBind ?? {},
+      onlyFixed: !hasNonfixedBinds(attributes),
       onError,
       onComplete,
       suspend,

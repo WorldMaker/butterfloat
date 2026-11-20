@@ -45,6 +45,8 @@ export interface ElementBindDescription<Bind = DefaultBind> {
   completeBind?: Observable<Component>
   completeBindMode?: ChildrenBindMode
 
+  onlyFixed?: boolean
+
   onError?: (error: unknown) => void
   onComplete?: () => void
   suspend?: Observable<boolean>
