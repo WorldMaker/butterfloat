@@ -14,9 +14,9 @@ tags:
 
 # Type Alias: Route\<Inputs, Props\>
 
-> **Route**\<`Inputs`, `Props`\> = \[`when`: (`inputs`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props` \| `Props`[]\]
+> **Route**\<`Inputs`, `Props`\> = \[`when`: (`inputs`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `bookProps?`: `Props` \| `Props`[], `options?`: `RouteOptions`\]
 
-Defined in: [v2/route.ts:13](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L13)
+Defined in: [v2/route.ts:23](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L23)
 
 A route that can be used to bind a component's children to an observable input.
 If the when function returns false, the next route will be tried.
@@ -45,6 +45,6 @@ Component to render when the route is matched
 
 ## Param
 
-**jsonProps**
+**bookProps**
 
 Optional JSON serializable "canonical" props for the component stamp variant

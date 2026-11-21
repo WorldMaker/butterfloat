@@ -208,7 +208,7 @@ export const RollResult = stampWhen(
         }}
       ></span>
     ),
-    jsonProps: { faces, roll: NEVER },
+    bookProps: { faces, roll: NEVER },
   }),
 )
 ```

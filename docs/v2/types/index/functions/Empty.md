@@ -16,7 +16,7 @@ tags:
 
 > **Empty**(`_`, `mat`): [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/rings/empty.ts:19](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/empty.ts#L19)
+Defined in: [v2/rings/empty.ts:19](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/rings/empty.ts#L19)
 
 Empty node
 

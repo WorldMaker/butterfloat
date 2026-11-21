@@ -14,9 +14,9 @@ tags:
 
 # Type Alias: SuspendRoute\<Props\>
 
-> **SuspendRoute**\<`Props`\> = \[`map`: (`suspended`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props` \| `Props`[]\]
+> **SuspendRoute**\<`Props`\> = \[`map`: (`suspended`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `bookProps?`: `Props` \| `Props`[]\]
 
-Defined in: [v2/route.ts:51](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L51)
+Defined in: [v2/route.ts:66](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L66)
 
 Suspend Route
 
@@ -43,6 +43,6 @@ Component to render when a suspension state occurs
 
 ## Param
 
-**jsonProps**
+**bookProps**
 
 Optional JSON serializable "canonical" props for the component stamp variant

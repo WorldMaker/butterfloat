@@ -14,7 +14,7 @@ tags:
 
 # Class: SuspendRouteBuilder
 
-Defined in: [v2/route.ts:250](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L250)
+Defined in: [v2/route.ts:270](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L270)
 
 Fluent, mutable builder for suspension boundaries
 
@@ -24,7 +24,7 @@ Example usage:
 
 ```ts
 const builder = suspend(whenObservable, 'append')
-  .whenSuspended(map, component, jsonProps)
+  .whenSuspended(map, component, bookProps)
   .build()
 ```
 
@@ -42,7 +42,7 @@ const builder = suspend(whenObservable, 'append')
 
 > **new SuspendRouteBuilder**(`suspend?`, `mode?`): `SuspendRouteBuilder`
 
-Defined in: [v2/route.ts:255](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L255)
+Defined in: [v2/route.ts:275](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L275)
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Defined in: [v2/route.ts:255](https://github.com/WorldMaker/butterfloat/blob/fd1
 
 ##### mode?
 
-`"replace"` \| `"append"` \| `"prepend"`
+`"replace"` \| `"swap"` \| `"append"` \| `"prepend"`
 
 #### Returns
 
@@ -68,7 +68,7 @@ Defined in: [v2/route.ts:255](https://github.com/WorldMaker/butterfloat/blob/fd1
 
 > **build**(): [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/route.ts:299](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L299)
+Defined in: [v2/route.ts:319](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L319)
 
 Build the child routes
 
@@ -88,7 +88,7 @@ Child routes for childrenBind
 
 > **onComplete**(`component`, `mode?`): `this`
 
-Defined in: [v2/route.ts:206](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L206)
+Defined in: [v2/route.ts:225](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L225)
 
 Add a completion boundary component
 
@@ -122,9 +122,9 @@ this
 
 ### onError()
 
-> **onError**\<`Props`\>(`map`, `component`, `jsonProps?`): `this`
+> **onError**\<`Props`\>(`map`, `component`, `bookProps?`): `this`
 
-Defined in: [v2/route.ts:189](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L189)
+Defined in: [v2/route.ts:208](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L208)
 
 Add an error boundary route
 
@@ -148,7 +148,7 @@ Map an error to a set of props for an error component
 
 Component to render when an error occurs
 
-##### jsonProps?
+##### bookProps?
 
 `Props` \| `Props`[]
 
@@ -170,7 +170,7 @@ this
 
 > **suspend**(`suspend`, `mode?`): `this`
 
-Defined in: [v2/route.ts:270](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L270)
+Defined in: [v2/route.ts:290](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L290)
 
 Create a suspension boundary
 
@@ -184,7 +184,7 @@ Observable that determines if the suspension boundary is active
 
 ##### mode?
 
-`"replace"` \| `"append"` \| `"prepend"` = `'append'`
+`"replace"` \| `"swap"` \| `"append"` \| `"prepend"` = `'append'`
 
 Child binding mode for the suspension boundary
 
@@ -198,9 +198,9 @@ this
 
 ### whenSuspended()
 
-> **whenSuspended**\<`Props`\>(`map`, `component`, `jsonProps?`): `this`
+> **whenSuspended**\<`Props`\>(`map`, `component`, `bookProps?`): `this`
 
-Defined in: [v2/route.ts:286](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L286)
+Defined in: [v2/route.ts:306](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L306)
 
 Add a suspension boundary route
 
@@ -224,7 +224,7 @@ Map a suspension state to a set of props for a suspension component
 
 Component to render when suspended
 
-##### jsonProps?
+##### bookProps?
 
 `Props` \| `Props`[]
 
@@ -242,7 +242,7 @@ this
 
 > **withErrorMode**(`mode`): `this`
 
-Defined in: [v2/route.ts:177](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L177)
+Defined in: [v2/route.ts:196](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L196)
 
 Set the child binding mode for the error boundary
 

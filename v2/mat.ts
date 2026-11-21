@@ -64,10 +64,10 @@ export interface Mat<Events = unknown> {
    * @internal
    * Register a possible stamp for a child component.
    * @param component Component to register
-   * @param jsonProps Optional JSON serializable "canonical" representation of relevant props to this stamp.
+   * @param bookProps Optional JSON serializable "canonical" representations of this stamp when booked.
    * @returns nothing
    */
-  [registerPossibleStamp]: (component: Component, jsonProps?: unknown) => void
+  [registerPossibleStamp]: (component: Component, bookProps?: unknown[]) => void
   /**
    * Events that the component expects to bind.
    */
@@ -113,12 +113,12 @@ export interface Mat<Events = unknown> {
   /**
    * Mark the component as stable output when a condition is met.
    * @param condition A function that receives the component props and returns whether the stamp matches.
-   * @param jsonProps Optional JSON serializable "canonical" representation of relevant props to this stamp.
+   * @param bookProps Optional JSON serializable "canonical" representation of this stamp when booked.
    * @returns nothing
    */
   stampWhen: <Props = unknown>(
     condition: (props: Props) => boolean,
-    jsonProps?: Props,
+    bookProps?: Props,
     options?: StampOptions,
   ) => void
 }

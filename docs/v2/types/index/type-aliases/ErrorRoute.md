@@ -14,9 +14,9 @@ tags:
 
 # Type Alias: ErrorRoute\<Props\>
 
-> **ErrorRoute**\<`Props`\> = \[`map`: (`error`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `jsonProps?`: `Props` \| `Props`[]\]
+> **ErrorRoute**\<`Props`\> = \[`map`: (`error`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `bookProps?`: `Props` \| `Props`[]\]
 
-Defined in: [v2/route.ts:88](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L88)
+Defined in: [v2/route.ts:103](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L103)
 
 Error Route
 
@@ -43,6 +43,6 @@ Component to render when an error occurs
 
 ## Param
 
-**jsonProps**
+**bookProps**
 
 Optional JSON serializable "canonical" props for the component stamp variant

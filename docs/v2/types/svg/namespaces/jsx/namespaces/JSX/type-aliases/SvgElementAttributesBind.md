@@ -16,7 +16,7 @@ tags:
 
 > **SvgElementAttributesBind**\<`T`\> = \{ \[Property in WritableKeys\<T\> as T\[Property\] extends string \| number \| null \| undefined ? Property : never\]?: Observable\<T\[Property\]\> \}
 
-Defined in: [v2/jsx/svg.ts:50](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/jsx/svg.ts#L50)
+Defined in: [v2/jsx/svg.ts:50](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/svg.ts#L50)
 
 Observable bindable attributes of an SVG Element
 

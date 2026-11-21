@@ -17,13 +17,13 @@ export interface RouteOptions {
  *
  * @param when Function to determine if the route should be used based on the input
  * @param component Component to render when the route is matched
- * @param jsonProps Optional JSON serializable "canonical" props for the component stamp variant
+ * @param bookProps Optional JSON serializable "canonical" props for the component stamp variant
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Route<Inputs = any, Props = any> = [
   when: (inputs: Inputs) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props | Props[],
+  bookProps?: Props | Props[],
   options?: RouteOptions,
 ]
 
@@ -60,13 +60,13 @@ export interface Routes<Inputs = any> {
  *
  * @param map Function to map a suspension state to a component's props
  * @param component Component to render when a suspension state occurs
- * @param jsonProps Optional JSON serializable "canonical" props for the component stamp variant
+ * @param bookProps Optional JSON serializable "canonical" props for the component stamp variant
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SuspendRoute<Props = any> = [
   map: (suspended: boolean) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props | Props[],
+  bookProps?: Props | Props[],
 ]
 
 /**
@@ -97,13 +97,13 @@ export interface SuspendRoutes {
  *
  * @param map Function to map an error to a component's props
  * @param component Component to render when an error occurs
- * @param jsonProps Optional JSON serializable "canonical" props for the component stamp variant
+ * @param bookProps Optional JSON serializable "canonical" props for the component stamp variant
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ErrorRoute<Props = any> = [
   map: (error: unknown) => Props | false,
   component: Component<Props>,
-  jsonProps?: Props | Props[],
+  bookProps?: Props | Props[],
 ]
 
 /**
@@ -202,15 +202,15 @@ export class BoundaryRouteBuilder {
    * Add an error boundary route
    * @param map Map an error to a set of props for an error component
    * @param component Component to render when an error occurs
-   * @param jsonProps Optional JSON serializable props for the error component's stamp variant
+   * @param bookProps Optional JSON serializable props for the error component's stamp variant
    * @returns this
    */
   onError<Props>(
     map: (error: unknown) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props | Props[],
+    bookProps?: Props | Props[],
   ): this {
-    this.#errorRoutes.push([map, component, jsonProps])
+    this.#errorRoutes.push([map, component, bookProps])
     return this
   }
 
@@ -263,7 +263,7 @@ export class BoundaryRouteBuilder {
  * Example usage:
  * ```ts
  * const builder = suspend(whenObservable, 'append')
- *   .whenSuspended(map, component, jsonProps)
+ *   .whenSuspended(map, component, bookProps)
  *   .build()
  * ```
  */
@@ -300,15 +300,15 @@ export class SuspendRouteBuilder extends BoundaryRouteBuilder {
    * Add a suspension boundary route
    * @param map Map a suspension state to a set of props for a suspension component
    * @param component Component to render when suspended
-   * @param jsonProps Optional JSON serializable props for the suspension component's stamp variant
+   * @param bookProps Optional JSON serializable props for the suspension component's stamp variant
    * @returns this
    */
   whenSuspended<Props>(
     map: (suspended: boolean) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props | Props[],
+    bookProps?: Props | Props[],
   ): this {
-    this.#suspendRoutes.push([map, component, jsonProps])
+    this.#suspendRoutes.push([map, component, bookProps])
     return this
   }
 
@@ -385,15 +385,15 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
    * Add a child route
    * @param when Function to map inputs to a set of props for the child component
    * @param component Component to render when the route matches
-   * @param jsonProps Optional JSON serializable props for the child component's stamp variant
+   * @param bookProps Optional JSON serializable props for the child component's stamp variant
    * @returns this
    */
   when<Props>(
     when: (inputs: Inputs) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props | Props[],
+    bookProps?: Props | Props[],
   ): this {
-    this.#routes.push([when, component, jsonProps])
+    this.#routes.push([when, component, bookProps])
     return this
   }
 
@@ -401,16 +401,16 @@ export class ChildRouteBuilder<Inputs = unknown> extends SuspendRouteBuilder {
    * Add a child route that may be a fixed output
    * @param when Function to map inputs to a set of props for the child component
    * @param component Component to render when the route matches
-   * @param jsonProps Optional JSON serializable props for the child component's stamp variant
+   * @param bookProps Optional JSON serializable props for the child component's stamp variant
    * @returns this
    */
   fixedWhen<Props>(
     when: (inputs: Inputs) => Props | false,
     component: Component<Props>,
-    jsonProps?: Props | Props[],
+    bookProps?: Props | Props[],
   ): this {
     this.#fixed = true
-    this.#routes.push([when, component, jsonProps, { fixed: true }])
+    this.#routes.push([when, component, bookProps, { fixed: true }])
     return this
   }
 

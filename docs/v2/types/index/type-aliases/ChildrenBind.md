@@ -16,6 +16,6 @@ tags:
 
 > **ChildrenBind** = `Observable`\<[`Component`](Component.md)\> \| [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/component.ts:35](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/component.ts#L35)
+Defined in: [v2/component.ts:36](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L36)
 
 An Observable that produces child Components

@@ -150,6 +150,12 @@ such as `boundary().onError(…)` or `route(input).onError(…)`.
 Completion boundaries are new with Children Routing including
 `boundary().onComplete(…)` and `route(input).onComplete(…)`.
 
+### Use Explicit bindRemoval
+
+Completions are (back to) loud warnings in Butterfloat v2. For cases
+where it is intentional that a completing Observable remove the component
+there is now `bindRemoval(observable)` on the `jsx.Mat`.
+
 ### Add Fixed Bindings and Routes
 
 [Fixed bindings][] are bindings that may naturally complete when they are
