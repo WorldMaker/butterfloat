@@ -36,6 +36,11 @@ footer.footer {
   padding: 1.5rem;
 }
 
+code a[href],
+a[href] code {
+  text-decoration: underline dotted;
+}
+
 /* bulma tablet breakpoint */
 @media (min-width: 768px) {
   body:has(.page-content) {
