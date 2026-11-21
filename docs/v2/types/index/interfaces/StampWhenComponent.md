@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / StampWhenComponent
 
 # Interface: StampWhenComponent\<Props\>
 
-Defined in: [v2/stamp.ts:22](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/stamp.ts#L22)
+Defined in: [v2/stamp.ts:23](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L23)
 
 Simple, stable component with attached condition for stamp reuse.
 
@@ -26,11 +26,21 @@ Simple, stable component with attached condition for stamp reuse.
 
 ## Properties
 
+### bookProps?
+
+> `optional` **bookProps?**: `Props`
+
+Defined in: [v2/stamp.ts:37](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L37)
+
+JSON serializable "canonical" representation of this stamp when booked.
+
+***
+
 ### condition
 
 > **condition**: (`props`) => `boolean`
 
-Defined in: [v2/stamp.ts:28](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/stamp.ts#L28)
+Defined in: [v2/stamp.ts:29](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L29)
 
 Condition to determine if the stamp matches for this component.
 
@@ -48,22 +58,22 @@ Props of the component to determine if the stamp matches.
 
 True if the stamp matches, false otherwise.
 
----
+***
 
-### jsonProps?
+### options?
 
-> `optional` **jsonProps?**: `Props`
+> `optional` **options?**: [`StampOptions`](StampOptions.md)
 
-Defined in: [v2/stamp.ts:36](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/stamp.ts#L36)
+Defined in: [v2/stamp.ts:41](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L41)
 
-JSON serialziable "canonical" representation of the applicable props to this stamp.
+Options used for stamping this component.
 
----
+***
 
 ### ring
 
 > **ring**: [`Ring`](../type-aliases/Ring.md)
 
-Defined in: [v2/stamp.ts:32](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/stamp.ts#L32)
+Defined in: [v2/stamp.ts:33](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L33)
 
 Ring output of the component.

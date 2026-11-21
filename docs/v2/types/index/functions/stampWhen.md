@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / stampWhen
 
@@ -16,7 +16,7 @@ tags:
 
 > **stampWhen**\<`Props`\>(`component`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:44](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/stamp.ts#L44)
+Defined in: [v2/stamp.ts:49](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L49)
 
 Creates a simple, stable component when a condition is met.
 

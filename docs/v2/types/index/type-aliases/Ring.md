@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / Ring
 
@@ -16,6 +16,6 @@ tags:
 
 > **Ring** = `InertRing` \| `RunnableRing` \| `BuildableRing` \| `DescribableRing`
 
-Defined in: [v2/ring.ts:54](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/ring.ts#L54)
+Defined in: [v2/ring.ts:53](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/ring.ts#L53)
 
 Component output state

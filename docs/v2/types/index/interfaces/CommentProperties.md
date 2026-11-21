@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / CommentProperties
 
 # Interface: CommentProperties
 
-Defined in: [v2/rings/comment.ts:17](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/comment.ts#L17)
+Defined in: [v2/rings/comment.ts:17](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/rings/comment.ts#L17)
 
 Properties supported by the `<Comment>` pseudo-component
 
@@ -24,6 +24,6 @@ Properties supported by the `<Comment>` pseudo-component
 
 > **comment**: `string`
 
-Defined in: [v2/rings/comment.ts:21](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/rings/comment.ts#L21)
+Defined in: [v2/rings/comment.ts:21](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/rings/comment.ts#L21)
 
 A comment to attach to the DOM tree.

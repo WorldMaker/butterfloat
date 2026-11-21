@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / WritableKeys
 
@@ -16,7 +16,7 @@ tags:
 
 > **WritableKeys**\<`T`\> = `{ [P in keyof T]-?: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, P> }`\[keyof `T`\]
 
-Defined in: [v2/meta-types.ts:17](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/meta-types.ts#L17)
+Defined in: [v2/meta-types.ts:17](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/meta-types.ts#L17)
 
 Collect the writable keys of a type.
 

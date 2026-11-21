@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [testing](../index.md) / ElementDescription
 
 # Interface: ElementDescription\<Bind\>
 
-Defined in: [v2/testing/description.ts:39](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L39)
+Defined in: [v2/testing/description.ts:39](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L39)
 
 Description of a DOM element and its bindings
 
@@ -34,27 +34,27 @@ Description of a DOM element and its bindings
 
 > **attributes**: [`Attributes`](../../index/type-aliases/Attributes.md)
 
-Defined in: [v2/testing/description.ts:52](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L52)
+Defined in: [v2/testing/description.ts:52](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L52)
 
 The attributes of the element
 
----
+***
 
 ### bind
 
 > **bind**: `Bind`
 
-Defined in: [v2/testing/description.ts:56](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L56)
+Defined in: [v2/testing/description.ts:56](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L56)
 
 Bindings
 
----
+***
 
 ### children
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:25](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L25)
+Defined in: [v2/testing/description.ts:25](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L25)
 
 The static children
 
@@ -62,13 +62,13 @@ The static children
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`children`](ChildrenBindDescription.md#children)
 
----
+***
 
 ### childrenBind?
 
 > `optional` **childrenBind?**: [`ChildrenBind`](../../index/type-aliases/ChildrenBind.md)
 
-Defined in: [v2/testing/description.ts:29](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L29)
+Defined in: [v2/testing/description.ts:29](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L29)
 
 Children bindings
 
@@ -76,13 +76,13 @@ Children bindings
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBind`](ChildrenBindDescription.md#childrenbind)
 
----
+***
 
 ### childrenBindMode?
 
 > `optional` **childrenBindMode?**: [`ChildrenBindMode`](../../index/type-aliases/ChildrenBindMode.md)
 
-Defined in: [v2/testing/description.ts:33](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L33)
+Defined in: [v2/testing/description.ts:33](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L33)
 
 The mode to bind children
 
@@ -90,82 +90,52 @@ The mode to bind children
 
 [`ChildrenBindDescription`](ChildrenBindDescription.md).[`childrenBindMode`](ChildrenBindDescription.md#childrenbindmode)
 
----
+***
 
 ### classBind
 
 > **classBind**: [`ClassBind`](../../index/type-aliases/ClassBind.md)
 
-Defined in: [v2/testing/description.ts:76](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L76)
+Defined in: [v2/testing/description.ts:68](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L68)
 
 Class bindings
 
----
+***
 
 ### element
 
 > **element**: `string`
 
-Defined in: [v2/testing/description.ts:48](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L48)
+Defined in: [v2/testing/description.ts:48](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L48)
 
 The element name/type
 
----
+***
 
 ### events
 
 > **events**: [`DefaultEvents`](../type-aliases/DefaultEvents.md)
 
-Defined in: [v2/testing/description.ts:64](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L64)
+Defined in: [v2/testing/description.ts:60](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L60)
 
 Events
 
----
-
-### immediateBind
-
-> **immediateBind**: `Bind`
-
-Defined in: [v2/testing/description.ts:60](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L60)
-
-Immediate bindings
-
----
-
-### immediateClassBind
-
-> **immediateClassBind**: [`ClassBind`](../../index/type-aliases/ClassBind.md)
-
-Defined in: [v2/testing/description.ts:80](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L80)
-
-Immediate class bindings
-
----
-
-### immediateStyleBind
-
-> **immediateStyleBind**: [`DefaultStyleBind`](../../index/type-aliases/DefaultStyleBind.md)
-
-Defined in: [v2/testing/description.ts:72](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L72)
-
-Immediate style bindings
-
----
+***
 
 ### styleBind
 
 > **styleBind**: [`DefaultStyleBind`](../../index/type-aliases/DefaultStyleBind.md)
 
-Defined in: [v2/testing/description.ts:68](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L68)
+Defined in: [v2/testing/description.ts:64](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L64)
 
 Style bindings
 
----
+***
 
 ### type
 
 > **type**: `"element"`
 
-Defined in: [v2/testing/description.ts:44](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/testing/description.ts#L44)
+Defined in: [v2/testing/description.ts:44](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L44)
 
 The type of the description

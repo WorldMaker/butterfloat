@@ -8,14 +8,14 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / DefaultBind
 
 # Type Alias: DefaultBind
 
-> **DefaultBind** = `Record`\<`string`, `Observable`\<`unknown`\>\>
+> **DefaultBind** = `Record`\<`string`, [`BindObservable`](BindObservable.md)\<`unknown`\>\>
 
-Defined in: [v2/component.ts:64](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/component.ts#L64)
+Defined in: [v2/component.ts:65](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L65)
 
 Default bind attribute accepted binds

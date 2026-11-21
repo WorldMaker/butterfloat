@@ -8,13 +8,13 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / CompleteRoutes
 
 # Interface: CompleteRoutes
 
-Defined in: [v2/route.ts:115](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L115)
+Defined in: [v2/route.ts:130](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L130)
 
 Complete Routes
 
@@ -26,16 +26,16 @@ A component that can be used to bind a component's children to a completion boun
 
 > **component**: [`Component`](../type-aliases/Component.md)
 
-Defined in: [v2/route.ts:123](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L123)
+Defined in: [v2/route.ts:138](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L138)
 
 The component to render when the completion boundary is reached.
 
----
+***
 
 ### mode
 
 > **mode**: `"replace"` \| `"append"` \| `"prepend"`
 
-Defined in: [v2/route.ts:119](https://github.com/WorldMaker/butterfloat/blob/fd11e40543acd934674b5ba9db8715003f04fae5/v2/route.ts#L119)
+Defined in: [v2/route.ts:134](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L134)
 
 The mode to bind the completion component to the parent component's children.
