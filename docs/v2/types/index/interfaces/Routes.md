@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / Routes
 
@@ -36,7 +36,7 @@ Defined in: [v2/route.ts:40](https://github.com/WorldMaker/butterfloat/blob/db08
 
 Whether any of the routes are fixed.
 
-***
+---
 
 ### input
 
@@ -46,7 +46,7 @@ Defined in: [v2/route.ts:44](https://github.com/WorldMaker/butterfloat/blob/db08
 
 Observable that produces inputs to route to child components
 
-***
+---
 
 ### mode
 
@@ -56,7 +56,7 @@ Defined in: [v2/route.ts:48](https://github.com/WorldMaker/butterfloat/blob/db08
 
 The mode to bind the child components to the parent component's children.
 
-***
+---
 
 ### routes
 

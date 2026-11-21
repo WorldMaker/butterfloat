@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [testing](../index.md) / ChildrenBindDescription
 
@@ -32,7 +32,7 @@ Defined in: [v2/testing/description.ts:25](https://github.com/WorldMaker/butterf
 
 The static children
 
-***
+---
 
 ### childrenBind?
 
@@ -42,7 +42,7 @@ Defined in: [v2/testing/description.ts:29](https://github.com/WorldMaker/butterf
 
 Children bindings
 
-***
+---
 
 ### childrenBindMode?
 

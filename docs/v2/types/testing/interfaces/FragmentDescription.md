@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [testing](../index.md) / FragmentDescription
 
@@ -28,7 +28,7 @@ Defined in: [v2/testing/description.ts:104](https://github.com/WorldMaker/butter
 
 The children of the fragment
 
-***
+---
 
 ### type
 

@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / StampWhenComponent
 
@@ -34,7 +34,7 @@ Defined in: [v2/stamp.ts:37](https://github.com/WorldMaker/butterfloat/blob/db08
 
 JSON serializable "canonical" representation of this stamp when booked.
 
-***
+---
 
 ### condition
 
@@ -58,7 +58,7 @@ Props of the component to determine if the stamp matches.
 
 True if the stamp matches, false otherwise.
 
-***
+---
 
 ### options?
 
@@ -68,7 +68,7 @@ Defined in: [v2/stamp.ts:41](https://github.com/WorldMaker/butterfloat/blob/db08
 
 Options used for stamping this component.
 
-***
+---
 
 ### ring
 
