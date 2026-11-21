@@ -32,9 +32,9 @@ export interface StampWhenComponent<Props = unknown> {
    */
   ring: Ring
   /**
-   * JSON serialziable "canonical" representation of the applicable props to this stamp.
+   * JSON serializable "canonical" representation of this stamp when booked.
    */
-  jsonProps?: Props
+  bookProps?: Props
   /**
    * Options used for stamping this component.
    */
@@ -50,8 +50,8 @@ export function stampWhen<Props>(
   component: (jsx: JsxFunction, props: Props) => StampWhenComponent<Props>,
 ): Component<Props, unknown> {
   return (props, mat: jsx.Mat) => {
-    const { condition, ring, jsonProps, options } = component(mat.jsx, props)
-    mat.stampWhen(condition, jsonProps, options)
+    const { condition, ring, bookProps, options } = component(mat.jsx, props)
+    mat.stampWhen(condition, bookProps, options)
     return ring
   }
 }

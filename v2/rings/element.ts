@@ -97,8 +97,11 @@ export function elementRunner(
           childrenBind = mapRoutes(routeMap.routes)
           childrenBindMode = routeMap.routes.mode ?? 'append'
           for (const route of Object.values(routeMap.routes.routes)) {
-            const [, component, jsonProps] = route
-            mat[registerPossibleStamp](component, jsonProps)
+            const [, component, bookProps] = route
+            mat[registerPossibleStamp](
+              component,
+              Array.isArray(bookProps) ? bookProps : [bookProps],
+            )
           }
         }
         if (routeMap.error) {
@@ -114,8 +117,11 @@ export function elementRunner(
           )
           errorBindMode = routeMap.error.mode ?? 'append'
           for (const route of Object.values(routeMap.error.routes)) {
-            const [, component, jsonProps] = route
-            mat[registerPossibleStamp](component, jsonProps)
+            const [, component, bookProps] = route
+            mat[registerPossibleStamp](
+              component,
+              Array.isArray(bookProps) ? bookProps : [bookProps],
+            )
           }
         }
         if (routeMap.complete) {
@@ -135,8 +141,11 @@ export function elementRunner(
           suspendBind = mapSuspendRoutes(routeMap.suspend)
           suspendBindMode = routeMap.suspend.mode ?? 'append'
           for (const route of Object.values(routeMap.suspend.routes)) {
-            const [, component, jsonProps] = route
-            mat[registerPossibleStamp](component, jsonProps)
+            const [, component, bookProps] = route
+            mat[registerPossibleStamp](
+              component,
+              Array.isArray(bookProps) ? bookProps : [bookProps],
+            )
           }
         }
       }

@@ -17,10 +17,10 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   // Ring description shouldn't actually use this
   [getNextElementBindId] = () => 'test-bind-id';
   // Ring description shouldn't actually use this
-  [registerPossibleStamp] = (component: Component, jsonProps?: unknown) => {
+  [registerPossibleStamp] = (component: Component, bookProps?: unknown[]) => {
     console.log('Registering possible stampable child component', {
       component,
-      jsonProps,
+      bookProps: bookProps,
     })
   }
 
@@ -34,7 +34,7 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   #removal: Observable<unknown> | null = null
   #isStamp = false
   #stampCondition: ((props: Props) => boolean) | null = null
-  #stampJsonProps: Props | null = null
+  #stampBookProps: Props | null = null
   #stampOptions: StampOptions | null = null
   #defaultXmlns: string | null = null
   #xmlns: Record<string, string> = {}
@@ -54,8 +54,8 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
   get stampCondition() {
     return this.#stampCondition
   }
-  get stampJsonProps() {
-    return this.#stampJsonProps
+  get stampBookProps() {
+    return this.#stampBookProps
   }
   get stampOptions() {
     return this.#stampOptions
@@ -102,21 +102,21 @@ export class TesterMat<Events, Props> implements jsx.Mat<Events> {
     }
     this.#isStamp = true
     this.#stampCondition = null
-    this.#stampJsonProps = null
+    this.#stampBookProps = null
     this.#stampOptions = options ?? null
   }
 
   stampWhen: <StampProps = Props>(
     condition: (props: StampProps) => boolean,
-    jsonProps?: StampProps,
+    bookProps?: StampProps,
     options?: StampOptions,
-  ) => void = (condition, jsonProps, options) => {
+  ) => void = (condition, bookProps, options) => {
     if (this.#isStamp) {
       throw new Error('Cannot mark stamp more than once')
     }
     this.#isStamp = true
     this.#stampCondition = condition as unknown as (props: Props) => boolean
-    this.#stampJsonProps = (jsonProps as Props | undefined) ?? null
+    this.#stampBookProps = (bookProps as Props | undefined) ?? null
     this.#stampOptions = options ?? null
   }
 }
@@ -163,7 +163,7 @@ export interface RingDescription<Props = unknown> {
   /**
    * The JSON serializable "canonical" props provided for the stamp
    */
-  stampJsonProps: Props | null
+  stampBookProps: Props | null
   /**
    * The options used for stamping this component
    */
@@ -224,7 +224,7 @@ export function describeRing<Props, Events>(
     removal: mat.removal,
     isStamp: mat.isStamp,
     stampCondition: mat.stampCondition,
-    stampJsonProps: mat.stampJsonProps,
+    stampBookProps: mat.stampBookProps,
     stampOptions: mat.stampOptions,
     defaultXmlns: mat.defaultXmlns,
     xmlns: mat.xmlns,

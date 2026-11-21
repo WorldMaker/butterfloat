@@ -78,7 +78,7 @@ import { NEVER, concat, delayWhen, from, interval, map } from 'rxjs'
 const ListItem = stampWhen((jsx, { text }: { text: string }) => ({
   ring: <li>{text}</li>,
   condition: (props) => props.text === text,
-  jsonProps: { text },
+  bookProps: { text },
 }))
 
 function DynamicList(_props: unknown, { jsx }: jsx.Mat) {
