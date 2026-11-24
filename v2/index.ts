@@ -47,6 +47,7 @@ export {
   type ErrorRoutes,
   type Route,
   type Routes,
+  type RouteOptions,
 } from './route.js'
 export { stamp, stampWhen, type StampWhenComponent } from './stamp.js'
 export { butterfly, type StateSetter } from '../butterfly.js'

@@ -10,7 +10,12 @@ const bfMeta = Symbol('bfMeta')
 /**
  * A MetaObservable represents an Observable with binding metadata
  */
-export type MetaObservable<T> = Observable<T> & { [bfMeta]: BindMeta }
+export type MetaObservable<T> = Observable<T> & {
+  /**
+   * @internal
+   */
+  [bfMeta]: BindMeta
+}
 
 /**
  * An Observable that may or may not be fixed
