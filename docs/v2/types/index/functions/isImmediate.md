@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / isImmediate
 
 # Function: isImmediate()
 
-> **isImmediate**\<`T`\>(`observable`): `observable is FixedObservable<T>`
+> **isImmediate**\<`T`\>(`observable`): `observable is MetaObservable<T>`
 
-Defined in: [bind.ts:50](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L50)
+Defined in: [bind.ts:55](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L55)
 
 Is the observable immediate?
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-`observable is FixedObservable<T>`
+`observable is MetaObservable<T>`
 
 Observable is immediate

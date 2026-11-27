@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / delayed
 
 # Function: delayed()
 
-> **delayed**\<`T`\>(`observable`): [`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+> **delayed**\<`T`\>(`observable`): [`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
-Defined in: [bind.ts:103](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L103)
+Defined in: [bind.ts:108](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L108)
 
 Mark an observable as delayed scheduled (default)
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-[`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+[`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
 Default scheduled observable

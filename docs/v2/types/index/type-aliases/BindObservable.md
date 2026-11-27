@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / BindObservable
 
 # Type Alias: BindObservable\<T\>
 
-> **BindObservable**\<`T`\> = [`FixedObservable`](FixedObservable.md)\<`T`\> \| `Observable`\<`T`\>
+> **BindObservable**\<`T`\> = [`MetaObservable`](MetaObservable.md)\<`T`\> \| `Observable`\<`T`\>
 
-Defined in: [bind.ts:18](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L18)
+Defined in: [bind.ts:23](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L23)
 
 An Observable that may or may not be fixed
 

@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / isFixed
 
 # Function: isFixed()
 
-> **isFixed**\<`T`\>(`observable`): `observable is FixedObservable<T>`
+> **isFixed**\<`T`\>(`observable`): `observable is MetaObservable<T>`
 
-Defined in: [bind.ts:25](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L25)
+Defined in: [bind.ts:30](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L30)
 
 Is the observable fixed?
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-`observable is FixedObservable<T>`
+`observable is MetaObservable<T>`
 
 Observable is fixed

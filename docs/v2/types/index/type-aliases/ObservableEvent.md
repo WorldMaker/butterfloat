@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / ObservableEvent
 
@@ -16,7 +16,7 @@ tags:
 
 > **ObservableEvent**\<`T`\> = `Observable`\<`T`\> & `object`
 
-Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/events.ts#L8)
+Defined in: [events.ts:8](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/events.ts#L8)
 
 An Observable intended for binding to a DOM event
 

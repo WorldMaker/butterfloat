@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / immediateFixed
 
 # Function: immediateFixed()
 
-> **immediateFixed**\<`T`\>(`observable`): [`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+> **immediateFixed**\<`T`\>(`observable`): [`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
-Defined in: [bind.ts:75](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L75)
+Defined in: [bind.ts:80](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L80)
 
 Mark an observable as fixed and immediate
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-[`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+[`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
 Fixed and immediate observable

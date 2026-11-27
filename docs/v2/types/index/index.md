@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../index.md)
 
----
+***
 
 [butterfloat](../index.md) / index
 
@@ -35,6 +35,7 @@ tags:
 - [CompleteRoutes](interfaces/CompleteRoutes.md)
 - [ErrorRoutes](interfaces/ErrorRoutes.md)
 - [Mat](interfaces/Mat.md)
+- [RouteOptions](interfaces/RouteOptions.md)
 - [Routes](interfaces/Routes.md)
 - [StampOptions](interfaces/StampOptions.md)
 - [StampWhenComponent](interfaces/StampWhenComponent.md)
@@ -54,11 +55,11 @@ tags:
 - [DefaultStyleBind](type-aliases/DefaultStyleBind.md)
 - [EffectHandler](type-aliases/EffectHandler.md)
 - [ErrorRoute](type-aliases/ErrorRoute.md)
-- [FixedObservable](type-aliases/FixedObservable.md)
 - [HtmlAttributes](type-aliases/HtmlAttributes.md)
 - [IfEquals](type-aliases/IfEquals.md)
 - [JsxChildren](type-aliases/JsxChildren.md)
 - [JsxFunction](type-aliases/JsxFunction.md)
+- [MetaObservable](type-aliases/MetaObservable.md)
 - [ObservableEvent](type-aliases/ObservableEvent.md)
 - [Ring](type-aliases/Ring.md)
 - [Route](type-aliases/Route.md)

@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../../../../../index.md)
 
----
+***
 
 [butterfloat](../../../../../../index.md) / [index](../../../../../index.md) / [jsx](../../../index.md) / [JSX](../index.md) / ButterfloatElementStyleBind
 
@@ -16,6 +16,6 @@ tags:
 
 > **ButterfloatElementStyleBind** = [`HtmlElementStyleBind`](HtmlElementStyleBind.md) & [`DefaultStyleBind`](../../../../../type-aliases/DefaultStyleBind.md)
 
-Defined in: [v2/jsx/internal.ts:90](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/internal.ts#L90)
+Defined in: [v2/jsx/internal.ts:90](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/jsx/internal.ts#L90)
 
 All Butterfloat bindable CSS styles

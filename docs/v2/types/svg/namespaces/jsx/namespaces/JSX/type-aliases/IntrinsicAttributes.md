@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../../../../../index.md)
 
----
+***
 
 [butterfloat](../../../../../../index.md) / [svg](../../../../../index.md) / [jsx](../../../index.md) / [JSX](../index.md) / IntrinsicAttributes
 
@@ -16,6 +16,6 @@ tags:
 
 > **IntrinsicAttributes** = `object`
 
-Defined in: [v2/jsx/svg.ts:123](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/svg.ts#L123)
+Defined in: [v2/jsx/svg.ts:128](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/jsx/svg.ts#L128)
 
 JSX "intrinsic" attributes (additional attributes on JSX "intrinsics")

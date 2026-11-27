@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / DefaultStyleBind
 
@@ -16,6 +16,6 @@ tags:
 
 > **DefaultStyleBind** = `Record`\<`string`, `Observable`\<`unknown`\>\>
 
-Defined in: [v2/component.ts:70](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L70)
+Defined in: [v2/component.ts:70](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/component.ts#L70)
 
 Default styleBind attribute accepted binds

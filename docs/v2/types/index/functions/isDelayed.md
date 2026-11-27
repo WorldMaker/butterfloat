@@ -8,15 +8,15 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / isDelayed
 
 # Function: isDelayed()
 
-> **isDelayed**\<`T`\>(`observable`): `observable is FixedObservable<T>`
+> **isDelayed**\<`T`\>(`observable`): `observable is MetaObservable<T>`
 
-Defined in: [bind.ts:88](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L88)
+Defined in: [bind.ts:93](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L93)
 
 Is the observable delayed scheduled (default)?
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-`observable is FixedObservable<T>`
+`observable is MetaObservable<T>`
 
 Observable is delayed

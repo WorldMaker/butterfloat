@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / ErrorRoute
 
@@ -16,7 +16,7 @@ tags:
 
 > **ErrorRoute**\<`Props`\> = \[`map`: (`error`) => `Props` \| `false`, `component`: [`Component`](Component.md)\<`Props`\>, `bookProps?`: `Props` \| `Props`[]\]
 
-Defined in: [v2/route.ts:103](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L103)
+Defined in: [v2/route.ts:103](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L103)
 
 Error Route
 

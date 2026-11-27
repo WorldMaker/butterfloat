@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
----
+***
 
 [butterfloat](../../index.md) / [index](../index.md) / route
 
@@ -16,7 +16,7 @@ tags:
 
 > **route**\<`Inputs`\>(`input`, `mode?`): [`ChildRouteBuilder`](../classes/ChildRouteBuilder.md)\<`Inputs`\>
 
-Defined in: [v2/route.ts:479](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L479)
+Defined in: [v2/route.ts:479](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L479)
 
 Route an Observable to child components
 

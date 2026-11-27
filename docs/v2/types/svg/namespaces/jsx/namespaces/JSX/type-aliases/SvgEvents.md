@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../../../../../index.md)
 
----
+***
 
 [butterfloat](../../../../../../index.md) / [svg](../../../../../index.md) / [jsx](../../../index.md) / [JSX](../index.md) / SvgEvents
 
@@ -16,7 +16,7 @@ tags:
 
 > **SvgEvents**\<`EventMap`\> = `{ [Property in keyof EventMap]?: ObservableEvent<EventMap[Property]> }`
 
-Defined in: [v2/jsx/svg.ts:63](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/svg.ts#L63)
+Defined in: [v2/jsx/svg.ts:68](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/jsx/svg.ts#L68)
 
 Bindable DOM events
 
