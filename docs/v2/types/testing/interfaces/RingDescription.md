@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [testing](../index.md) / RingDescription
 
@@ -34,7 +34,7 @@ Defined in: [v2/testing/mat.ts:174](https://github.com/WorldMaker/butterfloat/bl
 
 The default XML namespace registered for the Component
 
-***
+---
 
 ### description
 
@@ -44,7 +44,7 @@ Defined in: [v2/testing/mat.ts:139](https://github.com/WorldMaker/butterfloat/bl
 
 The description of the Ring output of the Component
 
-***
+---
 
 ### effects
 
@@ -54,7 +54,7 @@ Defined in: [v2/testing/mat.ts:145](https://github.com/WorldMaker/butterfloat/bl
 
 The effects that were bound during the Component's execution
 
-***
+---
 
 ### immediateEffects
 
@@ -64,7 +64,7 @@ Defined in: [v2/testing/mat.ts:150](https://github.com/WorldMaker/butterfloat/bl
 
 The immediate effects that were bound during the Component's execution
 
-***
+---
 
 ### isStamp
 
@@ -74,7 +74,7 @@ Defined in: [v2/testing/mat.ts:158](https://github.com/WorldMaker/butterfloat/bl
 
 Whether the Component was marked as a stamp
 
-***
+---
 
 ### removal
 
@@ -84,7 +84,7 @@ Defined in: [v2/testing/mat.ts:154](https://github.com/WorldMaker/butterfloat/bl
 
 The removal effect that was bound during the Component's execution
 
-***
+---
 
 ### stampBookProps
 
@@ -94,7 +94,7 @@ Defined in: [v2/testing/mat.ts:166](https://github.com/WorldMaker/butterfloat/bl
 
 The JSON serializable "canonical" props provided for the stamp
 
-***
+---
 
 ### stampCondition
 
@@ -104,7 +104,7 @@ Defined in: [v2/testing/mat.ts:162](https://github.com/WorldMaker/butterfloat/bl
 
 The condition used to determine if the Component should be stamped
 
-***
+---
 
 ### stampOptions
 
@@ -114,7 +114,7 @@ Defined in: [v2/testing/mat.ts:170](https://github.com/WorldMaker/butterfloat/bl
 
 The options used for stamping this component
 
-***
+---
 
 ### xmlns
 

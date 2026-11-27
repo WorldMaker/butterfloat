@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [testing](../index.md) / ComponentDescription
 
@@ -28,7 +28,7 @@ Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterf
 
 The children of the component
 
-***
+---
 
 ### component
 
@@ -38,7 +38,7 @@ Defined in: [v2/testing/description.ts:82](https://github.com/WorldMaker/butterf
 
 The Component
 
-***
+---
 
 ### properties
 
@@ -48,7 +48,7 @@ Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterf
 
 The properties of the component
 
-***
+---
 
 ### type
 

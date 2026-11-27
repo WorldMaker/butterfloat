@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [index](../index.md) / Mat
 
@@ -34,7 +34,7 @@ Defined in: [v2/mat.ts:78](https://github.com/WorldMaker/butterfloat/blob/b4273e
 
 Bind an effect.
 
-***
+---
 
 ### bindImmediateEffect
 
@@ -44,7 +44,7 @@ Defined in: [v2/mat.ts:82](https://github.com/WorldMaker/butterfloat/blob/b4273e
 
 Bind an effect that should run without scheduled delays.
 
-***
+---
 
 ### bindRemoval
 
@@ -66,7 +66,7 @@ The component is removed when the observable completes.
 
 `void`
 
-***
+---
 
 ### defaultXmlns
 
@@ -76,7 +76,7 @@ Defined in: [v2/mat.ts:103](https://github.com/WorldMaker/butterfloat/blob/b4273
 
 Registered default namespace for the component.
 
-***
+---
 
 ### events
 
@@ -86,7 +86,7 @@ Defined in: [v2/mat.ts:74](https://github.com/WorldMaker/butterfloat/blob/b4273e
 
 Events that the component expects to bind.
 
-***
+---
 
 ### jsx
 
@@ -96,7 +96,7 @@ Defined in: [v2/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/b4273e
 
 JSX function to build appropriate Rings for this Mat
 
-***
+---
 
 ### mapXmlns
 
@@ -126,7 +126,7 @@ Default namespace for the component
 
 nothing
 
-***
+---
 
 ### stamp
 
@@ -148,7 +148,7 @@ Mark the component as stable output regardless of props.
 
 nothing
 
-***
+---
 
 ### stampWhen
 
@@ -188,7 +188,7 @@ Optional JSON serializable "canonical" representation of this stamp when booked.
 
 nothing
 
-***
+---
 
 ### xmlns
 

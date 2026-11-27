@@ -8,7 +8,7 @@ tags:
 
 [**butterfloat**](../../index.md)
 
-***
+---
 
 [butterfloat](../../index.md) / [svg](../index.md) / SvgOptions
 
@@ -32,7 +32,7 @@ Defined in: [v2/svg/svg.ts:14](https://github.com/WorldMaker/butterfloat/blob/b4
 
 The SVG does not qualify for stamp reuse
 
-***
+---
 
 ### unfixed?
 
