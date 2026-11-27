@@ -291,7 +291,13 @@ doesn’t already. Though these completion logs should be rare in
 any case and many browsers ignore them when development consoles
 are not open.)
 
+## Next Steps
+
+If you have been following along from the [Getting Started][started]
+tour, the next topic that may interest you is [SVG and XML Namespaces][svg].
+
 [children]: ./children.md
 [Children Routing]: ./children.md#children-routing
 [started]: ./getting-started.md
 [spy]: https://github.com/cartant/rxjs-spy
+[svg]: ./svg.md
