@@ -16,6 +16,6 @@ tags:
 
 > **DefaultBind** = `Record`\<`string`, [`BindObservable`](BindObservable.md)\<`unknown`\>\>
 
-Defined in: [v2/component.ts:65](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L65)
+Defined in: [v2/component.ts:65](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/component.ts#L65)
 
 Default bind attribute accepted binds

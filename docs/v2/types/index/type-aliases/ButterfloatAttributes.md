@@ -16,6 +16,6 @@ tags:
 
 > **ButterfloatAttributes** = [`HtmlAttributes`](HtmlAttributes.md) & [`ChildrenBindable`](../interfaces/ChildrenBindable.md)
 
-Defined in: [v2/component.ts:60](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L60)
+Defined in: [v2/component.ts:60](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/component.ts#L60)
 
 Butterfloat Attributes

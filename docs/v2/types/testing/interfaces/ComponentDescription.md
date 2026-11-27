@@ -14,7 +14,7 @@ tags:
 
 # Interface: ComponentDescription
 
-Defined in: [v2/testing/description.ts:74](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L74)
+Defined in: [v2/testing/description.ts:74](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L74)
 
 Description of a Component binding
 
@@ -24,7 +24,7 @@ Description of a Component binding
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L90)
+Defined in: [v2/testing/description.ts:90](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L90)
 
 The children of the component
 
@@ -34,7 +34,7 @@ The children of the component
 
 > **component**: [`Component`](../../index/type-aliases/Component.md)
 
-Defined in: [v2/testing/description.ts:82](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L82)
+Defined in: [v2/testing/description.ts:82](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L82)
 
 The Component
 
@@ -44,7 +44,7 @@ The Component
 
 > **properties**: [`Attributes`](../../index/type-aliases/Attributes.md)
 
-Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L86)
+Defined in: [v2/testing/description.ts:86](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L86)
 
 The properties of the component
 
@@ -54,6 +54,6 @@ The properties of the component
 
 > **type**: `"component"`
 
-Defined in: [v2/testing/description.ts:78](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L78)
+Defined in: [v2/testing/description.ts:78](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L78)
 
 The type of the description

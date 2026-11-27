@@ -14,9 +14,9 @@ tags:
 
 # Function: immediate()
 
-> **immediate**\<`T`\>(`observable`): [`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+> **immediate**\<`T`\>(`observable`): [`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
-Defined in: [bind.ts:64](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/bind.ts#L64)
+Defined in: [bind.ts:69](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/bind.ts#L69)
 
 Mark an observable as immediate
 
@@ -36,6 +36,6 @@ Binding observable
 
 ## Returns
 
-[`FixedObservable`](../type-aliases/FixedObservable.md)\<`T`\>
+[`MetaObservable`](../type-aliases/MetaObservable.md)\<`T`\>
 
 Immediate observable

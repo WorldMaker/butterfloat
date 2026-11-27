@@ -16,7 +16,7 @@ tags:
 
 > **makeTestEvent**\<`T`\>(`observable`): [`ObservableEvent`](../../index/type-aliases/ObservableEvent.md)\<`T`\>
 
-Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/events.ts#L33)
+Defined in: [events.ts:33](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/events.ts#L33)
 
 Mock an event for testing purposes only
 

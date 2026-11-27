@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */ // Reasoning: JSX types are weird and "need" namespaces to operate correctly.
-import type { JsxFunction, Mat } from '../mat.js'
+import type { JsxFunction, Mat, StampOptions } from '../mat.js'
 import * as JsxInternal from '../jsx/svg.js'
 import type { Ring } from '../ring.js'
 import type { Component } from '../component.js'
@@ -7,7 +7,7 @@ import type { Component } from '../component.js'
 /**
  * Options for simple SVG components.
  */
-export interface SvgOptions {
+export interface SvgOptions extends StampOptions {
   /**
    * The SVG does not qualify for stamp reuse
    */
@@ -36,7 +36,7 @@ export function svg<Props = unknown>(
       'http://www.w3.org/2000/svg',
     )
     if (!options?.notStamp) {
-      mat.stamp()
+      mat.stamp(options)
     }
     return component(mat.jsx, props)
   }

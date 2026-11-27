@@ -14,7 +14,7 @@ tags:
 
 # Interface: CommentDescription
 
-Defined in: [v2/testing/description.ts:148](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L148)
+Defined in: [v2/testing/description.ts:148](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L148)
 
 Description of the `<Comment>` pseudo-component
 
@@ -24,7 +24,7 @@ Description of the `<Comment>` pseudo-component
 
 > **comment**: `string`
 
-Defined in: [v2/testing/description.ts:156](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L156)
+Defined in: [v2/testing/description.ts:156](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L156)
 
 The comment
 
@@ -34,6 +34,6 @@ The comment
 
 > **type**: `"comment"`
 
-Defined in: [v2/testing/description.ts:152](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L152)
+Defined in: [v2/testing/description.ts:152](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L152)
 
 The type of the description

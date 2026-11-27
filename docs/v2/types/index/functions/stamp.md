@@ -16,7 +16,7 @@ tags:
 
 > **stamp**\<`Props`\>(`component`, `options?`): [`Component`](../type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/stamp.ts:10](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/stamp.ts#L10)
+Defined in: [v2/stamp.ts:10](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/stamp.ts#L10)
 
 Creates a simple, stable component.
 

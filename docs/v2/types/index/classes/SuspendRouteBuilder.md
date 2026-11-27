@@ -14,7 +14,7 @@ tags:
 
 # Class: SuspendRouteBuilder
 
-Defined in: [v2/route.ts:270](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L270)
+Defined in: [v2/route.ts:270](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L270)
 
 Fluent, mutable builder for suspension boundaries
 
@@ -42,7 +42,7 @@ const builder = suspend(whenObservable, 'append')
 
 > **new SuspendRouteBuilder**(`suspend?`, `mode?`): `SuspendRouteBuilder`
 
-Defined in: [v2/route.ts:275](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L275)
+Defined in: [v2/route.ts:275](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L275)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: [v2/route.ts:275](https://github.com/WorldMaker/butterfloat/blob/db0
 
 > **build**(): [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/route.ts:319](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L319)
+Defined in: [v2/route.ts:319](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L319)
 
 Build the child routes
 
@@ -88,7 +88,7 @@ Child routes for childrenBind
 
 > **onComplete**(`component`, `mode?`): `this`
 
-Defined in: [v2/route.ts:225](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L225)
+Defined in: [v2/route.ts:225](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L225)
 
 Add a completion boundary component
 
@@ -124,7 +124,7 @@ this
 
 > **onError**\<`Props`\>(`map`, `component`, `bookProps?`): `this`
 
-Defined in: [v2/route.ts:208](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L208)
+Defined in: [v2/route.ts:208](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L208)
 
 Add an error boundary route
 
@@ -170,7 +170,7 @@ this
 
 > **suspend**(`suspend`, `mode?`): `this`
 
-Defined in: [v2/route.ts:290](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L290)
+Defined in: [v2/route.ts:290](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L290)
 
 Create a suspension boundary
 
@@ -200,7 +200,7 @@ this
 
 > **whenSuspended**\<`Props`\>(`map`, `component`, `bookProps?`): `this`
 
-Defined in: [v2/route.ts:306](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L306)
+Defined in: [v2/route.ts:306](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L306)
 
 Add a suspension boundary route
 
@@ -242,7 +242,7 @@ this
 
 > **withErrorMode**(`mode`): `this`
 
-Defined in: [v2/route.ts:196](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L196)
+Defined in: [v2/route.ts:196](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L196)
 
 Set the child binding mode for the error boundary
 

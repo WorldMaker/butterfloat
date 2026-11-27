@@ -14,7 +14,7 @@ tags:
 
 # Interface: FragmentDescription
 
-Defined in: [v2/testing/description.ts:96](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L96)
+Defined in: [v2/testing/description.ts:96](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L96)
 
 Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>` fragment notation)
 
@@ -24,7 +24,7 @@ Description of a Fragment (the `<Fragment>` pseudo-component which powers `<></>
 
 > **children**: [`JsxChildrenDescription`](../type-aliases/JsxChildrenDescription.md)
 
-Defined in: [v2/testing/description.ts:104](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L104)
+Defined in: [v2/testing/description.ts:104](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L104)
 
 The children of the fragment
 
@@ -34,6 +34,6 @@ The children of the fragment
 
 > **type**: `"fragment"`
 
-Defined in: [v2/testing/description.ts:100](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L100)
+Defined in: [v2/testing/description.ts:100](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L100)
 
 The type of the description

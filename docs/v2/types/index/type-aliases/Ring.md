@@ -16,6 +16,6 @@ tags:
 
 > **Ring** = `InertRing` \| `RunnableRing` \| `BuildableRing` \| `DescribableRing`
 
-Defined in: [v2/ring.ts:53](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/ring.ts#L53)
+Defined in: [v2/ring.ts:53](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/ring.ts#L53)
 
 Component output state

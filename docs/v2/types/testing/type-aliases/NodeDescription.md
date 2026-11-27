@@ -16,6 +16,6 @@ tags:
 
 > **NodeDescription** = [`ElementDescription`](../interfaces/ElementDescription.md) \| [`ComponentDescription`](../interfaces/ComponentDescription.md) \| [`FragmentDescription`](../interfaces/FragmentDescription.md) \| [`ChildrenDescription`](../interfaces/ChildrenDescription.md) \| [`StaticDescription`](../interfaces/StaticDescription.md) \| [`EmptyDescription`](../interfaces/EmptyDescription.md) \| [`CommentDescription`](../interfaces/CommentDescription.md)
 
-Defined in: [v2/testing/description.ts:162](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/testing/description.ts#L162)
+Defined in: [v2/testing/description.ts:162](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/testing/description.ts#L162)
 
 A description of a node in a Butterfloat DOM tree

@@ -29,6 +29,7 @@ downstream compatibility breaks:
 - The runtime `jsx` function may be destructured from `jsx.Mat`
 - The return type of `jsx` is no longer `NodeDescription`
 - `immediateBind` attributes were removed for the `immediate()` marker
+- XML Namespaces need to be pre-registered with `jsx.Mat`
 - Fragments and Components no longer support `childrenBind`
 - Boundary components (`ErrorBoundary` and `Suspense`) have become
   [Children Routing](#upgrade-to-children-routing)
@@ -42,7 +43,15 @@ The context-sensitive output of `jsx` is called `Ring` and
 `NodeDescription` is no longer an "intermediate tree", and instead a
 testing-only output of specific testing `Ring`s.
 
-## Use Deprecation Warnings to Upgrade Immediate Bindings
+## Migration
+
+There are three key things that have to change for every component.
+
+1. Deal with the deprecation of immediate bindings
+2. Update imports to v2
+3. Destructure `jsx` everywhere it is needed
+
+### 1. Use Deprecation Warnings to Upgrade Immediate Bindings
 
 The v2 style of immediate binding was back-ported to v1.7. The new
 approach uses a "marker" function instead of the previous explosion of
@@ -67,7 +76,7 @@ warnings to switch to the new style of immediate binds.
 + <progress bind={{ value: delayed(myValue) }} />
 ```
 
-## Update Imports
+### 2. Update Imports
 
 A good place to start in your migrations is from the bottom up in your
 component tree. The `<V2 component={Component} props={props} />`
@@ -92,7 +101,7 @@ build JSX types without a `jsx.Mat` involved.
 > now Typescript only supports ambient namespaces for `jsx` types and
 > ambient namespaces are only supported in top-level imports.
 
-## Destructure Runtime `jsx`
+### 3. Destructure Runtime `jsx`
 
 In Butterfloat v2 all components should take the second parameter, the
 `jsx.Mat` (which replaced `ComponentContext`). One big reason for this
@@ -111,12 +120,29 @@ might have been used, consider shortcuts like [`stamp()`][],
 [`stamp()`]: ../../stamps/#shortcut-for-truly-simple-components
 [`stampWhen()`]: ../../stamps/#shortcut-for-simple-stamps-with-alternates
 
-## Replace Boundary Components
+## Other Feature Migration
+
+Some "optional" and lesser-used features have breaking changes.
+
+### Replace Boundary Components
 
 `<ErrorBoundary />` and `<Suspense />` become [Children Routing][].
 More details under the [Suspense](../../suspense/) documentation, as
 well as well as [Upgrade to Children Routing](#upgrade-to-children-routing)
 below.
+
+### Register XML Namespaces
+
+[XML Namespaces][svg] need to be pre-registered now with the `jsx.Mat`.
+This is because elements in Butterfloat v2 are now built "bottom up" and
+no longer by tree order walks.
+
+Use `mapXmlns()` to define an XML Namespace map and/or override the
+default XML Namespace. Note that you can no longer mix multiple default
+namespaces in the same component.
+
+There are [some new SVG-specific helpers](#use-new-svg-types-and-helpers)
+to consider migrating to.
 
 ## New Features
 
@@ -171,5 +197,15 @@ This is most useful for things like static site generation. Especially,
 static site generation where you can use the same components in multiple
 ways, both static and dynamic.
 
+### Use New SVG Types and Helpers
+
+Import `type jsx` from `butterfloat/svg` (`butterfloat/v2/svg` in the
+v1.7 preview) provides similar type completion for SVG tags as the
+primary import provides for HTML tags.
+
+Also under `butterfloat/svg` is a new `svg()` helper similar to `stamp()`
+which also defaults to marking the component as stamp eligible.
+
 [Children Routing]: ../children.md#children-routing
 [Fixed bindings]: ../suspense.md#completion-removal-and-fixed-binding
+[svg]: ../svg.md

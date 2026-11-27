@@ -14,7 +14,7 @@ tags:
 
 # Class: BoundaryRouteBuilder
 
-Defined in: [v2/route.ts:183](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L183)
+Defined in: [v2/route.ts:183](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L183)
 
 Fluent, mutable builder for boundary routes
 
@@ -50,7 +50,7 @@ const routes = boundary()
 
 > **build**(): [`ChildRoutes`](../interfaces/ChildRoutes.md)
 
-Defined in: [v2/route.ts:238](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L238)
+Defined in: [v2/route.ts:238](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L238)
 
 Build the child routes
 
@@ -66,7 +66,7 @@ Child routes for childrenBind
 
 > **onComplete**(`component`, `mode?`): `this`
 
-Defined in: [v2/route.ts:225](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L225)
+Defined in: [v2/route.ts:225](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L225)
 
 Add a completion boundary component
 
@@ -98,7 +98,7 @@ this
 
 > **onError**\<`Props`\>(`map`, `component`, `bookProps?`): `this`
 
-Defined in: [v2/route.ts:208](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L208)
+Defined in: [v2/route.ts:208](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L208)
 
 Add an error boundary route
 
@@ -140,7 +140,7 @@ this
 
 > **withErrorMode**(`mode`): `this`
 
-Defined in: [v2/route.ts:196](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/route.ts#L196)
+Defined in: [v2/route.ts:196](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/route.ts#L196)
 
 Set the child binding mode for the error boundary
 

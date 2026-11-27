@@ -16,6 +16,6 @@ tags:
 
 > **SvgElements** = `{ [Property in keyof SVGElementTagNameMap]: ButterfloatElementAttributes<SVGElementTagNameMap[Property]> }`
 
-Defined in: [v2/jsx/svg.ts:107](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/svg.ts#L107)
+Defined in: [v2/jsx/svg.ts:112](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/jsx/svg.ts#L112)
 
 Available SVG Elements

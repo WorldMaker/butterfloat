@@ -16,6 +16,6 @@ tags:
 
 > **Element** = [`Ring`](../../../../../../index/type-aliases/Ring.md)
 
-Defined in: [v2/jsx/svg.ts:20](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/jsx/svg.ts#L20)
+Defined in: [v2/jsx/svg.ts:25](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/jsx/svg.ts#L25)
 
 JSX Element type

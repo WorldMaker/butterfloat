@@ -16,7 +16,7 @@ tags:
 
 > **svg**\<`Props`\>(`component`, `options?`): [`Component`](../../index/type-aliases/Component.md)\<`Props`, `unknown`\>
 
-Defined in: [v2/svg/svg.ts:26](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/svg/svg.ts#L26)
+Defined in: [v2/svg/svg.ts:26](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/svg/svg.ts#L26)
 
 Creates a simple SVG component.
 

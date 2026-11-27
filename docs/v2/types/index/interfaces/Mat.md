@@ -14,7 +14,7 @@ tags:
 
 # Interface: Mat\<Events\>
 
-Defined in: [v2/mat.ts:48](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L48)
+Defined in: [v2/mat.ts:48](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L48)
 
 Context provider for a Butterfloat Component
 
@@ -30,7 +30,7 @@ Context provider for a Butterfloat Component
 
 > **bindEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-Defined in: [v2/mat.ts:78](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L78)
+Defined in: [v2/mat.ts:78](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L78)
 
 Bind an effect.
 
@@ -40,7 +40,7 @@ Bind an effect.
 
 > **bindImmediateEffect**: [`EffectHandler`](../type-aliases/EffectHandler.md)
 
-Defined in: [v2/mat.ts:82](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L82)
+Defined in: [v2/mat.ts:82](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L82)
 
 Bind an effect that should run without scheduled delays.
 
@@ -50,7 +50,7 @@ Bind an effect that should run without scheduled delays.
 
 > **bindRemoval**: (`observable`) => `void`
 
-Defined in: [v2/mat.ts:88](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L88)
+Defined in: [v2/mat.ts:88](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L88)
 
 Bind a removal effect.
 
@@ -72,7 +72,7 @@ The component is removed when the observable completes.
 
 > `readonly` **defaultXmlns**: `null` \| `string`
 
-Defined in: [v2/mat.ts:103](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L103)
+Defined in: [v2/mat.ts:103](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L103)
 
 Registered default namespace for the component.
 
@@ -82,7 +82,7 @@ Registered default namespace for the component.
 
 > **events**: `Events`
 
-Defined in: [v2/mat.ts:74](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L74)
+Defined in: [v2/mat.ts:74](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L74)
 
 Events that the component expects to bind.
 
@@ -92,7 +92,7 @@ Events that the component expects to bind.
 
 > **jsx**: [`JsxFunction`](../type-aliases/JsxFunction.md)
 
-Defined in: [v2/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L92)
+Defined in: [v2/mat.ts:92](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L92)
 
 JSX function to build appropriate Rings for this Mat
 
@@ -102,7 +102,7 @@ JSX function to build appropriate Rings for this Mat
 
 > **mapXmlns**: (`xmlns`, `defaultXmlns?`) => `void`
 
-Defined in: [v2/mat.ts:99](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L99)
+Defined in: [v2/mat.ts:99](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L99)
 
 Register a map of XML namespaces for the component.
 
@@ -132,7 +132,7 @@ nothing
 
 > **stamp**: (`options?`) => `void`
 
-Defined in: [v2/mat.ts:112](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L112)
+Defined in: [v2/mat.ts:112](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L112)
 
 Mark the component as stable output regardless of props.
 
@@ -154,7 +154,7 @@ nothing
 
 > **stampWhen**: \<`Props`\>(`condition`, `bookProps?`, `options?`) => `void`
 
-Defined in: [v2/mat.ts:119](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L119)
+Defined in: [v2/mat.ts:119](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L119)
 
 Mark the component as stable output when a condition is met.
 
@@ -194,6 +194,6 @@ nothing
 
 > `readonly` **xmlns**: `Record`\<`string`, `string`\>
 
-Defined in: [v2/mat.ts:107](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/mat.ts#L107)
+Defined in: [v2/mat.ts:107](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/mat.ts#L107)
 
 Registered XML namespaces for the component.

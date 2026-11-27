@@ -3,12 +3,17 @@
 import { Observable } from 'rxjs'
 import { WritableKeys } from '../meta-types'
 import { Ring } from '../ring'
-import { ButterfloatEvents, DefaultEvents, ObservableEvent } from '../../events'
+import {
+  ButterfloatEvents,
+  DefaultEvents,
+  ObservableEvent,
+} from '../../events.js'
 import {
   ButterfloatIntrinsicAttributes,
   DefaultBind,
   DefaultStyleBind,
-} from '../component'
+} from '../component.js'
+import { BindObservable } from '../../bind.js'
 
 /**
  * Overloads to Typescript's JSX typing: SVG Edition
@@ -81,7 +86,7 @@ export type ButterfloatElementEvents = SvgEvents &
  * All bindable CSS styles of an SVG element
  */
 export type SvgElementStyleBind = {
-  [Property in keyof CSSStyleDeclaration]?: Observable<
+  [Property in keyof CSSStyleDeclaration]?: BindObservable<
     CSSStyleDeclaration[Property]
   >
 }

@@ -16,6 +16,6 @@ tags:
 
 > **HtmlAttributes** = `Record`\<`string`, `unknown`\>
 
-Defined in: [v2/component.ts:31](https://github.com/WorldMaker/butterfloat/blob/db089724455df59238b08e38420b31487ad712d9/v2/component.ts#L31)
+Defined in: [v2/component.ts:31](https://github.com/WorldMaker/butterfloat/blob/b4273efab3f0cf481e72bdc16afc8960d40d96e1/v2/component.ts#L31)
 
 HTML Attributes
